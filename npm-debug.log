@@ -1,0 +1,256 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\tools\\nvm\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\tools\\nvm\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'http-server',
+1 verbose cli   '-g' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose node symlink C:\tools\nvm\nodejs\\node.exe
+5 verbose cache add [ 'http-server', null ]
+6 verbose cache add name=undefined spec="http-server" args=["http-server",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'http-server',
+7 verbose parsed url   path: 'http-server',
+7 verbose parsed url   href: 'http-server' }
+8 silly lockFile ed608307-http-server http-server
+9 verbose lock http-server C:\Users\nelson.sousa\AppData\Roaming\npm-cache\ed608307-http-server.lock
+10 silly lockFile ed608307-http-server http-server
+11 silly lockFile ed608307-http-server http-server
+12 verbose addNamed [ 'http-server', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 550353c6-http-server http-server@
+15 verbose lock http-server@ C:\Users\nelson.sousa\AppData\Roaming\npm-cache\550353c6-http-server.lock
+16 silly addNameRange { name: 'http-server', range: '*', hasData: false }
+17 verbose request where is /http-server
+18 verbose request registry http://registry.npmjs.org/
+19 verbose request id 23c500abecfb8a99
+20 verbose url raw /http-server
+21 verbose url resolving [ 'http://registry.npmjs.org/', './http-server' ]
+22 verbose url resolved http://registry.npmjs.org/http-server
+23 verbose request where is http://registry.npmjs.org/http-server
+24 info trying registry request attempt 1 at 09:43:19
+25 http GET http://registry.npmjs.org/http-server
+26 http 407 http://registry.npmjs.org/http-server
+27 verbose bad json <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+27 verbose bad json <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+27 verbose bad json <head>
+27 verbose bad json
+27 verbose bad json <title>Error Message</title>
+27 verbose bad json <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+27 verbose bad json
+27 verbose bad json <style>
+27 verbose bad json body {
+27 verbose bad json
+27 verbose bad json 	background:#e5eaf5 url(/Wbo-2A477C38-8880-424D-A6B7-1F120A9769A5/bg.gif) top left repeat-x ;
+27 verbose bad json 	margin:0px 0px 0px 0px;
+27 verbose bad json 	font-family:Arial, Helvetica, sans-serif;
+27 verbose bad json 	min-width:1000px;
+27 verbose bad json 	font-size:12px;
+27 verbose bad json 	color:#000000;
+27 verbose bad json 	direction:ltr;
+27 verbose bad json 	}
+27 verbose bad json img {border:none}
+27 verbose bad json
+27 verbose bad json
+27 verbose bad json 	.main {
+27 verbose bad json 		width:100%;
+27 verbose bad json 		background:url(/Wbo-2A477C38-8880-424D-A6B7-1F120A9769A5/topright.gif) top right no-repeat;
+27 verbose bad json 		min-width:1000px;
+27 verbose bad json 		min-height:400px;
+27 verbose bad json 		margin-left:auto;
+27 verbose bad json 		margin-right:auto;
+27 verbose bad json 		text-align:left;
+27 verbose bad json 	}
+27 verbose bad json
+27 verbose bad json 	.logo {float:left;  height:103px; }
+27 verbose bad json 	.sidetext {float:right; width:182px; height:52px; background:url(/Wbo-2A477C38-8880-424D-A6B7-1F120A9769A5/sidetext.png) top left; border:1px solid #2a2e31; margin-right:20px; margin-top:20px; padding:4px; }
+27 verbose bad json 	.sidetextNone {visibility:hidden; }
+27 verbose bad json
+27 verbose bad json 	.whiteline {float:left; clear:both; font-size:20px; margin-left:47px; margin-top:17px; color:#ffffff; white-space:nowrap; }
+27 verbose bad json 	.bold {font-weight:bold;}
+27 verbose bad json
+27 verbose bad json 	.maintext {float:left; margin-top:20px; clear:both; color:#000; margin-left:47px;}
+27 verbose bad json
+27 verbose bad json 	.color1 {color:#677183;}
+27 verbose bad json
+27 verbose bad json 	ul {margin-top:0; padding-left:15px; padding-top:5px; padding-bottom:5px;}
+27 verbose bad json
+27 verbose bad json 	ul li {list-style-image:url(/Wbo-2A477C38-8880-424D-A6B7-1F120A9769A5/bullet.gif)}
+27 verbose bad json 	A {
+27 verbose bad json     FONT-WEIGHT: bold; COLOR: #005a80;
+27 verbose bad json }
+27 verbose bad json A:hover {
+27 verbose bad json     FONT-WEIGHT: bold;COLOR: #0d3372;
+27 verbose bad json }
+27 verbose bad json </style>
+27 verbose bad json
+27 verbose bad json </head>
+27 verbose bad json <body>
+27 verbose bad json 	<div class="main">
+27 verbose bad json         <div class="logo"><img src="/Wbo-2A477C38-8880-424D-A6B7-1F120A9769A5/logo.png" alt="ForeFront" /></div>
+27 verbose bad json         <div class="whiteline"><td id=L_default_2><span class="bold">Network Access Message:</span> The page cannot be displayed </td></div>
+27 verbose bad json     <div class="maintext">
+27 verbose bad json     <td id=L_default_3><span class="bold color1">Explanation:</span> There is a problem with the page you are trying to reach and it cannot be displayed. </td><br />
+27 verbose bad json <br />
+27 verbose bad json
+27 verbose bad json <td id=L_default_5><span class="bold color1">Try the following:</span></td><br />
+27 verbose bad json
+27 verbose bad json <ul>
+27 verbose bad json <li><td id=L_default_6><span class="bold">Refresh page:</span> Search for the page again by clicking the Refresh button. The timeout may have occurred due to Internet congestion.</td></li>
+27 verbose bad json <li><td id=L_default_7><span class="bold">Check spelling:</span> Check that you typed the Web page address correctly. The address may have been mistyped.</td></li>
+27 verbose bad json <li><td id=L_default_8><span class="bold">Access from a link:</span> If there is a link to the page you are looking for, try accessing the page from that link.</td></li>
+27 verbose bad json </ul>
+27 verbose bad json <br />
+27 verbose bad json
+27 verbose bad json <td id=L_default_9><span>If you are still not able to view the requested page, try contacting your administrator or Helpdesk.</span> </td><br />
+27 verbose bad json
+27 verbose bad json <br />
+27 verbose bad json <td id=L_default_10><span class="bold color1">Technical Information (for support personnel)</span></td><br />
+27 verbose bad json <ul>
+27 verbose bad json <li><td id=L_default_11><span class="bold">Error Code:</span></td> 407 Proxy Authentication Required. Forefront TMG requires authorization to fulfill the request. Access to the Web Proxy filter is denied. (12209).</li>
+27 verbose bad json <li><td id=L_default_12><span class="bold">IP Address:</span></td> 192.168.1.1</li>
+27 verbose bad json <li><td id=L_default_13><span class="bold">Date:</span></td> 10-07-2018 08:43:19 [GMT]</li>
+27 verbose bad json <li><td id=L_default_14><span class="bold">Server:</span></td> PTSVPHTMG01.mni.local </li>
+27 verbose bad json <li><td id=L_default_15><span class="bold">Source:</span></td> proxy  </li>
+27 verbose bad json </ul>
+27 verbose bad json     </div>
+27 verbose bad json </div>
+27 verbose bad json </body>
+27 verbose bad json </html>
+28 error registry error parsing json
+29 verbose headers { via: '1.1 PTSVPHTMG01',
+29 verbose headers   connection: 'close',
+29 verbose headers   'proxy-connection': 'close',
+29 verbose headers   pragma: 'no-cache',
+29 verbose headers   'cache-control': 'no-cache',
+29 verbose headers   'content-type': 'text/html',
+29 verbose headers   'content-length': '3666',
+29 verbose headers   'proxy-authenticate': 'Basic realm="Cntlm for parent"' }
+30 silly registry.get cb [ 407,
+30 silly registry.get   { via: '1.1 PTSVPHTMG01',
+30 silly registry.get     connection: 'close',
+30 silly registry.get     'proxy-connection': 'close',
+30 silly registry.get     pragma: 'no-cache',
+30 silly registry.get     'cache-control': 'no-cache',
+30 silly registry.get     'content-type': 'text/html',
+30 silly registry.get     'content-length': '3666',
+30 silly registry.get     'proxy-authenticate': 'Basic realm="Cntlm for parent"' } ]
+31 silly lockFile 550353c6-http-server http-server@
+32 silly lockFile 550353c6-http-server http-server@
+33 error SyntaxError: Unexpected token
+33 error ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+33 error <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+33 error <head>
+33 error
+33 error <title>Error Message</title>
+33 error <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+33 error
+33 error <style>
+33 error body {
+33 error
+33 error 	background:#e5eaf5 url(/Wbo-2A477C38-8880-424D-A6B7-1F120A9769A5/bg.gif) top left repeat-x ;
+33 error 	margin:0px 0px 0px 0px;
+33 error 	font-family:Arial, Helvetica, sans-serif;
+33 error 	min-width:1000px;
+33 error 	font-size:12px;
+33 error 	color:#000000;
+33 error 	direction:ltr;
+33 error 	}
+33 error img {border:none}
+33 error
+33 error
+33 error 	.main {
+33 error 		width:100%;
+33 error 		background:url(/Wbo-2A477C38-8880-424D-A6B7-1F120A9769A5/topright.gif) top right no-repeat;
+33 error 		min-width:1000px;
+33 error 		min-height:400px;
+33 error 		margin-left:auto;
+33 error 		margin-right:auto;
+33 error 		text-align:left;
+33 error 	}
+33 error
+33 error 	.logo {float:left;  height:103px; }
+33 error 	.sidetext {float:right; width:182px; height:52px; background:url(/Wbo-2A477C38-8880-424D-A6B7-1F120A9769A5/sidetext.png) top left; border:1px solid #2a2e31; margin-right:20px; margin-top:20px; padding:4px; }
+33 error 	.sidetextNone {visibility:hidden; }
+33 error
+33 error 	.whiteline {float:left; clear:both; font-size:20px; margin-left:47px; margin-top:17px; color:#ffffff; white-space:nowrap; }
+33 error 	.bold {font-weight:bold;}
+33 error
+33 error 	.maintext {float:left; margin-top:20px; clear:both; color:#000; margin-left:47px;}
+33 error
+33 error 	.color1 {color:#677183;}
+33 error
+33 error 	ul {margin-top:0; padding-left:15px; padding-top:5px; padding-bottom:5px;}
+33 error
+33 error 	ul li {list-style-image:url(/Wbo-2A477C38-8880-424D-A6B7-1F120A9769A5/bullet.gif)}
+33 error 	A {
+33 error     FONT-WEIGHT: bold; COLOR: #005a80;
+33 error }
+33 error A:hover {
+33 error     FONT-WEIGHT: bold;COLOR: #0d3372;
+33 error }
+33 error </style>
+33 error
+33 error </head>
+33 error <body>
+33 error 	<div class="main">
+33 error         <div class="logo"><img src="/Wbo-2A477C38-8880-424D-A6B7-1F120A9769A5/logo.png" alt="ForeFront" /></div>
+33 error         <div class="whiteline"><td id=L_default_2><span class="bold">Network Access Message:</span> The page cannot be displayed </td></div>
+33 error     <div class="maintext">
+33 error     <td id=L_default_3><span class="bold color1">Explanation:</span> There is a problem with the page you are trying to reach and it cannot be displayed. </td><br />
+33 error <br />
+33 error
+33 error <td id=L_default_5><span class="bold color1">Try the following:</span></td><br />
+33 error
+33 error <ul>
+33 error <li><td id=L_default_6><span class="bold">Refresh page:</span> Search for the page again by clicking the Refresh button. The timeout may have occurred due to Internet congestion.</td></li>
+33 error <li><td id=L_default_7><span class="bold">Check spelling:</span> Check that you typed the Web page address correctly. The address may have been mistyped.</td></li>
+33 error <li><td id=L_default_8><span class="bold">Access from a link:</span> If there is a link to the page you are looking for, try accessing the page from that link.</td></li>
+33 error </ul>
+33 error <br />
+33 error
+33 error <td id=L_default_9><span>If you are still not able to view the requested page, try contacting your administrator or Helpdesk.</span> </td><br />
+33 error
+33 error <br />
+33 error <td id=L_default_10><span class="bold color1">Technical Information (for support personnel)</span></td><br />
+33 error <ul>
+33 error <li><td id=L_default_11><span class="bold">Error Code:</span></td> 407 Proxy Authentication Required. Forefront TMG requires authorization to fulfill the request. Access to the Web Proxy filter is denied. (12209).</li>
+33 error <li><td id=L_default_12><span class="bold">IP Address:</span></td> 192.168.1.1</li>
+33 error <li><td id=L_default_13><span class="bold">Date:</span></td> 10-07-2018 08:43:19 [GMT]</li>
+33 error <li><td id=L_default_14><span class="bold">Server:</span></td> PTSVPHTMG01.mni.local </li>
+33 error <li><td id=L_default_15><span class="bold">Source:</span></td> proxy  </li>
+33 error </ul>
+33 error     </div>
+33 error </div>
+33 error </body>
+33 error </html>
+33 error
+33 error     at Object.parse (native)
+33 error     at RegClient.<anonymous> (c:\tools\nvm\v0.10.33\node_modules\npm\node_modules\npm-registry-client\lib\request.js:274:23)
+33 error     at Request._callback (c:\tools\nvm\v0.10.33\node_modules\npm\node_modules\npm-registry-client\lib\request.js:246:65)
+33 error     at Request.self.callback (c:\tools\nvm\v0.10.33\node_modules\npm\node_modules\request\request.js:236:22)
+33 error     at Request.emit (events.js:98:17)
+33 error     at Request.<anonymous> (c:\tools\nvm\v0.10.33\node_modules\npm\node_modules\request\request.js:1142:14)
+33 error     at Request.emit (events.js:117:20)
+33 error     at IncomingMessage.<anonymous> (c:\tools\nvm\v0.10.33\node_modules\npm\node_modules\request\request.js:1096:12)
+33 error     at IncomingMessage.emit (events.js:117:20)
+33 error     at _stream_readable.js:943:16
+34 error If you need help, you may report this *entire* log,
+34 error including the npm and node versions, at:
+34 error     <http://github.com/npm/npm/issues>
+35 error System Windows_NT 6.2.9200
+36 error command "C:\\tools\\nvm\\nodejs\\\\node.exe" "C:\\tools\\nvm\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "http-server" "-g"
+37 error cwd F:\HTML5\alert-ui-layout
+38 error node -v v0.10.33
+39 error npm -v 1.4.28
+40 error type unexpected_token
+41 verbose exit [ 1, true ]
