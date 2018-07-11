@@ -45,6 +45,18 @@
         }      
 
 
+        Area.prototype.getAreasAsArray = function() {
+            var areasArray = [];
+
+            for (var key in this.areas) {
+                if (this.areas.hasOwnProperty(key)) {
+                    areasArray.push(this.areas[key]);
+                }
+            }
+
+            return areasArray;
+        }
+
         Area.prototype.setButtons = function(buttons, buttonsPos) {
 
             // for each key in buttons

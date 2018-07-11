@@ -10,20 +10,23 @@ LayoutController.$inject = ['LayoutService', 'Path', 'Area', 'Button', 'Action']
 function LayoutController(LayoutService, Path, Area, Button, Action) {
     var service = this;
 
-    service.topArea = {};
+    var topArea = {};
+    service.areas = [];
 
     LayoutService.getLayout().then(function(layout){
 
 
-        service.topArea = new Area(layout.id, layout.description, layout.pos);
+        topArea = new Area(layout.id, layout.description, layout.pos);
         
-        service.topArea.setAreas(getAreas(layout.areas));
+        topArea.setAreas(getAreas(layout.areas));
 
-        console.log('topArea' , service.topArea.getArea());
+        console.log('topArea' , topArea.getArea());
 
-        });
+        service.areas = topArea.getAreasAsArray();
+
+    });
         
-    
+
 
     function getAreas(areasJson) {
 
@@ -44,7 +47,7 @@ function LayoutController(LayoutService, Path, Area, Button, Action) {
     function getArea(areaJson) {
 
         var area = new Area(areaJson.id, areaJson.description, areaJson.pos);
-
+ 
         area.areas = getAreas(areaJson.areas);
 
         area.setButtons(getButtons(areaJson.buttons), areaJson.buttonsPos);
@@ -87,7 +90,6 @@ function LayoutController(LayoutService, Path, Area, Button, Action) {
     }
 
 
-    return LayoutController;
 }
 
 
