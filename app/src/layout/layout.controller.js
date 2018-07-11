@@ -8,22 +8,16 @@ angular.module('layout')
 LayoutController.$inject = ['LayoutService', 'Path', 'Area', 'Button', 'Action'];
 
 function LayoutController(LayoutService, Path, Area, Button, Action) {
-    var service = this;
+    var ctrl = this;
 
-    var topArea = {};
-    service.areas = [];
+    ctrl.topArea = {};
 
     LayoutService.getLayout().then(function(layout){
 
 
-        topArea = new Area(layout.id, layout.description, layout.pos);
+        ctrl.topArea = new Area(layout.id, layout.description, layout.pos);
         
-        topArea.setAreas(getAreas(layout.areas));
-
-        console.log('topArea' , topArea.getArea());
-
-        service.areas = topArea.getAreasAsArray();
-
+        ctrl.topArea.setAreas(getAreas(layout.areas));
     });
         
 
