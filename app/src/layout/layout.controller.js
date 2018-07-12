@@ -15,7 +15,7 @@ function LayoutController(LayoutService, Path, Area, Button, Action) {
     LayoutService.getLayout().then(function(layout){
 
 
-        ctrl.topArea = new Area(layout.id, layout.description, layout.pos);
+        ctrl.topArea = new Area(layout.id, layout.description, layout.pos, layout.areaName);
         
         ctrl.topArea.setAreas(getAreas(layout.areas));
     });
@@ -40,7 +40,7 @@ function LayoutController(LayoutService, Path, Area, Button, Action) {
 
     function getArea(areaJson) {
 
-        var area = new Area(areaJson.id, areaJson.description, areaJson.pos);
+        var area = new Area(areaJson.id, areaJson.description, areaJson.pos, areaJson.areaName);
  
         area.areas = getAreas(areaJson.areas);
 

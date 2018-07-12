@@ -16,17 +16,17 @@ const pathMap = { '1': '3', '2': '10', '3': '5.1', '4': '5.2', '6': '1', '7': '1
  * Properties by area
  */
 const areaMap = { 
-    '1': {'msg': 'Personal settings area', 'pos': 6 },
-    '3': {'msg': 'Logout button area', 'pos': 1 },
-    '4': {'msg': 'Alerts area', 'pos': 8 },     
-    '5': {'msg': 'Top menu', 'pos': 3 }, 
-  '5.1': {'msg': 'Top menu left', 'pos': 3 },
-  '5.2': {'msg': 'Top menu right', 'pos': 4 },
-    '10': {'msg': 'Back button area', 'pos': 2 },            
-    '11': {'msg': 'Bottom menu', 'pos': 10 },
-  '11.1': {'msg': 'Bottom menu left', 'pos': 10 },
-  '11.2': {'msg': 'Bottom menu left', 'pos': 11 },
-    '12': {'msg': 'Ok area', 'pos': 7 }            
+    '1':    {'msg': 'Personal settings area',   'pos': 6,   'areaName': 'leftTopHeader' },
+    '3':    {'msg': 'Logout button area',       'pos': 1,   'areaName': 'rightTopHeader' },
+    '4':    {'msg': 'Alerts area',              'pos': 8,   'areaName': 'leftBottomHeader' },     
+    '5':    {'msg': 'Top menu',                 'pos': 3,   'areaName': 'middleBottomHeader' }, 
+    '5.1':  {'msg': 'Top menu left',            'pos': 3,   'areaName': 'middleBottomHeader' },
+    '5.2':  {'msg': 'Top menu right',           'pos': 4,   'areaName': 'middleBottomHeader' },
+    '10':   {'msg': 'Back button area',         'pos': 2,   'areaName': 'leftFooter' },            
+    '11':   {'msg': 'Bottom menu',              'pos': 10,  'areaName': 'middleFooter' },
+    '11.1': {'msg': 'Bottom menu left',         'pos': 10,  'areaName': 'middleFooter' },
+    '11.2': {'msg': 'Bottom menu right',        'pos': 11,  'areaName': 'middleFooter' },
+    '12':   {'msg': 'Ok area',                  'pos': 7,   'areaName': 'rightFooter' }            
 }
 
 /** */
@@ -65,7 +65,7 @@ getArea = function(path) {
 
     // The area id is the last segment of the path
     let areaId = path.getId();
-    return new Area(areaId, areaMap[path.toString()].msg, areaMap[path.toString()].pos);
+    return new Area(areaId, areaMap[path.toString()].msg, areaMap[path.toString()].pos, areaMap[path.toString()].areaName);
 }
 
 /** */
@@ -104,7 +104,7 @@ let topAreaId = '0';
 let topAreaDesc = 'Default layout for EDIS';
 
 // Create top level area 
-let topArea = new Area(topAreaId, topAreaDesc, '0');
+let topArea = new Area(topAreaId, topAreaDesc, '0', '');
 
 // Read file lines
 var lineReader = readline.createInterface({

@@ -25,6 +25,12 @@ function routeConfig ($stateProvider) {
       controller: 'LayoutController',
       controllerAs: 'layoutCtrl',
     })
+    .state('public.layout-grid', {
+      url: '/layout-grid',
+      templateUrl: 'src/layout/layout-grid.html',
+      controller: 'LayoutController',
+      controllerAs: 'layoutCtrl',
+    })
     .state('public.menuitems', {
       url: '/menu/{category}',
       templateUrl: 'src/public/menu-items/menu-items.html',

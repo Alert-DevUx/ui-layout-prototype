@@ -1,7 +1,2 @@
-<div >
-    <p>area: {{$ctrl.area.id}}</p>  
-
-    <areas areas="$ctrl.area.areas" />
-</div>
-
-  
+<buttons buttons="$ctrl.area.buttons" />
+<areas areas="$ctrl.area.areas" ng-class="{ 0 : 'grid grid-template-areas'}[{{$ctrl.area.pos}}]"/>

@@ -28,7 +28,7 @@
             findArea:   findArea
         }*/
 
-        function Area(id, description, pos) {
+        function Area(id, description, pos, areaName) {
 
             if(!this.validateParams()) {
                 throw 'Invalid parameters.';
@@ -36,6 +36,7 @@
             this.id = id;
             this.description = description;
             this.pos = pos;
+            this.areaName = areaName;
             // Buttons map
             this.buttons = {};
             // Array of button ids to keep track of the buttons' position in the area
@@ -116,7 +117,6 @@
 
                 let parentArea = this.findArea(parentPath);
                 if(parentArea) {
-
                     parentArea.addArea(area);
                     let path = new Path(parentPath.toString());
                     path.append(area.id)

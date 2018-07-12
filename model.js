@@ -28,7 +28,7 @@ Area
 Screen area. Includes an id, its position in the screen, a list of buttons, and a list of child areas
 */
 class Area {
-    constructor(id, description, pos) {
+    constructor(id, description, pos, areaName) {
 
         if(!this._validateParams()) {
             throw 'Invalid parameters.';
@@ -36,6 +36,7 @@ class Area {
         this.id = id;
         this.description = description;
         this.pos = pos;
+        this.areaName = areaName;
         // Buttons map
         this.buttons = {};
         // Array of button ids to keep track of the buttons' position in the area
