@@ -25,7 +25,7 @@
         }
 */
 
-        function Button(id, label, icon, action) {
+        function Button(id, label, icon, action, areaId) {
 
             if(!this.validateParams()) {
               throw 'Invalid parameters.';
@@ -34,6 +34,7 @@
             this.label = label;
             this.icon = icon;
             this.action = action;
+            this.areaId = areaId;
         }
       
         Button.prototype.setAction = function(action) {

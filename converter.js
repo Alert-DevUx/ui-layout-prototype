@@ -71,11 +71,11 @@ getArea = function(path) {
 /** */
 processButton = function(lineArr) {
 
-    button = getButton(lineArr);
-
     areaPath = new Path(pathMap[lineArr[6]]);
 
     area = topArea.findArea(areaPath);
+
+    button = getButton(lineArr, areaPath.getHead());
 
     area.addButton(button);
 }
@@ -86,12 +86,12 @@ camelize = function(str) {
     }).replace(/\s+/g, '');
 }
 
-getButton = function(lineArr) {
+getButton = function(lineArr, areaId) {
 
     // TODO: Based on the existence of icon: Review!
     let icon = lineArr[4];
     if(icon) {
-        button = new Button(camelize(icon), lineArr[11], icon);
+        button = new Button(camelize(icon), lineArr[11], icon, "", areaId);
     }
     return button;
 }

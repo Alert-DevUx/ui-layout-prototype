@@ -153,7 +153,7 @@ Button
 Button attributes and the screen action it executes when called
 */
 class Button {
-    constructor(id, label, icon, action) {
+    constructor(id, label, icon, action, areaId) {
 
         if(!this.validateParams()) {
           throw 'Invalid parameters.';
@@ -162,6 +162,7 @@ class Button {
         this.label = label;
         this.icon = icon;
         this.action = action;
+        this.areaId = areaId;
     }
   
 
@@ -236,11 +237,11 @@ class Component {
 /** */
 processButton = function(lineArr) {
 
-    button = getButton(lineArr);
-
     areaPath = new Path(pathMap[lineArr[6]]);
 
     area = topArea.findArea(areaPath);
+
+    button = getButton(lineArr, area.id);
 
     area.addButton(button);
 }

@@ -69,7 +69,7 @@ function LayoutController(LayoutService, Path, Area, Button, Action) {
 
     function getButton(buttonJson) {
 
-        var button = new Button(buttonJson.id, buttonJson.label, buttonJson.icon);
+        var button = new Button(buttonJson.id, buttonJson.label, buttonJson.icon, buttonJson.action, buttonJson.areaId);
 
         button.setAction(getAction(buttonJson.action));
 
