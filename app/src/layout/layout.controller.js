@@ -17,8 +17,8 @@ function LayoutController(LayoutService, Path, Area, Button, Action) {
 
         ctrl.topArea = new Area(layout.id, layout.description, layout.pos, layout.areaName);
         
-        var path = layout.id;
-        ctrl.topArea.path = path;
+        var path = new Path(layout.id);
+        ctrl.topArea.path = path.toString();
 
         ctrl.topArea.setAreas(getAreas(layout.areas, path));
     });
@@ -43,9 +43,11 @@ function LayoutController(LayoutService, Path, Area, Button, Action) {
 
         var area = new Area(areaJson.id, areaJson.description, areaJson.pos, areaJson.areaName);
         
-        var path = parentPath + "." + areaJson.id;
+        var path = new Path(parentPath.toString());
+        path.append(areaJson.id);
 
-        area.path = path;
+        // Set area Path
+        area.path = path.toString();
         area.areas = getAreas(areaJson.areas, path);
 
         area.setButtons(getButtons(areaJson.buttons, path));
@@ -73,9 +75,8 @@ function LayoutController(LayoutService, Path, Area, Button, Action) {
 
         var button = new Button(buttonJson.id, buttonJson.label, buttonJson.icon, buttonJson.action, buttonJson.areaId);
 
-        var path = parentPath + "." + buttonJson.id;
-
-        button.path = parentPath;
+        // Set button path
+        button.path = parentPath.toString();
         button.setAction(getAction(buttonJson.action));
 
         return button;

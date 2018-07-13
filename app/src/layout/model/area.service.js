@@ -12,21 +12,6 @@
     
     Area.$inject = ['Path'];
     function Area(Path) {
-        
-        /*var service = this;
-
-        Area.prototype = {
-
-            constructor: Area,
-        
-            setButtons: setButtons,
-            addButton:  addButton,
-            delButton:  delButton,
-            setAreas:   setAreas,
-            addArea:    addArea,
-            delArea:    delArea,
-            findArea:   findArea
-        }*/
 
         function Area(id, description, pos, areaName) {
 

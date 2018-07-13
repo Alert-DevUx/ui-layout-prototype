@@ -2,36 +2,33 @@
     "use strict";
     
     angular.module('layout')
-    .service('Path', Path);
+    .factory('Path', Path);
     
-        
-    //    PathService.$inject = ['Path'];
-    //    function PathService(Path) {
-    function Path() {    
-        var service = this;
+    
+    function Path() {
 
-        service.constructor = function (path) {
+        function Path(path) {
         
-            service.PATH_SEPARATOR = '.';
+            this.PATH_SEPARATOR = '.';
     
-            if(!service.validateParams(path)) {
+            if(!this.validateParams(path)) {
               throw 'Invalid parameters.';
             }
-            service.path = path;
+            this.path = path;
         }
 
         /**
          * Returns the string represnetation of this path object
          */
-        service.toString = function () {
-            return service.path;
+        Path.prototype.toString = function () {
+            return this.path;
         }
 
         /**
          * Returns the segments of the path as an array
          */
-        service.toArray = function () {
-            return(service.path.split(service.PATH_SEPARATOR));
+        Path.prototype.toArray = function () {
+            return(this.path.split(this.PATH_SEPARATOR));
         }
 
         /**
@@ -39,12 +36,12 @@
          * For instance, if path is 'a.b.c.d', returns d. If path is 'a' returns 'a'
          * If path is not defined returns ''
          */
-        service.getId = function () {
+        Path.prototype.getId = function () {
 
-            if(!service.path)
+            if(!this.path)
                 return '';
 
-            let pathArr = service.toArray();    
+            let pathArr = this.toArray();    
             return pathArr.pop();
         }
 
@@ -52,24 +49,24 @@
          * Return all path except last dot and last segment
          * For instance, if path is 'a.b.c.d' returns 'a.b.c'. If path is 'a' returns ''
          */
-        service.getParent = function () {
-            let parentPathArr = service.toArray();
+        Path.prototype.getParent = function () {
+            let parentPathArr = this.toArray();
             parentPathArr.pop()
-            return new Path(parentPathArr.join(service.PATH_SEPARATOR));
+            return new Path(parentPathArr.join(this.PATH_SEPARATOR));
         }
 
         /**
          * Append the provided segment to this path
          * For instance, if this path is 'a.b' and the segment is 'c.d', this path becomes 'a.b.c.d'
          */
-        service.append = function (segment) {
+        Path.prototype.append = function (segment) {
 
-            if(!service.path) 
-                service.path = segment;
+            if(!this.path) 
+                this.path = segment;
             else 
-                service.path = service.path + service.PATH_SEPARATOR + segment;
+                this.path = this.path + this.PATH_SEPARATOR + segment;
 
-            return service;
+            return this;
         }
 
         /**
@@ -78,9 +75,9 @@
          * If it is 'a' it returns ''
          * If it is '' it returns ''
          */
-        service.getHead = function () {
+        Path.prototype.getHead = function () {
 
-            let pathArr = service.toArray();
+            let pathArr = this.toArray();
             return pathArr[0];
         }
 
@@ -89,30 +86,30 @@
          * For instance, if this path is 'a.b.c' if becomes 'a.b'
          * If it is 'a' it becomes ''
          */
-        service.removeHead = function () {
+        Path.prototype.removeHead = function () {
 
-            let pathArr = service.toArray();
+            let pathArr = this.toArray();
             pathArr.shift()
-            service.setFromArray(pathArr);
-            return service;
+            this.setFromArray(pathArr);
+            return this;
         }
 
         /**
          * Updates the value of path from the segments in the provided array
          */
-        service.setFromArray = function (pathArray) {
-            service.path = pathArray.join(service.PATH_SEPARATOR);
-            return service;
+        Path.prototype.setFromArray = function (pathArray) {
+            this.path = pathArray.join(this.PATH_SEPARATOR);
+            return this;
         }
 
-        service.validateParams = function (path) {
+        Path.prototype.validateParams = function (path) {
             if( typeof path === 'string') 
                 return  true;
             
             return false;
         }  
     
-        return service.constructor;
+        return Path;
     }
 
 })();      
