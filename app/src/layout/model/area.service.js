@@ -43,6 +43,8 @@
             this.buttonsPos = [];
             // Child areas map
             this.areas = {};
+            // Path
+            this.path = "";
         }      
 
 

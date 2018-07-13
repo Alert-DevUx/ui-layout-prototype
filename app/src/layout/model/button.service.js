@@ -35,6 +35,8 @@
             this.icon = icon;
             this.action = action;
             this.areaId = areaId;
+
+            this.path = "";
         }
       
         Button.prototype.setAction = function(action) {

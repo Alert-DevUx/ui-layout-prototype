@@ -17,12 +17,13 @@ function LayoutController(LayoutService, Path, Area, Button, Action) {
 
         ctrl.topArea = new Area(layout.id, layout.description, layout.pos, layout.areaName);
         
-        ctrl.topArea.setAreas(getAreas(layout.areas));
+        var path = layout.id;
+        ctrl.topArea.path = path;
+
+        ctrl.topArea.setAreas(getAreas(layout.areas, path));
     });
         
-
-
-    function getAreas(areasJson) {
+    function getAreas(areasJson, path) {
 
         if(!areasJson) 
             return;
@@ -31,27 +32,28 @@ function LayoutController(LayoutService, Path, Area, Button, Action) {
         for (var key in areasJson) {
             if (areasJson.hasOwnProperty(key)) {
                 
-                areas[key] = getArea(areasJson[key]);
+                areas[key] = getArea(areasJson[key], path);
         
             }
         }
         return areas;
     }
 
-    function getArea(areaJson) {
+    function getArea(areaJson, parentPath) {
 
         var area = new Area(areaJson.id, areaJson.description, areaJson.pos, areaJson.areaName);
- 
-        area.areas = getAreas(areaJson.areas);
+        
+        var path = parentPath + "." + areaJson.id;
 
-        area.setButtons(getButtons(areaJson.buttons), areaJson.buttonsPos);
+        area.path = path;
+        area.areas = getAreas(areaJson.areas, path);
+
+        area.setButtons(getButtons(areaJson.buttons, path));
 
         return area;
     }
 
-
-
-    function getButtons(buttonsJson) {
+    function getButtons(buttonsJson, parentPath) {
 
         if(!buttonsJson) 
             return;
@@ -60,17 +62,20 @@ function LayoutController(LayoutService, Path, Area, Button, Action) {
         for (var key in buttonsJson) {
             if (buttonsJson.hasOwnProperty(key)) {
                 
-                buttons[key] = getButton(buttonsJson[key]);
+                buttons[key] = getButton(buttonsJson[key], parentPath);
             }
         }
         return buttons;
     }
 
 
-    function getButton(buttonJson) {
+    function getButton(buttonJson, parentPath) {
 
         var button = new Button(buttonJson.id, buttonJson.label, buttonJson.icon, buttonJson.action, buttonJson.areaId);
 
+        var path = parentPath + "." + buttonJson.id;
+
+        button.path = parentPath;
         button.setAction(getAction(buttonJson.action));
 
         return button;
