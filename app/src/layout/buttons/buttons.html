@@ -1,3 +1,3 @@
-<div ng-repeat="button in $ctrl.buttons" ng-class="('{{button.path}}' == '0.5.1' || '{{button.path}}' == '0.11.1' || '{{button.path}}' == '0.11.2') ? 'buttons1' : 'buttons'">
+<div ng-repeat="button in $ctrl.buttons" ng-class="$ctrl.getButtonsStyle('{{button.path}}')">
     <button button="button" class="button"/>
 </div>
