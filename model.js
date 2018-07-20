@@ -1,5 +1,54 @@
 const Path = require('./path.js');
 
+
+/*
+Line
+Object to store the fields in a line of the input file
+Excel formula to create fields attribution from column titles:
+=CONCATENATE("this.";SUBSTITUTE(PROPER(A2);"_";""); " = lineArray[";COLUMN(A2)-1;"];")
+*/
+class Line{
+    constructor(line) {
+        var lineArray = line.split('\t');
+
+        this.idSysButton = lineArray[0];
+        this.icon = lineArray[1];
+        this.idSysScreenArea = lineArray[2];
+        this.idSysApplicationArea = lineArray[3];
+        this.internNameButton = lineArray[4];
+        this.screenName = lineArray[5];
+        this.existChild = lineArray[6];
+        this.idSysButtonProp = lineArray[7];
+        this.idSbpParent = lineArray[8];
+        this.rank = lineArray[9];
+        this.subRank = lineArray[10];
+        this.idSoftwareContext = lineArray[11];
+        this.flgCancel = lineArray[12];
+        this.flgContent = lineArray[13];
+        this.flgCreate = lineArray[14];
+        this.flgDetail = lineArray[15];
+        this.flgDigital = lineArray[16];
+        this.flgFreq = lineArray[17];
+        this.flgGraph = lineArray[18];
+        this.flgHelp = lineArray[19];
+        this.flgNo = lineArray[20];
+        this.flgOk = lineArray[21];
+        this.flgPrint = lineArray[22];
+        this.flgSearch = lineArray[23];
+        this.flgVision = lineArray[24];
+        this.flgAction = lineArray[25];
+        this.flgView = lineArray[26];
+        this.flgResetContext = lineArray[27];
+        this.tooltipTitle = lineArray[28];
+        this.tooltipDesc = lineArray[29];
+        this.rank2 = lineArray[30];
+        this.action = lineArray[31];
+        this.flgScreenMode = lineArray[32];
+        this.flgGlobalShortcut = lineArray[33];
+        this.flgInfoButton = lineArray[34];
+    }
+}
+
 /*
 Layout
 Includes the id, the description and the layout's top level area
@@ -246,7 +295,7 @@ processButton = function(lineArr) {
     area.addButton(button);
 }
 
-
+module.exports.Line = Line;
 module.exports.Area = Area;
 module.exports.Button = Button;
 module.exports.Action = Action;
