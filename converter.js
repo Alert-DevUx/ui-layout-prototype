@@ -31,6 +31,8 @@ const screenAreaIdsMap = {  '1': 'topRight',
 /**
  * Properties by area
  */
+
+
 const areaMap = { 
     'inpatientEntry'  : {'description': 'Inpatient main grid',      'pos': 0,   'areaName': '' },
     'inpatientPatient': {'description': 'Inpatient patient area',   'pos': 0,   'areaName': '' },
@@ -41,7 +43,9 @@ const areaMap = {
     'inpatientEntry.alerts'          : {'description': 'Alerts area',              'pos': 8,   'areaName': 'leftBottomHeader' },     
     'inpatientEntry.topMenu'         : {'description': 'Top menu',                 'pos': 3,   'areaName': 'middleBottomHeader' }, 
     'inpatientEntry.topMenu.left'    : {'description': 'Top menu left',            'pos': 3,   'areaName': 'middleBottomHeader' },
+    'inpatientEntry.topMenu.left.deepnav'         : {'description': 'Deepnav',                  'pos': 5,   'areaName': 'middleLeft' },             
     'inpatientEntry.topMenu.right'   : {'description': 'Top menu right',           'pos': 4,   'areaName': 'middleBottomHeader' },
+    'inpatientEntry.topMenu.right.deepnav'         : {'description': 'Deepnav',                  'pos': 5,   'areaName': 'middleLeft' },             
     'inpatientEntry.bottomLeft'      : {'description': 'Back button area',         'pos': 2,   'areaName': 'leftFooter' },            
     'inpatientEntry.bottomMenu'      : {'description': 'Bottom menu',              'pos': 10,  'areaName': 'middleFooter' },
     'inpatientEntry.bottomMenu.left' : {'description': 'Bottom menu left',         'pos': 10,  'areaName': 'middleFooter' },
@@ -49,78 +53,105 @@ const areaMap = {
     'inpatientEntry.bottomRight'     : {'description': 'Ok area',                  'pos': 7,   'areaName': 'rightFooter' },
     'inpatientEntry.deepnav'         : {'description': 'Deepnav',                  'pos': 5,   'areaName': 'middleLeft' },             
     'inpatientEntry.search'          : {'description': 'Search area',              'pos': 9,   'areaName': 'middleLeft' },
+    'inpatientEntry.search.deepnav'  : {'description': 'Search area',              'pos': 5,   'areaName': 'middleLeft' },
+
 
     'inpatientPatient.topLeft'         : {'description': 'Personal settings area',   'pos': 6,   'areaName': 'leftTopHeader' },
     'inpatientPatient.topRight'        : {'description': 'Logout button area',       'pos': 1,   'areaName': 'rightTopHeader' },
     'inpatientPatient.alerts'          : {'description': 'Alerts area',              'pos': 8,   'areaName': 'leftBottomHeader' },     
     'inpatientPatient.topMenu'         : {'description': 'Top menu',                 'pos': 3,   'areaName': 'middleBottomHeader' }, 
     'inpatientPatient.topMenu.left'    : {'description': 'Top menu left',            'pos': 3,   'areaName': 'middleBottomHeader' },
+    'inpatientPatient.topMenu.left.deepnav'         : {'description': 'Deepnav',                  'pos': 5,   'areaName': 'middleLeft' },             
     'inpatientPatient.topMenu.right'   : {'description': 'Top menu right',           'pos': 4,   'areaName': 'middleBottomHeader' },
+    'inpatientPatient.topMenu.right.deepnav'         : {'description': 'Deepnav',                  'pos': 5,   'areaName': 'middleLeft' },             
     'inpatientPatient.bottomLeft'      : {'description': 'Back button area',         'pos': 2,   'areaName': 'leftFooter' },            
     'inpatientPatient.bottomMenu'      : {'description': 'Bottom menu',              'pos': 10,  'areaName': 'middleFooter' },
     'inpatientPatient.bottomMenu.left' : {'description': 'Bottom menu left',         'pos': 10,  'areaName': 'middleFooter' },
     'inpatientPatient.bottomMenu.right': {'description': 'Bottom menu right',        'pos': 11,  'areaName': 'middleFooter' },
     'inpatientPatient.bottomRight'     : {'description': 'Ok area',                  'pos': 7,   'areaName': 'rightFooter' },
-    'inpatientPatient.deepnav'         : {'description': 'Deepnav',                  'pos': 5,   'areaName': 'middleLeft' },             
     'inpatientPatient.search'          : {'description': 'Search area',              'pos': 9,   'areaName': 'middleLeft' },
+    'inpatientPatient.search.deepnav'  : {'description': 'Search area',              'pos': 5,   'areaName': 'middleLeft' },
+
 
     'inpatientTools.topLeft'         : {'description': 'Personal settings area',   'pos': 6,   'areaName': 'leftTopHeader' },
     'inpatientTools.topRight'        : {'description': 'Logout button area',       'pos': 1,   'areaName': 'rightTopHeader' },
     'inpatientTools.alerts'          : {'description': 'Alerts area',              'pos': 8,   'areaName': 'leftBottomHeader' },     
     'inpatientTools.topMenu'         : {'description': 'Top menu',                 'pos': 3,   'areaName': 'middleBottomHeader' }, 
     'inpatientTools.topMenu.left'    : {'description': 'Top menu left',            'pos': 3,   'areaName': 'middleBottomHeader' },
+    'inpatientTools.topMenu.left.deepnav'         : {'description': 'Deepnav',                  'pos': 5,   'areaName': 'middleLeft' },             
     'inpatientTools.topMenu.right'   : {'description': 'Top menu right',           'pos': 4,   'areaName': 'middleBottomHeader' },
+    'inpatientTools.topMenu.right.deepnav'         : {'description': 'Deepnav',                  'pos': 5,   'areaName': 'middleLeft' },             
     'inpatientTools.bottomLeft'      : {'description': 'Back button area',         'pos': 2,   'areaName': 'leftFooter' },            
     'inpatientTools.bottomMenu'      : {'description': 'Bottom menu',              'pos': 10,  'areaName': 'middleFooter' },
     'inpatientTools.bottomMenu.left' : {'description': 'Bottom menu left',         'pos': 10,  'areaName': 'middleFooter' },
     'inpatientTools.bottomMenu.right': {'description': 'Bottom menu right',        'pos': 11,  'areaName': 'middleFooter' },
     'inpatientTools.bottomRight'     : {'description': 'Ok area',                  'pos': 7,   'areaName': 'rightFooter' },
     'inpatientTools.deepnav'         : {'description': 'Deepnav',                  'pos': 5,   'areaName': 'middleLeft' },             
-    'inpatientTools.search'          : {'description': 'Search area',              'pos': 9,   'areaName': 'middleLeft' }    
-
+    'inpatientTools.search'          : {'description': 'Search area',              'pos': 9,   'areaName': 'middleLeft' },    
+    'inpatientTools.search.deepnav'  : {'description': 'Search area',              'pos': 5,   'areaName': 'middleLeft' }    
 }
 
-/**
- * Return the provided string in camel case
- */
-camelize = function (str) {
-    str = str.toLowerCase();
-    return str.replace(/\W+(.)/g, function(match, chr)
-     {
-          return chr.toUpperCase();
-      });
-  }
+/*
 
-/**
- * Get the id for the deepnav from the values in the INTER_NAME_BUTTON column
- */
-getButtonIdFromInternalName = function (id) {
+const areaMap = { 
+    'inpatientEntry'  : {'description': 'Inpatient main grid',      'pos': 0,   'areaName': '' },
+    'inpatientPatient': {'description': 'Inpatient patient area',   'pos': 0,   'areaName': '' },
+    'inpatientTools'  : {'description': 'Inpatient tools area',     'pos': 0,   'areaName': '' },
 
-    id = id.toLowerCase();
-    // Remove sub string 'deep_nav_' from the beggining
-    id = id.replace(new RegExp('^deep_nav_', 'i'),'');
-    // Remove sub string 'deepnav_' from the beggining
-    id = id.replace(new RegExp('^deepnav_', 'i'),'');
-    // Remove sub string 'subdeepnav_' from the beggining
-    id = id.replace(new RegExp('^subdeepnav_', 'i'),'');
-    // Remove underscores
-    id = id.replace(new RegExp('_', 'g'),'.');
+    'topLeft'         : {'description': 'Personal settings area',   'pos': 6,   'areaName': 'leftTopHeader' },
+    'topRight'        : {'description': 'Logout button area',       'pos': 1,   'areaName': 'rightTopHeader' },
+    'alerts'          : {'description': 'Alerts area',              'pos': 8,   'areaName': 'leftBottomHeader' },     
+    'topMenu'         : {'description': 'Top menu',                 'pos': 3,   'areaName': 'middleBottomHeader' }, 
+    'topMenu.left'    : {'description': 'Top menu left',            'pos': 3,   'areaName': 'middleBottomHeader' },
+    'topMenu.right'   : {'description': 'Top menu right',           'pos': 4,   'areaName': 'middleBottomHeader' },
+    'bottomLeft'      : {'description': 'Back button area',         'pos': 2,   'areaName': 'leftFooter' },            
+    'bottomMenu'      : {'description': 'Bottom menu',              'pos': 10,  'areaName': 'middleFooter' },
+    'bottomMenu.left' : {'description': 'Bottom menu left',         'pos': 10,  'areaName': 'middleFooter' },
+    'bottomMenu.right': {'description': 'Bottom menu right',        'pos': 11,  'areaName': 'middleFooter' },
+    'bottomRight'     : {'description': 'Ok area',                  'pos': 7,   'areaName': 'rightFooter' },
+    'deepnav'         : {'description': 'Deepnav',                  'pos': 5,   'areaName': 'middleLeft' },             
+    'search'          : {'description': 'Search area',              'pos': 9,   'areaName': 'middleLeft' },
 
-    return camelize(id);    
+    'topLeft'         : {'description': 'Personal settings area',   'pos': 6,   'areaName': 'leftTopHeader' },
+    'topRight'        : {'description': 'Logout button area',       'pos': 1,   'areaName': 'rightTopHeader' },
+    'alerts'          : {'description': 'Alerts area',              'pos': 8,   'areaName': 'leftBottomHeader' },     
+    'topMenu'         : {'description': 'Top menu',                 'pos': 3,   'areaName': 'middleBottomHeader' }, 
+    'topMenu.left'    : {'description': 'Top menu left',            'pos': 3,   'areaName': 'middleBottomHeader' },
+    'topMenu.right'   : {'description': 'Top menu right',           'pos': 4,   'areaName': 'middleBottomHeader' },
+    'bottomLeft'      : {'description': 'Back button area',         'pos': 2,   'areaName': 'leftFooter' },            
+    'bottomMenu'      : {'description': 'Bottom menu',              'pos': 10,  'areaName': 'middleFooter' },
+    'bottomMenu.left' : {'description': 'Bottom menu left',         'pos': 10,  'areaName': 'middleFooter' },
+    'bottomMenu.right': {'description': 'Bottom menu right',        'pos': 11,  'areaName': 'middleFooter' },
+    'bottomRight'     : {'description': 'Ok area',                  'pos': 7,   'areaName': 'rightFooter' },
+    'deepnav'         : {'description': 'Deepnav',                  'pos': 5,   'areaName': 'middleLeft' },             
+    'search'          : {'description': 'Search area',              'pos': 9,   'areaName': 'middleLeft' },
+
+    'topLeft'         : {'description': 'Personal settings area',   'pos': 6,   'areaName': 'leftTopHeader' },
+    'topRight'        : {'description': 'Logout button area',       'pos': 1,   'areaName': 'rightTopHeader' },
+    'alerts'          : {'description': 'Alerts area',              'pos': 8,   'areaName': 'leftBottomHeader' },     
+    'topMenu'         : {'description': 'Top menu',                 'pos': 3,   'areaName': 'middleBottomHeader' }, 
+    'topMenu.left'    : {'description': 'Top menu left',            'pos': 3,   'areaName': 'middleBottomHeader' },
+    'topMenu.right'   : {'description': 'Top menu right',           'pos': 4,   'areaName': 'middleBottomHeader' },
+    'bottomLeft'      : {'description': 'Back button area',         'pos': 2,   'areaName': 'leftFooter' },            
+    'bottomMenu'      : {'description': 'Bottom menu',              'pos': 10,  'areaName': 'middleFooter' },
+    'bottomMenu.left' : {'description': 'Bottom menu left',         'pos': 10,  'areaName': 'middleFooter' },
+    'bottomMenu.right': {'description': 'Bottom menu right',        'pos': 11,  'areaName': 'middleFooter' },
+    'bottomRight'     : {'description': 'Ok area',                  'pos': 7,   'areaName': 'rightFooter' },
+    'deepnav'         : {'description': 'Deepnav',                  'pos': 5,   'areaName': 'middleLeft' },             
+    'search'          : {'description': 'Search area',              'pos': 9,   'areaName': 'middleLeft' }    
+
 }
+*/
 
-/**
- * Get area
- */
-getArea = function(path) {
 
-    // The area id is the last segment of the path
-    return new Area(path.getId(), areaMap[path.toString()].description, areaMap[path.toString()].pos, areaMap[path.toString()].areaName);
-}
+
+
+
 
 /**
  * Create the second level areas (entrance, tools, patient,...)
  */
+/*
 processAppAreas = function(lines) {
 
     lines.forEach(function(l) {
@@ -136,10 +167,12 @@ processAppAreas = function(lines) {
         } 
     }) 
 }
+*/
 
 /** 
  * Process the remaining areas
 */
+/*
 processArea = function(line) {
 
     let path = new Path(appAreaIdsMap[line.idSysApplicationArea]).append(screenAreaIdsMap[line.idSysScreenArea]);
@@ -174,7 +207,7 @@ processArea = function(line) {
         topArea.addArea(new Area(id, desc, deepNavArea.pos, deepNavArea.areaName), path);
     }
 }
-
+*/
 /** 
  * 
 */
@@ -199,9 +232,20 @@ getButton = function(line, areaId) {
 }
 
 
+
+
+/** */
+processButtons = function(lines) {
+
+    lines.forEach(function(line){
+        processButton(line);
+    });
+
+}
+
 // Input file 
 // let file = process.argv[2];
-let file = 'inp_melrose_usph01.txt';
+let file = 'inp_melrose_usph01_sb.txt';
 let topAreaId = '0';
 let topAreaDesc = 'Default layout for INPATIENT';
 
@@ -220,6 +264,7 @@ lineReader.on('line', function (line) {
     lines.push(new Line(line));
 });  
 
+/*
 lineReader.on('close', function(){
     
     processAppAreas(lines);
@@ -230,7 +275,136 @@ lineReader.on('close', function(){
 
     console.log(JSON.stringify(topArea));
 });
+*/
 
+
+//////////////////////////////////
+
+
+lineReader.on('close', function(){
+    
+    getPaths(lines);
+
+    processAreas(lines);
+/*
+    processButtons(lines);
+    
+    processAppAreas(lines);
+
+    processAreas(lines);
+
+    processButtons(lines);
+
+    console.log(JSON.stringify(topArea));
+    */
+
+    console.log(JSON.stringify(topArea));
+
+});
+
+/** */
+getPaths = function(lines) {
+    // For each line, compute the path of the corresponding area
+    lines.forEach(function(line){
+        line.path = getPath(line);        
+    });
+}
+
+/**
+ * Return the provided string in camel case
+ */
+camelize = function (str) {
+    str = str.toLowerCase();
+    return str.replace(/\W+(.)/g, function(match, chr){
+          return chr.toUpperCase();
+    });
+}
+
+/**
+ * Get the id for the deepnav from the values in the INTER_NAME_BUTTON column
+ */
+getButtonIdFromInternalName = function (id) {
+
+    id = id.toLowerCase();
+    // Remove sub string 'deep_nav_' from the beggining
+    id = id.replace(new RegExp('^deep_nav_', 'i'),'');
+    // Remove sub string 'deepnav_' from the beggining
+    id = id.replace(new RegExp('^deepnav_', 'i'),'');
+    // Remove sub string 'subdeepnav_' from the beggining
+    id = id.replace(new RegExp('^subdeepnav_', 'i'),'');
+    // Remove underscores
+    id = id.replace(new RegExp('_', 'g'),'.');
+
+    return camelize(id);    
+}
+
+getPath = function(line){
+
+    // The id for a line is the path of the parent concatenated with the line's id
+    var parentAreaPath = getParentPath(line);
+    
+    var areaPath = parentAreaPath;
+    if(line.idSysScreenArea != '5') {
+        // Non deepnavs
+        areaPath.append(screenAreaIdsMap[line.idSysScreenArea]);
+    } else if(line.action === 'NXTLEVEL'){
+        // Deepnavs that have child deepnavs...
+        let id = getButtonIdFromInternalName(line.internNameButton);
+        areaPath.append(id);
+        // ... these define new areas that have to be added to the area map, for the areas 
+        // processing logic to work.
+        setdMapEntry(areaPath);
+    } 
+
+    return areaPath;
+}
+
+/**
+ * Build map entry for a dynamically creared path.
+ * The position and areaName are copied from the parent.
+ */
+setdMapEntry = function(areaPath) {
+    let mapEntry = {};
+    let parentMapEntry = areaMap[areaPath.getParent().toString()];
+    mapEntry.description = areaPath.getId();
+    mapEntry.pos = parentMapEntry.pos;
+    mapEntry.areaName = parentMapEntry.areaName;
+    areaMap[areaPath.toString()] = mapEntry;
+}
+
+/** get the path for the parent of line (parent sys_button_prop) */
+getParentPath = function(line){
+
+    var parentPath;
+    var parentLine;
+
+    // get parent line
+    lines.some(function(l){
+        if(l.idSysButtonProp == line.idSbpParent) {
+            parentLine = l;
+            return true;
+        }
+    });
+
+    if(parentLine) {
+        // if there is a parent line then get its path
+        parentPath = getPath(parentLine);
+    } else {
+        // return top level path (using id_sys_application_area)
+        parentPath = new Path(appAreaIdsMap[line.idSysApplicationArea]);
+    }
+
+    return parentPath;
+}
+
+/** */
+getAreaIdForLine = function(line) {
+
+    if(line.idSysScreenArea === '5' && line.action === 'NXTLEVEL') {
+        getButtonIdFromInternalName(line.internNameButton);
+    }
+    return screenAreaIdsMap[line.idSysScreenArea];
+}
 
 /** */
 processAreas = function(lines) {
@@ -238,19 +412,37 @@ processAreas = function(lines) {
     lines.forEach(function(line){
         processArea(line);
     });
-
 }
 
+/** 
+ * Process the remaining areas
+*/
+processArea = function(line) {
 
-/** */
-processButtons = function(lines) {
+    var auxPath = new Path('');
+    let area = {};
 
-    lines.forEach(function(line){
-        processButton(line);
+    // Iterate down the path and, if necessary, create the areas for each level.
+    line.path.toArray().forEach(function(e){
+        
+        auxPath.append(e);
+        parentPath = auxPath.getParent();
+
+        if(!topArea.findArea(auxPath)) {
+            area = getArea(auxPath);
+
+            var p = parentPath.toString() ? parentPath.toString() + '.' : '';
+            console.log('Adding area ' + p + area.id + '...');
+
+            topArea.addArea(area, parentPath);
+        } 
     });
-
 }
 
-
-
-
+/**
+ * Get area
+ */
+getArea = function(path) {
+    // The area id is the last segment of the path
+    return new Area(path.getId(), areaMap[path.toString()].description, areaMap[path.toString()].pos, areaMap[path.toString()].areaName);
+}
