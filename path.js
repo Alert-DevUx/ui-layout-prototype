@@ -95,6 +95,10 @@ class Path {
         return this;
     }
 
+    clone(){
+        return new Path(this.toString());
+    }
+
     validateParams(path) {
         if( typeof path === 'string') 
             return  true;

@@ -208,40 +208,7 @@ processArea = function(line) {
     }
 }
 */
-/** 
- * 
-*/
-processButton = function(line) {
 
-    let areaPath = new Path(appAreaIdsMap[line.idSysApplicationArea]).append(screenAreaIdsMap[line.idSysScreenArea]);
-
-    area = topArea.findArea(areaPath);
-
-    button = getButton(line, areaPath.getHead());
-
-    area.addButton(button);
-}
-
-/**
- * Cretes a button object from the information in the line
- */
-getButton = function(line, areaId) {
-
-    let id = getButtonIdFromInternalName(line.internNameButton);
-    return new Button(id, line.tooltipTitle, line.icon, "", areaId);
-}
-
-
-
-
-/** */
-processButtons = function(lines) {
-
-    lines.forEach(function(line){
-        processButton(line);
-    });
-
-}
 
 // Input file 
 // let file = process.argv[2];
@@ -286,6 +253,8 @@ lineReader.on('close', function(){
     getPaths(lines);
 
     processAreas(lines);
+
+    processButtons(lines);
 /*
     processButtons(lines);
     
@@ -298,6 +267,7 @@ lineReader.on('close', function(){
     console.log(JSON.stringify(topArea));
     */
 
+    
     console.log(JSON.stringify(topArea));
 
 });
@@ -306,7 +276,8 @@ lineReader.on('close', function(){
 getPaths = function(lines) {
     // For each line, compute the path of the corresponding area
     lines.forEach(function(line){
-        line.path = getPath(line);        
+        line.path = getPath(line);    
+        console.log(line);    
     });
 }
 
@@ -340,21 +311,38 @@ getButtonIdFromInternalName = function (id) {
 
 getPath = function(line){
 
-    // The id for a line is the path of the parent concatenated with the line's id
+    // The line's path is the path of the parent concatenated with the line's id
     var parentAreaPath = getParentPath(line);
     
-    var areaPath = parentAreaPath;
+    var areaPath = parentAreaPath.append(screenAreaIdsMap[line.idSysScreenArea]);
     if(line.idSysScreenArea != '5') {
         // Non deepnavs
         areaPath.append(screenAreaIdsMap[line.idSysScreenArea]);
-    } else if(line.action === 'NXTLEVEL'){
-        // Deepnavs that have child deepnavs...
-        let id = getButtonIdFromInternalName(line.internNameButton);
-        areaPath.append(id);
-        // ... these define new areas that have to be added to the area map, for the areas 
-        // processing logic to work.
-        setdMapEntry(areaPath);
-    } 
+    } else {
+        
+        if(line.action === 'NXTLEVEL'){
+            // Deepnavs that have child deepnavs...
+            let id = getButtonIdFromInternalName(line.internNameButton);
+            // ... these define new areas that have to be added to the area map, for the areas 
+            // processing logic to work.
+            let auxPath = areaPath.clone().append(id);
+            // ... these define new areas that have to be added to the area map, for the areas 
+            // processing logic to work.
+            setdMapEntry(auxPath);
+            console.log('SET_MAP: ' + auxPath.toString());
+        }
+
+
+        let parentLine = getParentLine(line);
+        if(parentLine.idSysScreenArea === '5' ) {
+            areaPath.append(getButtonIdFromInternalName(parentLine.internNameButton));
+        } else {
+            areaPath.append(screenAreaIdsMap[line.idSysScreenArea]);
+        }
+ 
+
+
+    }
 
     return areaPath;
 }
@@ -372,12 +360,10 @@ setdMapEntry = function(areaPath) {
     areaMap[areaPath.toString()] = mapEntry;
 }
 
-/** get the path for the parent of line (parent sys_button_prop) */
-getParentPath = function(line){
+/** get the parent line for the provided line (parent sys_button_prop) */
+getParentLine = function(line) {
 
-    var parentPath;
     var parentLine;
-
     // get parent line
     lines.some(function(l){
         if(l.idSysButtonProp == line.idSbpParent) {
@@ -385,6 +371,15 @@ getParentPath = function(line){
             return true;
         }
     });
+
+    return parentLine;
+}
+
+/** get the path for the parent of line (parent sys_button_prop) */
+getParentPath = function(line){
+
+    var parentPath;
+    var parentLine = getParentLine(line);
 
     if(parentLine) {
         // if there is a parent line then get its path
@@ -444,5 +439,34 @@ processArea = function(line) {
  */
 getArea = function(path) {
     // The area id is the last segment of the path
+    console.log('getArea - path.toString(): ' + path.toString());
     return new Area(path.getId(), areaMap[path.toString()].description, areaMap[path.toString()].pos, areaMap[path.toString()].areaName);
+}
+
+/** */
+processButtons = function(lines) {
+
+    lines.forEach(function(line){
+        processButton(line);
+    });
+
+}
+
+/** */
+processButton = function(line) {
+
+    area = topArea.findArea(line.path);
+
+    button = getButton(line, line.path.getHead());
+
+    area.addButton(button);
+}
+
+/**
+ * Creates a button object from the information in the line
+ */
+getButton = function(line, areaId) {
+
+    let id = getButtonIdFromInternalName(line.internNameButton);
+    return new Button(id, line.tooltipTitle, line.icon, "", areaId);
 }
