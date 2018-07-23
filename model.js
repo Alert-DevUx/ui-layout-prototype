@@ -11,41 +11,42 @@ class Line{
     constructor(line) {
         var lineArray = line.split('\t');
 
-        this.idSysButton = lineArray[0];
-        this.icon = lineArray[1];
-        this.idSysScreenArea = lineArray[2];
-        this.idSysApplicationArea = lineArray[3];
-        this.internNameButton = lineArray[4];
-        this.screenName = lineArray[5];
-        this.existChild = lineArray[6];
-        this.idSysButtonProp = lineArray[7];
-        this.idSbpParent = lineArray[8];
-        this.rank = lineArray[9];
-        this.subRank = lineArray[10];
-        this.idSoftwareContext = lineArray[11];
-        this.flgCancel = lineArray[12];
-        this.flgContent = lineArray[13];
-        this.flgCreate = lineArray[14];
-        this.flgDetail = lineArray[15];
-        this.flgDigital = lineArray[16];
-        this.flgFreq = lineArray[17];
-        this.flgGraph = lineArray[18];
-        this.flgHelp = lineArray[19];
-        this.flgNo = lineArray[20];
-        this.flgOk = lineArray[21];
-        this.flgPrint = lineArray[22];
-        this.flgSearch = lineArray[23];
-        this.flgVision = lineArray[24];
-        this.flgAction = lineArray[25];
-        this.flgView = lineArray[26];
-        this.flgResetContext = lineArray[27];
-        this.tooltipTitle = lineArray[28];
-        this.tooltipDesc = lineArray[29];
-        this.rank2 = lineArray[30];
-        this.action = lineArray[31];
-        this.flgScreenMode = lineArray[32];
-        this.flgGlobalShortcut = lineArray[33];
-        this.flgInfoButton = lineArray[34];
+        this.blevel = lineArray[0];
+        this.idSysButton = lineArray[1];
+        this.icon = lineArray[2];
+        this.idSysScreenArea = lineArray[3];
+        this.idSysApplicationArea = lineArray[4];
+        this.internNameButton = lineArray[5];
+        this.screenName = lineArray[6];
+        this.existChild = lineArray[7];
+        this.idSysButtonProp = lineArray[8];
+        this.idSbpParent = lineArray[9];
+        this.rank = lineArray[10];
+        this.subRank = lineArray[11];
+        this.idSoftwareContext = lineArray[12];
+        this.flgCancel = lineArray[13];
+        this.flgContent = lineArray[14];
+        this.flgCreate = lineArray[15];
+        this.flgDetail = lineArray[16];
+        this.flgDigital = lineArray[17];
+        this.flgFreq = lineArray[18];
+        this.flgGraph = lineArray[19];
+        this.flgHelp = lineArray[20];
+        this.flgNo = lineArray[21];
+        this.flgOk = lineArray[22];
+        this.flgPrint = lineArray[23];
+        this.flgSearch = lineArray[24];
+        this.flgVision = lineArray[25];
+        this.flgAction = lineArray[26];
+        this.flgView = lineArray[27];
+        this.flgResetContext = lineArray[28];
+        this.tooltipTitle = lineArray[29];
+        this.tooltipDesc = lineArray[30];
+        this.rank2 = lineArray[31];
+        this.action = lineArray[32];
+        this.flgScreenMode = lineArray[33];
+        this.flgGlobalShortcut = lineArray[34];
+        this.flgInfoButton = lineArray[35];
     }
 }
 
@@ -86,15 +87,21 @@ class Area {
         this.description = description;
         this.pos = pos;
         this.areaName = areaName;
-        // Buttons map
-        this.buttons = {};
-        // Array of button ids to keep track of the buttons' position in the area
-        this.buttonsPos = [];
-        // Child areas map
-        this.areas = {};
     }
 
     addButton(button, pos) {
+
+        if(!button || !button.id) {
+            return null;
+        }
+
+        if(!this.buttons) {
+            // Initialize buttons object
+            this.buttons = {}
+            // Initialize buttonPos array
+            this.buttonsPos = [];
+        }
+
         if(pos) { 
             this.buttonsPos.splice(pos, 0, button.id); 
         } else {
@@ -119,6 +126,11 @@ class Area {
 
         if(!area) {
             return null;
+        }
+
+        if(!this.areas) {
+            // Initialize areas object
+            this.areas = {}
         }
 
         if(!parentPath || !parentPath.getId()) {
@@ -239,13 +251,19 @@ class Action {
           throw 'Invalid parameters.';
         }
         this.areaFqn = areaFqn;
-        this.button = button;
-        this.component = component;
+        if(button) {
+            this.button = button;
+        }
+        if(component) {
+            this.component = component;
+        }
         
     }
   
     setComponent(component) {
-        this.component = component;
+        if(component) {
+            this.component = component;
+        }
     }  
 
 
@@ -265,7 +283,7 @@ Component to load. Can be of type Crate, SWF, or external application
 class Component {
     constructor(type, id) {
 
-        if(!validateParams()) {
+        if(!this.validateParams()) {
           throw 'Invalid parameters.';
         }
         this.type = type;
