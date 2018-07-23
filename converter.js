@@ -143,42 +143,6 @@ const areaMap = {
 }
 */
 
-// Input file 
-// let file = process.argv[2];
-let file = 'inp_melrose_usph01.txt';
-let topAreaId = '0';
-let topAreaDesc = 'Default layout for INPATIENT';
-
-
-
-// Create top level area 
-let topArea = new Area(topAreaId, topAreaDesc, '0', '');
-
-// Read file lines
-var lineReader = readline.createInterface({
-    input: fs.createReadStream(file)
-  });
-
-var lines = [];
-lineReader.on('line', function (line) {
-    lines.push(new Line(line));
-});  
-
-
-lineReader.on('close', function(){
-    
-    getPaths(lines);
-
-//    console.log(areaMap);
-
-    processAreas(lines);
-
-    processButtons(lines);
-    
-    console.log(JSON.stringify(topArea));
-
-});
-
 /** */
 getPaths = function(lines) {
     // For each line, compute the path of the corresponding area
@@ -383,3 +347,45 @@ getButton = function(line, areaId) {
     let id = getButtonIdFromInternalName(line.internNameButton);
     return new Button(id, line.tooltipTitle, line.icon, new Action (line.targetArea), areaId);
 }
+
+
+// Input file 
+// let file = process.argv[2];
+let file = 'inp_melrose_usph01.txt';
+let topAreaId = '0';
+let topAreaDesc = 'Default layout for INPATIENT';
+
+
+
+// Create top level area 
+let topArea = new Area(topAreaId, topAreaDesc, '0', '');
+
+// Read file lines
+var lineReader = readline.createInterface({
+    input: fs.createReadStream(file)
+  });
+
+var lines = [];
+lineReader.on('line', function (line) {
+    lines.push(new Line(line));
+});  
+
+
+lineReader.on('close', function(){
+
+    // Remove header line
+    if(isNaN(lines[0].blevel)){
+        lines.splice(0,1);
+    }
+    
+    getPaths(lines);
+
+//    console.log(areaMap);
+
+    processAreas(lines);
+
+    processButtons(lines);
+    
+    console.log(JSON.stringify(topArea));
+
+});
