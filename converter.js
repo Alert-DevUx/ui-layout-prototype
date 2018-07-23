@@ -247,10 +247,15 @@ getPath = function(line){
             let id = getButtonIdFromInternalName(line.internNameButton);
             let auxPath = areaPath.clone().append(id);
             setdMapEntry(auxPath);
-
-
         }
     }
+
+    // Add this line as the target to the parent (if there is one). This info will be used to create
+    // the navigation action in the button of the parent line
+    if(line.idSbpParent) {
+        getParentLine(line).targetArea = areaPath.toString();
+    }
+
     return areaPath;
 }
 
@@ -376,5 +381,5 @@ processButton = function(line) {
 getButton = function(line, areaId) {
 
     let id = getButtonIdFromInternalName(line.internNameButton);
-    return new Button(id, line.tooltipTitle, line.icon, "", areaId);
+    return new Button(id, line.tooltipTitle, line.icon, new Action (line.targetArea), areaId);
 }

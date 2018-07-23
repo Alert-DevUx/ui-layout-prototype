@@ -235,7 +235,7 @@ Allows to specify an area to go to, and optionally, a button to activated in tha
 class Action {
     constructor(areaFqn, button, component) {
 
-        if(!validateParams()) {
+        if(!this.validateParams()) {
           throw 'Invalid parameters.';
         }
         this.areaFqn = areaFqn;
