@@ -143,76 +143,9 @@ const areaMap = {
 }
 */
 
-
-
-
-
-
-/**
- * Create the second level areas (entrance, tools, patient,...)
- */
-/*
-processAppAreas = function(lines) {
-
-    lines.forEach(function(l) {
-
-        let areaId = appAreaIdsMap[l.idSysApplicationArea];
-
-        let path = new Path(areaId)
-
-        if(!topArea.findArea(path)) {
-            let area = getArea(path);
-            console.log('Adding area ' + areaId + '...');
-            topArea.addArea(area);
-        } 
-    }) 
-}
-*/
-
-/** 
- * Process the remaining areas
-*/
-/*
-processArea = function(line) {
-
-    let path = new Path(appAreaIdsMap[line.idSysApplicationArea]).append(screenAreaIdsMap[line.idSysScreenArea]);
-
-    var auxPath = new Path('');
-
-    let area = {};
-
-    // Iterate down the path and, if necessary, create the areas for each level.
-    path.toArray().forEach(function(e){
-        
-        auxPath.append(e);
-        parentPath = auxPath.getParent();
-
-        if(!topArea.findArea(auxPath)) {
-            area = getArea(auxPath);
-
-            var p = parentPath.toString() ? parentPath.toString() + '.' : '';
-            console.log('Adding area ' + p + area.id + '...');
-
-            topArea.addArea(area, parentPath);
-        } 
-    });
-
-    // Special case: create sub areas for each deepnav that has child deepnavs
-    if(path.toString().endsWith('.deepnav') && line.action === 'NXTLEVEL') {
-
-        let deepNavArea = getArea(path);
-        let id = getButtonIdFromInternalName(line.internNameButton);
-        let desc = deepNavArea.description + ' - ' + id;
-        console.log('Adding area ' + path.toString() + '.' + id);
-        topArea.addArea(new Area(id, desc, deepNavArea.pos, deepNavArea.areaName), path);
-    }
-}
-*/
-
-
 // Input file 
 // let file = process.argv[2];
-let file = 'inp_melrose_usph01_sb.txt';
+let file = 'inp_melrose_usph01.txt';
 let topAreaId = '0';
 let topAreaDesc = 'Default layout for INPATIENT';
 
@@ -231,42 +164,16 @@ lineReader.on('line', function (line) {
     lines.push(new Line(line));
 });  
 
-/*
-lineReader.on('close', function(){
-    
-    processAppAreas(lines);
-
-    processAreas(lines);
-
-    processButtons(lines);
-
-    console.log(JSON.stringify(topArea));
-});
-*/
-
-
-//////////////////////////////////
-
 
 lineReader.on('close', function(){
     
     getPaths(lines);
 
-    processAreas(lines);
-
-    processButtons(lines);
-/*
-    processButtons(lines);
-    
-    processAppAreas(lines);
+//    console.log(areaMap);
 
     processAreas(lines);
 
     processButtons(lines);
-
-    console.log(JSON.stringify(topArea));
-    */
-
     
     console.log(JSON.stringify(topArea));
 
@@ -277,7 +184,7 @@ getPaths = function(lines) {
     // For each line, compute the path of the corresponding area
     lines.forEach(function(line){
         line.path = getPath(line);    
-        console.log(line);    
+        console.log(line.path.toString());    
     });
 }
 
@@ -311,39 +218,39 @@ getButtonIdFromInternalName = function (id) {
 
 getPath = function(line){
 
+    // If the line's path was already computed, just return it
+    if(line.path) {
+        return line.path;
+    }
+
     // The line's path is the path of the parent concatenated with the line's id
     var parentAreaPath = getParentPath(line);
     
-    var areaPath = parentAreaPath.append(screenAreaIdsMap[line.idSysScreenArea]);
+    var areaPath = parentAreaPath.clone();
     if(line.idSysScreenArea != '5') {
         // Non deepnavs
         areaPath.append(screenAreaIdsMap[line.idSysScreenArea]);
     } else {
-        
-        if(line.action === 'NXTLEVEL'){
-            // Deepnavs that have child deepnavs...
-            let id = getButtonIdFromInternalName(line.internNameButton);
-            // ... these define new areas that have to be added to the area map, for the areas 
-            // processing logic to work.
-            let auxPath = areaPath.clone().append(id);
-            // ... these define new areas that have to be added to the area map, for the areas 
-            // processing logic to work.
-            setdMapEntry(auxPath);
-            console.log('SET_MAP: ' + auxPath.toString());
-        }
-
-
+        // Deepnavs
         let parentLine = getParentLine(line);
-        if(parentLine.idSysScreenArea === '5' ) {
-            areaPath.append(getButtonIdFromInternalName(parentLine.internNameButton));
-        } else {
+        if(parentLine.idSysScreenArea != '5' ) {
+            // If the parent is not a deepnav just use the name defined in the map
             areaPath.append(screenAreaIdsMap[line.idSysScreenArea]);
+        } else {
+            // If the parent is also a deepnav, the area is named after the parent's internal name
+            areaPath.append(getButtonIdFromInternalName(parentLine.internNameButton));
         }
  
+        // Deepnavs that have child deepnavs define new areas that have to be added to the area map,
+        // for the areas processing logic to work.
+        if(line.action === 'NXTLEVEL'){
+            let id = getButtonIdFromInternalName(line.internNameButton);
+            let auxPath = areaPath.clone().append(id);
+            setdMapEntry(auxPath);
 
 
+        }
     }
-
     return areaPath;
 }
 
@@ -353,6 +260,7 @@ getPath = function(line){
  */
 setdMapEntry = function(areaPath) {
     let mapEntry = {};
+
     let parentMapEntry = areaMap[areaPath.getParent().toString()];
     mapEntry.description = areaPath.getId();
     mapEntry.pos = parentMapEntry.pos;
