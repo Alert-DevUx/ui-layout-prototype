@@ -18,395 +18,4095 @@
     }
 
     service.JSON_MOCK = {  
-      "id": "0",
-      "description": "Default layout for EDIS",
-      "pos": "0",
-      "areaName": "",
-      "buttons": {},
-      "buttonsPos": [],
-      "areas": {
-        "1": {
-          "id": "1",
-          "description": "Personal settings area",
-          "pos": 6,
-          "areaName": "leftTopHeader",
-          "buttons": {
-            "restartIcon": {
-              "id": "restartIcon",
-              "label": "",
-              "icon": "RestartIcon",
-              "action": "",
-              "areaId": "1"
-            }
-          },
-          "buttonsPos": [
-            "restartIcon"
-          ],
-          "areas": {}
-        },
-        "3": {
-          "id": "3",
-          "description": "Logout button area",
-          "pos": 1,
-          "areaName": "rightTopHeader",
-          "buttons": {
-            "exitIcon": {
-              "id": "exitIcon",
-              "label": "",
-              "icon": "ExitIcon",
-              "action": "",
-              "areaId": "3"
-            }
-          },
-          "buttonsPos": [
-            "exitIcon"
-          ],
-          "areas": {}
-        },
-        "4": {
-          "id": "4",
-          "description": "Alerts area",
-          "pos": 8,
-          "areaName": "leftBottomHeader",
-          "buttons": {
-            "alertIcon": {
-              "id": "alertIcon",
-              "label": "",
-              "icon": "AlertIcon",
-              "action": "",
-              "areaId": "4"
-            }
-          },
-          "buttonsPos": [
-            "alertIcon"
-          ],
-          "areas": {}
-        },
-        "5": {
-          "id": "5",
-          "description": "Top menu",
-          "pos": 3,
-          "areaName": "middleBottomHeader",
-          "buttons": {},
-          "buttonsPos": [],
-          "areas": {
-            "1": {
-              "id": "1",
-              "description": "Top menu left",
-              "pos": 3,
-              "areaName": "middleBottomHeader",
-              "buttons": {
-                "clinicalInfoIcon": {
-                  "id": "clinicalInfoIcon",
-                  "label": "",
-                  "icon": "ClinicalInfoIcon",
-                  "action": "",
-                  "areaId": "5"
-                },
-                "previousEpisodesIcon_3": {
-                  "id": "previousEpisodesIcon_3",
-                  "label": "",
-                  "icon": "PreviousEpisodesIcon_3",
-                  "action": "",
-                  "areaId": "5"
-                },
-                "orderEntryIcon": {
-                  "id": "orderEntryIcon",
-                  "label": "",
-                  "icon": "OrderEntryIcon",
-                  "action": "",
-                  "areaId": "5"
-                },
-                "pDMSIcon": {
-                  "id": "pDMSIcon",
-                  "label": "",
-                  "icon": "PDMSIcon",
-                  "action": "",
-                  "areaId": "5"
-                },
-                "nurseIcon": {
-                  "id": "nurseIcon",
-                  "label": "",
-                  "icon": "NurseIcon",
-                  "action": "",
-                  "areaId": "5"
-                },
-                "scheduledNewIcon": {
-                  "id": "scheduledNewIcon",
-                  "label": "",
-                  "icon": "ScheduledNewIcon",
-                  "action": "",
-                  "areaId": "5"
-                },
-                "dischargeIcon": {
-                  "id": "dischargeIcon",
-                  "label": "",
-                  "icon": "DischargeIcon",
-                  "action": "",
-                  "areaId": "5"
-                },
-                "patientManagementIcon": {
-                  "id": "patientManagementIcon",
-                  "label": "Gestï¿½o de paciente",
-                  "icon": "PatientManagementIcon",
-                  "action": "",
-                  "areaId": "5"
-                },
-                "patientIDNewIcon": {
-                  "id": "patientIDNewIcon",
-                  "label": "",
-                  "icon": "PatientIDNewIcon",
-                  "action": "",
-                  "areaId": "5"
-                },
-                "pregnancyIcon": {
-                  "id": "pregnancyIcon",
-                  "label": "",
-                  "icon": "PregnancyIcon",
-                  "action": "",
-                  "areaId": "5"
-                },
-                "checklistBackofficeIcon": {
-                  "id": "checklistBackofficeIcon",
-                  "label": "Listas de verificaï¿½ï¿½o",
-                  "icon": "ChecklistBackofficeIcon",
-                  "action": "",
-                  "areaId": "5"
+      "id":"0",
+      "description":"Default layout for INPATIENT",
+      "pos":"0",
+      "areaName":"",
+      "areas":{  
+        "inpEntry":{  
+          "id":"inpEntry",
+          "description":"Inpatient main grid",
+          "pos":0,
+          "areaName":"",
+          "areas":{  
+            "topRight":{  
+              "id":"topRight",
+              "description":"Logout button area",
+              "pos":1,
+              "areaName":"rightTopHeader",
+              "buttons":{  
+                "logout":{  
+                  "id":"logout",
+                  "label":"Exit application",
+                  "icon":"ExitIcon",
+                  "action":{  
+    
+                  },
+                  "areaId":"inpEntry"
                 }
               },
-              "buttonsPos": [
-                "clinicalInfoIcon",
-                "previousEpisodesIcon_3",
-                "orderEntryIcon",
-                "pDMSIcon",
-                "pDMSIcon",
-                "pDMSIcon",
-                "pDMSIcon",
-                "nurseIcon",
-                "scheduledNewIcon",
-                "dischargeIcon",
-                "patientManagementIcon",
-                "patientIDNewIcon",
-                "pregnancyIcon",
-                "checklistBackofficeIcon"
-              ],
-              "areas": {}
-            }
-          }
-        },
-        "10": {
-          "id": "10",
-          "description": "Back button area",
-          "pos": 2,
-          "areaName": "leftFooter",
-          "buttons": {
-            "backIcon": {
-              "id": "backIcon",
-              "label": "",
-              "icon": "BackIcon",
-              "action": "",
-              "areaId": "10"
-            }
-          },
-          "buttonsPos": [
-            "backIcon"
-          ],
-          "areas": {}
-        },
-        "11": {
-          "id": "11",
-          "description": "Bottom menu",
-          "pos": 10,
-          "areaName": "middleFooter",
-          "buttons": {},
-          "buttonsPos": [],
-          "areas": {
-            "1": {
-              "id": "1",
-              "description": "Bottom menu left",
-              "pos": 10,
-              "areaName": "middleFooter",
-              "buttons": {
-                "printIcon": {
-                  "id": "printIcon",
-                  "label": "",
-                  "icon": "PrintIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "addIcon": {
-                  "id": "addIcon",
-                  "label": "",
-                  "icon": "AddIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "advancedSearchIcon": {
-                  "id": "advancedSearchIcon",
-                  "label": "",
-                  "icon": "AdvancedSearchIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "cancelIcon": {
-                  "id": "cancelIcon",
-                  "label": "",
-                  "icon": "CancelIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "commonTextIcon": {
-                  "id": "commonTextIcon",
-                  "label": "",
-                  "icon": "CommonTextIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "noIcon": {
-                  "id": "noIcon",
-                  "label": "",
-                  "icon": "NoIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "actionsIcon": {
-                  "id": "actionsIcon",
-                  "label": "",
-                  "icon": "ActionsIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "viewsIcon": {
-                  "id": "viewsIcon",
-                  "label": "",
-                  "icon": "ViewsIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "listIcon": {
-                  "id": "listIcon",
-                  "label": "",
-                  "icon": "ListIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "firstVisionIcon": {
-                  "id": "firstVisionIcon",
-                  "label": "",
-                  "icon": "FirstVisionIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "chartsLinesIcon": {
-                  "id": "chartsLinesIcon",
-                  "label": "",
-                  "icon": "ChartsLinesIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "secondVisionIcon": {
-                  "id": "secondVisionIcon",
-                  "label": "",
-                  "icon": "SecondVisionIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "importDocIcon": {
-                  "id": "importDocIcon",
-                  "label": "",
-                  "icon": "ImportDocIcon",
-                  "action": "",
-                  "areaId": "11"
-                }
-              },
-              "buttonsPos": [
-                "printIcon",
-                "addIcon",
-                "advancedSearchIcon",
-                "cancelIcon",
-                "commonTextIcon",
-                "noIcon",
-                "actionsIcon",
-                "viewsIcon",
-                "listIcon",
-                "firstVisionIcon",
-                "chartsLinesIcon",
-                "secondVisionIcon",
-                "importDocIcon"
-              ],
-              "areas": {}
+              "buttonsPos":[  
+                "logout"
+              ]
             },
-            "2": {
-              "id": "2",
-              "description": "Bottom menu right",
-              "pos": 11,
-              "areaName": "middleFooter",
-              "buttons": {
-                "detailsIcon": {
-                  "id": "detailsIcon",
-                  "label": "",
-                  "icon": "DetailsIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "contentIcon": {
-                  "id": "contentIcon",
-                  "label": "",
-                  "icon": "ContentIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "infoButtonIcon": {
-                  "id": "infoButtonIcon",
-                  "label": "Informaï¿½ï¿½o",
-                  "icon": "InfoButtonIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "globalShortcutIcon": {
-                  "id": "globalShortcutIcon",
-                  "label": "",
-                  "icon": "GlobalShortcutIcon",
-                  "action": "",
-                  "areaId": "11"
-                },
-                "helpIcon": {
-                  "id": "helpIcon",
-                  "label": "",
-                  "icon": "HelpIcon",
-                  "action": "",
-                  "areaId": "11"
+            "bottomLeft":{  
+              "id":"bottomLeft",
+              "description":"Back button area",
+              "pos":2,
+              "areaName":"leftFooter",
+              "buttons":{  
+                "back":{  
+                  "id":"back",
+                  "label":"Go back",
+                  "icon":"BackIcon",
+                  "action":{  
+    
+                  },
+                  "areaId":"inpEntry"
                 }
               },
-              "buttonsPos": [
-                "detailsIcon",
-                "contentIcon",
-                "infoButtonIcon",
-                "globalShortcutIcon",
-                "helpIcon"
-              ],
-              "areas": {}
+              "buttonsPos":[  
+                "back"
+              ]
+            },
+            "topMenu":{  
+              "id":"topMenu",
+              "description":"Top menu",
+              "pos":3,
+              "areaName":"middleBottomHeader",
+              "areas":{  
+                "left":{  
+                  "id":"left",
+                  "description":"Top menu left",
+                  "pos":3,
+                  "areaName":"middleBottomHeader",
+                  "areas":{  
+                    "barCode":{  
+                      "id":"barCode",
+                      "description":"barCode deepnavs",
+                      "pos":"5",
+                      "areaName":"__areaName__",
+                      "buttons":{  
+                        "technicianWorkBarcode":{  
+                          "id":"technicianWorkBarcode",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"SearchPatientBarcode.swf"
+                            }
+                          },
+                          "areaId":"inpEntry"
+                        }
+                      },
+                      "buttonsPos":[  
+                        "technicianWorkBarcode"
+                      ]
+                    },
+                    "responsabilityTransferEdis":{  
+                      "id":"responsabilityTransferEdis",
+                      "description":"responsabilityTransferEdis deepnavs",
+                      "pos":"5",
+                      "areaName":"__areaName__",
+                      "buttons":{  
+                        "serviceTransfer":{  
+                          "id":"serviceTransfer",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ServiceTransferList.swf"
+                            }
+                          },
+                          "areaId":"inpEntry"
+                        },
+                        "myPatientesHandOfEdis":{  
+                          "id":"myPatientesHandOfEdis",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"HandOffMyPatientsList.swf"
+                            }
+                          },
+                          "areaId":"inpEntry"
+                        },
+                        "transferInstitution":{  
+                          "id":"transferInstitution",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"InstitutionTransferList.swf"
+                            }
+                          },
+                          "areaId":"inpEntry"
+                        },
+                        "requestHandOfEdis":{  
+                          "id":"requestHandOfEdis",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"HandOffRequestsList.swf"
+                            }
+                          },
+                          "areaId":"inpEntry"
+                        }
+                      },
+                      "buttonsPos":[  
+                        "serviceTransfer",
+                        "myPatientesHandOfEdis",
+                        "transferInstitution",
+                        "requestHandOfEdis"
+                      ]
+                    },
+                    "pendingTasks":{  
+                      "id":"pendingTasks",
+                      "description":"pendingTasks deepnavs",
+                      "pos":"5",
+                      "areaName":"__areaName__",
+                      "buttons":{  
+                        "todoList":{  
+                          "id":"todoList",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"GridTodoList.swf"
+                            }
+                          },
+                          "areaId":"inpEntry"
+                        }
+                      },
+                      "buttonsPos":[  
+                        "todoList"
+                      ]
+                    }
+                  },
+                  "buttons":{  
+                    "myPatientDoctor":{  
+                      "id":"myPatientDoctor",
+                      "label":"My patients",
+                      "icon":"MyPatientsIcon",
+                      "action":{  
+                        "component":{  
+                          "type":"SWF",
+                          "id":"INPGridMyPatients.swf"
+                        }
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "bmngGridDashboardServices":{  
+                      "id":"bmngGridDashboardServices",
+                      "label":"Bed management",
+                      "icon":"BedManagementIcon",
+                      "action":{  
+                        "component":{  
+                          "type":"SWF",
+                          "id":"BedManagementDashboard.swf"
+                        }
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "allPatientDoctor":{  
+                      "id":"allPatientDoctor",
+                      "label":"All patients",
+                      "icon":"AllPatientsIcon",
+                      "action":{  
+                        "component":{  
+                          "type":"SWF",
+                          "id":"INPGridAllPatients.swf"
+                        }
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "gridScheduledInpatients":{  
+                      "id":"gridScheduledInpatients",
+                      "label":"Scheduled admissions",
+                      "icon":"ScheduledIcon",
+                      "action":{  
+                        "component":{  
+                          "type":"SWF",
+                          "id":"INPScheduledEpisodes.swf"
+                        }
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "birsEyeIcon":{  
+                      "id":"birsEyeIcon",
+                      "label":"Patient location",
+                      "icon":"BirdsEyeIcon",
+                      "action":{  
+                        "component":{  
+                          "type":"SWF",
+                          "id":"INPBirdsEyeView.swf"
+                        }
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "barCode":{  
+                      "id":"barCode",
+                      "label":"Patient's barcode",
+                      "icon":"BarCodeIcon",
+                      "action":{  
+                        "areaFqn":"inpEntry.topMenu.left.barCode"
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "agenda":{  
+                      "id":"agenda",
+                      "label":"Scheduler",
+                      "icon":"ScheduledNewIcon",
+                      "action":{  
+                        "component":{  
+                          "type":"SWF",
+                          "id":"CalendarMonthOverview.swf"
+                        }
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "responsabilityTransferEdis":{  
+                      "id":"responsabilityTransferEdis",
+                      "label":"Transfers",
+                      "icon":"ResponsibilityTransferIcon",
+                      "action":{  
+                        "areaFqn":"inpEntry.topMenu.left.responsabilityTransferEdis"
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "pendingTasks":{  
+                      "id":"pendingTasks",
+                      "label":"To-do list",
+                      "icon":"CheckListIcon",
+                      "action":{  
+                        "areaFqn":"inpEntry.topMenu.left.pendingTasks"
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "coding":{  
+                      "id":"coding",
+                      "label":"Coding",
+                      "icon":"CodingIcon",
+                      "action":{  
+                        "component":{  
+                          "type":"SWF",
+                          "id":"CpMyProcessesGW.swf"
+                        }
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "alertTv":{  
+                      "id":"alertTv",
+                      "label":"Corporate TV",
+                      "icon":"AlertTVIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpEntry"
+                    }
+                  },
+                  "buttonsPos":[  
+                    "myPatientDoctor",
+                    "bmngGridDashboardServices",
+                    "allPatientDoctor",
+                    "gridScheduledInpatients",
+                    "birsEyeIcon",
+                    "barCode",
+                    "agenda",
+                    "responsabilityTransferEdis",
+                    "pendingTasks",
+                    "coding",
+                    "alertTv"
+                  ]
+                }
+              }
+            },
+            "topLeft":{  
+              "id":"topLeft",
+              "description":"Personal settings area",
+              "pos":6,
+              "areaName":"leftTopHeader",
+              "buttons":{  
+                "tools":{  
+                  "id":"tools",
+                  "label":"Settings ",
+                  "icon":"ToolsIcon",
+                  "action":{  
+    
+                  },
+                  "areaId":"inpEntry"
+                }
+              },
+              "buttonsPos":[  
+                "tools"
+              ]
+            },
+            "bottomRight":{  
+              "id":"bottomRight",
+              "description":"Ok area",
+              "pos":7,
+              "areaName":"rightFooter",
+              "buttons":{  
+                "ok":{  
+                  "id":"ok",
+                  "label":"Confirm/proceed",
+                  "icon":"OKIcon",
+                  "action":{  
+    
+                  },
+                  "areaId":"inpEntry"
+                }
+              },
+              "buttonsPos":[  
+                "ok"
+              ]
+            },
+            "alerts":{  
+              "id":"alerts",
+              "description":"Alerts area",
+              "pos":8,
+              "areaName":"leftBottomHeader",
+              "buttons":{  
+                "alert":{  
+                  "id":"alert",
+                  "label":"Alert messages",
+                  "icon":"AlertIcon",
+                  "action":{  
+                    "component":{  
+                      "type":"SWF",
+                      "id":"AlertsInpatient.swf"
+                    }
+                  },
+                  "areaId":"inpEntry"
+                }
+              },
+              "buttonsPos":[  
+                "alert"
+              ]
+            },
+            "search":{  
+              "id":"search",
+              "description":"Search area",
+              "pos":9,
+              "areaName":"middleLeft",
+              "areas":{  
+                "search":{  
+                  "id":"search",
+                  "description":"search deepnavs",
+                  "pos":"5",
+                  "areaName":"__areaName__",
+                  "buttons":{  
+                    "allPatients":{  
+                      "id":"allPatients",
+                      "label":"",
+                      "icon":"",
+                      "action":{  
+                        "component":{  
+                          "type":"SWF",
+                          "id":"AdtSearchAllPatients.swf"
+                        }
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "depnvSearchActiveInp":{  
+                      "id":"depnvSearchActiveInp",
+                      "label":"",
+                      "icon":"",
+                      "action":{  
+                        "component":{  
+                          "type":"SWF",
+                          "id":"INPEpisodeSearchActive.swf"
+                        }
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "depnvSearchInactiveInp":{  
+                      "id":"depnvSearchInactiveInp",
+                      "label":"",
+                      "icon":"",
+                      "action":{  
+                        "component":{  
+                          "type":"SWF",
+                          "id":"INPEpisodeSearchInactive.swf"
+                        }
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "depnvSearchCancelled":{  
+                      "id":"depnvSearchCancelled",
+                      "label":"",
+                      "icon":"",
+                      "action":{  
+                        "component":{  
+                          "type":"SWF",
+                          "id":"SearchCanceledPatients.swf"
+                        }
+                      },
+                      "areaId":"inpEntry"
+                    }
+                  },
+                  "buttonsPos":[  
+                    "allPatients",
+                    "depnvSearchActiveInp",
+                    "depnvSearchInactiveInp",
+                    "depnvSearchCancelled"
+                  ]
+                }
+              },
+              "buttons":{  
+                "search":{  
+                  "id":"search",
+                  "label":"Patient search",
+                  "icon":"SearchIcon",
+                  "action":{  
+                    "areaFqn":"inpEntry.search.search"
+                  },
+                  "areaId":"inpEntry"
+                }
+              },
+              "buttonsPos":[  
+                "search"
+              ]
+            },
+            "bottomMenu":{  
+              "id":"bottomMenu",
+              "description":"Bottom menu",
+              "pos":10,
+              "areaName":"middleFooter",
+              "areas":{  
+                "left":{  
+                  "id":"left",
+                  "description":"Bottom menu left",
+                  "pos":10,
+                  "areaName":"middleFooter",
+                  "buttons":{  
+                    "print":{  
+                      "id":"print",
+                      "label":"Print",
+                      "icon":"PrintIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "create":{  
+                      "id":"create",
+                      "label":"Add",
+                      "icon":"AddIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "cancel":{  
+                      "id":"cancel",
+                      "label":"Cancel",
+                      "icon":"CancelIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "firstView":{  
+                      "id":"firstView",
+                      "label":"First view",
+                      "icon":"FirstVisionIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "secondView":{  
+                      "id":"secondView",
+                      "label":"Second view",
+                      "icon":"SecondVisionIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "viewsButton":{  
+                      "id":"viewsButton",
+                      "label":"Views",
+                      "icon":"ViewsIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "advanceSearchIcon":{  
+                      "id":"advanceSearchIcon",
+                      "label":"Advanced search",
+                      "icon":"AdvancedSearchIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "actionButton":{  
+                      "id":"actionButton",
+                      "label":"Actions",
+                      "icon":"ActionsIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "toolsCommontext":{  
+                      "id":"toolsCommontext",
+                      "label":"Most frequent texts",
+                      "icon":"CommonTextIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpEntry"
+                    }
+                  },
+                  "buttonsPos":[  
+                    "print",
+                    "create",
+                    "cancel",
+                    "firstView",
+                    "secondView",
+                    "viewsButton",
+                    "advanceSearchIcon",
+                    "actionButton",
+                    "viewsButton",
+                    "toolsCommontext"
+                  ]
+                },
+                "right":{  
+                  "id":"right",
+                  "description":"Bottom menu right",
+                  "pos":11,
+                  "areaName":"middleFooter",
+                  "buttons":{  
+                    "eye":{  
+                      "id":"eye",
+                      "label":"Details",
+                      "icon":"DetailsIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "contextHelp":{  
+                      "id":"contextHelp",
+                      "label":"Clinical context help",
+                      "icon":"ContentIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "applicationHelp":{  
+                      "id":"applicationHelp",
+                      "label":"Functionality help",
+                      "icon":"HelpIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpEntry"
+                    },
+                    "globalShortcut":{  
+                      "id":"globalShortcut",
+                      "label":"Shortcuts",
+                      "icon":"GlobalShortcutIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpEntry"
+                    }
+                  },
+                  "buttonsPos":[  
+                    "eye",
+                    "contextHelp",
+                    "applicationHelp",
+                    "globalShortcut"
+                  ]
+                }
+              }
             }
           }
         },
-        "12": {
-          "id": "12",
-          "description": "Ok area",
-          "pos": 7,
-          "areaName": "rightFooter",
-          "buttons": {
-            "oKIcon": {
-              "id": "oKIcon",
-              "label": "",
-              "icon": "OKIcon",
-              "action": "",
-              "areaId": "12"
+        "inpPatient":{  
+          "id":"inpPatient",
+          "description":"Inpatient patient area",
+          "pos":0,
+          "areaName":"",
+          "areas":{  
+            "topRight":{  
+              "id":"topRight",
+              "description":"Logout button area",
+              "pos":1,
+              "areaName":"rightTopHeader",
+              "buttons":{  
+                "logout":{  
+                  "id":"logout",
+                  "label":"Exit application",
+                  "icon":"ExitIcon",
+                  "action":{  
+    
+                  },
+                  "areaId":"inpPatient"
+                }
+              },
+              "buttonsPos":[  
+                "logout"
+              ]
+            },
+            "bottomLeft":{  
+              "id":"bottomLeft",
+              "description":"Back button area",
+              "pos":2,
+              "areaName":"leftFooter",
+              "buttons":{  
+                "back":{  
+                  "id":"back",
+                  "label":"Go back",
+                  "icon":"BackIcon",
+                  "action":{  
+    
+                  },
+                  "areaId":"inpPatient"
+                }
+              },
+              "buttonsPos":[  
+                "back"
+              ]
+            },
+            "topMenu":{  
+              "id":"topMenu",
+              "description":"Top menu",
+              "pos":3,
+              "areaName":"middleBottomHeader",
+              "areas":{  
+                "left":{  
+                  "id":"left",
+                  "description":"Top menu left",
+                  "pos":3,
+                  "areaName":"middleBottomHeader",
+                  "areas":{  
+                    "ehr":{  
+                      "id":"ehr",
+                      "description":"ehr deepnavs",
+                      "pos":"5",
+                      "areaName":"__areaName__",
+                      "areas":{  
+                        "visits":{  
+                          "id":"visits",
+                          "description":"visits deepnavs",
+                          "pos":"5",
+                          "areaName":"__areaName__",
+                          "areas":{  
+                            "dietProcess":{  
+                              "id":"dietProcess",
+                              "description":"dietProcess deepnavs",
+                              "pos":"5",
+                              "areaName":"__areaName__",
+                              "buttons":{  
+                                "nutritionSummary":{  
+                                  "id":"nutritionSummary",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"EHRDIASummary.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "dietaryProgressNotes":{  
+                                  "id":"dietaryProgressNotes",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"EHRDPNSummary.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "nutriPrevIntervention":{  
+                                  "id":"nutriPrevIntervention",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"EHRNutritionistIntervPlanList.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "nutriReport":{  
+                                  "id":"nutriReport",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"EHRNVNSummary.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                }
+                              },
+                              "buttonsPos":[  
+                                "nutritionSummary",
+                                "dietaryProgressNotes",
+                                "nutriPrevIntervention",
+                                "nutriReport"
+                              ]
+                            },
+                            "detailsOnPastIllnesses":{  
+                              "id":"detailsOnPastIllnesses",
+                              "description":"detailsOnPastIllnesses deepnavs",
+                              "pos":"5",
+                              "areaName":"__areaName__",
+                              "buttons":{  
+                                "reasonForVisits":{  
+                                  "id":"reasonForVisits",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"ReasonsForVisits.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "historyOfPastIllnesses":{  
+                                  "id":"historyOfPastIllnesses",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"HistoryOfPastIllnesses.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "hp":{  
+                                  "id":"hp",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"EHRHPSummary.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "physicianProgressNotes":{  
+                                  "id":"physicianProgressNotes",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"EHRPNSummary.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "reviewsOfSystems":{  
+                                  "id":"reviewsOfSystems",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"ReviewsOfSystems.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "physicalExams":{  
+                                  "id":"physicalExams",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"PhysicalExams.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "bodyDiagrams":{  
+                                  "id":"bodyDiagrams",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"EHRBodyDiagrams.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "plans":{  
+                                  "id":"plans",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"IndividualEncounterPlans.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "ehrDeepnavDispositionRecDoente":{  
+                                  "id":"ehrDeepnavDispositionRecDoente",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"DispositionInstructions.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "recordsReview":{  
+                                  "id":"recordsReview",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"RecordsReviewList.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "ehrDischargeSummaryVisitNote":{  
+                                  "id":"ehrDischargeSummaryVisitNote",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"EHRDSSummary.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                }
+                              },
+                              "buttonsPos":[  
+                                "reasonForVisits",
+                                "historyOfPastIllnesses",
+                                "hp",
+                                "physicianProgressNotes",
+                                "reviewsOfSystems",
+                                "physicalExams",
+                                "bodyDiagrams",
+                                "plans",
+                                "ehrDeepnavDispositionRecDoente",
+                                "recordsReview",
+                                "ehrDischargeSummaryVisitNote"
+                              ]
+                            }
+                          },
+                          "buttons":{  
+                            "consultasAnteriores":{  
+                              "id":"consultasAnteriores",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"PreviousEpisSummaryPage.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "ehrTimeline":{  
+                              "id":"ehrTimeline",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRepisodes.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "plannedVisits":{  
+                              "id":"plannedVisits",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"PlannedVisits.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "otherEvents":{  
+                              "id":"otherEvents",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"OtherEvents.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "socialSummary":{  
+                              "id":"socialSummary",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"SocialEHRSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "dietProcess":{  
+                              "id":"dietProcess",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "areaFqn":"inpPatient.topMenu.left.ehr.visits.dietProcess"
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "activityTherapy":{  
+                              "id":"activityTherapy",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"ActivityTherapyEHRSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "evaluationmfr":{  
+                              "id":"evaluationmfr",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"MFREvaluationSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "intervalNotes":{  
+                              "id":"intervalNotes",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"RPNSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "detailsOnPastIllnesses":{  
+                              "id":"detailsOnPastIllnesses",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "areaFqn":"inpPatient.topMenu.left.ehr.visits.detailsOnPastIllnesses"
+                              },
+                              "areaId":"inpPatient"
+                            }
+                          },
+                          "buttonsPos":[  
+                            "consultasAnteriores",
+                            "ehrTimeline",
+                            "plannedVisits",
+                            "otherEvents",
+                            "socialSummary",
+                            "dietProcess",
+                            "activityTherapy",
+                            "evaluationmfr",
+                            "intervalNotes",
+                            "detailsOnPastIllnesses"
+                          ]
+                        },
+                        "planning":{  
+                          "id":"planning",
+                          "description":"planning deepnavs",
+                          "pos":"5",
+                          "areaName":"__areaName__",
+                          "buttons":{  
+                            "carePlans":{  
+                              "id":"carePlans",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRCarePlansList.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "individualEncounterPlans":{  
+                              "id":"individualEncounterPlans",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"IndividualEncounterPlans.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "guideline":{  
+                              "id":"guideline",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRGuidelinesSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "protocol":{  
+                              "id":"protocol",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRProtocolSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "plannedSurgeries":{  
+                              "id":"plannedSurgeries",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRSurgEpisodesLoader.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "referrals":{  
+                              "id":"referrals",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRReferrals.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            }
+                          },
+                          "buttonsPos":[  
+                            "carePlans",
+                            "individualEncounterPlans",
+                            "guideline",
+                            "protocol",
+                            "plannedSurgeries",
+                            "referrals"
+                          ]
+                        },
+                        "testAndTreatments":{  
+                          "id":"testAndTreatments",
+                          "description":"testAndTreatments deepnavs",
+                          "pos":"5",
+                          "areaName":"__areaName__",
+                          "areas":{  
+                            "rehab":{  
+                              "id":"rehab",
+                              "description":"rehab deepnavs",
+                              "pos":"5",
+                              "areaName":"__areaName__",
+                              "buttons":{  
+                                "proceduresMfr":{  
+                                  "id":"proceduresMfr",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"RehabTreatmentsAllList.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "rehabPlan":{  
+                                  "id":"rehabPlan",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"EHRRehabPlanHistory.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                }
+                              },
+                              "buttonsPos":[  
+                                "proceduresMfr",
+                                "rehabPlan"
+                              ]
+                            }
+                          },
+                          "buttons":{  
+                            "depnvAnalisys":{  
+                              "id":"depnvAnalisys",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRLabs.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "depnvImages":{  
+                              "id":"depnvImages",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRImages.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "depnvOtherExams":{  
+                              "id":"depnvOtherExams",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHROtherExams.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "prescription":{  
+                              "id":"prescription",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"PrescViewPrescribedMedication.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "pEnsinosenfermagem":{  
+                              "id":"pEnsinosenfermagem",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"PatientEducationAllList.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "pProcedures":{  
+                              "id":"pProcedures",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"ProceduresTimeline.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "ehrLensPresc":{  
+                              "id":"ehrLensPresc",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRLensPrescriptionList.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "rehab":{  
+                              "id":"rehab",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "areaFqn":"inpPatient.topMenu.left.ehr.testAndTreatments.rehab"
+                              },
+                              "areaId":"inpPatient"
+                            }
+                          },
+                          "buttonsPos":[  
+                            "depnvAnalisys",
+                            "depnvImages",
+                            "depnvOtherExams",
+                            "prescription",
+                            "pEnsinosenfermagem",
+                            "pProcedures",
+                            "ehrLensPresc",
+                            "rehab"
+                          ]
+                        },
+                        "history":{  
+                          "id":"history",
+                          "description":"history deepnavs",
+                          "pos":"5",
+                          "areaName":"__areaName__",
+                          "areas":{  
+                            "assessToolsGroup":{  
+                              "id":"assessToolsGroup",
+                              "description":"assessToolsGroup deepnavs",
+                              "pos":"5",
+                              "areaName":"__areaName__",
+                              "buttons":{  
+                                "factoresRisco":{  
+                                  "id":"factoresRisco",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"EHRRiskFactorsSummary.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "depnvFuncEval":{  
+                                  "id":"depnvFuncEval",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"EHRPhysicalExamEvaluationSummary.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "scores":{  
+                                  "id":"scores",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"SeverityScoresSummaryHist.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                }
+                              },
+                              "buttonsPos":[  
+                                "factoresRisco",
+                                "depnvFuncEval",
+                                "scores"
+                              ]
+                            },
+                            "avaliacaoInfantil":{  
+                              "id":"avaliacaoInfantil",
+                              "description":"avaliacaoInfantil deepnavs",
+                              "pos":"5",
+                              "areaName":"__areaName__",
+                              "buttons":{  
+                                "pediatricAssessment":{  
+                                  "id":"pediatricAssessment",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"PediatricAssessmentSummary.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "genPediatricAssessment":{  
+                                  "id":"genPediatricAssessment",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"GeneralPediatricAssessment.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "developmentMilestones":{  
+                                  "id":"developmentMilestones",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"DevelopmentMilestonesGrid.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "assessmentDevelopment":{  
+                                  "id":"assessmentDevelopment",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"AssessmentOfDevelopment.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "pediatricNutrition":{  
+                                  "id":"pediatricNutrition",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"PediatricNutritionGrid.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "pediatricNutritionAssess":{  
+                                  "id":"pediatricNutritionAssess",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"PediatricNutritionAssessment.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                },
+                                "rendimentoEscolar":{  
+                                  "id":"rendimentoEscolar",
+                                  "label":"",
+                                  "icon":"",
+                                  "action":{  
+                                    "component":{  
+                                      "type":"SWF",
+                                      "id":"SchoolPerformance.swf"
+                                    }
+                                  },
+                                  "areaId":"inpPatient"
+                                }
+                              },
+                              "buttonsPos":[  
+                                "pediatricAssessment",
+                                "genPediatricAssessment",
+                                "developmentMilestones",
+                                "assessmentDevelopment",
+                                "pediatricNutrition",
+                                "pediatricNutritionAssess",
+                                "rendimentoEscolar"
+                              ]
+                            }
+                          },
+                          "buttons":{  
+                            "depnvProblemas":{  
+                              "id":"depnvProblemas",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRProblemList.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "ehrDeepnavPrevDiagnosis":{  
+                              "id":"ehrDeepnavPrevDiagnosis",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"Diagnosis.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "historicohospitalarAlergias":{  
+                              "id":"historicohospitalarAlergias",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRAllergyList.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "depnvHabitos":{  
+                              "id":"depnvHabitos",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRPatientHabits.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "antecedentes":{  
+                              "id":"antecedentes",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRPastHistorySummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "identificationIdentification":{  
+                              "id":"identificationIdentification",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"PatientAttributes.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "familyRelationships":{  
+                              "id":"familyRelationships",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"GridFamily.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "assessToolsGroup":{  
+                              "id":"assessToolsGroup",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "areaFqn":"inpPatient.topMenu.left.ehr.history.assessToolsGroup"
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "ehrDepnvVitalSign":{  
+                              "id":"ehrDepnvVitalSign",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRVitalSigns.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "biometric":{  
+                              "id":"biometric",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"BiometricRead.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "pregnancyList":{  
+                              "id":"pregnancyList",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRWomanHealthPregnanciesSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "avaliacaoInfantil":{  
+                              "id":"avaliacaoInfantil",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "areaFqn":"inpPatient.topMenu.left.ehr.history.avaliacaoInfantil"
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "vacinacao":{  
+                              "id":"vacinacao",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRVaccinationSummaryPage.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            }
+                          },
+                          "buttonsPos":[  
+                            "depnvProblemas",
+                            "ehrDeepnavPrevDiagnosis",
+                            "historicohospitalarAlergias",
+                            "depnvHabitos",
+                            "antecedentes",
+                            "identificationIdentification",
+                            "familyRelationships",
+                            "assessToolsGroup",
+                            "ehrDepnvVitalSign",
+                            "biometric",
+                            "pregnancyList",
+                            "avaliacaoInfantil",
+                            "vacinacao"
+                          ]
+                        },
+                        "nursing":{  
+                          "id":"nursing",
+                          "description":"nursing deepnavs",
+                          "pos":"5",
+                          "areaName":"__areaName__",
+                          "buttons":{  
+                            "nursingInitialAssessment":{  
+                              "id":"nursingInitialAssessment",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRNIASummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "nursingProgressNotes":{  
+                              "id":"nursingProgressNotes",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EHRNPNSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "nurseNotesSr":{  
+                              "id":"nurseNotesSr",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"NursingNotes.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "depnvNursingCarePlan":{  
+                              "id":"depnvNursingCarePlan",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"NursingDiagnosisInterventions.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            }
+                          },
+                          "buttonsPos":[  
+                            "nursingInitialAssessment",
+                            "nursingProgressNotes",
+                            "nurseNotesSr",
+                            "depnvNursingCarePlan"
+                          ]
+                        }
+                      },
+                      "buttons":{  
+                        "dashboard":{  
+                          "id":"dashboard",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"DashBoardLoader.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "visits":{  
+                          "id":"visits",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "areaFqn":"inpPatient.topMenu.left.ehr.visits"
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "planning":{  
+                          "id":"planning",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "areaFqn":"inpPatient.topMenu.left.ehr.planning"
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "testAndTreatments":{  
+                          "id":"testAndTreatments",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "areaFqn":"inpPatient.topMenu.left.ehr.testAndTreatments"
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "history":{  
+                          "id":"history",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "areaFqn":"inpPatient.topMenu.left.ehr.history"
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "historicohospitalarGruposang":{  
+                          "id":"historicohospitalarGruposang",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"BloodList.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "nursing":{  
+                          "id":"nursing",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "areaFqn":"inpPatient.topMenu.left.ehr.nursing"
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "trials":{  
+                          "id":"trials",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"TrialsList.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "mediaArchive":{  
+                          "id":"mediaArchive",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"DocumentsArchive.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        }
+                      },
+                      "buttonsPos":[  
+                        "dashboard",
+                        "visits",
+                        "planning",
+                        "testAndTreatments",
+                        "history",
+                        "historicohospitalarGruposang",
+                        "nursing",
+                        "trials",
+                        "mediaArchive"
+                      ]
+                    },
+                    "clinicalInfoIcon":{  
+                      "id":"clinicalInfoIcon",
+                      "description":"clinicalInfoIcon deepnavs",
+                      "pos":"5",
+                      "areaName":"__areaName__",
+                      "areas":{  
+                        "progressNotes":{  
+                          "id":"progressNotes",
+                          "description":"progressNotes deepnavs",
+                          "pos":"5",
+                          "areaName":"__areaName__",
+                          "buttons":{  
+                            "physicianProgressNotes":{  
+                              "id":"physicianProgressNotes",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"INPPNSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "depnvPareceres":{  
+                              "id":"depnvPareceres",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"OpinionList.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "nursingProgressNotes":{  
+                              "id":"nursingProgressNotes",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"NPNSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "intervalNotes":{  
+                              "id":"intervalNotes",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"RPNSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "evaluationmfr":{  
+                              "id":"evaluationmfr",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"MFREvaluationSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "dietaryProgressNotes":{  
+                              "id":"dietaryProgressNotes",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"DPNSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "activityTherapy":{  
+                              "id":"activityTherapy",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"ActivityTherapyEHRSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "socialSummary":{  
+                              "id":"socialSummary",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"SocialSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            }
+                          },
+                          "buttonsPos":[  
+                            "physicianProgressNotes",
+                            "depnvPareceres",
+                            "nursingProgressNotes",
+                            "intervalNotes",
+                            "evaluationmfr",
+                            "dietaryProgressNotes",
+                            "activityTherapy",
+                            "socialSummary"
+                          ]
+                        },
+                        "assessToolsGroup":{  
+                          "id":"assessToolsGroup",
+                          "description":"assessToolsGroup deepnavs",
+                          "pos":"5",
+                          "areaName":"__areaName__",
+                          "buttons":{  
+                            "scores":{  
+                              "id":"scores",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"SeverityScoresSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "depnvFuncEval":{  
+                              "id":"depnvFuncEval",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"EvaluationSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "factoresRisco":{  
+                              "id":"factoresRisco",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"RiskFactorsSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            }
+                          },
+                          "buttonsPos":[  
+                            "scores",
+                            "depnvFuncEval",
+                            "factoresRisco"
+                          ]
+                        }
+                      },
+                      "buttons":{  
+                        "summaryInp":{  
+                          "id":"summaryInp",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"INPSummary.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "hp":{  
+                          "id":"hp",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"INPHPSummary.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "progressNotes":{  
+                          "id":"progressNotes",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "areaFqn":"inpPatient.topMenu.left.clinicalInfoIcon.progressNotes"
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "depnvProblemas":{  
+                          "id":"depnvProblemas",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ProblemList.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "medicacaoAnt":{  
+                          "id":"medicacaoAnt",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"PrescViewHomeMedication.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "antecedentes":{  
+                          "id":"antecedentes",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"PastHistorySummary.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "depnvDiagnosticos":{  
+                          "id":"depnvDiagnosticos",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"DiagnosisDifferentialList.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "assessToolsGroup":{  
+                          "id":"assessToolsGroup",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "areaFqn":"inpPatient.topMenu.left.clinicalInfoIcon.assessToolsGroup"
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "depnvTopografia":{  
+                          "id":"depnvTopografia",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"BodyDiagram.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "consultasAnteriores":{  
+                          "id":"consultasAnteriores",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"PreviousEpisSummaryPage.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "emergencyEpisodeSummary":{  
+                          "id":"emergencyEpisodeSummary",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"EDISEpisodeSummary.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        }
+                      },
+                      "buttonsPos":[  
+                        "summaryInp",
+                        "hp",
+                        "progressNotes",
+                        "depnvProblemas",
+                        "medicacaoAnt",
+                        "antecedentes",
+                        "depnvDiagnosticos",
+                        "assessToolsGroup",
+                        "depnvTopografia",
+                        "consultasAnteriores",
+                        "emergencyEpisodeSummary"
+                      ]
+                    },
+                    "orderEntry":{  
+                      "id":"orderEntry",
+                      "description":"orderEntry deepnavs",
+                      "pos":"5",
+                      "areaName":"__areaName__",
+                      "areas":{  
+                        "depnvAnalisys":{  
+                          "id":"depnvAnalisys",
+                          "description":"depnvAnalisys deepnavs",
+                          "pos":"5",
+                          "areaName":"__areaName__",
+                          "buttons":{  
+                            "depnvAnalisys":{  
+                              "id":"depnvAnalisys",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"LabTestsOrdersList.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "aColheitas":{  
+                              "id":"aColheitas",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"AnalysisHarvest.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "aTranpAnalises":{  
+                              "id":"aTranpAnalises",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"AnalysisHarvestTransport.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            }
+                          },
+                          "buttonsPos":[  
+                            "depnvAnalisys",
+                            "aColheitas",
+                            "aTranpAnalises"
+                          ]
+                        },
+                        "prescription":{  
+                          "id":"prescription",
+                          "description":"prescription deepnavs",
+                          "pos":"5",
+                          "areaName":"__areaName__",
+                          "buttons":{  
+                            "prescription":{  
+                              "id":"prescription",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"PrescViewMedicationMistakes.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            }
+                          },
+                          "buttonsPos":[  
+                            "prescription",
+                            "prescription",
+                            "prescription",
+                            "prescription",
+                            "prescription",
+                            "prescription"
+                          ]
+                        },
+                        "pEnsinosenfermagem":{  
+                          "id":"pEnsinosenfermagem",
+                          "description":"pEnsinosenfermagem deepnavs",
+                          "pos":"5",
+                          "areaName":"__areaName__",
+                          "buttons":{  
+                            "patientAssessment":{  
+                              "id":"patientAssessment",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"PatientAssessmentSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "patientEducation":{  
+                              "id":"patientEducation",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"PatientEducationList.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            }
+                          },
+                          "buttonsPos":[  
+                            "patientAssessment",
+                            "patientEducation",
+                            "patientEducation"
+                          ]
+                        },
+                        "physicalTherapy":{  
+                          "id":"physicalTherapy",
+                          "description":"physicalTherapy deepnavs",
+                          "pos":"5",
+                          "areaName":"__areaName__",
+                          "buttons":{  
+                            "proceduresMfr":{  
+                              "id":"proceduresMfr",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"RehabPlan.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "rehabPlan":{  
+                              "id":"rehabPlan",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"RehabTreatmentPlanView.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            }
+                          },
+                          "buttonsPos":[  
+                            "proceduresMfr",
+                            "rehabPlan",
+                            "rehabPlan"
+                          ]
+                        },
+                        "planningGroup":{  
+                          "id":"planningGroup",
+                          "description":"planningGroup deepnavs",
+                          "pos":"5",
+                          "areaName":"__areaName__",
+                          "buttons":{  
+                            "carePlans":{  
+                              "id":"carePlans",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"CarePlansList.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "guideline":{  
+                              "id":"guideline",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"GuidelinesSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "protocol":{  
+                              "id":"protocol",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"ProtocolSummary.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            }
+                          },
+                          "buttonsPos":[  
+                            "carePlans",
+                            "guideline",
+                            "protocol"
+                          ]
+                        }
+                      },
+                      "buttons":{  
+                        "cpoe":{  
+                          "id":"cpoe",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"CpoeGrid.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "orderSets":{  
+                          "id":"orderSets",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"OrderSetOngoing.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "depnvAnalisys":{  
+                          "id":"depnvAnalisys",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "areaFqn":"inpPatient.topMenu.left.orderEntry.depnvAnalisys"
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "depnvImages":{  
+                          "id":"depnvImages",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ImageList.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "depnvOtherExams":{  
+                          "id":"depnvOtherExams",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ExamList.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "prescription":{  
+                          "id":"prescription",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "areaFqn":"inpPatient.topMenu.left.orderEntry.prescription",
+                            "component":{  
+                              "type":"SWF",
+                              "id":"PrescViewAdminAndTasks.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "pProcedures":{  
+                          "id":"pProcedures",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ProceduresLoaderView.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "pEnsinosenfermagem":{  
+                          "id":"pEnsinosenfermagem",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "areaFqn":"inpPatient.topMenu.left.orderEntry.pEnsinosenfermagem"
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "diets":{  
+                          "id":"diets",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"DietSummary.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "consultRequests":{  
+                          "id":"consultRequests",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ParamedicalRequestList.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "positioningInp":{  
+                          "id":"positioningInp",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"PositioningsList.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "physicalTherapy":{  
+                          "id":"physicalTherapy",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "areaFqn":"inpPatient.topMenu.left.orderEntry.physicalTherapy"
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "planningGroup":{  
+                          "id":"planningGroup",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "areaFqn":"inpPatient.topMenu.left.orderEntry.planningGroup"
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "suppliesProcedures":{  
+                          "id":"suppliesProcedures",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"SuppliesList.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        }
+                      },
+                      "buttonsPos":[  
+                        "cpoe",
+                        "orderSets",
+                        "depnvAnalisys",
+                        "depnvImages",
+                        "depnvOtherExams",
+                        "prescription",
+                        "pProcedures",
+                        "pEnsinosenfermagem",
+                        "diets",
+                        "consultRequests",
+                        "positioningInp",
+                        "physicalTherapy",
+                        "planningGroup",
+                        "suppliesProcedures"
+                      ]
+                    },
+                    "nurse":{  
+                      "id":"nurse",
+                      "description":"nurse deepnavs",
+                      "pos":"5",
+                      "areaName":"__areaName__",
+                      "buttons":{  
+                        "nursingInitialAssessment":{  
+                          "id":"nursingInitialAssessment",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"NIASummary.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "depnvNursingCarePlan":{  
+                          "id":"depnvNursingCarePlan",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ICNPLoaderView.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "depnvVitalSign":{  
+                          "id":"depnvVitalSign",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"VitalSignsDetail.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "biometric":{  
+                          "id":"biometric",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"BiometricRead.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "hidrics":{  
+                          "id":"hidrics",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"FluidBalanceRequestList.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "observacaoPeriodica":{  
+                          "id":"observacaoPeriodica",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"FlowSheetsLoaderViews.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "healthProgr":{  
+                          "id":"healthProgr",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"HealthProgramList.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "dischargeAltaEnfer":{  
+                          "id":"dischargeAltaEnfer",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"NursingDischarge.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        }
+                      },
+                      "buttonsPos":[  
+                        "nursingInitialAssessment",
+                        "depnvNursingCarePlan",
+                        "depnvVitalSign",
+                        "biometric",
+                        "hidrics",
+                        "observacaoPeriodica",
+                        "healthProgr",
+                        "dischargeAltaEnfer"
+                      ]
+                    },
+                    "patientid":{  
+                      "id":"patientid",
+                      "description":"patientid deepnavs",
+                      "pos":"5",
+                      "areaName":"__areaName__",
+                      "buttons":{  
+                        "identificationIdentification":{  
+                          "id":"identificationIdentification",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"PatientAttributes.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "subdeepnvAdministradorPhoto":{  
+                          "id":"subdeepnvAdministradorPhoto",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"PatientCapturePhotoDoctor.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "barcode":{  
+                          "id":"barcode",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"PrintPatientBarCode.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "identificationDocumentos":{  
+                          "id":"identificationDocumentos",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"DocumentsArchive.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "identificationPlanossaude":{  
+                          "id":"identificationPlanossaude",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"PatientHealthPlan.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "idArrivedByEdis":{  
+                          "id":"idArrivedByEdis",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"PatientArrivedBy.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "patientPortal":{  
+                          "id":"patientPortal",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"AdtPatientPortalAccess.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "advancedDirectives":{  
+                          "id":"advancedDirectives",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"AdvancedDirectivesSummary.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "identificationNecessidades":{  
+                          "id":"identificationNecessidades",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"PatientNeeds.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        }
+                      },
+                      "buttonsPos":[  
+                        "identificationIdentification",
+                        "subdeepnvAdministradorPhoto",
+                        "barcode",
+                        "identificationDocumentos",
+                        "identificationPlanossaude",
+                        "idArrivedByEdis",
+                        "patientPortal",
+                        "advancedDirectives",
+                        "identificationNecessidades"
+                      ]
+                    },
+                    "coding":{  
+                      "id":"coding",
+                      "description":"coding deepnavs",
+                      "pos":"5",
+                      "areaName":"__areaName__",
+                      "buttons":{  
+                        "codingPage":{  
+                          "id":"codingPage",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"CpPatientGW.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        }
+                      },
+                      "buttonsPos":[  
+                        "codingPage"
+                      ]
+                    },
+                    "discharge":{  
+                      "id":"discharge",
+                      "description":"discharge deepnavs",
+                      "pos":"5",
+                      "areaName":"__areaName__",
+                      "areas":{  
+                        "futureEvents":{  
+                          "id":"futureEvents",
+                          "description":"futureEvents deepnavs",
+                          "pos":"5",
+                          "areaName":"__areaName__",
+                          "buttons":{  
+                            "p1DepnavSummary":{  
+                              "id":"p1DepnavSummary",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"P1GridDoctorPat.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "futureEvents":{  
+                              "id":"futureEvents",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"FutureEventsList.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "surgProcCreation":{  
+                              "id":"surgProcCreation",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"SurgicalEpisodeLoader.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "inpatientEpisodes":{  
+                              "id":"inpatientEpisodes",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"InpatientEpisodesListLoader.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            }
+                          },
+                          "buttonsPos":[  
+                            "p1DepnavSummary",
+                            "futureEvents",
+                            "surgProcCreation",
+                            "inpatientEpisodes"
+                          ]
+                        }
+                      },
+                      "buttons":{  
+                        "dischargeDiagSaida":{  
+                          "id":"dischargeDiagSaida",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"DiagnosisFinalList.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "dischargeReceita":{  
+                          "id":"dischargeReceita",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"PrescViewAdminAndTasks.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "futureEvents":{  
+                          "id":"futureEvents",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "areaFqn":"inpPatient.topMenu.left.discharge.futureEvents"
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "dischargeRecDoente":{  
+                          "id":"dischargeRecDoente",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"RecommendPatientNotes.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "dischargeRecMedico":{  
+                          "id":"dischargeRecMedico",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"DischargeDoctorSummary.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "formulaires":{  
+                          "id":"formulaires",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"CitsCerfas.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "coSign":{  
+                          "id":"coSign",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"CoSignTaskList.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "deathRegistry":{  
+                          "id":"deathRegistry",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"DeathRegistrySummary.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "usDisposition":{  
+                          "id":"usDisposition",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"USDispositionSummary.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "signoff":{  
+                          "id":"signoff",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"SignOff.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "phyDischargeNotes":{  
+                          "id":"phyDischargeNotes",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"DSSummary.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "summaryInp":{  
+                          "id":"summaryInp",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"INPSummary.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        }
+                      },
+                      "buttonsPos":[  
+                        "dischargeDiagSaida",
+                        "dischargeReceita",
+                        "futureEvents",
+                        "dischargeRecDoente",
+                        "dischargeRecMedico",
+                        "formulaires",
+                        "coSign",
+                        "deathRegistry",
+                        "usDisposition",
+                        "signoff",
+                        "phyDischargeNotes",
+                        "summaryInp"
+                      ]
+                    },
+                    "patientManagement":{  
+                      "id":"patientManagement",
+                      "description":"patientManagement deepnavs",
+                      "pos":"5",
+                      "areaName":"__areaName__",
+                      "areas":{  
+                        "pendingIssue":{  
+                          "id":"pendingIssue",
+                          "description":"pendingIssue deepnavs",
+                          "pos":"5",
+                          "areaName":"__areaName__",
+                          "buttons":{  
+                            "myPendingIssue":{  
+                              "id":"myPendingIssue",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"MyPendingIssues.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            },
+                            "allPendingIssue":{  
+                              "id":"allPendingIssue",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"AllPendingIssues.swf"
+                                }
+                              },
+                              "areaId":"inpPatient"
+                            }
+                          },
+                          "buttonsPos":[  
+                            "myPendingIssue",
+                            "allPendingIssue"
+                          ]
+                        }
+                      },
+                      "buttons":{  
+                        "patientTransfers":{  
+                          "id":"patientTransfers",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ServiceTransferListPat.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "physicianHandOffEdis":{  
+                          "id":"physicianHandOffEdis",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"HandOffListPhysician.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "nurseHandOffEdis":{  
+                          "id":"nurseHandOffEdis",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"HandOffListNurse.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "medicalTeams":{  
+                          "id":"medicalTeams",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"HandOffListTeams.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "transferInstitution":{  
+                          "id":"transferInstitution",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"TransferInstitutionGrid.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "transportationTransportes":{  
+                          "id":"transportationTransportes",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"Movements.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "transportationDesvio":{  
+                          "id":"transportationDesvio",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"NewDetour.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "allocateBedInp":{  
+                          "id":"allocateBedInp",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"BedAssigmentLoader.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "pendingIssue":{  
+                          "id":"pendingIssue",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "areaFqn":"inpPatient.topMenu.left.patientManagement.pendingIssue"
+                          },
+                          "areaId":"inpPatient"
+                        },
+                        "idBelongingsEdis":{  
+                          "id":"idBelongingsEdis",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"PatientBelongings.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        }
+                      },
+                      "buttonsPos":[  
+                        "patientTransfers",
+                        "physicianHandOffEdis",
+                        "nurseHandOffEdis",
+                        "medicalTeams",
+                        "transferInstitution",
+                        "transportationTransportes",
+                        "transportationTransportes",
+                        "transportationDesvio",
+                        "allocateBedInp",
+                        "pendingIssue",
+                        "idBelongingsEdis"
+                      ]
+                    },
+                    "pregnancyButton":{  
+                      "id":"pregnancyButton",
+                      "description":"pregnancyButton deepnavs",
+                      "pos":"5",
+                      "areaName":"__areaName__",
+                      "buttons":{  
+                        "pregnancyList":{  
+                          "id":"pregnancyList",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"WomanHealthPregnanciesSummary.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        }
+                      },
+                      "buttonsPos":[  
+                        "pregnancyList"
+                      ]
+                    },
+                    "checklistFrontoffice":{  
+                      "id":"checklistFrontoffice",
+                      "description":"checklistFrontoffice deepnavs",
+                      "pos":"5",
+                      "areaName":"__areaName__",
+                      "buttons":{  
+                        "frontofficeChecklist":{  
+                          "id":"frontofficeChecklist",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ChecklistGrid.swf"
+                            }
+                          },
+                          "areaId":"inpPatient"
+                        }
+                      },
+                      "buttonsPos":[  
+                        "frontofficeChecklist"
+                      ]
+                    }
+                  },
+                  "buttons":{  
+                    "ehr":{  
+                      "id":"ehr",
+                      "label":"Electronic health record",
+                      "icon":"PreviousEpisodesIcon_3",
+                      "action":{  
+                        "areaFqn":"inpPatient.topMenu.left.ehr"
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "clinicalInfoIcon":{  
+                      "id":"clinicalInfoIcon",
+                      "label":"Documentation",
+                      "icon":"ClinicalInfoIcon",
+                      "action":{  
+                        "areaFqn":"inpPatient.topMenu.left.clinicalInfoIcon"
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "pdms":{  
+                      "id":"pdms",
+                      "label":"Patient Data Management System",
+                      "icon":"PDMSIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "orderEntry":{  
+                      "id":"orderEntry",
+                      "label":"Orders",
+                      "icon":"OrderEntryIcon",
+                      "action":{  
+                        "areaFqn":"inpPatient.topMenu.left.orderEntry"
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "nurse":{  
+                      "id":"nurse",
+                      "label":"Nursing process",
+                      "icon":"NurseIcon",
+                      "action":{  
+                        "areaFqn":"inpPatient.topMenu.left.nurse"
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "patientid":{  
+                      "id":"patientid",
+                      "label":"Patient identification",
+                      "icon":"PatientIDNewIcon",
+                      "action":{  
+                        "areaFqn":"inpPatient.topMenu.left.patientid"
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "coding":{  
+                      "id":"coding",
+                      "label":"Coding",
+                      "icon":"CodingIcon",
+                      "action":{  
+                        "areaFqn":"inpPatient.topMenu.left.coding"
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "discharge":{  
+                      "id":"discharge",
+                      "label":"Discharge",
+                      "icon":"DischargeIcon",
+                      "action":{  
+                        "areaFqn":"inpPatient.topMenu.left.discharge"
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "agenda":{  
+                      "id":"agenda",
+                      "label":"Scheduler",
+                      "icon":"ScheduledNewIcon",
+                      "action":{  
+                        "component":{  
+                          "type":"SWF",
+                          "id":"CalendarMonthOverview.swf"
+                        }
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "patientManagement":{  
+                      "id":"patientManagement",
+                      "label":"Patient management",
+                      "icon":"PatientManagementIcon",
+                      "action":{  
+                        "areaFqn":"inpPatient.topMenu.left.patientManagement"
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "pregnancyButton":{  
+                      "id":"pregnancyButton",
+                      "label":"Pregnancy record",
+                      "icon":"PregnancyIcon",
+                      "action":{  
+                        "areaFqn":"inpPatient.topMenu.left.pregnancyButton"
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "checklistFrontoffice":{  
+                      "id":"checklistFrontoffice",
+                      "label":"Checklists",
+                      "icon":"ChecklistBackofficeIcon",
+                      "action":{  
+                        "areaFqn":"inpPatient.topMenu.left.checklistFrontoffice"
+                      },
+                      "areaId":"inpPatient"
+                    }
+                  },
+                  "buttonsPos":[  
+                    "ehr",
+                    "clinicalInfoIcon",
+                    "pdms",
+                    "orderEntry",
+                    "nurse",
+                    "patientid",
+                    "coding",
+                    "discharge",
+                    "agenda",
+                    "patientManagement",
+                    "pregnancyButton",
+                    "checklistFrontoffice"
+                  ]
+                }
+              }
+            },
+            "topLeft":{  
+              "id":"topLeft",
+              "description":"Personal settings area",
+              "pos":6,
+              "areaName":"leftTopHeader",
+              "buttons":{  
+                "reset":{  
+                  "id":"reset",
+                  "label":"Go back to patient area",
+                  "icon":"RestartIcon",
+                  "action":{  
+    
+                  },
+                  "areaId":"inpPatient"
+                }
+              },
+              "buttonsPos":[  
+                "reset"
+              ]
+            },
+            "bottomRight":{  
+              "id":"bottomRight",
+              "description":"Ok area",
+              "pos":7,
+              "areaName":"rightFooter",
+              "buttons":{  
+                "ok":{  
+                  "id":"ok",
+                  "label":"Confirm/proceed",
+                  "icon":"OKIcon",
+                  "action":{  
+    
+                  },
+                  "areaId":"inpPatient"
+                }
+              },
+              "buttonsPos":[  
+                "ok"
+              ]
+            },
+            "alerts":{  
+              "id":"alerts",
+              "description":"Alerts area",
+              "pos":8,
+              "areaName":"leftBottomHeader",
+              "buttons":{  
+                "alert":{  
+                  "id":"alert",
+                  "label":"Alert messages",
+                  "icon":"AlertIcon",
+                  "action":{  
+                    "component":{  
+                      "type":"SWF",
+                      "id":"AlertsInpatient.swf"
+                    }
+                  },
+                  "areaId":"inpPatient"
+                }
+              },
+              "buttonsPos":[  
+                "alert"
+              ]
+            },
+            "bottomMenu":{  
+              "id":"bottomMenu",
+              "description":"Bottom menu",
+              "pos":10,
+              "areaName":"middleFooter",
+              "areas":{  
+                "left":{  
+                  "id":"left",
+                  "description":"Bottom menu left",
+                  "pos":10,
+                  "areaName":"middleFooter",
+                  "buttons":{  
+                    "print":{  
+                      "id":"print",
+                      "label":"Print",
+                      "icon":"PrintIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "create":{  
+                      "id":"create",
+                      "label":"Add",
+                      "icon":"AddIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "advanceSearchIcon":{  
+                      "id":"advanceSearchIcon",
+                      "label":"Advanced search",
+                      "icon":"AdvancedSearchIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "cancel":{  
+                      "id":"cancel",
+                      "label":"Cancel",
+                      "icon":"CancelIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "toolsCommontext":{  
+                      "id":"toolsCommontext",
+                      "label":"Most frequent texts",
+                      "icon":"CommonTextIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "actionButton":{  
+                      "id":"actionButton",
+                      "label":"Actions",
+                      "icon":"ActionsIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "viewsButton":{  
+                      "id":"viewsButton",
+                      "label":"Views",
+                      "icon":"ViewsIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "firstView":{  
+                      "id":"firstView",
+                      "label":"First view",
+                      "icon":"FirstVisionIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "barListEdis":{  
+                      "id":"barListEdis",
+                      "label":"List view",
+                      "icon":"ListIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "secondView":{  
+                      "id":"secondView",
+                      "label":"Second view",
+                      "icon":"SecondVisionIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "chartLinesEdis":{  
+                      "id":"chartLinesEdis",
+                      "label":"Graphic view",
+                      "icon":"ChartsLinesIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "docImport":{  
+                      "id":"docImport",
+                      "label":"Import documents",
+                      "icon":"ImportDocIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    }
+                  },
+                  "buttonsPos":[  
+                    "print",
+                    "create",
+                    "advanceSearchIcon",
+                    "cancel",
+                    "toolsCommontext",
+                    "actionButton",
+                    "viewsButton",
+                    "firstView",
+                    "barListEdis",
+                    "secondView",
+                    "chartLinesEdis",
+                    "docImport"
+                  ]
+                },
+                "right":{  
+                  "id":"right",
+                  "description":"Bottom menu right",
+                  "pos":11,
+                  "areaName":"middleFooter",
+                  "buttons":{  
+                    "eye":{  
+                      "id":"eye",
+                      "label":"Details",
+                      "icon":"DetailsIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "contextHelp":{  
+                      "id":"contextHelp",
+                      "label":"Clinical context help",
+                      "icon":"ContentIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "infoButton":{  
+                      "id":"infoButton",
+                      "label":"Infobutton",
+                      "icon":"InfoButtonIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "applicationHelp":{  
+                      "id":"applicationHelp",
+                      "label":"Functionality help",
+                      "icon":"HelpIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    },
+                    "globalShortcut":{  
+                      "id":"globalShortcut",
+                      "label":"Shortcuts",
+                      "icon":"GlobalShortcutIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpPatient"
+                    }
+                  },
+                  "buttonsPos":[  
+                    "eye",
+                    "contextHelp",
+                    "infoButton",
+                    "applicationHelp",
+                    "globalShortcut"
+                  ]
+                }
+              }
             }
-          },
-          "buttonsPos": [
-            "oKIcon"
-          ],
-          "areas": {}
+          }
+        },
+        "inpTools":{  
+          "id":"inpTools",
+          "description":"Inpatient tools area",
+          "pos":0,
+          "areaName":"",
+          "areas":{  
+            "topRight":{  
+              "id":"topRight",
+              "description":"Logout button area",
+              "pos":1,
+              "areaName":"rightTopHeader",
+              "buttons":{  
+                "logout":{  
+                  "id":"logout",
+                  "label":"Exit application",
+                  "icon":"ExitIcon",
+                  "action":{  
+    
+                  },
+                  "areaId":"inpTools"
+                }
+              },
+              "buttonsPos":[  
+                "logout"
+              ]
+            },
+            "bottomLeft":{  
+              "id":"bottomLeft",
+              "description":"Back button area",
+              "pos":2,
+              "areaName":"leftFooter",
+              "buttons":{  
+                "back":{  
+                  "id":"back",
+                  "label":"Go back",
+                  "icon":"BackIcon",
+                  "action":{  
+    
+                  },
+                  "areaId":"inpTools"
+                }
+              },
+              "buttonsPos":[  
+                "back"
+              ]
+            },
+            "topMenu":{  
+              "id":"topMenu",
+              "description":"Top menu",
+              "pos":3,
+              "areaName":"middleBottomHeader",
+              "areas":{  
+                "left":{  
+                  "id":"left",
+                  "description":"Top menu left",
+                  "pos":3,
+                  "areaName":"middleBottomHeader",
+                  "areas":{  
+                    "toolsLang":{  
+                      "id":"toolsLang",
+                      "description":"toolsLang deepnavs",
+                      "pos":"5",
+                      "areaName":"__areaName__",
+                      "buttons":{  
+                        "toolsEspecialidades":{  
+                          "id":"toolsEspecialidades",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ToolsMySpecialities.swf"
+                            }
+                          },
+                          "areaId":"inpTools"
+                        },
+                        "backofficeGroups":{  
+                          "id":"backofficeGroups",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"FollowUpCareGroupsList.swf"
+                            }
+                          },
+                          "areaId":"inpTools"
+                        },
+                        "toolsSalas":{  
+                          "id":"toolsSalas",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ToolsMyRoomsSet.swf"
+                            }
+                          },
+                          "areaId":"inpTools"
+                        },
+                        "toolsTouchOption":{  
+                          "id":"toolsTouchOption",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ToolsDataEntryFormatSet.swf"
+                            }
+                          },
+                          "areaId":"inpTools"
+                        },
+                        "biometrics":{  
+                          "id":"biometrics",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ToolsBiometricID.swf"
+                            }
+                          },
+                          "areaId":"inpTools"
+                        },
+                        "toolsPersonalData":{  
+                          "id":"toolsPersonalData",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ToolsProfessionalData.swf"
+                            }
+                          },
+                          "areaId":"inpTools"
+                        },
+                        "releaseNotes":{  
+                          "id":"releaseNotes",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ReleaseNoteList.swf"
+                            }
+                          },
+                          "areaId":"inpTools"
+                        }
+                      },
+                      "buttonsPos":[  
+                        "toolsEspecialidades",
+                        "backofficeGroups",
+                        "toolsSalas",
+                        "toolsTouchOption",
+                        "biometrics",
+                        "toolsPersonalData",
+                        "releaseNotes"
+                      ]
+                    },
+                    "commontext":{  
+                      "id":"commontext",
+                      "description":"commontext deepnavs",
+                      "pos":"5",
+                      "areaName":"__areaName__",
+                      "areas":{  
+                        "orderSetsTools":{  
+                          "id":"orderSetsTools",
+                          "description":"orderSetsTools deepnavs",
+                          "pos":"5",
+                          "areaName":"__areaName__",
+                          "buttons":{  
+                            "orderSetsTools":{  
+                              "id":"orderSetsTools",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"OrderSetList.swf"
+                                }
+                              },
+                              "areaId":"inpTools"
+                            },
+                            "groupsTools":{  
+                              "id":"groupsTools",
+                              "label":"",
+                              "icon":"",
+                              "action":{  
+                                "component":{  
+                                  "type":"SWF",
+                                  "id":"GroupsList.swf"
+                                }
+                              },
+                              "areaId":"inpTools"
+                            }
+                          },
+                          "buttonsPos":[  
+                            "orderSetsTools",
+                            "groupsTools"
+                          ]
+                        }
+                      },
+                      "buttons":{  
+                        "frequentText":{  
+                          "id":"frequentText",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"MostFrequentTexts.swf"
+                            }
+                          },
+                          "areaId":"inpTools"
+                        },
+                        "guidelineTools":{  
+                          "id":"guidelineTools",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"GuidelineList.swf"
+                            }
+                          },
+                          "areaId":"inpTools"
+                        },
+                        "protocolTools":{  
+                          "id":"protocolTools",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"ProtocolList.swf"
+                            }
+                          },
+                          "areaId":"inpTools"
+                        },
+                        "orderSetsTools":{  
+                          "id":"orderSetsTools",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "areaFqn":"inpTools.topMenu.left.commontext.orderSetsTools"
+                          },
+                          "areaId":"inpTools"
+                        },
+                        "predefineDiet":{  
+                          "id":"predefineDiet",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"DietTools.swf"
+                            }
+                          },
+                          "areaId":"inpTools"
+                        },
+                        "toolsDocMacro":{  
+                          "id":"toolsDocMacro",
+                          "label":"",
+                          "icon":"",
+                          "action":{  
+                            "component":{  
+                              "type":"SWF",
+                              "id":"DocumentationMacrosGrid.swf"
+                            }
+                          },
+                          "areaId":"inpTools"
+                        }
+                      },
+                      "buttonsPos":[  
+                        "frequentText",
+                        "guidelineTools",
+                        "protocolTools",
+                        "orderSetsTools",
+                        "predefineDiet",
+                        "toolsDocMacro"
+                      ]
+                    }
+                  },
+                  "buttons":{  
+                    "toolsLang":{  
+                      "id":"toolsLang",
+                      "label":"User configurations",
+                      "icon":"PreferencesIcon",
+                      "action":{  
+                        "areaFqn":"inpTools.topMenu.left.toolsLang"
+                      },
+                      "areaId":"inpTools"
+                    },
+                    "commontext":{  
+                      "id":"commontext",
+                      "label":"Content management",
+                      "icon":"ContentManagmentIcon",
+                      "action":{  
+                        "areaFqn":"inpTools.topMenu.left.commontext"
+                      },
+                      "areaId":"inpTools"
+                    },
+                    "pdms":{  
+                      "id":"pdms",
+                      "label":"Patient Data Management System",
+                      "icon":"PDMSIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpTools"
+                    }
+                  },
+                  "buttonsPos":[  
+                    "toolsLang",
+                    "commontext",
+                    "pdms"
+                  ]
+                }
+              }
+            },
+            "topLeft":{  
+              "id":"topLeft",
+              "description":"Personal settings area",
+              "pos":6,
+              "areaName":"leftTopHeader",
+              "buttons":{  
+                "reset":{  
+                  "id":"reset",
+                  "label":"Go back to patient area",
+                  "icon":"RestartIcon",
+                  "action":{  
+    
+                  },
+                  "areaId":"inpTools"
+                }
+              },
+              "buttonsPos":[  
+                "reset"
+              ]
+            },
+            "bottomRight":{  
+              "id":"bottomRight",
+              "description":"Ok area",
+              "pos":7,
+              "areaName":"rightFooter",
+              "buttons":{  
+                "ok":{  
+                  "id":"ok",
+                  "label":"Confirm/proceed",
+                  "icon":"OKIcon",
+                  "action":{  
+    
+                  },
+                  "areaId":"inpTools"
+                }
+              },
+              "buttonsPos":[  
+                "ok"
+              ]
+            },
+            "alerts":{  
+              "id":"alerts",
+              "description":"Alerts area",
+              "pos":8,
+              "areaName":"leftBottomHeader",
+              "buttons":{  
+                "alert":{  
+                  "id":"alert",
+                  "label":"Alert messages",
+                  "icon":"AlertIcon",
+                  "action":{  
+                    "component":{  
+                      "type":"SWF",
+                      "id":"AlertsInpatient.swf"
+                    }
+                  },
+                  "areaId":"inpTools"
+                }
+              },
+              "buttonsPos":[  
+                "alert"
+              ]
+            },
+            "bottomMenu":{  
+              "id":"bottomMenu",
+              "description":"Bottom menu",
+              "pos":10,
+              "areaName":"middleFooter",
+              "areas":{  
+                "left":{  
+                  "id":"left",
+                  "description":"Bottom menu left",
+                  "pos":10,
+                  "areaName":"middleFooter",
+                  "buttons":{  
+                    "print":{  
+                      "id":"print",
+                      "label":"Print",
+                      "icon":"PrintIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpTools"
+                    },
+                    "create":{  
+                      "id":"create",
+                      "label":"Add",
+                      "icon":"AddIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpTools"
+                    },
+                    "advanceSearchIcon":{  
+                      "id":"advanceSearchIcon",
+                      "label":"Advanced search",
+                      "icon":"AdvancedSearchIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpTools"
+                    },
+                    "cancel":{  
+                      "id":"cancel",
+                      "label":"Cancel",
+                      "icon":"CancelIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpTools"
+                    },
+                    "toolsCommontext":{  
+                      "id":"toolsCommontext",
+                      "label":"Most frequent texts",
+                      "icon":"CommonTextIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpTools"
+                    },
+                    "actionButton":{  
+                      "id":"actionButton",
+                      "label":"Actions",
+                      "icon":"ActionsIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpTools"
+                    },
+                    "viewsButton":{  
+                      "id":"viewsButton",
+                      "label":"Views",
+                      "icon":"ViewsIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpTools"
+                    },
+                    "docImport":{  
+                      "id":"docImport",
+                      "label":"Import documents",
+                      "icon":"ImportDocIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpTools"
+                    }
+                  },
+                  "buttonsPos":[  
+                    "print",
+                    "create",
+                    "advanceSearchIcon",
+                    "cancel",
+                    "toolsCommontext",
+                    "actionButton",
+                    "viewsButton",
+                    "docImport"
+                  ]
+                },
+                "right":{  
+                  "id":"right",
+                  "description":"Bottom menu right",
+                  "pos":11,
+                  "areaName":"middleFooter",
+                  "buttons":{  
+                    "eye":{  
+                      "id":"eye",
+                      "label":"Details",
+                      "icon":"DetailsIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpTools"
+                    },
+                    "applicationHelp":{  
+                      "id":"applicationHelp",
+                      "label":"Functionality help",
+                      "icon":"HelpIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpTools"
+                    },
+                    "contextHelp":{  
+                      "id":"contextHelp",
+                      "label":"Clinical context help",
+                      "icon":"ContentIcon",
+                      "action":{  
+    
+                      },
+                      "areaId":"inpTools"
+                    }
+                  },
+                  "buttonsPos":[  
+                    "eye",
+                    "applicationHelp",
+                    "contextHelp"
+                  ]
+                }
+              }
+            }
+          }
         }
       }
     }
