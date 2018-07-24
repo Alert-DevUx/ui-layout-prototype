@@ -5,7 +5,7 @@
  * Layout module that includes the public module as a dependency
  */
 //angular.module('layout', ['public', 'admin']);
-angular.module('layout', ['public'])
+angular.module('layout', ['public', 'ui.router'])
 .config(config);
 
 config.$inject = ['$urlRouterProvider'];

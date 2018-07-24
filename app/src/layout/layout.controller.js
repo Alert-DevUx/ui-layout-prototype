@@ -5,24 +5,19 @@ angular.module('layout')
 .controller('LayoutController', LayoutController);
 
 
-LayoutController.$inject = ['LayoutService', 'Path', 'Area', 'Button', 'Action'];
+LayoutController.$inject = ['LayoutService'];
 
-function LayoutController(LayoutService, Path, Area, Button, Action) {
+function LayoutController(LayoutService) {
     var ctrl = this;
 
     ctrl.topArea = {};
 
     LayoutService.getLayout().then(function(layout){
 
-
-        ctrl.topArea = new Area(layout.id, layout.description, layout.pos, layout.areaName);
-        
-        var path = new Path(layout.id);
-        ctrl.topArea.path = path.toString();
-
-        ctrl.topArea.setAreas(getAreas(layout.areas, path));
+        ctrl.topArea = layout;
     });
-        
+     
+    /*
     function getAreas(areasJson, path) {
 
         if(!areasJson) 
@@ -88,6 +83,7 @@ function LayoutController(LayoutService, Path, Area, Button, Action) {
 
         return action;
     }
+    */
 
 
 }

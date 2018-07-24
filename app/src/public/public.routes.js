@@ -31,6 +31,16 @@ function routeConfig ($stateProvider) {
       controller: 'LayoutController',
       controllerAs: 'layoutCtrl',
     })
+    .state('public.dynamicLayout', {
+      url: '/dynamicLayout',
+//      templateUrl: 'src/layout/dynamic-layout.html',
+      controller: 'DynamicLayoutController',
+      resolve: {
+        layout: ['LayoutService', function (LayoutService) {
+          return LayoutService.getLayout();
+        }]
+      }      
+    })    
     .state('public.menuitems', {
       url: '/menu/{category}',
       templateUrl: 'src/public/menu-items/menu-items.html',
