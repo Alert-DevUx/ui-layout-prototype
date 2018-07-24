@@ -37,9 +37,10 @@ function DynamicLayoutController(topArea, $uiRouter, $rootScope, $timeout, $stat
 
         // or $state.current.name
         var state = $uiRouter.stateService.current.name + '.' + area.path;
-        var url = computeUrl(state);
-        
-
+        // When using nested states, the child url is appended to the parent's url, therefore the
+        // we simply have to provide the id.
+        // TODO: Validate if the url is actualy needed
+        var url = '/' + area.id; 
 
         // Check if state already exists
         var exists = $state.href(state) ? true: false;
@@ -55,19 +56,8 @@ function DynamicLayoutController(topArea, $uiRouter, $rootScope, $timeout, $stat
                     url: url
                 }
             );
-
-            var sAux = $state.href(state);
-            if(sAux){
-                console.log('State ' + state  + ' added successfuly.');
-            };
         }
     }
-
-    function computeUrl(state) {
-
-        return state.replace($state.current.name, '').replace(new RegExp('\\.', 'g'),'/');
-    }
-
 
     createStates(topArea);
 
