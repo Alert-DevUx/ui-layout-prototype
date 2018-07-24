@@ -108,6 +108,10 @@
             
             return false;
         }  
+
+        Path.prototype.clone = function(){
+            return new Path(this.toString());
+        }
     
         return Path;
     }

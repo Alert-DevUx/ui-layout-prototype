@@ -25,11 +25,8 @@ function DynamicLayoutController(topArea, $uiRouter, $rootScope, $timeout, $stat
     function createStates(area) {
 
         createState(area);
-
-
         for (var id in area.areas) {
             if (area.areas.hasOwnProperty(id)) {
-
                 createStates(area.areas[id]);
             }
         }
@@ -38,34 +35,38 @@ function DynamicLayoutController(topArea, $uiRouter, $rootScope, $timeout, $stat
 
     function createState (area) {
 
-        var areaPath = area.p
+        // or $state.current.name
+        var state = $uiRouter.stateService.current.name + '.' + area.path;
+        var url = computeUrl(state);
+        
 
 
-        var s = $uiRouter.stateService.current.name + '.' + area.id;
-
-
-
-
-        var exists = $state.href(s) ? true: false;
-
+        // Check if state already exists
+        var exists = $state.href(state) ? true: false;
+        // Create otherwise
         if(!exists) {
-            console.log('Adding state ' + s + '...');
-            $uiRouter.stateProvider.state(s, 
+            console.log('Adding state ' + state + '...');
+            console.log('for url ' + url );
+            $uiRouter.stateProvider
+            .state(state, 
                 {   
                     template: '<p>OLA</p>',
                     controller: 'StateController',
-                    url: '/inpatient'
+                    url: url
                 }
             );
 
-            var sAux = $state.href(s);
-
+            var sAux = $state.href(state);
             if(sAux){
-                console.log('State ' + s  + ' added successfuly.');
+                console.log('State ' + state  + ' added successfuly.');
             };
         }
     }
 
+    function computeUrl(state) {
+
+        return state.replace($state.current.name, '').replace(new RegExp('\\.', 'g'),'/');
+    }
 
 
     createStates(topArea);
