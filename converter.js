@@ -285,7 +285,7 @@ getButton = function(line, areaId) {
 // Input file 
 // let file = process.argv[2];
 let file = 'inp_melrose_usph01.txt';
-let topAreaId = '0';
+let topAreaId = 'inpatient';
 let topAreaDesc = 'Default layout for INPATIENT';
 
 
