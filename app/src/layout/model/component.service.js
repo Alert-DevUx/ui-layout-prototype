@@ -9,31 +9,30 @@
     angular.module('layout')
     .service('Component', Component);
     
-    
-    //ComponentService.$inject = ['Path'];
-    //function ComponentService(Path) {
     function Component() {    
-        var service = this;
 
-        service.constructor = function(type, id) {
+        function Component(type, id) {
 
-            if(!service.validateParams()) {
-              throw 'Invalid parameters.';
+            if(!this.validateParams(type, id)) {
+              throw 'Component - Invalid parameters.';
             }
-            service.type = type;
-            service.id = id;
+            this.type = type;
+            this.id = id;
         }
       
-        service.validateParams = function(type, id) {
+        Component.prototype.validateParams = function(type, id) {
 
-            if( type != 'CRATE' || type != 'SWF' || type != 'EXTERNAL' || typeof(id) != 'string') {
+            if( type != 'CRATE' && 
+                type != 'SWF' &&
+                type != 'EXTERNAL' &&
+                typeof(id) != 'string') {
+                
                 return false;
             }
-    
             return  true;
         }
     
-        return service.constructor;
+        return Component;
     }
     
 })();

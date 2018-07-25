@@ -9,7 +9,6 @@
     angular.module('layout')
     .factory('Area', Area);
     
-    
     Area.$inject = ['Path'];
     function Area(Path) {
 
@@ -31,7 +30,6 @@
             // Path
             this.path = "";
         }      
-
 
         Area.prototype.getAreasAsArray = function() {
             var areasArray = [];

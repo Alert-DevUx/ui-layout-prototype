@@ -1,0 +1,27 @@
+
+<!--
+<a ui-sref="public.dynamicLayout.inpatient.inpEntry">
+    <div><span>Main Grid</span></div>
+</a>
+<a ui-sref="public.dynamicLayout.inpatient.inpPatient">
+    <div><span>Patient</span></div>
+</a>
+<a ui-sref="public.dynamicLayout.inpatient.inpTools">
+    <div><span>Tools</span></div>
+</a>
+-->
+
+<form name="myForm">
+        <label for="mySelect">Make a choice:</label>
+<select name="mySelect" id="mySelect"
+    ng-options="area.id as area.description for area in layout.areas track by area.id" 
+    ng-model="selectedArea"
+    ng-change="update()">
+</select>
+</form>
+
+<ui-view>
+    <div class="text-center initial-loading">
+      <h2>Loading top area...</h2>
+    </div>
+</ui-view>

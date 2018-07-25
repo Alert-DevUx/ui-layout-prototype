@@ -2,25 +2,21 @@
 "use strict";
 
 angular.module('layout')
-.controller('DynamicLayoutController', DynamicLayoutController)
-.controller('StateController', StateController);
+.controller('DynamicLayoutController', DynamicLayoutController);
 
 
-DynamicLayoutController.$inject = ['layout', '$uiRouter', '$rootScope', '$timeout', '$state'];
-function DynamicLayoutController(topArea, $uiRouter, $rootScope, $timeout, $state) {
+DynamicLayoutController.$inject = ['$scope', 'layout', '$uiRouter', '$state', '$transitions', '$timeout', '$stateParams'];
+function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions, $timeout, $stateParams) {
     
-    //console.log(JSON.stringify(layout));
-
-    console.log($uiRouter.stateRegistry.states);
-
-    console.log(topArea.description);
+    var ctrl = this;
 
     // For debugging purposes only
-    $rootScope.$on('$stateChangeSuccess', 
-    function(event, toState, toParams, fromState, fromParams){
-        console.log('State change from: ' + fromState + ' to state ' + toState);
-    });
-
+    $transitions.onSuccess({}, function(transition) {
+        console.log(
+            "Successful Transition from " + transition.from().name +
+            " to " + transition.to().name
+        );
+      });
 
     function createStates(area) {
 
@@ -51,46 +47,38 @@ function DynamicLayoutController(topArea, $uiRouter, $rootScope, $timeout, $stat
             $uiRouter.stateProvider
             .state(state, 
                 {   
-                    template: '<p>OLA</p>',
-                    controller: 'StateController',
-                    url: url
+                    component: 'area',
+                    //templateUrl: 'src/layout/views/area.html',
+                    url: url,
+                    params: {
+                        // Set selected area as state parameter
+                        area: layout.areas[$scope.selectedArea]
+                    },
+                    resolve: {
+                        // Resolve area through state parameters
+                        area: ['$stateParams', function ($stateParams) {
+                          return $stateParams.area;
+                        }]
+                    }  
                 }
             );
         }
     }
 
-    createStates(topArea);
-
-    console.log($uiRouter.stateRegistry.states);
-
-    /*
-    $timeout(function(){
-        console.log($state.$current.name);
-        $state.go('public.dynamicLayout.inpatient');
-    }, 5000)
-    */
+    // Create the states for all areas in layout
+    createStates(layout);
 
 
+    $scope.selectedArea = {};
+    $scope.layout = layout;
 
-
-
+    $scope.update = function() {
+        // Jump to selected state. Send selected area through state parameters
+        $state.go("public.dynamicLayout.inpatient." + $scope.selectedArea, 
+            {area: layout.areas[$scope.selectedArea]});
+    }
 
 }
-
-
-StateController.$inject = ['layout', '$state'];
-function StateController(area, $state) {
-    
-    //console.log(JSON.stringify(layout));
-
-    console.log($state.current.name);
-
-    
-
-
-}
-
-
 
 
 })();

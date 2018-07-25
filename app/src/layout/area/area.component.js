@@ -10,8 +10,10 @@
       controller: AreaController
     });
     
+    
     function AreaController() {
       var $ctrl = this;
+
     }    
     
 })();

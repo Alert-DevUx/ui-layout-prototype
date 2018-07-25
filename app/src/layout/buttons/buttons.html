@@ -1,3 +1,3 @@
-<div ng-repeat="button in $ctrl.buttons" ng-class="$ctrl.getButtonsStyle('{{button.path}}')">
+<div  ui-sref="button.action.targetArea" ng-repeat="button in $ctrl.buttons" ng-class="$ctrl.getButtonsStyle('{{button.path}}')">
     <button button="button" class="button"/>
 </div>

@@ -4,8 +4,8 @@
   angular.module('layout')
   .service('LayoutService', LayoutService);
 
-  LayoutService.$inject = ['$q', 'Path', 'Area', 'Button', 'Action'];
-  function LayoutService($q, Path, Area, Button, Action) {
+  LayoutService.$inject = ['$q', 'Path', 'Area', 'Button', 'Action', 'Component'];
+  function LayoutService($q, Path, Area, Button, Action, Component) {
     var service = this;
 
     service.getLayout = function() {
@@ -85,20 +85,22 @@
 
     function getButton(buttonJson, parentPath) {
 
-        var button = new Button(buttonJson.id, buttonJson.label, buttonJson.icon, buttonJson.action, buttonJson.areaId);
+        var button = new Button(buttonJson.id, buttonJson.label, buttonJson.icon, getAction(buttonJson.action), buttonJson.areaId);
 
         // Set button path
         button.path = parentPath.toString();
-        button.setAction(getAction(buttonJson.action));
 
         return button;
     }    
 
     function getAction(actionJson) {
 
-        var action = new Action();
-
-        return action;
+        if(actionJson.targetArea) {
+          if((actionJson.component && actionJson.component.type && actionJson.component.id)) {
+            var component = new Component(actionJson.component.type, actionJson.component.id)
+          }
+          return new Action(actionJson.targetArea, actionJson.button, component);
+        }
     }
 
 
@@ -341,7 +343,7 @@
                       "label":"Patient's barcode",
                       "icon":"BarCodeIcon",
                       "action":{  
-                        "areaFqn":"inpEntry.topMenu.left.barCode"
+                        "targetArea":"inpEntry.topMenu.left.barCode"
                       },
                       "areaId":"inpEntry"
                     },
@@ -362,7 +364,7 @@
                       "label":"Transfers",
                       "icon":"ResponsibilityTransferIcon",
                       "action":{  
-                        "areaFqn":"inpEntry.topMenu.left.responsabilityTransferEdis"
+                        "targetArea":"inpEntry.topMenu.left.responsabilityTransferEdis"
                       },
                       "areaId":"inpEntry"
                     },
@@ -371,7 +373,7 @@
                       "label":"To-do list",
                       "icon":"CheckListIcon",
                       "action":{  
-                        "areaFqn":"inpEntry.topMenu.left.pendingTasks"
+                        "targetArea":"inpEntry.topMenu.left.pendingTasks"
                       },
                       "areaId":"inpEntry"
                     },
@@ -551,7 +553,7 @@
                   "label":"Patient search",
                   "icon":"SearchIcon",
                   "action":{  
-                    "areaFqn":"inpEntry.search.search"
+                    "targetArea":"inpEntry.search.search"
                   },
                   "areaId":"inpEntry"
                 }
@@ -1073,7 +1075,7 @@
                               "label":"",
                               "icon":"",
                               "action":{  
-                                "areaFqn":"inpPatient.topMenu.left.ehr.visits.dietProcess"
+                                "targetArea":"inpPatient.topMenu.left.ehr.visits.dietProcess"
                               },
                               "areaId":"inpPatient"
                             },
@@ -1118,7 +1120,7 @@
                               "label":"",
                               "icon":"",
                               "action":{  
-                                "areaFqn":"inpPatient.topMenu.left.ehr.visits.detailsOnPastIllnesses"
+                                "targetArea":"inpPatient.topMenu.left.ehr.visits.detailsOnPastIllnesses"
                               },
                               "areaId":"inpPatient"
                             }
@@ -1357,7 +1359,7 @@
                               "label":"",
                               "icon":"",
                               "action":{  
-                                "areaFqn":"inpPatient.topMenu.left.ehr.testAndTreatments.rehab"
+                                "targetArea":"inpPatient.topMenu.left.ehr.testAndTreatments.rehab"
                               },
                               "areaId":"inpPatient"
                             }
@@ -1620,7 +1622,7 @@
                               "label":"",
                               "icon":"",
                               "action":{  
-                                "areaFqn":"inpPatient.topMenu.left.ehr.history.assessToolsGroup"
+                                "targetArea":"inpPatient.topMenu.left.ehr.history.assessToolsGroup"
                               },
                               "areaId":"inpPatient"
                             },
@@ -1665,7 +1667,7 @@
                               "label":"",
                               "icon":"",
                               "action":{  
-                                "areaFqn":"inpPatient.topMenu.left.ehr.history.avaliacaoInfantil"
+                                "targetArea":"inpPatient.topMenu.left.ehr.history.avaliacaoInfantil"
                               },
                               "areaId":"inpPatient"
                             },
@@ -1779,7 +1781,7 @@
                           "label":"",
                           "icon":"",
                           "action":{  
-                            "areaFqn":"inpPatient.topMenu.left.ehr.visits"
+                            "targetArea":"inpPatient.topMenu.left.ehr.visits"
                           },
                           "areaId":"inpPatient"
                         },
@@ -1788,7 +1790,7 @@
                           "label":"",
                           "icon":"",
                           "action":{  
-                            "areaFqn":"inpPatient.topMenu.left.ehr.planning"
+                            "targetArea":"inpPatient.topMenu.left.ehr.planning"
                           },
                           "areaId":"inpPatient"
                         },
@@ -1797,7 +1799,7 @@
                           "label":"",
                           "icon":"",
                           "action":{  
-                            "areaFqn":"inpPatient.topMenu.left.ehr.testAndTreatments"
+                            "targetArea":"inpPatient.topMenu.left.ehr.testAndTreatments"
                           },
                           "areaId":"inpPatient"
                         },
@@ -1806,7 +1808,7 @@
                           "label":"",
                           "icon":"",
                           "action":{  
-                            "areaFqn":"inpPatient.topMenu.left.ehr.history"
+                            "targetArea":"inpPatient.topMenu.left.ehr.history"
                           },
                           "areaId":"inpPatient"
                         },
@@ -1827,7 +1829,7 @@
                           "label":"",
                           "icon":"",
                           "action":{  
-                            "areaFqn":"inpPatient.topMenu.left.ehr.nursing"
+                            "targetArea":"inpPatient.topMenu.left.ehr.nursing"
                           },
                           "areaId":"inpPatient"
                         },
@@ -2068,7 +2070,7 @@
                           "label":"",
                           "icon":"",
                           "action":{  
-                            "areaFqn":"inpPatient.topMenu.left.clinicalInfoIcon.progressNotes"
+                            "targetArea":"inpPatient.topMenu.left.clinicalInfoIcon.progressNotes"
                           },
                           "areaId":"inpPatient"
                         },
@@ -2125,7 +2127,7 @@
                           "label":"",
                           "icon":"",
                           "action":{  
-                            "areaFqn":"inpPatient.topMenu.left.clinicalInfoIcon.assessToolsGroup"
+                            "targetArea":"inpPatient.topMenu.left.clinicalInfoIcon.assessToolsGroup"
                           },
                           "areaId":"inpPatient"
                         },
@@ -2417,7 +2419,7 @@
                           "label":"",
                           "icon":"",
                           "action":{  
-                            "areaFqn":"inpPatient.topMenu.left.orderEntry.depnvAnalisys"
+                            "targetArea":"inpPatient.topMenu.left.orderEntry.depnvAnalisys"
                           },
                           "areaId":"inpPatient"
                         },
@@ -2450,7 +2452,7 @@
                           "label":"",
                           "icon":"",
                           "action":{  
-                            "areaFqn":"inpPatient.topMenu.left.orderEntry.prescription",
+                            "targetArea":"inpPatient.topMenu.left.orderEntry.prescription",
                             "component":{  
                               "type":"SWF",
                               "id":"PrescViewAdminAndTasks.swf"
@@ -2475,7 +2477,7 @@
                           "label":"",
                           "icon":"",
                           "action":{  
-                            "areaFqn":"inpPatient.topMenu.left.orderEntry.pEnsinosenfermagem"
+                            "targetArea":"inpPatient.topMenu.left.orderEntry.pEnsinosenfermagem"
                           },
                           "areaId":"inpPatient"
                         },
@@ -2520,7 +2522,7 @@
                           "label":"",
                           "icon":"",
                           "action":{  
-                            "areaFqn":"inpPatient.topMenu.left.orderEntry.physicalTherapy"
+                            "targetArea":"inpPatient.topMenu.left.orderEntry.physicalTherapy"
                           },
                           "areaId":"inpPatient"
                         },
@@ -2529,7 +2531,7 @@
                           "label":"",
                           "icon":"",
                           "action":{  
-                            "areaFqn":"inpPatient.topMenu.left.orderEntry.planningGroup"
+                            "targetArea":"inpPatient.topMenu.left.orderEntry.planningGroup"
                           },
                           "areaId":"inpPatient"
                         },
@@ -2926,7 +2928,7 @@
                           "label":"",
                           "icon":"",
                           "action":{  
-                            "areaFqn":"inpPatient.topMenu.left.discharge.futureEvents"
+                            "targetArea":"inpPatient.topMenu.left.discharge.futureEvents"
                           },
                           "areaId":"inpPatient"
                         },
@@ -3199,7 +3201,7 @@
                           "label":"",
                           "icon":"",
                           "action":{  
-                            "areaFqn":"inpPatient.topMenu.left.patientManagement.pendingIssue"
+                            "targetArea":"inpPatient.topMenu.left.patientManagement.pendingIssue"
                           },
                           "areaId":"inpPatient"
                         },
@@ -3283,7 +3285,7 @@
                       "label":"Electronic health record",
                       "icon":"PreviousEpisodesIcon_3",
                       "action":{  
-                        "areaFqn":"inpPatient.topMenu.left.ehr"
+                        "targetArea":"inpPatient.topMenu.left.ehr"
                       },
                       "areaId":"inpPatient"
                     },
@@ -3292,7 +3294,7 @@
                       "label":"Documentation",
                       "icon":"ClinicalInfoIcon",
                       "action":{  
-                        "areaFqn":"inpPatient.topMenu.left.clinicalInfoIcon"
+                        "targetArea":"inpPatient.topMenu.left.clinicalInfoIcon"
                       },
                       "areaId":"inpPatient"
                     },
@@ -3310,7 +3312,7 @@
                       "label":"Orders",
                       "icon":"OrderEntryIcon",
                       "action":{  
-                        "areaFqn":"inpPatient.topMenu.left.orderEntry"
+                        "targetArea":"inpPatient.topMenu.left.orderEntry"
                       },
                       "areaId":"inpPatient"
                     },
@@ -3319,7 +3321,7 @@
                       "label":"Nursing process",
                       "icon":"NurseIcon",
                       "action":{  
-                        "areaFqn":"inpPatient.topMenu.left.nurse"
+                        "targetArea":"inpPatient.topMenu.left.nurse"
                       },
                       "areaId":"inpPatient"
                     },
@@ -3328,7 +3330,7 @@
                       "label":"Patient identification",
                       "icon":"PatientIDNewIcon",
                       "action":{  
-                        "areaFqn":"inpPatient.topMenu.left.patientid"
+                        "targetArea":"inpPatient.topMenu.left.patientid"
                       },
                       "areaId":"inpPatient"
                     },
@@ -3337,7 +3339,7 @@
                       "label":"Coding",
                       "icon":"CodingIcon",
                       "action":{  
-                        "areaFqn":"inpPatient.topMenu.left.coding"
+                        "targetArea":"inpPatient.topMenu.left.coding"
                       },
                       "areaId":"inpPatient"
                     },
@@ -3346,7 +3348,7 @@
                       "label":"Discharge",
                       "icon":"DischargeIcon",
                       "action":{  
-                        "areaFqn":"inpPatient.topMenu.left.discharge"
+                        "targetArea":"inpPatient.topMenu.left.discharge"
                       },
                       "areaId":"inpPatient"
                     },
@@ -3367,7 +3369,7 @@
                       "label":"Patient management",
                       "icon":"PatientManagementIcon",
                       "action":{  
-                        "areaFqn":"inpPatient.topMenu.left.patientManagement"
+                        "targetArea":"inpPatient.topMenu.left.patientManagement"
                       },
                       "areaId":"inpPatient"
                     },
@@ -3376,7 +3378,7 @@
                       "label":"Pregnancy record",
                       "icon":"PregnancyIcon",
                       "action":{  
-                        "areaFqn":"inpPatient.topMenu.left.pregnancyButton"
+                        "targetArea":"inpPatient.topMenu.left.pregnancyButton"
                       },
                       "areaId":"inpPatient"
                     },
@@ -3385,7 +3387,7 @@
                       "label":"Checklists",
                       "icon":"ChecklistBackofficeIcon",
                       "action":{  
-                        "areaFqn":"inpPatient.topMenu.left.checklistFrontoffice"
+                        "targetArea":"inpPatient.topMenu.left.checklistFrontoffice"
                       },
                       "areaId":"inpPatient"
                     }
@@ -3914,7 +3916,7 @@
                           "label":"",
                           "icon":"",
                           "action":{  
-                            "areaFqn":"inpTools.topMenu.left.commontext.orderSetsTools"
+                            "targetArea":"inpTools.topMenu.left.commontext.orderSetsTools"
                           },
                           "areaId":"inpTools"
                         },
@@ -3959,7 +3961,7 @@
                       "label":"User configurations",
                       "icon":"PreferencesIcon",
                       "action":{  
-                        "areaFqn":"inpTools.topMenu.left.toolsLang"
+                        "targetArea":"inpTools.topMenu.left.toolsLang"
                       },
                       "areaId":"inpTools"
                     },
@@ -3968,7 +3970,7 @@
                       "label":"Content management",
                       "icon":"ContentManagmentIcon",
                       "action":{  
-                        "areaFqn":"inpTools.topMenu.left.commontext"
+                        "targetArea":"inpTools.topMenu.left.commontext"
                       },
                       "areaId":"inpTools"
                     },

@@ -9,21 +9,7 @@
     angular.module('layout')
     .factory('Button', Button);
     
-    
-    //ButtonService.$inject = ['Path'];
-    //function ButtonService(Path) {
     function Button() {    
-        // var service = this;
-
-        /*
-        Button.prototype = {
-
-            constructor: Button,
-
-            setAction: setAction,
-
-        }
-*/
 
         function Button(id, label, icon, action, areaId) {
 

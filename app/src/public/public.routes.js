@@ -33,7 +33,7 @@ function routeConfig ($stateProvider) {
     })
     .state('public.dynamicLayout', {
       url: '/dynamicLayout',
-//      templateUrl: 'src/layout/dynamic-layout.html',
+      templateUrl: 'src/layout/dynamic-layout.html',
       controller: 'DynamicLayoutController',
       resolve: {
         layout: ['LayoutService', function (LayoutService) {

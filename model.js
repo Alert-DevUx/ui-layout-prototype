@@ -245,14 +245,14 @@ Screen actions, not to be confused with the application actions.
 Allows to specify an area to go to, and optionally, a button to activated in that area and/or a component to load.
 */
 class Action {
-    constructor(areaFqn, button, component) {
+    constructor(targetArea, buttonId, component) {
 
         if(!this.validateParams()) {
           throw 'Invalid parameters.';
         }
-        this.areaFqn = areaFqn;
-        if(button) {
-            this.button = button;
+        this.targetArea = targetArea;
+        if(buttonId) {
+            this.buttonId = buttonId;
         }
         if(component) {
             this.component = component;
@@ -269,7 +269,7 @@ class Action {
 
     validateParams() {
         /*
-        1. areaFqn is the full qualified name of an area (area's ids from the top level area, joined by ".")
+        1. targetArea is the string representation of the complete area's path
         2. button is of type string. It is optional. If provided should correspond to a valid button id in the provided area.
         */
         return  true;
