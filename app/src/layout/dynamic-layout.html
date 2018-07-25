@@ -16,7 +16,7 @@
 <select name="mySelect" id="mySelect"
     ng-options="area.id as area.description for area in layout.areas track by area.id" 
     ng-model="selectedArea"
-    ng-change="update()">
+    ng-change="go()">
 </select>
 </form>
 

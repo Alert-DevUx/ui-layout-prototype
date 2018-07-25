@@ -5,8 +5,8 @@ angular.module('layout')
 .controller('DynamicLayoutController', DynamicLayoutController);
 
 
-DynamicLayoutController.$inject = ['$scope', 'layout', '$uiRouter', '$state', '$transitions', '$timeout', '$stateParams'];
-function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions, $timeout, $stateParams) {
+DynamicLayoutController.$inject = ['$scope', 'layout', '$uiRouter', '$state', '$transitions', '$timeout', '$stateParams', 'Path'];
+function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions, $timeout, $stateParams, Path) {
     
     var ctrl = this;
 
@@ -52,12 +52,17 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                     url: url,
                     params: {
                         // Set selected area as state parameter
-                        area: layout.areas[$scope.selectedArea]
+                        targetPath: ''
                     },
                     resolve: {
                         // Resolve area through state parameters
-                        area: ['$stateParams', function ($stateParams) {
-                          return $stateParams.area;
+                        area: ['$stateParams', 'LayoutService', function ($stateParams, LayoutService) {
+                            if($stateParams.targetPath) {
+                                var area = layout.findArea(new Path($stateParams.targetPath).removeHead()); 
+                                return area;
+                            } else {
+                                return null;
+                            }
                         }]
                     }  
                 }
@@ -72,10 +77,10 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     $scope.selectedArea = {};
     $scope.layout = layout;
 
-    $scope.update = function() {
+    $scope.go = function() {
         // Jump to selected state. Send selected area through state parameters
         $state.go("public.dynamicLayout.inpatient." + $scope.selectedArea, 
-            {area: layout.areas[$scope.selectedArea]});
+            {targetPath: layout.areas[$scope.selectedArea].path});
     }
 
 }

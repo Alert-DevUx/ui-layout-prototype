@@ -144,7 +144,7 @@ getPath = function(line){
     // Add this line as the target to the parent (if there is one). This info will be used to create
     // the navigation action in the button of the parent line
     if(line.idSbpParent) {
-        getParentLine(line).targetArea = areaPath.toString();
+        getParentLine(line).targetArea = topAreaId + '.' + areaPath.toString();
     }
 
     return areaPath;
