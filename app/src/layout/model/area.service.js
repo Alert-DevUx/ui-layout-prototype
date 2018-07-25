@@ -129,7 +129,7 @@
         Area.prototype.findArea = function(path) {
 
             // Clone path object before calling _findAreaRec because it is changed in 
-            return _findAreaRec(new Path(path.toString()));
+            return this._findAreaRec(new Path(path.toString()));
     
         }
 
