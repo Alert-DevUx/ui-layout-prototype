@@ -5,8 +5,8 @@ angular.module('layout')
 .controller('DynamicLayoutController', DynamicLayoutController);
 
 
-DynamicLayoutController.$inject = ['$scope', 'layout', '$uiRouter', '$state', '$transitions', '$timeout', '$stateParams', 'Path'];
-function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions, $timeout, $stateParams, Path) {
+DynamicLayoutController.$inject = ['$scope', 'layout', '$uiRouter', '$state', '$transitions', '$timeout', '$stateParams', 'Path', 'LAYOUT_BASE_STATE'];
+function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions, $timeout, $stateParams, Path, LAYOUT_BASE_STATE) {
     
     var ctrl = this;
 
@@ -48,7 +48,6 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
             .state(state, 
                 {   
                     component: 'area',
-                    //templateUrl: 'src/layout/views/area.html',
                     url: url,
                     params: {
                         // Set selected area as state parameter
@@ -58,7 +57,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                         // Resolve area through state parameters
                         area: ['$stateParams', 'LayoutService', function ($stateParams, LayoutService) {
                             if($stateParams.targetPath) {
-                                var area = layout.findArea(new Path($stateParams.targetPath).removeHead()); 
+                                var area = layout.findArea(new Path($stateParams.targetPath)); 
                                 return area;
                             } else {
                                 return null;
@@ -78,9 +77,11 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     $scope.layout = layout;
 
     $scope.go = function() {
+
+        var state = LAYOUT_BASE_STATE + "." + layout.id + "." + $scope.selectedArea;
+
         // Jump to selected state. Send selected area through state parameters
-        $state.go("public.dynamicLayout.inpatient." + $scope.selectedArea, 
-            {targetPath: layout.areas[$scope.selectedArea].path});
+        $state.go(state, {targetPath: layout.areas[$scope.selectedArea].path});
     }
 
 }

@@ -6,7 +6,8 @@
  */
 //angular.module('layout', ['public', 'admin']);
 angular.module('layout', ['public', 'ui.router'])
-.config(config);
+.config(config)
+.constant('LAYOUT_BASE_STATE', 'public.dynamicLayout');
 
 config.$inject = ['$urlRouterProvider'];
 function config($urlRouterProvider) {

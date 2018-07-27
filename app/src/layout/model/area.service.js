@@ -124,31 +124,29 @@
          * tree.
          * 
          * This method expect a path relative to the position of this area in the tree. I.e., the first
-         * id on the path must match one of the child areas of this area.
+         * id on the path must match this area's id.
          */    
         Area.prototype.findArea = function(path) {
 
-            // Clone path object before calling _findAreaRec because it is changed in 
-            return this._findAreaRec(new Path(path.toString()));
+            // Clone path object before calling _findAreaRec because it is changed inside
+            return this._findAreaRec(path.clone());
     
         }
 
         Area.prototype._findAreaRec = function(path) {
 
-            for (var key in this.areas) {
-                if (this.areas.hasOwnProperty(key)) {
-
-                    let childArea = this.areas[key];
-                    if(path.getHead() === childArea.id) {
-                        // Remove path head
-                        path.removeHead();
-                        if(path.toString() === '') {
-                            // Id matches at last level: Found!
-                            return childArea;
-                        } else {
-                            // Proceed with search at next level removing the first position of the array
-                            return childArea.findArea(path);
-                        }
+            if(path.toString() === this.id) {
+                // Id matches at last level: Found!
+                return this;
+            } else {
+                // If top most element of path matches this id...
+                if(path.getHead() === this.id) {
+                    // remove top most element from path...
+                    path.removeHead();
+                    // and continue searching in the child which id is the head of the new path
+                    var childId = path.getHead();
+                    if(this.areas[childId]){
+                        return this.areas[childId].findArea(path);
                     }
                 }
             }

@@ -10,15 +10,16 @@
       controller: ButtonController
     });
     
-    ButtonController.$inject = ['$state'];
-    function ButtonController($state) {
+    ButtonController.$inject = ['$state', 'LAYOUT_BASE_STATE'];
+    function ButtonController($state, LAYOUT_BASE_STATE) {
       var $ctrl = this;
 
       $ctrl.go = function() {
-        console.log('GOOOOOOOO')
         // Jump to selected state. Send selected area through state parameters
-        $state.go("public.dynamicLayout." + $ctrl.button.action.targetArea, 
+        if($ctrl.button.action && $ctrl.button.action.targetArea) {
+          $state.go(LAYOUT_BASE_STATE + "." + $ctrl.button.action.targetArea, 
             {targetPath: $ctrl.button.action.targetArea});
+        }
       }
     }    
     
