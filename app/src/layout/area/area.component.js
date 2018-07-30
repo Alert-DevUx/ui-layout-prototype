@@ -2,7 +2,7 @@
     "use strict";
     
     angular.module('layout')
-    .component('area', {
+    .component('layout.area', {
       templateUrl: 'src/layout/area/area.html',
       bindings: {
         area: '<'
