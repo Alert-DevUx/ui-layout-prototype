@@ -17,8 +17,7 @@
       $ctrl.go = function() {
         // Jump to selected state. Send selected area through state parameters
         if($ctrl.button.action && $ctrl.button.action.targetArea) {
-          $state.go(LAYOUT_BASE_STATE + "." + $ctrl.button.action.targetArea, 
-            {targetPath: $ctrl.button.action.targetArea});
+          $state.go(LAYOUT_BASE_STATE + "." + $ctrl.button.action.targetArea);
         }
       }
     }    

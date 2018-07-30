@@ -46,7 +46,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         // Check if state already exists
         var exists = $state.href(state) ? true: false;
         // Create otherwise
-        if(!exists) {
+        if(!exists && views) {
             console.log('Adding state ' + state + '...');
             console.log('for url ' + url + ' with views: ' + JSON.stringify(views));
             $uiRouter.stateProvider
@@ -59,17 +59,20 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                         // Set selected area as state parameter
                         targetPath: ''
                     },
-                    resolve: {
-                        // Resolve area through state parameters
-                        area: ['$stateParams', function ($stateParams) {
-                            if($stateParams.targetPath) {
-                                var area = layout.findArea(new Path($stateParams.targetPath)); 
-                                return area;
-                            } else {
-                                return null;
-                            }
-                        }]
-                    }  
+                    data: {
+                        area: area
+                    }
+                    // resolve: {
+                    //     // Resolve area through state parameters
+                    //     area: ['$stateParams', function ($stateParams) {
+                    //         if($stateParams.targetPath) {
+                    //             var area = layout.findArea(new Path($stateParams.targetPath)); 
+                    //             return area;
+                    //         } else {
+                    //             return null;
+                    //         }
+                    //     }]
+                    // }  
                 }
             );
         }
@@ -82,6 +85,8 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
             views = VIEW_MAP.layout;
         } else if(area.pos === 0 ){
             views =  VIEW_MAP.top;
+        } else if(area.pos === 3 ){
+            views =  VIEW_MAP.menu;
         } else {
             views[area.id] = {		
                 component: 'layout.area'	
@@ -105,6 +110,10 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
             'alerts': 'layout.area',		
             'search': 'layout.area',		
             'bottomMenu': 'layout.area'    
+        },
+        menu: {	
+            'barcode': 'layout.area',		
+            'bottomMenu': 'layout.area'   
         }
     }
 
@@ -123,10 +132,10 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         var state = LAYOUT_BASE_STATE + "." + layout.id + "." + $scope.selectedArea;
 
         // Jump to selected state. Send selected area through state parameters
-        $state.go(state, {targetPath: layout.areas[$scope.selectedArea].path});
-        
-        //$state.go('public.dynamicLayout.inpatient.entry.topMenu.left', 
-        //        {targetPath: 'inpatient.entry.topMenu.left'});
+        //$state.go(state, {targetPath: layout.areas[$scope.selectedArea].path});
+        // For the time being must jump for a menu that has buttons with an action (see area controller)
+        $state.go(state + '.topMenu.left');
+        //$state.go('public.dynamicLayout.inpatient.entry.topMenu.left');
         
     }
 
