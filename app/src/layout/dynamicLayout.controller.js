@@ -123,10 +123,10 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         var state = LAYOUT_BASE_STATE + "." + layout.id + "." + $scope.selectedArea;
 
         // Jump to selected state. Send selected area through state parameters
-        //$state.go(state, {targetPath: layout.areas[$scope.selectedArea].path});
+        $state.go(state, {targetPath: layout.areas[$scope.selectedArea].path});
         
-        $state.go('public.dynamicLayout.inpatient.entry.topMenu.left', 
-                {targetPath: 'inpatient.entry.topMenu.left'});
+        //$state.go('public.dynamicLayout.inpatient.entry.topMenu.left', 
+        //        {targetPath: 'inpatient.entry.topMenu.left'});
         
     }
 
