@@ -68,21 +68,20 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                         // Set selected area as state parameter
                         targetPath: ''
                     },
-                    data: {
-                        area: area
-                    },
+                    //data: {
+                    //    area: area
+                    //},
                     redirectTo: redirectTo,
-                    // resolve: {
-                    //    // Resolve area through state parameters
-                    //    area: ['$stateParams', function ($stateParams) {
-                    //        if($stateParams.targetPath) {
-                    //            var area = layout.findArea(new Path($stateParams.targetPath)); 
-                    //            return area;
-                    //        } else {
-                    //            return null;
-                    //        }
-                    //    }]
-                    //}  
+                    resolve: {
+                       // Resolve area through state parameters
+                       area: function () {
+
+                           var path = new Path(state).removeHead().removeHead();
+                           // Remove 
+                           var area = layout.findArea(path); 
+                           return area;
+                       }
+                    }  
                 }
             );
         }
@@ -113,20 +112,24 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
             views = { '': 'layout.root' };
             break;
             case 0:
-            views = {}
-            //views[''] = 'layout.top';
-            views['headerRight' + viewAbsName] = 'layout.area';
-            views['actionMenuLeft' + viewAbsName] = 'layout.area';
-            views['mainMenu' + viewAbsName] = 'layout.area';
-            views['deepnav' + viewAbsName] = 'layout.area';
             views['headerLeft' + viewAbsName] = 'layout.area';
-            views['actionMenuRight' + viewAbsName] = 'layout.area';
-            views['mainMenuLeft' + viewAbsName] = 'layout.area';
-            views['mainMenuRight' + viewAbsName] = 'layout.area';
-            views['mainMenuLeft' + viewAbsName] = 'layout.area';
+            views['headerRight' + viewAbsName] = 'layout.area';
             views['actionMenuLeft' + viewAbsName] = 'layout.area';
             views['actionMenuRight' + viewAbsName] = 'layout.area';
             break;
+            case 3:
+            views['mainMenu' + viewAbsName] = 'layout.area';
+            views['mainMenuLeft' + viewAbsName] = 'layout.area';
+            case 4:
+            views['mainMenuRight' + viewAbsName] = 'layout.area';
+            break;
+            case 5: 
+            views['deepnav' + viewAbsName] = 'layout.area'; 
+            case 10:
+            case 11:
+            views['actionMenu' + viewAbsName] = 'layout.area';
+            default:
+            views['deepnav' + viewAbsName] = 'layout.area';
         }
 
         return views;

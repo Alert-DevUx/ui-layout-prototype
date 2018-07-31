@@ -4,17 +4,15 @@
     angular.module('layout')
     .component('layout.area', {
       templateUrl: 'src/layout/area/area.html',
-      //bindings: {
-      //   area: '<'
-      //},
+      bindings: {
+         area: '<'
+      },
       controller: AreaController
     });
     
     AreaController.$inject = ['$state'];
     function AreaController($state) {
       var $ctrl = this;
-
-      $ctrl.area = $state.current.data.area;
     }    
     
 })();
