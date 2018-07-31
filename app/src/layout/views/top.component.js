@@ -3,7 +3,7 @@
     "use strict";
     
     angular.module('layout')
-    .component('top', {
+    .component('layout.top', {
       templateUrl: 'src/layout/views/top.html'
     });    
 })();

@@ -13,7 +13,15 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     // For debugging purposes only
     $transitions.onSuccess({}, function(transition) {
         console.log(
-            "Successful Transition from " + transition.from().name +
+            "Successful transition from " + transition.from().name +
+            " to " + transition.to().name
+        );
+    });
+
+          // For debugging purposes only
+    $transitions.onError({}, function(transition) {
+        console.log(
+            "Error in transition from " + transition.from().name +
             " to " + transition.to().name
         );
       });
@@ -43,6 +51,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         // If there is nothing to draw then the state is abstract
         var abstract = area.buttons ? false : true;
         var views = getViews(area);
+        var redirectTo = getRedirectTo(area);
         // Check if state already exists
         var exists = $state.href(state) ? true: false;
         // Create otherwise
@@ -61,65 +70,68 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                     },
                     data: {
                         area: area
-                    }
+                    },
+                    redirectTo: redirectTo,
                     // resolve: {
-                    //     // Resolve area through state parameters
-                    //     area: ['$stateParams', function ($stateParams) {
-                    //         if($stateParams.targetPath) {
-                    //             var area = layout.findArea(new Path($stateParams.targetPath)); 
-                    //             return area;
-                    //         } else {
-                    //             return null;
-                    //         }
-                    //     }]
-                    // }  
+                    //    // Resolve area through state parameters
+                    //    area: ['$stateParams', function ($stateParams) {
+                    //        if($stateParams.targetPath) {
+                    //            var area = layout.findArea(new Path($stateParams.targetPath)); 
+                    //            return area;
+                    //        } else {
+                    //            return null;
+                    //        }
+                    //    }]
+                    //}  
                 }
             );
         }
     }
 
+    function getRedirectTo(area) {
+        // TODO: For the time being is jumping for the first child area 
+        // Default target area should be set by configuration.
+        var state = ''
+
+        for (var areaId in area.areas) {
+            if (area.areas.hasOwnProperty(areaId)) {
+               
+                state = LAYOUT_BASE_STATE + '.' + area.areas[areaId].path;
+            }
+        }
+
+        return state;
+    }
+
     function getViews(area) {
         var views = {};
 
-        if(area.pos === -1 ){
-            views = VIEW_MAP.layout;
-        } else if(area.pos === 0 ){
-            views =  VIEW_MAP.top;
-        } else if(area.pos === 3 ){
-            views =  VIEW_MAP.menu;
-        } else {
-            views[area.id] = {		
-                component: 'layout.area'	
-            }
+        var viewAbsName = '@public.dynamicLayout.inpatient';
+      
+        switch(area.pos) {
+            case -1:
+            views = { '': 'layout.root' };
+            break;
+            case 0:
+            views = {}
+            //views[''] = 'layout.top';
+            views['headerRight' + viewAbsName] = 'layout.area';
+            views['actionMenuLeft' + viewAbsName] = 'layout.area';
+            views['mainMenu' + viewAbsName] = 'layout.area';
+            views['deepnav' + viewAbsName] = 'layout.area';
+            views['headerLeft' + viewAbsName] = 'layout.area';
+            views['actionMenuRight' + viewAbsName] = 'layout.area';
+            views['mainMenuLeft' + viewAbsName] = 'layout.area';
+            views['mainMenuRight' + viewAbsName] = 'layout.area';
+            views['mainMenuLeft' + viewAbsName] = 'layout.area';
+            views['actionMenuLeft' + viewAbsName] = 'layout.area';
+            views['actionMenuRight' + viewAbsName] = 'layout.area';
+            break;
         }
+
         return views;
     }
 
-
-    var VIEW_MAP = {
-
-        layout: {		
-            '': 'layout.root'
-        },
-        top: {	
-            'topRight': 'layout.area',		
-            'bottomLeft': 'layout.area',		
-            'topMenu': 'layout.area',		
-            'topLeft': 'layout.area',		
-            'bottomRight': 'layout.area',		
-            'alerts': 'layout.area',		
-            'search': 'layout.area',		
-            'bottomMenu': 'layout.area'    
-        },
-        menu: {	
-            'barcode': 'layout.area',		
-            'bottomMenu': 'layout.area'   
-        }
-    }
-
-
-
-    
     // Create the states for all areas in layout
     createStates(layout);
 
@@ -134,8 +146,9 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         // Jump to selected state. Send selected area through state parameters
         //$state.go(state, {targetPath: layout.areas[$scope.selectedArea].path});
         // For the time being must jump for a menu that has buttons with an action (see area controller)
-        $state.go(state + '.topMenu.left');
-        //$state.go('public.dynamicLayout.inpatient.entry.topMenu.left');
+        $state.go(state);
+
+        //$state.go('public.dynamicLayout.inpatient.entry.mainMenu.left');
         
     }
 

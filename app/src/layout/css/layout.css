@@ -40,49 +40,60 @@
 	display: grid;
 }
 
-.leftTopHeader {
-	grid-area: leftTopHeader;
+.header-left {
+	grid-area: header-left;
 }
 
-.rightTopHeader {
-	grid-area: rightTopHeader;
+.header-right {
+	grid-area: header-right;
 }
 
-.leftBottomHeader {
-	grid-area: leftBottomHeader;
+.main-menu-left {
+	grid-area: main-menu-left;
 }
 
-.middleBottomHeader {
-	grid-area: middleBottomHeader;
+.mainMenu {
+	grid-area: mainMenu;
 }
 
-.rightBottomHeader {
-	grid-area: rightBottomHeader;
+.main-menu-right {
+	grid-area: main-menu-right;
 }
 
-.leftFooter {
-	grid-area: leftFooter;
+.deepnav {
+	grid-area: deepnav;
 }
 
-.middleFooter {
-	grid-area: middleFooter;
+.screen {
+	grid-area: screen;
 }
 
-.rightFooter {
-	grid-area: rightFooter;
+.scrool {
+	grid-area: scrool;
+}
+
+.action-menu-left {
+	grid-area: action-menu-left;
+}
+
+.actionMenu {
+	grid-area: actionMenu;
+}
+
+.actionMenuRight {
+	grid-area: actionMenuRight;
 }
 
 .grid-template-areas     {
 	grid-template-columns: 128px 1024px 128px;
 	grid-template-rows: 128px 96px 640px 128px;
     grid-template-areas:
-		"leftTopHeader header rightTopHeader"
-	    "leftBottomHeader middleBottomHeader rightBottomHeader"
-        "deepnavs container container"
-        "leftFooter middleFooter rightFooter"
+		"header-left header header-right"
+	    "main-menu-left mainMenu main-menu-right"
+        "deepnav screen scrool"
+        "action-menu-left actionMenu actionMenuRight"
 		;
 }
-
 
 .item {
 	margin: 0px;

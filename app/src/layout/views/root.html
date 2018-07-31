@@ -1,11 +1,13 @@
 <!-- ROOT-->
 <div class="grid grid-template-areas">
-    <div class="rightTopHeader" ui-view="topRight"></div>
-    <div class="leftFooter" ui-view="bottomLeft"></div>
-    <div class="middleBottomHeader" ui-view="topMenu"></div>
-    <div class="middleBottomHeader" ui-view="topLeft"></div>
-    <div class="rightFooter" ui-view="bottomRight"></div>
-    <div class="leftBottomHeader" ui-view="alerts"></div>
-    <div class="rightBottomHeader" ui-view="search"></div>
-    <div class="middleFooter" ui-view="bottomMenu"></div>
+    <div class="header-left" ui-view="headerLeft"></div>
+    <div class="header-right" ui-view="headerRight"></div>
+    <div class="main-menu-left" ui-view="mainMenuLeft"></div>
+    <div class="main-menu" ui-view="mainMenu"></div>    
+    <div class="main-menu-right" ui-view="mainMenuRight"></div>
+    <div class="deepnav" ui-view="deepnav"></div>
+    <div class="screen" ui-view="screen"></div>
+    <div class="action-menu-left" ui-view="actionMenuLeft"></div>
+    <div class="action-menu" ui-view="actionMenu"></div>
+    <div class="action-menu-right" ui-view="actionMenuRight"></div>
 </div>
