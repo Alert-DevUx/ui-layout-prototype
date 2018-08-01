@@ -76,12 +76,12 @@
 	grid-area: action-menu-left;
 }
 
-.actionMenu {
-	grid-area: actionMenu;
+.action-menu {
+	grid-area: action-menu;
 }
 
-.actionMenuRight {
-	grid-area: actionMenuRight;
+.action-menu-right {
+	grid-area: action-menu-right;
 }
 
 .grid-template-areas     {
@@ -91,7 +91,7 @@
 		"header-left header header-right"
 	    "main-menu-left mainMenu main-menu-right"
         "deepnav screen scrool"
-        "action-menu-left actionMenu actionMenuRight"
+        "action-menu-left action-menu action-menu-right"
 		;
 }
 

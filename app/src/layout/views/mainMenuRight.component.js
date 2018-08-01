@@ -2,13 +2,13 @@
     "use strict";
     
     angular.module('layout')
-    .component('layout.headerRight', {
+    .component('layout.mainMenuRight', {
       template: '<p>{{$ctrl.targetPath}}</p><buttons buttons="$ctrl.area.buttons"/>',
-      controller: HeaderRightController
+      controller: MainMenuRightController
     });
     
-    HeaderRightController.$inject = ['$stateParams', 'Path'];
-    function HeaderRightController($stateParams, Path) {
+    MainMenuRightController.$inject = ['$stateParams', 'Path'];
+    function MainMenuRightController($stateParams, Path) {
       var $ctrl = this;
 
       $ctrl.targetPath = $stateParams.targetPath;

@@ -55,7 +55,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         // Check if state already exists
         var exists = $state.href(state) ? true: false;
         // Create otherwise
-        if(!exists && views) {
+        if(!exists) {
             console.log('Adding state ' + state + '...');
             console.log('for url ' + url + ' with views: ' + JSON.stringify(views));
             $uiRouter.stateProvider
@@ -68,10 +68,13 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                         // Set selected area as state parameter
                         targetPath: ''
                     },
-                    //data: {
-                    //    area: area
-                    //},
-                    redirectTo: redirectTo,
+                    data: {
+                        layout: layout
+                    },
+                    //redirectTo: redirectTo,
+                    onEnter: function () {
+                        console.log("entered bottom state's onEnter function");
+                    },                    
                     resolve: {
                        // Resolve area through state parameters
                        area: function () {
@@ -92,6 +95,8 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         // Default target area should be set by configuration.
         var state = ''
 
+
+        
         for (var areaId in area.areas) {
             if (area.areas.hasOwnProperty(areaId)) {
                
@@ -105,31 +110,84 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     function getViews(area) {
         var views = {};
 
-        var viewAbsName = '@public.dynamicLayout.inpatient';
+        var baseViewsAbsname = '@public.dynamicLayout.inpatient';
+
+        var topViewsAbsname = baseViewsAbsname + '.' + area.id;
+        
+        var childViewName = '@public.dynamicLayout' + '.' + area.path;
       
         switch(area.pos) {
             case -1:
-            views = { '': 'layout.root' };
+                views = { '': 'layout.root' };
             break;
             case 0:
-            views['headerLeft' + viewAbsName] = 'layout.area';
-            views['headerRight' + viewAbsName] = 'layout.area';
-            views['actionMenuLeft' + viewAbsName] = 'layout.area';
-            views['actionMenuRight' + viewAbsName] = 'layout.area';
-            break;
+                views = { '': 'layout.top' };
+                for(var childAreaId in area.areas) {
+                    var viewAbsName = childAreaId + baseViewsAbsname + '.' + area.id;
+                    views[viewAbsName] = 'layout.' + childAreaId;
+                }
+ /*
+
+            default:
+                var topViewsAbsname = baseViewsAbsname + area.id;
+            //views['headerLeft' + childViewName] = 'layout.area';
+            //views['headerRight' + childViewName] = 'layout.area';
+            //views['actionMenuLeft' + childViewName] = 'layout.area';
+                views = { '': 'layout.top' };
+                views['headerRight' + topViewsAbsname] = 'layout.headerRight';
+                views['actionMenuLeft' + topViewsAbsname] = 'layout.headerRight';
+                views['mainMenu' + topViewsAbsname + '.mainMenu'] = 'layout.area';
+                views['deepnav' + topViewsAbsname] = 'layout.area'; 
+                views['headerLeft' + topViewsAbsname] = 'layout.headerRight'; 
+                views['actionMenuRight' + topViewsAbsname] = 'layout.headerRight'; 
+                views['mainMenuLeft' + topViewsAbsname] = 'layout.headerRight'; 
+                views['mainMenuRight' + topViewsAbsname] = 'layout.headerRight'; 
+                views['actionMenu' + topViewsAbsname] = 'layout.area';
+
+
+
+                break;
+                */
+               /*
+            case 1:
+                views['headerRight' + topViewsAbsname] = 'layout.headerRight';
+                break;
+
+            case 2:
+                views['actionMenuLeft' + topViewsAbsname] = 'layout.actionMenuLeft';
+
+                break;
             case 3:
-            views['mainMenu' + viewAbsName] = 'layout.area';
-            views['mainMenuLeft' + viewAbsName] = 'layout.area';
-            case 4:
-            views['mainMenuRight' + viewAbsName] = 'layout.area';
-            break;
+           // case 4:
+           //     views['mainMenu' + topViewsAbsname] = 'layout.area';
+           //     break;
             case 5: 
-            views['deepnav' + viewAbsName] = 'layout.area'; 
+                views['deepnav' + topViewsAbsname] = 'layout.deepnav'; 
+                break;
+            case 6: 
+                views['headerLeft' + topViewsAbsname] = 'layout.headerLeft'; 
+
+                break;                
+            case 7: 
+                views['actionMenuRight' + topViewsAbsname] = 'layout.actionMenuRight'; 
+
+                break;
+            case 8: 
+                views['mainMenuLeft' + topViewsAbsname] = 'layout.mainMenuLeft'; 
+
+                break;
+            case 9: 
+                views['mainMenuRight' + topViewsAbsname] = 'layout.mainMenuRight'; 
+
+                break;
             case 10:
             case 11:
-            views['actionMenu' + viewAbsName] = 'layout.area';
-            default:
-            views['deepnav' + viewAbsName] = 'layout.area';
+                views['actionMenu' + topViewsAbsname] = 'layout.actionMenu';
+                break;
+                */
+//            default:
+//                views['deepnav' + topViewsAbsname] = 'layout.area';
+                
         }
 
         return views;
@@ -147,10 +205,11 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         var state = LAYOUT_BASE_STATE + "." + layout.id + "." + $scope.selectedArea;
 
         // Jump to selected state. Send selected area through state parameters
-        //$state.go(state, {targetPath: layout.areas[$scope.selectedArea].path});
+        $state.go(state, {targetPath: layout.areas[$scope.selectedArea].path});
         // For the time being must jump for a menu that has buttons with an action (see area controller)
-        $state.go(state);
-
+        
+        $state.go(state, {targetPath: 'inpatient.entry.mainMenu.left'});
+        //$state.go(state, {'area': $scope.selectedArea});
         //$state.go('public.dynamicLayout.inpatient.entry.mainMenu.left');
         
     }
