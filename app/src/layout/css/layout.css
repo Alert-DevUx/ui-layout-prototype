@@ -52,8 +52,8 @@
 	grid-area: main-menu-left;
 }
 
-.mainMenu {
-	grid-area: mainMenu;
+.main-menu {
+	grid-area: main-menu;
 }
 
 .main-menu-right {
@@ -89,7 +89,7 @@
 	grid-template-rows: 128px 96px 640px 128px;
     grid-template-areas:
 		"header-left header header-right"
-	    "main-menu-left mainMenu main-menu-right"
+	    "main-menu-left main-menu main-menu-right"
         "deepnav screen scrool"
         "action-menu-left action-menu action-menu-right"
 		;

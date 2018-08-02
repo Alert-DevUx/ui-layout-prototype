@@ -171,7 +171,7 @@
                     "barCode":{
                       "id":"barCode",
                       "description":"barCode deepnavs",
-                      "pos":"5",
+                      "pos":5,
                       "areaName":"__areaName__",
                       "buttons":{
                         "technicianWorkBarcode":{
@@ -194,7 +194,7 @@
                     "responsabilityTransferEdis":{
                       "id":"responsabilityTransferEdis",
                       "description":"responsabilityTransferEdis deepnavs",
-                      "pos":"5",
+                      "pos":5,
                       "areaName":"__areaName__",
                       "buttons":{
                         "serviceTransfer":{
@@ -256,7 +256,7 @@
                     "pendingTasks":{
                       "id":"pendingTasks",
                       "description":"pendingTasks deepnavs",
-                      "pos":"5",
+                      "pos":5,
                       "areaName":"__areaName__",
                       "buttons":{
                         "todoList":{
@@ -487,7 +487,7 @@
                 "search":{
                   "id":"search",
                   "description":"search deepnavs",
-                  "pos":"5",
+                  "pos":5,
                   "areaName":"__areaName__",
                   "buttons":{
                     "allPatients":{
@@ -784,19 +784,19 @@
                     "ehr":{
                       "id":"ehr",
                       "description":"ehr deepnavs",
-                      "pos":"5",
+                      "pos":5,
                       "areaName":"__areaName__",
                       "areas":{
                         "visits":{
                           "id":"visits",
                           "description":"visits deepnavs",
-                          "pos":"5",
+                          "pos":5,
                           "areaName":"__areaName__",
                           "areas":{
                             "dietProcess":{
                               "id":"dietProcess",
                               "description":"dietProcess deepnavs",
-                              "pos":"5",
+                              "pos":5,
                               "areaName":"__areaName__",
                               "buttons":{
                                 "nutritionSummary":{
@@ -858,7 +858,7 @@
                             "detailsOnPastIllnesses":{
                               "id":"detailsOnPastIllnesses",
                               "description":"detailsOnPastIllnesses deepnavs",
-                              "pos":"5",
+                              "pos":5,
                               "areaName":"__areaName__",
                               "buttons":{
                                 "reasonForVisits":{
@@ -1141,7 +1141,7 @@
                         "planning":{
                           "id":"planning",
                           "description":"planning deepnavs",
-                          "pos":"5",
+                          "pos":5,
                           "areaName":"__areaName__",
                           "buttons":{
                             "carePlans":{
@@ -1229,13 +1229,13 @@
                         "testAndTreatments":{
                           "id":"testAndTreatments",
                           "description":"testAndTreatments deepnavs",
-                          "pos":"5",
+                          "pos":5,
                           "areaName":"__areaName__",
                           "areas":{
                             "rehab":{
                               "id":"rehab",
                               "description":"rehab deepnavs",
-                              "pos":"5",
+                              "pos":5,
                               "areaName":"__areaName__",
                               "buttons":{
                                 "proceduresMfr":{
@@ -1378,13 +1378,13 @@
                         "history":{
                           "id":"history",
                           "description":"history deepnavs",
-                          "pos":"5",
+                          "pos":5,
                           "areaName":"__areaName__",
                           "areas":{
                             "assessToolsGroup":{
                               "id":"assessToolsGroup",
                               "description":"assessToolsGroup deepnavs",
-                              "pos":"5",
+                              "pos":5,
                               "areaName":"__areaName__",
                               "buttons":{
                                 "factoresRisco":{
@@ -1433,7 +1433,7 @@
                             "avaliacaoInfantil":{
                               "id":"avaliacaoInfantil",
                               "description":"avaliacaoInfantil deepnavs",
-                              "pos":"5",
+                              "pos":5,
                               "areaName":"__areaName__",
                               "buttons":{
                                 "pediatricAssessment":{
@@ -1703,7 +1703,7 @@
                         "nursing":{
                           "id":"nursing",
                           "description":"nursing deepnavs",
-                          "pos":"5",
+                          "pos":5,
                           "areaName":"__areaName__",
                           "buttons":{
                             "nursingInitialAssessment":{
@@ -1873,13 +1873,13 @@
                     "clinicalInfoIcon":{
                       "id":"clinicalInfoIcon",
                       "description":"clinicalInfoIcon deepnavs",
-                      "pos":"5",
+                      "pos":5,
                       "areaName":"__areaName__",
                       "areas":{
                         "progressNotes":{
                           "id":"progressNotes",
                           "description":"progressNotes deepnavs",
-                          "pos":"5",
+                          "pos":5,
                           "areaName":"__areaName__",
                           "buttons":{
                             "physicianProgressNotes":{
@@ -1993,7 +1993,7 @@
                         "assessToolsGroup":{
                           "id":"assessToolsGroup",
                           "description":"assessToolsGroup deepnavs",
-                          "pos":"5",
+                          "pos":5,
                           "areaName":"__areaName__",
                           "buttons":{
                             "scores":{
@@ -2185,13 +2185,13 @@
                     "orderEntry":{
                       "id":"orderEntry",
                       "description":"orderEntry deepnavs",
-                      "pos":"5",
+                      "pos":5,
                       "areaName":"__areaName__",
                       "areas":{
                         "depnvAnalisys":{
                           "id":"depnvAnalisys",
                           "description":"depnvAnalisys deepnavs",
-                          "pos":"5",
+                          "pos":5,
                           "areaName":"__areaName__",
                           "buttons":{
                             "depnvAnalisys":{
@@ -2240,7 +2240,7 @@
                         "prescription":{
                           "id":"prescription",
                           "description":"prescription deepnavs",
-                          "pos":"5",
+                          "pos":5,
                           "areaName":"__areaName__",
                           "buttons":{
                             "prescription":{
@@ -2268,7 +2268,7 @@
                         "pEnsinosenfermagem":{
                           "id":"pEnsinosenfermagem",
                           "description":"pEnsinosenfermagem deepnavs",
-                          "pos":"5",
+                          "pos":5,
                           "areaName":"__areaName__",
                           "buttons":{
                             "patientAssessment":{
@@ -2305,7 +2305,7 @@
                         "physicalTherapy":{
                           "id":"physicalTherapy",
                           "description":"physicalTherapy deepnavs",
-                          "pos":"5",
+                          "pos":5,
                           "areaName":"__areaName__",
                           "buttons":{
                             "proceduresMfr":{
@@ -2342,7 +2342,7 @@
                         "planningGroup":{
                           "id":"planningGroup",
                           "description":"planningGroup deepnavs",
-                          "pos":"5",
+                          "pos":5,
                           "areaName":"__areaName__",
                           "buttons":{
                             "carePlans":{
@@ -2568,7 +2568,7 @@
                     "nurse":{
                       "id":"nurse",
                       "description":"nurse deepnavs",
-                      "pos":"5",
+                      "pos":5,
                       "areaName":"__areaName__",
                       "buttons":{
                         "nursingInitialAssessment":{
@@ -2682,7 +2682,7 @@
                     "patientid":{
                       "id":"patientid",
                       "description":"patientid deepnavs",
-                      "pos":"5",
+                      "pos":5,
                       "areaName":"__areaName__",
                       "buttons":{
                         "identificationIdentification":{
@@ -2809,7 +2809,7 @@
                     "coding":{
                       "id":"coding",
                       "description":"coding deepnavs",
-                      "pos":"5",
+                      "pos":5,
                       "areaName":"__areaName__",
                       "buttons":{
                         "codingPage":{
@@ -2832,13 +2832,13 @@
                     "discharge":{
                       "id":"discharge",
                       "description":"discharge deepnavs",
-                      "pos":"5",
+                      "pos":5,
                       "areaName":"__areaName__",
                       "areas":{
                         "futureEvents":{
                           "id":"futureEvents",
                           "description":"futureEvents deepnavs",
-                          "pos":"5",
+                          "pos":5,
                           "areaName":"__areaName__",
                           "buttons":{
                             "p1DepnavSummary":{
@@ -3059,13 +3059,13 @@
                     "patientManagement":{
                       "id":"patientManagement",
                       "description":"patientManagement deepnavs",
-                      "pos":"5",
+                      "pos":5,
                       "areaName":"__areaName__",
                       "areas":{
                         "pendingIssue":{
                           "id":"pendingIssue",
                           "description":"pendingIssue deepnavs",
-                          "pos":"5",
+                          "pos":5,
                           "areaName":"__areaName__",
                           "buttons":{
                             "myPendingIssue":{
@@ -3235,7 +3235,7 @@
                     "pregnancyButton":{
                       "id":"pregnancyButton",
                       "description":"pregnancyButton deepnavs",
-                      "pos":"5",
+                      "pos":5,
                       "areaName":"__areaName__",
                       "buttons":{
                         "pregnancyList":{
@@ -3258,7 +3258,7 @@
                     "checklistFrontoffice":{
                       "id":"checklistFrontoffice",
                       "description":"checklistFrontoffice deepnavs",
-                      "pos":"5",
+                      "pos":5,
                       "areaName":"__areaName__",
                       "buttons":{
                         "frontofficeChecklist":{
@@ -3733,7 +3733,7 @@
                     "toolsLang":{
                       "id":"toolsLang",
                       "description":"toolsLang deepnavs",
-                      "pos":"5",
+                      "pos":5,
                       "areaName":"__areaName__",
                       "buttons":{
                         "toolsEspecialidades":{
@@ -3834,13 +3834,13 @@
                     "commontext":{
                       "id":"commontext",
                       "description":"commontext deepnavs",
-                      "pos":"5",
+                      "pos":5,
                       "areaName":"__areaName__",
                       "areas":{
                         "orderSetsTools":{
                           "id":"orderSetsTools",
                           "description":"orderSetsTools deepnavs",
-                          "pos":"5",
+                          "pos":5,
                           "areaName":"__areaName__",
                           "buttons":{
                             "orderSetsTools":{
