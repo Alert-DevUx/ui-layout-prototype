@@ -3,7 +3,7 @@
     
     angular.module('layout')
     .component('layout.actionMenu', {
-      template: '<p>{{$ctrl.targetPath}}<buttons buttons="$ctrl.area.buttons"/>',
+      templateUrl: 'src/layout/views/area.html',
       controller: ActionMenuController
     });
     

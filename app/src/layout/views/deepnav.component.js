@@ -3,19 +3,25 @@
     
     angular.module('layout')
     .component('layout.deepnav', {
-      template: '<p>{{$ctrl.targetPath}}</p><buttons buttons="$ctrl.area.buttons"/>',
+      templateUrl: 'src/layout/views/deepnavArea.html',
       controller: DeepnavController
     });
     
-    DeepnavController.$inject = ['$stateParams', 'Path'];
-    function DeepnavController($stateParams, Path) {
+    DeepnavController.$inject = ['$state', 'Path'];
+    function DeepnavController($state, Path) {
       var $ctrl = this;
 
-      $ctrl.targetPath = $stateParams.targetPath;
-
-
+      // Get path from state (removing dynamicLayout.inpatient - TODO: REVIEW)
+      var path = new Path($state.current.name).removeHead().removeHead();
+      var layout = $state.current.data.layout;
+      var area = layout.findArea(path);
+      // Update if only the type is deepnav ()
+      if(area && area.pos === 5) {
+        $ctrl.deepnavArea = area;
+      }
+      
     }    
     
 })();
-    
+  
 

@@ -24,8 +24,14 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     // Redirecet to default state.
     // TODO: Configure default state!!
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.entry' }, function(transition) {
-        $state.go(transition.to().name + '.mainMenu.left');
+        $state.go(transition.to().name + '.mainMenu');
     });
+    $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.entry.mainMenu' }, function(transition) {
+        $state.go(transition.to().name + '.left');
+    });
+    $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.entry.mainMenu.left' }, function(transition) {
+        $state.go(transition.to().name + '.barcode');
+    });            
 
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.patient' }, function(transition) {
         $state.go(transition.to().name + '.mainMenu.left.clinicalInfoIcon');
@@ -75,7 +81,8 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                         targetPath: ''
                     },
                     data: {
-                        layout: layout
+                        layout: layout,
+                        areaPath: area.path
                     },
                     onEnter: function () {
                         console.log("entered " + state + " state's onEnter function");
@@ -119,10 +126,11 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
             break;   
             
             case 3:
-                views['mainMenu' + topViewAbsName] = 'layout.mainMenuLeft';
+                // Main menu 
+                views['mainMenu' + topViewAbsName] = 'layout.mainMenu';
                 break;
             case 4:
-                views['mainMenu' + topViewAbsName] = 'layout.mainMenuRight';
+                views['mainMenu' + topViewAbsName] = 'layout.mainMenu';
                 break;
             case 5: 
                 views['deepnav' + topViewAbsName] = 'layout.deepnav'; 

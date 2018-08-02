@@ -3,17 +3,24 @@
     
     angular.module('layout')
     .component('layout.mainMenuLeft', {
-      template: '<p>{{$ctrl.targetPath}}</p><buttons buttons="$ctrl.area.buttons"/>',
+      templateUrl: 'src/layout/views/area.html',
       controller: MainMenuLeftController
     });
     
-    MainMenuLeftController.$inject = ['$stateParams', 'Path'];
-    function MainMenuLeftController($stateParams, Path) {
+    MainMenuLeftController.$inject = ['$state', 'Path'];
+    function MainMenuLeftController($state, Path) {
       var $ctrl = this;
 
-      $ctrl.targetPath = $stateParams.targetPath;
+      // Get path from state (removing dynamicLayout.inpatient - TODO: REVIEW)
+      var path = new Path($state.current.name).removeHead().removeHead();
+      var layout = $state.current.data.layout;
+      var areaPath = $state.current.data.areaPath;
+      var auxArea = layout.findArea(path);
 
-
+      // Update if only the type is mainMenuLeft
+      if(auxArea && auxArea.pos === 8) {
+        $ctrl.area = auxArea;
+      }
     }    
     
 })();

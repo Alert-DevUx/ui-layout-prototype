@@ -3,7 +3,7 @@
     
     angular.module('layout')
     .component('layout.headerLeft', {
-      template: '<p>{{$ctrl.targetPath}}</p><buttons buttons="$ctrl.area.buttons"/>',
+      templateUrl: 'src/layout/views/area.html',
       controller: HeaderLeftController
     });
     
