@@ -23,6 +23,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
       
     // Redirecet to default state.
     // TODO: Configure default state!!
+    
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.entry' }, function(transition) {
         $state.go(transition.to().name + '.mainMenu');
     });
@@ -34,11 +35,27 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     });            
 
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.patient' }, function(transition) {
-        $state.go(transition.to().name + '.mainMenu.left.clinicalInfoIcon');
+        $state.go(transition.to().name + '.mainMenu');
+    });
+
+    $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.patient.mainMenu' }, function(transition) {
+        $state.go(transition.to().name + '.left');
+    });
+
+    $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.patient.mainMenu.left' }, function(transition) {
+        $state.go(transition.to().name + '.clinicalInfoIcon');
     });
 
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.tools' }, function(transition) {
-        $state.go(transition.to().name + '.mainMenu.left.commontext');
+        $state.go(transition.to().name + '.mainMenu');
+    });
+
+    $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.tools.mainMenu' }, function(transition) {
+        $state.go(transition.to().name + '.left');
+    });
+
+    $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.tools.mainMenu.left' }, function(transition) {
+        $state.go(transition.to().name + '.commontext');
     });
 
     /** Create states */
@@ -76,10 +93,6 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                     abstract: abstract,
                     views: views,
                     url: url,
-                    params: {
-                        // Set target area as state parameter
-                        targetPath: ''
-                    },
                     data: {
                         layout: layout,
                         areaPath: area.path
@@ -150,7 +163,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     $scope.go = function() {
         var state = LAYOUT_BASE_STATE + "." + layout.id + "." + $scope.selectedArea;
         // Jump to selected state. Send selected area through state parameters
-        $state.go(state, {targetPath: ''});
+        $state.go(state);
     }
 }
 
