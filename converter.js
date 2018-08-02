@@ -158,7 +158,7 @@ setdMapEntry = function(areaPath) {
 
     let parentMapEntry = areaMap[areaPath.getParent().toString()];
     mapEntry.description = areaPath.getId() + " deepnavs";
-    mapEntry.pos = '5';
+    mapEntry.pos = 5;
     mapEntry.areaName = '__areaName__';
     areaMap[areaPath.toString()] = mapEntry;
 }
