@@ -12,7 +12,7 @@
 
       return getLayoutJson().then(function(layout){
 
-        var topArea = new Area(layout.id, layout.description, layout.pos, layout.areaName);
+        var topArea = new Area(layout.id, layout.description, layout.pos, layout.type);
         
         var path = new Path(layout.id);
         
@@ -53,7 +53,7 @@
 
     function getArea(areaJson, parentPath) {
 
-        var area = new Area(areaJson.id, areaJson.description, areaJson.pos, areaJson.areaName);
+        var area = new Area(areaJson.id, areaJson.description, areaJson.pos, areaJson.type);
         
         var path = new Path(parentPath.toString());
         path.append(areaJson.id);
@@ -105,4098 +105,3565 @@
 
 
     service.JSON_MOCK = {
-      "id":"inpatient",
-      "description":"Default layout for INPATIENT",
-      "pos":-1,
-      "areaName":"",
-      "areas":{
-        "entry":{
-          "id":"entry",
-          "description":"Inpatient main grid",
-          "pos":0,
-          "areaName":"",
-          "areas":{
-            "headerRight":{
-              "id":"headerRight",
-              "description":"Logout button area",
-              "pos":1,
-              "areaName":"rightTopHeader",
-              "buttons":{
-                "logout":{
-                  "id":"logout",
-                  "label":"Exit application",
-                  "icon":"ExitIcon",
-                  "action":{
-    
-                  },
-                  "areaId":"entry"
+      "id": "inpatient",
+      "description": "Default layout for INPATIENT",
+      "pos": -1,
+      "type": "",
+      "areas": {
+        "entry": {
+          "id": "entry",
+          "description": "Inpatient main grid",
+          "pos": 0,
+          "type": "",
+          "areas": {
+            "headerRight": {
+              "id": "headerRight",
+              "description": "Logout button area",
+              "pos": 1,
+              "type": "headerRight",
+              "buttons": {
+                "logout": {
+                  "id": "logout",
+                  "label": "Exit application",
+                  "icon": "ExitIcon",
+                  "action": {}
                 }
               },
-              "buttonsPos":[
-                "logout"
-              ]
+              "buttonsPos": ["logout"]
             },
-            "actionMenuLeft":{
-              "id":"actionMenuLeft",
-              "description":"Back button area",
-              "pos":2,
-              "areaName":"leftFooter",
-              "buttons":{
-                "back":{
-                  "id":"back",
-                  "label":"Go back",
-                  "icon":"BackIcon",
-                  "action":{
-    
-                  },
-                  "areaId":"entry"
+            "actionMenuLeft": {
+              "id": "actionMenuLeft",
+              "description": "Back button area",
+              "pos": 2,
+              "type": "actionMenuLeft",
+              "buttons": {
+                "back": {
+                  "id": "back",
+                  "label": "Go back",
+                  "icon": "BackIcon",
+                  "action": {}
                 }
               },
-              "buttonsPos":[
-                "back"
-              ]
+              "buttonsPos": ["back"]
             },
-            "mainMenu":{
-              "id":"mainMenu",
-              "description":"Main menu",
-              "pos":3,
-              "areaName":"middleBottomHeader",
-              "areas":{
-                "left":{
-                  "id":"left",
-                  "description":"Main menu left",
-                  "pos":3,
-                  "areaName":"middleBottomHeader",
-                  "areas":{
-                    "barCode":{
-                      "id":"barCode",
-                      "description":"barCode deepnavs",
-                      "pos":5,
-                      "areaName":"__areaName__",
-                      "buttons":{
-                        "technicianWorkBarcode":{
-                          "id":"technicianWorkBarcode",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"SearchPatientBarcode.swf"
+            "mainMenu": {
+              "id": "mainMenu",
+              "description": "Main menu",
+              "pos": 3,
+              "type": "mainMenu",
+              "areas": {
+                "left": {
+                  "id": "left",
+                  "description": "Main menu left",
+                  "pos": 3,
+                  "type": "mainMenu",
+                  "areas": {
+                    "barCode": {
+                      "id": "barCode",
+                      "description": "barCode deepnavs",
+                      "pos": 5,
+                      "type": "deepnav",
+                      "buttons": {
+                        "technicianWorkBarcode": {
+                          "id": "technicianWorkBarcode",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.entry.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "SearchPatientBarcode.swf"
                             }
-                          },
-                          "areaId":"entry"
+                          }
                         }
                       },
-                      "buttonsPos":[
-                        "technicianWorkBarcode"
-                      ]
+                      "buttonsPos": ["technicianWorkBarcode"]
                     },
-                    "responsabilityTransferEdis":{
-                      "id":"responsabilityTransferEdis",
-                      "description":"responsabilityTransferEdis deepnavs",
-                      "pos":5,
-                      "areaName":"__areaName__",
-                      "buttons":{
-                        "serviceTransfer":{
-                          "id":"serviceTransfer",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ServiceTransferList.swf"
+                    "responsabilityTransferEdis": {
+                      "id": "responsabilityTransferEdis",
+                      "description": "responsabilityTransferEdis deepnavs",
+                      "pos": 5,
+                      "type": "deepnav",
+                      "buttons": {
+                        "serviceTransfer": {
+                          "id": "serviceTransfer",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.entry.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ServiceTransferList.swf"
                             }
-                          },
-                          "areaId":"entry"
+                          }
                         },
-                        "myPatientesHandOfEdis":{
-                          "id":"myPatientesHandOfEdis",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"HandOffMyPatientsList.swf"
+                        "myPatientesHandOfEdis": {
+                          "id": "myPatientesHandOfEdis",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.entry.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "HandOffMyPatientsList.swf"
                             }
-                          },
-                          "areaId":"entry"
+                          }
                         },
-                        "transferInstitution":{
-                          "id":"transferInstitution",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"InstitutionTransferList.swf"
+                        "transferInstitution": {
+                          "id": "transferInstitution",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.entry.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "InstitutionTransferList.swf"
                             }
-                          },
-                          "areaId":"entry"
+                          }
                         },
-                        "requestHandOfEdis":{
-                          "id":"requestHandOfEdis",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"HandOffRequestsList.swf"
+                        "requestHandOfEdis": {
+                          "id": "requestHandOfEdis",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.entry.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "HandOffRequestsList.swf"
                             }
-                          },
-                          "areaId":"entry"
+                          }
                         }
                       },
-                      "buttonsPos":[
-                        "serviceTransfer",
-                        "myPatientesHandOfEdis",
-                        "transferInstitution",
-                        "requestHandOfEdis"
-                      ]
+                      "buttonsPos": ["serviceTransfer", "myPatientesHandOfEdis", "transferInstitution", "requestHandOfEdis"]
                     },
-                    "pendingTasks":{
-                      "id":"pendingTasks",
-                      "description":"pendingTasks deepnavs",
-                      "pos":5,
-                      "areaName":"__areaName__",
-                      "buttons":{
-                        "todoList":{
-                          "id":"todoList",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"GridTodoList.swf"
+                    "pendingTasks": {
+                      "id": "pendingTasks",
+                      "description": "pendingTasks deepnavs",
+                      "pos": 5,
+                      "type": "deepnav",
+                      "buttons": {
+                        "todoList": {
+                          "id": "todoList",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.entry.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "GridTodoList.swf"
                             }
-                          },
-                          "areaId":"entry"
+                          }
                         }
                       },
-                      "buttonsPos":[
-                        "todoList"
-                      ]
+                      "buttonsPos": ["todoList"]
                     }
                   },
-                  "buttons":{
-                    "myPatientDoctor":{
-                      "id":"myPatientDoctor",
-                      "label":"My patients",
-                      "icon":"MyPatientsIcon",
-                      "action":{
-                        "component":{
-                          "type":"SWF",
-                          "id":"INPGridMyPatients.swf"
+                  "buttons": {
+                    "myPatientDoctor": {
+                      "id": "myPatientDoctor",
+                      "label": "My patients",
+                      "icon": "MyPatientsIcon",
+                      "action": {
+                        "targetArea": "inpatient.entry.screen",
+                        "component": {
+                          "type": "SWF",
+                          "id": "INPGridMyPatients.swf"
                         }
-                      },
-                      "areaId":"entry"
+                      }
                     },
-                    "bmngGridDashboardServices":{
-                      "id":"bmngGridDashboardServices",
-                      "label":"Bed management",
-                      "icon":"BedManagementIcon",
-                      "action":{
-                        "component":{
-                          "type":"SWF",
-                          "id":"BedManagementDashboard.swf"
+                    "bmngGridDashboardServices": {
+                      "id": "bmngGridDashboardServices",
+                      "label": "Bed management",
+                      "icon": "BedManagementIcon",
+                      "action": {
+                        "targetArea": "inpatient.entry.screen",
+                        "component": {
+                          "type": "SWF",
+                          "id": "BedManagementDashboard.swf"
                         }
-                      },
-                      "areaId":"entry"
+                      }
                     },
-                    "allPatientDoctor":{
-                      "id":"allPatientDoctor",
-                      "label":"All patients",
-                      "icon":"AllPatientsIcon",
-                      "action":{
-                        "component":{
-                          "type":"SWF",
-                          "id":"INPGridAllPatients.swf"
+                    "allPatientDoctor": {
+                      "id": "allPatientDoctor",
+                      "label": "All patients",
+                      "icon": "AllPatientsIcon",
+                      "action": {
+                        "targetArea": "inpatient.entry.screen",
+                        "component": {
+                          "type": "SWF",
+                          "id": "INPGridAllPatients.swf"
                         }
-                      },
-                      "areaId":"entry"
+                      }
                     },
-                    "gridScheduledInpatients":{
-                      "id":"gridScheduledInpatients",
-                      "label":"Scheduled admissions",
-                      "icon":"ScheduledIcon",
-                      "action":{
-                        "component":{
-                          "type":"SWF",
-                          "id":"INPScheduledEpisodes.swf"
+                    "gridScheduledInpatients": {
+                      "id": "gridScheduledInpatients",
+                      "label": "Scheduled admissions",
+                      "icon": "ScheduledIcon",
+                      "action": {
+                        "targetArea": "inpatient.entry.screen",
+                        "component": {
+                          "type": "SWF",
+                          "id": "INPScheduledEpisodes.swf"
                         }
-                      },
-                      "areaId":"entry"
+                      }
                     },
-                    "birsEyeIcon":{
-                      "id":"birsEyeIcon",
-                      "label":"Patient location",
-                      "icon":"BirdsEyeIcon",
-                      "action":{
-                        "component":{
-                          "type":"SWF",
-                          "id":"INPBirdsEyeView.swf"
+                    "birsEyeIcon": {
+                      "id": "birsEyeIcon",
+                      "label": "Patient location",
+                      "icon": "BirdsEyeIcon",
+                      "action": {
+                        "targetArea": "inpatient.entry.screen",
+                        "component": {
+                          "type": "SWF",
+                          "id": "INPBirdsEyeView.swf"
                         }
-                      },
-                      "areaId":"entry"
+                      }
                     },
-                    "barCode":{
-                      "id":"barCode",
-                      "label":"Patient's barcode",
-                      "icon":"BarCodeIcon",
-                      "action":{
-                        "targetArea":"inpatient.entry.mainMenu.left.barCode"
-                      },
-                      "areaId":"entry"
+                    "barCode": {
+                      "id": "barCode",
+                      "label": "Patient's barcode",
+                      "icon": "BarCodeIcon",
+                      "action": {
+                        "targetArea": "inpatient.entry.mainMenu.left.barCode"
+                      }
                     },
-                    "agenda":{
-                      "id":"agenda",
-                      "label":"Scheduler",
-                      "icon":"ScheduledNewIcon",
-                      "action":{
-                        "component":{
-                          "type":"SWF",
-                          "id":"CalendarMonthOverview.swf"
+                    "agenda": {
+                      "id": "agenda",
+                      "label": "Scheduler",
+                      "icon": "ScheduledNewIcon",
+                      "action": {
+                        "targetArea": "inpatient.entry.screen",
+                        "component": {
+                          "type": "SWF",
+                          "id": "CalendarMonthOverview.swf"
                         }
-                      },
-                      "areaId":"entry"
+                      }
                     },
-                    "responsabilityTransferEdis":{
-                      "id":"responsabilityTransferEdis",
-                      "label":"Transfers",
-                      "icon":"ResponsibilityTransferIcon",
-                      "action":{
-                        "targetArea":"inpatient.entry.mainMenu.left.responsabilityTransferEdis"
-                      },
-                      "areaId":"entry"
+                    "responsabilityTransferEdis": {
+                      "id": "responsabilityTransferEdis",
+                      "label": "Transfers",
+                      "icon": "ResponsibilityTransferIcon",
+                      "action": {
+                        "targetArea": "inpatient.entry.mainMenu.left.responsabilityTransferEdis"
+                      }
                     },
-                    "pendingTasks":{
-                      "id":"pendingTasks",
-                      "label":"To-do list",
-                      "icon":"CheckListIcon",
-                      "action":{
-                        "targetArea":"inpatient.entry.mainMenu.left.pendingTasks"
-                      },
-                      "areaId":"entry"
+                    "pendingTasks": {
+                      "id": "pendingTasks",
+                      "label": "To-do list",
+                      "icon": "CheckListIcon",
+                      "action": {
+                        "targetArea": "inpatient.entry.mainMenu.left.pendingTasks"
+                      }
                     },
-                    "coding":{
-                      "id":"coding",
-                      "label":"Coding",
-                      "icon":"CodingIcon",
-                      "action":{
-                        "component":{
-                          "type":"SWF",
-                          "id":"CpMyProcessesGW.swf"
+                    "coding": {
+                      "id": "coding",
+                      "label": "Coding",
+                      "icon": "CodingIcon",
+                      "action": {
+                        "targetArea": "inpatient.entry.screen",
+                        "component": {
+                          "type": "SWF",
+                          "id": "CpMyProcessesGW.swf"
                         }
-                      },
-                      "areaId":"entry"
+                      }
                     },
-                    "alertTv":{
-                      "id":"alertTv",
-                      "label":"Corporate TV",
-                      "icon":"AlertTVIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"entry"
+                    "alertTv": {
+                      "id": "alertTv",
+                      "label": "Corporate TV",
+                      "icon": "AlertTVIcon",
+                      "action": {}
                     }
                   },
-                  "buttonsPos":[
-                    "myPatientDoctor",
-                    "bmngGridDashboardServices",
-                    "allPatientDoctor",
-                    "gridScheduledInpatients",
-                    "birsEyeIcon",
-                    "barCode",
-                    "agenda",
-                    "responsabilityTransferEdis",
-                    "pendingTasks",
-                    "coding",
-                    "alertTv"
-                  ]
+                  "buttonsPos": ["myPatientDoctor", "bmngGridDashboardServices", "allPatientDoctor", "gridScheduledInpatients", "birsEyeIcon", "barCode", "agenda", "responsabilityTransferEdis", "pendingTasks", "coding", "alertTv"]
                 }
               }
             },
-            "headerLeft":{
-              "id":"headerLeft",
-              "description":"Personal settings area",
-              "pos":6,
-              "areaName":"leftTopHeader",
-              "buttons":{
-                "tools":{
-                  "id":"tools",
-                  "label":"Settings ",
-                  "icon":"ToolsIcon",
-                  "action":{
-    
-                  },
-                  "areaId":"entry"
+            "headerLeft": {
+              "id": "headerLeft",
+              "description": "Personal settings area",
+              "pos": 6,
+              "type": "headerLeft",
+              "buttons": {
+                "tools": {
+                  "id": "tools",
+                  "label": "Settings ",
+                  "icon": "ToolsIcon",
+                  "action": {}
                 }
               },
-              "buttonsPos":[
-                "tools"
-              ]
+              "buttonsPos": ["tools"]
             },
-            "actionMenuRight":{
-              "id":"actionMenuRight",
-              "description":"Ok area",
-              "pos":7,
-              "areaName":"rightFooter",
-              "buttons":{
-                "ok":{
-                  "id":"ok",
-                  "label":"Confirm/proceed",
-                  "icon":"OKIcon",
-                  "action":{
-    
-                  },
-                  "areaId":"entry"
+            "actionMenuRight": {
+              "id": "actionMenuRight",
+              "description": "Ok area",
+              "pos": 7,
+              "type": "actionMenuRight",
+              "buttons": {
+                "ok": {
+                  "id": "ok",
+                  "label": "Confirm/proceed",
+                  "icon": "OKIcon",
+                  "action": {}
                 }
               },
-              "buttonsPos":[
-                "ok"
-              ]
+              "buttonsPos": ["ok"]
             },
-            "mainMenuLeft":{
-              "id":"mainMenuLeft",
-              "description":"Alerts area",
-              "pos":8,
-              "areaName":"leftBottomHeader",
-              "buttons":{
-                "alert":{
-                  "id":"alert",
-                  "label":"Alert messages",
-                  "icon":"AlertIcon",
-                  "action":{
-                    "component":{
-                      "type":"SWF",
-                      "id":"AlertsInpatient.swf"
+            "mainMenuLeft": {
+              "id": "mainMenuLeft",
+              "description": "Alerts area",
+              "pos": 8,
+              "type": "mainMenuLeft",
+              "buttons": {
+                "alert": {
+                  "id": "alert",
+                  "label": "Alert messages",
+                  "icon": "AlertIcon",
+                  "action": {
+                    "targetArea": "inpatient.entry.screen",
+                    "component": {
+                      "type": "SWF",
+                      "id": "AlertsInpatient.swf"
+                    }
+                  }
+                }
+              },
+              "buttonsPos": ["alert"]
+            },
+            "mainMenuRight": {
+              "id": "mainMenuRight",
+              "description": "Search area",
+              "pos": 9,
+              "type": "mainMenuRight",
+              "areas": {
+                "search": {
+                  "id": "search",
+                  "description": "search deepnavs",
+                  "pos": 5,
+                  "type": "deepnav",
+                  "buttons": {
+                    "allPatients": {
+                      "id": "allPatients",
+                      "label": "",
+                      "icon": "",
+                      "action": {
+                        "targetArea": "inpatient.entry.screen",
+                        "component": {
+                          "type": "SWF",
+                          "id": "AdtSearchAllPatients.swf"
+                        }
+                      }
+                    },
+                    "depnvSearchActiveInp": {
+                      "id": "depnvSearchActiveInp",
+                      "label": "",
+                      "icon": "",
+                      "action": {
+                        "targetArea": "inpatient.entry.screen",
+                        "component": {
+                          "type": "SWF",
+                          "id": "INPEpisodeSearchActive.swf"
+                        }
+                      }
+                    },
+                    "depnvSearchInactiveInp": {
+                      "id": "depnvSearchInactiveInp",
+                      "label": "",
+                      "icon": "",
+                      "action": {
+                        "targetArea": "inpatient.entry.screen",
+                        "component": {
+                          "type": "SWF",
+                          "id": "INPEpisodeSearchInactive.swf"
+                        }
+                      }
+                    },
+                    "depnvSearchCancelled": {
+                      "id": "depnvSearchCancelled",
+                      "label": "",
+                      "icon": "",
+                      "action": {
+                        "targetArea": "inpatient.entry.screen",
+                        "component": {
+                          "type": "SWF",
+                          "id": "SearchCanceledPatients.swf"
+                        }
+                      }
                     }
                   },
-                  "areaId":"entry"
+                  "buttonsPos": ["allPatients", "depnvSearchActiveInp", "depnvSearchInactiveInp", "depnvSearchCancelled"]
                 }
               },
-              "buttonsPos":[
-                "alert"
-              ]
+              "buttons": {
+                "search": {
+                  "id": "search",
+                  "label": "Patient search",
+                  "icon": "SearchIcon",
+                  "action": {
+                    "targetArea": "inpatient.entry.mainMenuRight.search"
+                  }
+                }
+              },
+              "buttonsPos": ["search"]
             },
-            "mainMenuRight":{
-              "id":"mainMenuRight",
-              "description":"Search area",
-              "pos":9,
-              "areaName":"middleLeft",
-              "areas":{
-                "search":{
-                  "id":"search",
-                  "description":"search deepnavs",
-                  "pos":5,
-                  "areaName":"__areaName__",
-                  "buttons":{
-                    "allPatients":{
-                      "id":"allPatients",
-                      "label":"",
-                      "icon":"",
-                      "action":{
-                        "component":{
-                          "type":"SWF",
-                          "id":"AdtSearchAllPatients.swf"
-                        }
-                      },
-                      "areaId":"entry"
+            "actionMenu": {
+              "id": "actionMenu",
+              "description": "Bottom menu",
+              "pos": 10,
+              "type": "actionMenu",
+              "areas": {
+                "left": {
+                  "id": "left",
+                  "description": "Bottom menu left",
+                  "pos": 10,
+                  "type": "actionMenu",
+                  "buttons": {
+                    "print": {
+                      "id": "print",
+                      "label": "Print",
+                      "icon": "PrintIcon",
+                      "action": {}
                     },
-                    "depnvSearchActiveInp":{
-                      "id":"depnvSearchActiveInp",
-                      "label":"",
-                      "icon":"",
-                      "action":{
-                        "component":{
-                          "type":"SWF",
-                          "id":"INPEpisodeSearchActive.swf"
-                        }
-                      },
-                      "areaId":"entry"
+                    "create": {
+                      "id": "create",
+                      "label": "Add",
+                      "icon": "AddIcon",
+                      "action": {}
                     },
-                    "depnvSearchInactiveInp":{
-                      "id":"depnvSearchInactiveInp",
-                      "label":"",
-                      "icon":"",
-                      "action":{
-                        "component":{
-                          "type":"SWF",
-                          "id":"INPEpisodeSearchInactive.swf"
-                        }
-                      },
-                      "areaId":"entry"
+                    "cancel": {
+                      "id": "cancel",
+                      "label": "Cancel",
+                      "icon": "CancelIcon",
+                      "action": {}
                     },
-                    "depnvSearchCancelled":{
-                      "id":"depnvSearchCancelled",
-                      "label":"",
-                      "icon":"",
-                      "action":{
-                        "component":{
-                          "type":"SWF",
-                          "id":"SearchCanceledPatients.swf"
-                        }
-                      },
-                      "areaId":"entry"
+                    "firstView": {
+                      "id": "firstView",
+                      "label": "First view",
+                      "icon": "FirstVisionIcon",
+                      "action": {}
+                    },
+                    "secondView": {
+                      "id": "secondView",
+                      "label": "Second view",
+                      "icon": "SecondVisionIcon",
+                      "action": {}
+                    },
+                    "viewsButton": {
+                      "id": "viewsButton",
+                      "label": "Views",
+                      "icon": "ViewsIcon",
+                      "action": {}
+                    },
+                    "advanceSearchIcon": {
+                      "id": "advanceSearchIcon",
+                      "label": "Advanced search",
+                      "icon": "AdvancedSearchIcon",
+                      "action": {}
+                    },
+                    "actionButton": {
+                      "id": "actionButton",
+                      "label": "Actions",
+                      "icon": "ActionsIcon",
+                      "action": {}
+                    },
+                    "toolsCommontext": {
+                      "id": "toolsCommontext",
+                      "label": "Most frequent texts",
+                      "icon": "CommonTextIcon",
+                      "action": {}
                     }
                   },
-                  "buttonsPos":[
-                    "allPatients",
-                    "depnvSearchActiveInp",
-                    "depnvSearchInactiveInp",
-                    "depnvSearchCancelled"
-                  ]
-                }
-              },
-              "buttons":{
-                "search":{
-                  "id":"search",
-                  "label":"Patient search",
-                  "icon":"SearchIcon",
-                  "action":{
-                    "targetArea":"inpatient.entry.mainMenuRight.search"
-                  },
-                  "areaId":"entry"
-                }
-              },
-              "buttonsPos":[
-                "search"
-              ]
-            },
-            "actionMenu":{
-              "id":"actionMenu",
-              "description":"Bottom menu",
-              "pos":10,
-              "areaName":"middleFooter",
-              "areas":{
-                "left":{
-                  "id":"left",
-                  "description":"Bottom menu left",
-                  "pos":10,
-                  "areaName":"middleFooter",
-                  "buttons":{
-                    "print":{
-                      "id":"print",
-                      "label":"Print",
-                      "icon":"PrintIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"entry"
-                    },
-                    "create":{
-                      "id":"create",
-                      "label":"Add",
-                      "icon":"AddIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"entry"
-                    },
-                    "cancel":{
-                      "id":"cancel",
-                      "label":"Cancel",
-                      "icon":"CancelIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"entry"
-                    },
-                    "firstView":{
-                      "id":"firstView",
-                      "label":"First view",
-                      "icon":"FirstVisionIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"entry"
-                    },
-                    "secondView":{
-                      "id":"secondView",
-                      "label":"Second view",
-                      "icon":"SecondVisionIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"entry"
-                    },
-                    "viewsButton":{
-                      "id":"viewsButton",
-                      "label":"Views",
-                      "icon":"ViewsIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"entry"
-                    },
-                    "advanceSearchIcon":{
-                      "id":"advanceSearchIcon",
-                      "label":"Advanced search",
-                      "icon":"AdvancedSearchIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"entry"
-                    },
-                    "actionButton":{
-                      "id":"actionButton",
-                      "label":"Actions",
-                      "icon":"ActionsIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"entry"
-                    },
-                    "toolsCommontext":{
-                      "id":"toolsCommontext",
-                      "label":"Most frequent texts",
-                      "icon":"CommonTextIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"entry"
-                    }
-                  },
-                  "buttonsPos":[
-                    "print",
-                    "create",
-                    "cancel",
-                    "firstView",
-                    "secondView",
-                    "viewsButton",
-                    "advanceSearchIcon",
-                    "actionButton",
-                    "viewsButton",
-                    "toolsCommontext"
-                  ]
+                  "buttonsPos": ["print", "create", "cancel", "firstView", "secondView", "viewsButton", "advanceSearchIcon", "actionButton", "viewsButton", "toolsCommontext"]
                 },
-                "right":{
-                  "id":"right",
-                  "description":"Bottom menu right",
-                  "pos":11,
-                  "areaName":"middleFooter",
-                  "buttons":{
-                    "eye":{
-                      "id":"eye",
-                      "label":"Details",
-                      "icon":"DetailsIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"entry"
+                "right": {
+                  "id": "right",
+                  "description": "Bottom menu right",
+                  "pos": 11,
+                  "type": "actionMenu",
+                  "buttons": {
+                    "eye": {
+                      "id": "eye",
+                      "label": "Details",
+                      "icon": "DetailsIcon",
+                      "action": {}
                     },
-                    "contextHelp":{
-                      "id":"contextHelp",
-                      "label":"Clinical context help",
-                      "icon":"ContentIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"entry"
+                    "contextHelp": {
+                      "id": "contextHelp",
+                      "label": "Clinical context help",
+                      "icon": "ContentIcon",
+                      "action": {}
                     },
-                    "applicationHelp":{
-                      "id":"applicationHelp",
-                      "label":"Functionality help",
-                      "icon":"HelpIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"entry"
+                    "applicationHelp": {
+                      "id": "applicationHelp",
+                      "label": "Functionality help",
+                      "icon": "HelpIcon",
+                      "action": {}
                     },
-                    "globalShortcut":{
-                      "id":"globalShortcut",
-                      "label":"Shortcuts",
-                      "icon":"GlobalShortcutIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"entry"
+                    "globalShortcut": {
+                      "id": "globalShortcut",
+                      "label": "Shortcuts",
+                      "icon": "GlobalShortcutIcon",
+                      "action": {}
                     }
                   },
-                  "buttonsPos":[
-                    "eye",
-                    "contextHelp",
-                    "applicationHelp",
-                    "globalShortcut"
-                  ]
+                  "buttonsPos": ["eye", "contextHelp", "applicationHelp", "globalShortcut"]
                 }
               }
+            },
+            "screen": {
+              "id": "screen",
+              "description": "Main screen area",
+              "pos": 12,
+              "type": "screen"
             }
           }
         },
-        "patient":{
-          "id":"patient",
-          "description":"Inpatient patient area",
-          "pos":0,
-          "areaName":"",
-          "areas":{
-            "headerRight":{
-              "id":"headerRight",
-              "description":"Logout button area",
-              "pos":1,
-              "areaName":"rightTopHeader",
-              "buttons":{
-                "logout":{
-                  "id":"logout",
-                  "label":"Exit application",
-                  "icon":"ExitIcon",
-                  "action":{
-    
-                  },
-                  "areaId":"patient"
+        "patient": {
+          "id": "patient",
+          "description": "Inpatient patient area",
+          "pos": 0,
+          "type": "",
+          "areas": {
+            "headerRight": {
+              "id": "headerRight",
+              "description": "Logout button area",
+              "pos": 1,
+              "type": "headerRight",
+              "buttons": {
+                "logout": {
+                  "id": "logout",
+                  "label": "Exit application",
+                  "icon": "ExitIcon",
+                  "action": {}
                 }
               },
-              "buttonsPos":[
-                "logout"
-              ]
+              "buttonsPos": ["logout"]
             },
-            "actionMenuLeft":{
-              "id":"actionMenuLeft",
-              "description":"Back button area",
-              "pos":2,
-              "areaName":"leftFooter",
-              "buttons":{
-                "back":{
-                  "id":"back",
-                  "label":"Go back",
-                  "icon":"BackIcon",
-                  "action":{
-    
-                  },
-                  "areaId":"patient"
+            "actionMenuLeft": {
+              "id": "actionMenuLeft",
+              "description": "Back button area",
+              "pos": 2,
+              "type": "actionMenuLeft",
+              "buttons": {
+                "back": {
+                  "id": "back",
+                  "label": "Go back",
+                  "icon": "BackIcon",
+                  "action": {}
                 }
               },
-              "buttonsPos":[
-                "back"
-              ]
+              "buttonsPos": ["back"]
             },
-            "mainMenu":{
-              "id":"mainMenu",
-              "description":"Main menu",
-              "pos":3,
-              "areaName":"middleBottomHeader",
-              "areas":{
-                "left":{
-                  "id":"left",
-                  "description":"Main menu left",
-                  "pos":3,
-                  "areaName":"middleBottomHeader",
-                  "areas":{
-                    "ehr":{
-                      "id":"ehr",
-                      "description":"ehr deepnavs",
-                      "pos":5,
-                      "areaName":"__areaName__",
-                      "areas":{
-                        "visits":{
-                          "id":"visits",
-                          "description":"visits deepnavs",
-                          "pos":5,
-                          "areaName":"__areaName__",
-                          "areas":{
-                            "dietProcess":{
-                              "id":"dietProcess",
-                              "description":"dietProcess deepnavs",
-                              "pos":5,
-                              "areaName":"__areaName__",
-                              "buttons":{
-                                "nutritionSummary":{
-                                  "id":"nutritionSummary",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"EHRDIASummary.swf"
+            "mainMenu": {
+              "id": "mainMenu",
+              "description": "Main menu",
+              "pos": 3,
+              "type": "mainMenu",
+              "areas": {
+                "left": {
+                  "id": "left",
+                  "description": "Main menu left",
+                  "pos": 3,
+                  "type": "mainMenu",
+                  "areas": {
+                    "ehr": {
+                      "id": "ehr",
+                      "description": "ehr deepnavs",
+                      "pos": 5,
+                      "type": "deepnav",
+                      "areas": {
+                        "visits": {
+                          "id": "visits",
+                          "description": "visits deepnavs",
+                          "pos": 5,
+                          "type": "deepnav",
+                          "areas": {
+                            "dietProcess": {
+                              "id": "dietProcess",
+                              "description": "dietProcess deepnavs",
+                              "pos": 5,
+                              "type": "deepnav",
+                              "buttons": {
+                                "nutritionSummary": {
+                                  "id": "nutritionSummary",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "EHRDIASummary.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "dietaryProgressNotes":{
-                                  "id":"dietaryProgressNotes",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"EHRDPNSummary.swf"
+                                "dietaryProgressNotes": {
+                                  "id": "dietaryProgressNotes",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "EHRDPNSummary.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "nutriPrevIntervention":{
-                                  "id":"nutriPrevIntervention",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"EHRNutritionistIntervPlanList.swf"
+                                "nutriPrevIntervention": {
+                                  "id": "nutriPrevIntervention",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "EHRNutritionistIntervPlanList.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "nutriReport":{
-                                  "id":"nutriReport",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"EHRNVNSummary.swf"
+                                "nutriReport": {
+                                  "id": "nutriReport",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "EHRNVNSummary.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 }
                               },
-                              "buttonsPos":[
-                                "nutritionSummary",
-                                "dietaryProgressNotes",
-                                "nutriPrevIntervention",
-                                "nutriReport"
-                              ]
+                              "buttonsPos": ["nutritionSummary", "dietaryProgressNotes", "nutriPrevIntervention", "nutriReport"]
                             },
-                            "detailsOnPastIllnesses":{
-                              "id":"detailsOnPastIllnesses",
-                              "description":"detailsOnPastIllnesses deepnavs",
-                              "pos":5,
-                              "areaName":"__areaName__",
-                              "buttons":{
-                                "reasonForVisits":{
-                                  "id":"reasonForVisits",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"ReasonsForVisits.swf"
+                            "detailsOnPastIllnesses": {
+                              "id": "detailsOnPastIllnesses",
+                              "description": "detailsOnPastIllnesses deepnavs",
+                              "pos": 5,
+                              "type": "deepnav",
+                              "buttons": {
+                                "reasonForVisits": {
+                                  "id": "reasonForVisits",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "ReasonsForVisits.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "historyOfPastIllnesses":{
-                                  "id":"historyOfPastIllnesses",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"HistoryOfPastIllnesses.swf"
+                                "historyOfPastIllnesses": {
+                                  "id": "historyOfPastIllnesses",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "HistoryOfPastIllnesses.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "hp":{
-                                  "id":"hp",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"EHRHPSummary.swf"
+                                "hp": {
+                                  "id": "hp",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "EHRHPSummary.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "physicianProgressNotes":{
-                                  "id":"physicianProgressNotes",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"EHRPNSummary.swf"
+                                "physicianProgressNotes": {
+                                  "id": "physicianProgressNotes",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "EHRPNSummary.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "reviewsOfSystems":{
-                                  "id":"reviewsOfSystems",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"ReviewsOfSystems.swf"
+                                "reviewsOfSystems": {
+                                  "id": "reviewsOfSystems",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "ReviewsOfSystems.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "physicalExams":{
-                                  "id":"physicalExams",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"PhysicalExams.swf"
+                                "physicalExams": {
+                                  "id": "physicalExams",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "PhysicalExams.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "bodyDiagrams":{
-                                  "id":"bodyDiagrams",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"EHRBodyDiagrams.swf"
+                                "bodyDiagrams": {
+                                  "id": "bodyDiagrams",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "EHRBodyDiagrams.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "plans":{
-                                  "id":"plans",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"IndividualEncounterPlans.swf"
+                                "plans": {
+                                  "id": "plans",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "IndividualEncounterPlans.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "ehrDeepnavDispositionRecDoente":{
-                                  "id":"ehrDeepnavDispositionRecDoente",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"DispositionInstructions.swf"
+                                "ehrDeepnavDispositionRecDoente": {
+                                  "id": "ehrDeepnavDispositionRecDoente",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "DispositionInstructions.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "recordsReview":{
-                                  "id":"recordsReview",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"RecordsReviewList.swf"
+                                "recordsReview": {
+                                  "id": "recordsReview",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "RecordsReviewList.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "ehrDischargeSummaryVisitNote":{
-                                  "id":"ehrDischargeSummaryVisitNote",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"EHRDSSummary.swf"
+                                "ehrDischargeSummaryVisitNote": {
+                                  "id": "ehrDischargeSummaryVisitNote",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "EHRDSSummary.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 }
                               },
-                              "buttonsPos":[
-                                "reasonForVisits",
-                                "historyOfPastIllnesses",
-                                "hp",
-                                "physicianProgressNotes",
-                                "reviewsOfSystems",
-                                "physicalExams",
-                                "bodyDiagrams",
-                                "plans",
-                                "ehrDeepnavDispositionRecDoente",
-                                "recordsReview",
-                                "ehrDischargeSummaryVisitNote"
-                              ]
+                              "buttonsPos": ["reasonForVisits", "historyOfPastIllnesses", "hp", "physicianProgressNotes", "reviewsOfSystems", "physicalExams", "bodyDiagrams", "plans", "ehrDeepnavDispositionRecDoente", "recordsReview", "ehrDischargeSummaryVisitNote"]
                             }
                           },
-                          "buttons":{
-                            "consultasAnteriores":{
-                              "id":"consultasAnteriores",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"PreviousEpisSummaryPage.swf"
+                          "buttons": {
+                            "consultasAnteriores": {
+                              "id": "consultasAnteriores",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "PreviousEpisSummaryPage.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "ehrTimeline":{
-                              "id":"ehrTimeline",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRepisodes.swf"
+                            "ehrTimeline": {
+                              "id": "ehrTimeline",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRepisodes.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "plannedVisits":{
-                              "id":"plannedVisits",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"PlannedVisits.swf"
+                            "plannedVisits": {
+                              "id": "plannedVisits",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "PlannedVisits.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "otherEvents":{
-                              "id":"otherEvents",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"OtherEvents.swf"
+                            "otherEvents": {
+                              "id": "otherEvents",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "OtherEvents.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "socialSummary":{
-                              "id":"socialSummary",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"SocialEHRSummary.swf"
+                            "socialSummary": {
+                              "id": "socialSummary",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "SocialEHRSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "dietProcess":{
-                              "id":"dietProcess",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "targetArea":"inpatient.patient.mainMenu.left.ehr.visits.dietProcess"
-                              },
-                              "areaId":"patient"
+                            "dietProcess": {
+                              "id": "dietProcess",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.dietProcess"
+                              }
                             },
-                            "activityTherapy":{
-                              "id":"activityTherapy",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"ActivityTherapyEHRSummary.swf"
+                            "activityTherapy": {
+                              "id": "activityTherapy",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "ActivityTherapyEHRSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "evaluationmfr":{
-                              "id":"evaluationmfr",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"MFREvaluationSummary.swf"
+                            "evaluationmfr": {
+                              "id": "evaluationmfr",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "MFREvaluationSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "intervalNotes":{
-                              "id":"intervalNotes",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"RPNSummary.swf"
+                            "intervalNotes": {
+                              "id": "intervalNotes",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "RPNSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "detailsOnPastIllnesses":{
-                              "id":"detailsOnPastIllnesses",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "targetArea":"inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses"
-                              },
-                              "areaId":"patient"
+                            "detailsOnPastIllnesses": {
+                              "id": "detailsOnPastIllnesses",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses"
+                              }
                             }
                           },
-                          "buttonsPos":[
-                            "consultasAnteriores",
-                            "ehrTimeline",
-                            "plannedVisits",
-                            "otherEvents",
-                            "socialSummary",
-                            "dietProcess",
-                            "activityTherapy",
-                            "evaluationmfr",
-                            "intervalNotes",
-                            "detailsOnPastIllnesses"
-                          ]
+                          "buttonsPos": ["consultasAnteriores", "ehrTimeline", "plannedVisits", "otherEvents", "socialSummary", "dietProcess", "activityTherapy", "evaluationmfr", "intervalNotes", "detailsOnPastIllnesses"]
                         },
-                        "planning":{
-                          "id":"planning",
-                          "description":"planning deepnavs",
-                          "pos":5,
-                          "areaName":"__areaName__",
-                          "buttons":{
-                            "carePlans":{
-                              "id":"carePlans",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRCarePlansList.swf"
+                        "planning": {
+                          "id": "planning",
+                          "description": "planning deepnavs",
+                          "pos": 5,
+                          "type": "deepnav",
+                          "buttons": {
+                            "carePlans": {
+                              "id": "carePlans",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRCarePlansList.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "individualEncounterPlans":{
-                              "id":"individualEncounterPlans",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"IndividualEncounterPlans.swf"
+                            "individualEncounterPlans": {
+                              "id": "individualEncounterPlans",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "IndividualEncounterPlans.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "guideline":{
-                              "id":"guideline",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRGuidelinesSummary.swf"
+                            "guideline": {
+                              "id": "guideline",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRGuidelinesSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "protocol":{
-                              "id":"protocol",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRProtocolSummary.swf"
+                            "protocol": {
+                              "id": "protocol",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRProtocolSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "plannedSurgeries":{
-                              "id":"plannedSurgeries",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRSurgEpisodesLoader.swf"
+                            "plannedSurgeries": {
+                              "id": "plannedSurgeries",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRSurgEpisodesLoader.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "referrals":{
-                              "id":"referrals",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRReferrals.swf"
+                            "referrals": {
+                              "id": "referrals",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRReferrals.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             }
                           },
-                          "buttonsPos":[
-                            "carePlans",
-                            "individualEncounterPlans",
-                            "guideline",
-                            "protocol",
-                            "plannedSurgeries",
-                            "referrals"
-                          ]
+                          "buttonsPos": ["carePlans", "individualEncounterPlans", "guideline", "protocol", "plannedSurgeries", "referrals"]
                         },
-                        "testAndTreatments":{
-                          "id":"testAndTreatments",
-                          "description":"testAndTreatments deepnavs",
-                          "pos":5,
-                          "areaName":"__areaName__",
-                          "areas":{
-                            "rehab":{
-                              "id":"rehab",
-                              "description":"rehab deepnavs",
-                              "pos":5,
-                              "areaName":"__areaName__",
-                              "buttons":{
-                                "proceduresMfr":{
-                                  "id":"proceduresMfr",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"RehabTreatmentsAllList.swf"
+                        "testAndTreatments": {
+                          "id": "testAndTreatments",
+                          "description": "testAndTreatments deepnavs",
+                          "pos": 5,
+                          "type": "deepnav",
+                          "areas": {
+                            "rehab": {
+                              "id": "rehab",
+                              "description": "rehab deepnavs",
+                              "pos": 5,
+                              "type": "deepnav",
+                              "buttons": {
+                                "proceduresMfr": {
+                                  "id": "proceduresMfr",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "RehabTreatmentsAllList.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "rehabPlan":{
-                                  "id":"rehabPlan",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"EHRRehabPlanHistory.swf"
+                                "rehabPlan": {
+                                  "id": "rehabPlan",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "EHRRehabPlanHistory.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 }
                               },
-                              "buttonsPos":[
-                                "proceduresMfr",
-                                "rehabPlan"
-                              ]
+                              "buttonsPos": ["proceduresMfr", "rehabPlan"]
                             }
                           },
-                          "buttons":{
-                            "depnvAnalisys":{
-                              "id":"depnvAnalisys",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRLabs.swf"
+                          "buttons": {
+                            "depnvAnalisys": {
+                              "id": "depnvAnalisys",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRLabs.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "depnvImages":{
-                              "id":"depnvImages",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRImages.swf"
+                            "depnvImages": {
+                              "id": "depnvImages",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRImages.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "depnvOtherExams":{
-                              "id":"depnvOtherExams",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHROtherExams.swf"
+                            "depnvOtherExams": {
+                              "id": "depnvOtherExams",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHROtherExams.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "prescription":{
-                              "id":"prescription",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"PrescViewPrescribedMedication.swf"
+                            "prescription": {
+                              "id": "prescription",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "PrescViewPrescribedMedication.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "pEnsinosenfermagem":{
-                              "id":"pEnsinosenfermagem",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"PatientEducationAllList.swf"
+                            "pEnsinosenfermagem": {
+                              "id": "pEnsinosenfermagem",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "PatientEducationAllList.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "pProcedures":{
-                              "id":"pProcedures",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"ProceduresTimeline.swf"
+                            "pProcedures": {
+                              "id": "pProcedures",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "ProceduresTimeline.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "ehrLensPresc":{
-                              "id":"ehrLensPresc",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRLensPrescriptionList.swf"
+                            "ehrLensPresc": {
+                              "id": "ehrLensPresc",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRLensPrescriptionList.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "rehab":{
-                              "id":"rehab",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "targetArea":"inpatient.patient.mainMenu.left.ehr.testAndTreatments.rehab"
-                              },
-                              "areaId":"patient"
+                            "rehab": {
+                              "id": "rehab",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.mainMenu.left.ehr.testAndTreatments.rehab"
+                              }
                             }
                           },
-                          "buttonsPos":[
-                            "depnvAnalisys",
-                            "depnvImages",
-                            "depnvOtherExams",
-                            "prescription",
-                            "pEnsinosenfermagem",
-                            "pProcedures",
-                            "ehrLensPresc",
-                            "rehab"
-                          ]
+                          "buttonsPos": ["depnvAnalisys", "depnvImages", "depnvOtherExams", "prescription", "pEnsinosenfermagem", "pProcedures", "ehrLensPresc", "rehab"]
                         },
-                        "history":{
-                          "id":"history",
-                          "description":"history deepnavs",
-                          "pos":5,
-                          "areaName":"__areaName__",
-                          "areas":{
-                            "assessToolsGroup":{
-                              "id":"assessToolsGroup",
-                              "description":"assessToolsGroup deepnavs",
-                              "pos":5,
-                              "areaName":"__areaName__",
-                              "buttons":{
-                                "factoresRisco":{
-                                  "id":"factoresRisco",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"EHRRiskFactorsSummary.swf"
+                        "history": {
+                          "id": "history",
+                          "description": "history deepnavs",
+                          "pos": 5,
+                          "type": "deepnav",
+                          "areas": {
+                            "assessToolsGroup": {
+                              "id": "assessToolsGroup",
+                              "description": "assessToolsGroup deepnavs",
+                              "pos": 5,
+                              "type": "deepnav",
+                              "buttons": {
+                                "factoresRisco": {
+                                  "id": "factoresRisco",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "EHRRiskFactorsSummary.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "depnvFuncEval":{
-                                  "id":"depnvFuncEval",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"EHRPhysicalExamEvaluationSummary.swf"
+                                "depnvFuncEval": {
+                                  "id": "depnvFuncEval",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "EHRPhysicalExamEvaluationSummary.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "scores":{
-                                  "id":"scores",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"SeverityScoresSummaryHist.swf"
+                                "scores": {
+                                  "id": "scores",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "SeverityScoresSummaryHist.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 }
                               },
-                              "buttonsPos":[
-                                "factoresRisco",
-                                "depnvFuncEval",
-                                "scores"
-                              ]
+                              "buttonsPos": ["factoresRisco", "depnvFuncEval", "scores"]
                             },
-                            "avaliacaoInfantil":{
-                              "id":"avaliacaoInfantil",
-                              "description":"avaliacaoInfantil deepnavs",
-                              "pos":5,
-                              "areaName":"__areaName__",
-                              "buttons":{
-                                "pediatricAssessment":{
-                                  "id":"pediatricAssessment",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"PediatricAssessmentSummary.swf"
+                            "avaliacaoInfantil": {
+                              "id": "avaliacaoInfantil",
+                              "description": "avaliacaoInfantil deepnavs",
+                              "pos": 5,
+                              "type": "deepnav",
+                              "buttons": {
+                                "pediatricAssessment": {
+                                  "id": "pediatricAssessment",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "PediatricAssessmentSummary.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "genPediatricAssessment":{
-                                  "id":"genPediatricAssessment",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"GeneralPediatricAssessment.swf"
+                                "genPediatricAssessment": {
+                                  "id": "genPediatricAssessment",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "GeneralPediatricAssessment.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "developmentMilestones":{
-                                  "id":"developmentMilestones",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"DevelopmentMilestonesGrid.swf"
+                                "developmentMilestones": {
+                                  "id": "developmentMilestones",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "DevelopmentMilestonesGrid.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "assessmentDevelopment":{
-                                  "id":"assessmentDevelopment",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"AssessmentOfDevelopment.swf"
+                                "assessmentDevelopment": {
+                                  "id": "assessmentDevelopment",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "AssessmentOfDevelopment.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "pediatricNutrition":{
-                                  "id":"pediatricNutrition",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"PediatricNutritionGrid.swf"
+                                "pediatricNutrition": {
+                                  "id": "pediatricNutrition",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "PediatricNutritionGrid.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "pediatricNutritionAssess":{
-                                  "id":"pediatricNutritionAssess",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"PediatricNutritionAssessment.swf"
+                                "pediatricNutritionAssess": {
+                                  "id": "pediatricNutritionAssess",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "PediatricNutritionAssessment.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 },
-                                "rendimentoEscolar":{
-                                  "id":"rendimentoEscolar",
-                                  "label":"",
-                                  "icon":"",
-                                  "action":{
-                                    "component":{
-                                      "type":"SWF",
-                                      "id":"SchoolPerformance.swf"
+                                "rendimentoEscolar": {
+                                  "id": "rendimentoEscolar",
+                                  "label": "",
+                                  "icon": "",
+                                  "action": {
+                                    "targetArea": "inpatient.patient.screen",
+                                    "component": {
+                                      "type": "SWF",
+                                      "id": "SchoolPerformance.swf"
                                     }
-                                  },
-                                  "areaId":"patient"
+                                  }
                                 }
                               },
-                              "buttonsPos":[
-                                "pediatricAssessment",
-                                "genPediatricAssessment",
-                                "developmentMilestones",
-                                "assessmentDevelopment",
-                                "pediatricNutrition",
-                                "pediatricNutritionAssess",
-                                "rendimentoEscolar"
-                              ]
+                              "buttonsPos": ["pediatricAssessment", "genPediatricAssessment", "developmentMilestones", "assessmentDevelopment", "pediatricNutrition", "pediatricNutritionAssess", "rendimentoEscolar"]
                             }
                           },
-                          "buttons":{
-                            "depnvProblemas":{
-                              "id":"depnvProblemas",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRProblemList.swf"
+                          "buttons": {
+                            "depnvProblemas": {
+                              "id": "depnvProblemas",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRProblemList.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "ehrDeepnavPrevDiagnosis":{
-                              "id":"ehrDeepnavPrevDiagnosis",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"Diagnosis.swf"
+                            "ehrDeepnavPrevDiagnosis": {
+                              "id": "ehrDeepnavPrevDiagnosis",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "Diagnosis.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "historicohospitalarAlergias":{
-                              "id":"historicohospitalarAlergias",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRAllergyList.swf"
+                            "historicohospitalarAlergias": {
+                              "id": "historicohospitalarAlergias",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRAllergyList.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "depnvHabitos":{
-                              "id":"depnvHabitos",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRPatientHabits.swf"
+                            "depnvHabitos": {
+                              "id": "depnvHabitos",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRPatientHabits.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "antecedentes":{
-                              "id":"antecedentes",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRPastHistorySummary.swf"
+                            "antecedentes": {
+                              "id": "antecedentes",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRPastHistorySummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "identificationIdentification":{
-                              "id":"identificationIdentification",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"PatientAttributes.swf"
+                            "identificationIdentification": {
+                              "id": "identificationIdentification",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "PatientAttributes.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "familyRelationships":{
-                              "id":"familyRelationships",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"GridFamily.swf"
+                            "familyRelationships": {
+                              "id": "familyRelationships",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "GridFamily.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "assessToolsGroup":{
-                              "id":"assessToolsGroup",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "targetArea":"inpatient.patient.mainMenu.left.ehr.history.assessToolsGroup"
-                              },
-                              "areaId":"patient"
+                            "assessToolsGroup": {
+                              "id": "assessToolsGroup",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.mainMenu.left.ehr.history.assessToolsGroup"
+                              }
                             },
-                            "ehrDepnvVitalSign":{
-                              "id":"ehrDepnvVitalSign",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRVitalSigns.swf"
+                            "ehrDepnvVitalSign": {
+                              "id": "ehrDepnvVitalSign",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRVitalSigns.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "biometric":{
-                              "id":"biometric",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"BiometricRead.swf"
+                            "biometric": {
+                              "id": "biometric",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "BiometricRead.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "pregnancyList":{
-                              "id":"pregnancyList",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRWomanHealthPregnanciesSummary.swf"
+                            "pregnancyList": {
+                              "id": "pregnancyList",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRWomanHealthPregnanciesSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "avaliacaoInfantil":{
-                              "id":"avaliacaoInfantil",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "targetArea":"inpatient.patient.mainMenu.left.ehr.history.avaliacaoInfantil"
-                              },
-                              "areaId":"patient"
+                            "avaliacaoInfantil": {
+                              "id": "avaliacaoInfantil",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.mainMenu.left.ehr.history.avaliacaoInfantil"
+                              }
                             },
-                            "vacinacao":{
-                              "id":"vacinacao",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRVaccinationSummaryPage.swf"
+                            "vacinacao": {
+                              "id": "vacinacao",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRVaccinationSummaryPage.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             }
                           },
-                          "buttonsPos":[
-                            "depnvProblemas",
-                            "ehrDeepnavPrevDiagnosis",
-                            "historicohospitalarAlergias",
-                            "depnvHabitos",
-                            "antecedentes",
-                            "identificationIdentification",
-                            "familyRelationships",
-                            "assessToolsGroup",
-                            "ehrDepnvVitalSign",
-                            "biometric",
-                            "pregnancyList",
-                            "avaliacaoInfantil",
-                            "vacinacao"
-                          ]
+                          "buttonsPos": ["depnvProblemas", "ehrDeepnavPrevDiagnosis", "historicohospitalarAlergias", "depnvHabitos", "antecedentes", "identificationIdentification", "familyRelationships", "assessToolsGroup", "ehrDepnvVitalSign", "biometric", "pregnancyList", "avaliacaoInfantil", "vacinacao"]
                         },
-                        "nursing":{
-                          "id":"nursing",
-                          "description":"nursing deepnavs",
-                          "pos":5,
-                          "areaName":"__areaName__",
-                          "buttons":{
-                            "nursingInitialAssessment":{
-                              "id":"nursingInitialAssessment",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRNIASummary.swf"
+                        "nursing": {
+                          "id": "nursing",
+                          "description": "nursing deepnavs",
+                          "pos": 5,
+                          "type": "deepnav",
+                          "buttons": {
+                            "nursingInitialAssessment": {
+                              "id": "nursingInitialAssessment",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRNIASummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "nursingProgressNotes":{
-                              "id":"nursingProgressNotes",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EHRNPNSummary.swf"
+                            "nursingProgressNotes": {
+                              "id": "nursingProgressNotes",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EHRNPNSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "nurseNotesSr":{
-                              "id":"nurseNotesSr",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"NursingNotes.swf"
+                            "nurseNotesSr": {
+                              "id": "nurseNotesSr",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "NursingNotes.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "depnvNursingCarePlan":{
-                              "id":"depnvNursingCarePlan",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"NursingDiagnosisInterventions.swf"
+                            "depnvNursingCarePlan": {
+                              "id": "depnvNursingCarePlan",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "NursingDiagnosisInterventions.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             }
                           },
-                          "buttonsPos":[
-                            "nursingInitialAssessment",
-                            "nursingProgressNotes",
-                            "nurseNotesSr",
-                            "depnvNursingCarePlan"
-                          ]
+                          "buttonsPos": ["nursingInitialAssessment", "nursingProgressNotes", "nurseNotesSr", "depnvNursingCarePlan"]
                         }
                       },
-                      "buttons":{
-                        "dashboard":{
-                          "id":"dashboard",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"DashBoardLoader.swf"
+                      "buttons": {
+                        "dashboard": {
+                          "id": "dashboard",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "DashBoardLoader.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "visits":{
-                          "id":"visits",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "targetArea":"inpatient.patient.mainMenu.left.ehr.visits"
-                          },
-                          "areaId":"patient"
+                        "visits": {
+                          "id": "visits",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.mainMenu.left.ehr.visits"
+                          }
                         },
-                        "planning":{
-                          "id":"planning",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "targetArea":"inpatient.patient.mainMenu.left.ehr.planning"
-                          },
-                          "areaId":"patient"
+                        "planning": {
+                          "id": "planning",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.mainMenu.left.ehr.planning"
+                          }
                         },
-                        "testAndTreatments":{
-                          "id":"testAndTreatments",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "targetArea":"inpatient.patient.mainMenu.left.ehr.testAndTreatments"
-                          },
-                          "areaId":"patient"
+                        "testAndTreatments": {
+                          "id": "testAndTreatments",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.mainMenu.left.ehr.testAndTreatments"
+                          }
                         },
-                        "history":{
-                          "id":"history",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "targetArea":"inpatient.patient.mainMenu.left.ehr.history"
-                          },
-                          "areaId":"patient"
+                        "history": {
+                          "id": "history",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.mainMenu.left.ehr.history"
+                          }
                         },
-                        "historicohospitalarGruposang":{
-                          "id":"historicohospitalarGruposang",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"BloodList.swf"
+                        "historicohospitalarGruposang": {
+                          "id": "historicohospitalarGruposang",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "BloodList.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "nursing":{
-                          "id":"nursing",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "targetArea":"inpatient.patient.mainMenu.left.ehr.nursing"
-                          },
-                          "areaId":"patient"
+                        "nursing": {
+                          "id": "nursing",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.mainMenu.left.ehr.nursing"
+                          }
                         },
-                        "trials":{
-                          "id":"trials",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"TrialsList.swf"
+                        "trials": {
+                          "id": "trials",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "TrialsList.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "mediaArchive":{
-                          "id":"mediaArchive",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"DocumentsArchive.swf"
+                        "mediaArchive": {
+                          "id": "mediaArchive",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "DocumentsArchive.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         }
                       },
-                      "buttonsPos":[
-                        "dashboard",
-                        "visits",
-                        "planning",
-                        "testAndTreatments",
-                        "history",
-                        "historicohospitalarGruposang",
-                        "nursing",
-                        "trials",
-                        "mediaArchive"
-                      ]
+                      "buttonsPos": ["dashboard", "visits", "planning", "testAndTreatments", "history", "historicohospitalarGruposang", "nursing", "trials", "mediaArchive"]
                     },
-                    "clinicalInfoIcon":{
-                      "id":"clinicalInfoIcon",
-                      "description":"clinicalInfoIcon deepnavs",
-                      "pos":5,
-                      "areaName":"__areaName__",
-                      "areas":{
-                        "progressNotes":{
-                          "id":"progressNotes",
-                          "description":"progressNotes deepnavs",
-                          "pos":5,
-                          "areaName":"__areaName__",
-                          "buttons":{
-                            "physicianProgressNotes":{
-                              "id":"physicianProgressNotes",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"INPPNSummary.swf"
+                    "clinicalInfoIcon": {
+                      "id": "clinicalInfoIcon",
+                      "description": "clinicalInfoIcon deepnavs",
+                      "pos": 5,
+                      "type": "deepnav",
+                      "areas": {
+                        "progressNotes": {
+                          "id": "progressNotes",
+                          "description": "progressNotes deepnavs",
+                          "pos": 5,
+                          "type": "deepnav",
+                          "buttons": {
+                            "physicianProgressNotes": {
+                              "id": "physicianProgressNotes",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "INPPNSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "depnvPareceres":{
-                              "id":"depnvPareceres",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"OpinionList.swf"
+                            "depnvPareceres": {
+                              "id": "depnvPareceres",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "OpinionList.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "nursingProgressNotes":{
-                              "id":"nursingProgressNotes",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"NPNSummary.swf"
+                            "nursingProgressNotes": {
+                              "id": "nursingProgressNotes",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "NPNSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "intervalNotes":{
-                              "id":"intervalNotes",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"RPNSummary.swf"
+                            "intervalNotes": {
+                              "id": "intervalNotes",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "RPNSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "evaluationmfr":{
-                              "id":"evaluationmfr",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"MFREvaluationSummary.swf"
+                            "evaluationmfr": {
+                              "id": "evaluationmfr",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "MFREvaluationSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "dietaryProgressNotes":{
-                              "id":"dietaryProgressNotes",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"DPNSummary.swf"
+                            "dietaryProgressNotes": {
+                              "id": "dietaryProgressNotes",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "DPNSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "activityTherapy":{
-                              "id":"activityTherapy",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"ActivityTherapyEHRSummary.swf"
+                            "activityTherapy": {
+                              "id": "activityTherapy",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "ActivityTherapyEHRSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "socialSummary":{
-                              "id":"socialSummary",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"SocialSummary.swf"
+                            "socialSummary": {
+                              "id": "socialSummary",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "SocialSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             }
                           },
-                          "buttonsPos":[
-                            "physicianProgressNotes",
-                            "depnvPareceres",
-                            "nursingProgressNotes",
-                            "intervalNotes",
-                            "evaluationmfr",
-                            "dietaryProgressNotes",
-                            "activityTherapy",
-                            "socialSummary"
-                          ]
+                          "buttonsPos": ["physicianProgressNotes", "depnvPareceres", "nursingProgressNotes", "intervalNotes", "evaluationmfr", "dietaryProgressNotes", "activityTherapy", "socialSummary"]
                         },
-                        "assessToolsGroup":{
-                          "id":"assessToolsGroup",
-                          "description":"assessToolsGroup deepnavs",
-                          "pos":5,
-                          "areaName":"__areaName__",
-                          "buttons":{
-                            "scores":{
-                              "id":"scores",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"SeverityScoresSummary.swf"
+                        "assessToolsGroup": {
+                          "id": "assessToolsGroup",
+                          "description": "assessToolsGroup deepnavs",
+                          "pos": 5,
+                          "type": "deepnav",
+                          "buttons": {
+                            "scores": {
+                              "id": "scores",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "SeverityScoresSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "depnvFuncEval":{
-                              "id":"depnvFuncEval",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"EvaluationSummary.swf"
+                            "depnvFuncEval": {
+                              "id": "depnvFuncEval",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "EvaluationSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "factoresRisco":{
-                              "id":"factoresRisco",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"RiskFactorsSummary.swf"
+                            "factoresRisco": {
+                              "id": "factoresRisco",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "RiskFactorsSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             }
                           },
-                          "buttonsPos":[
-                            "scores",
-                            "depnvFuncEval",
-                            "factoresRisco"
-                          ]
+                          "buttonsPos": ["scores", "depnvFuncEval", "factoresRisco"]
                         }
                       },
-                      "buttons":{
-                        "summaryInp":{
-                          "id":"summaryInp",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"INPSummary.swf"
+                      "buttons": {
+                        "summaryInp": {
+                          "id": "summaryInp",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "INPSummary.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "hp":{
-                          "id":"hp",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"INPHPSummary.swf"
+                        "hp": {
+                          "id": "hp",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "INPHPSummary.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "progressNotes":{
-                          "id":"progressNotes",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "targetArea":"inpatient.patient.mainMenu.left.clinicalInfoIcon.progressNotes"
-                          },
-                          "areaId":"patient"
+                        "progressNotes": {
+                          "id": "progressNotes",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.progressNotes"
+                          }
                         },
-                        "depnvProblemas":{
-                          "id":"depnvProblemas",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ProblemList.swf"
+                        "depnvProblemas": {
+                          "id": "depnvProblemas",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ProblemList.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "medicacaoAnt":{
-                          "id":"medicacaoAnt",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"PrescViewHomeMedication.swf"
+                        "medicacaoAnt": {
+                          "id": "medicacaoAnt",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "PrescViewHomeMedication.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "antecedentes":{
-                          "id":"antecedentes",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"PastHistorySummary.swf"
+                        "antecedentes": {
+                          "id": "antecedentes",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "PastHistorySummary.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "depnvDiagnosticos":{
-                          "id":"depnvDiagnosticos",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"DiagnosisDifferentialList.swf"
+                        "depnvDiagnosticos": {
+                          "id": "depnvDiagnosticos",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "DiagnosisDifferentialList.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "assessToolsGroup":{
-                          "id":"assessToolsGroup",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "targetArea":"inpatient.patient.mainMenu.left.clinicalInfoIcon.assessToolsGroup"
-                          },
-                          "areaId":"patient"
+                        "assessToolsGroup": {
+                          "id": "assessToolsGroup",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.assessToolsGroup"
+                          }
                         },
-                        "depnvTopografia":{
-                          "id":"depnvTopografia",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"BodyDiagram.swf"
+                        "depnvTopografia": {
+                          "id": "depnvTopografia",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "BodyDiagram.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "consultasAnteriores":{
-                          "id":"consultasAnteriores",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"PreviousEpisSummaryPage.swf"
+                        "consultasAnteriores": {
+                          "id": "consultasAnteriores",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "PreviousEpisSummaryPage.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "emergencyEpisodeSummary":{
-                          "id":"emergencyEpisodeSummary",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"EDISEpisodeSummary.swf"
+                        "emergencyEpisodeSummary": {
+                          "id": "emergencyEpisodeSummary",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "EDISEpisodeSummary.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         }
                       },
-                      "buttonsPos":[
-                        "summaryInp",
-                        "hp",
-                        "progressNotes",
-                        "depnvProblemas",
-                        "medicacaoAnt",
-                        "antecedentes",
-                        "depnvDiagnosticos",
-                        "assessToolsGroup",
-                        "depnvTopografia",
-                        "consultasAnteriores",
-                        "emergencyEpisodeSummary"
-                      ]
+                      "buttonsPos": ["summaryInp", "hp", "progressNotes", "depnvProblemas", "medicacaoAnt", "antecedentes", "depnvDiagnosticos", "assessToolsGroup", "depnvTopografia", "consultasAnteriores", "emergencyEpisodeSummary"]
                     },
-                    "orderEntry":{
-                      "id":"orderEntry",
-                      "description":"orderEntry deepnavs",
-                      "pos":5,
-                      "areaName":"__areaName__",
-                      "areas":{
-                        "depnvAnalisys":{
-                          "id":"depnvAnalisys",
-                          "description":"depnvAnalisys deepnavs",
-                          "pos":5,
-                          "areaName":"__areaName__",
-                          "buttons":{
-                            "depnvAnalisys":{
-                              "id":"depnvAnalisys",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"LabTestsOrdersList.swf"
+                    "orderEntry": {
+                      "id": "orderEntry",
+                      "description": "orderEntry deepnavs",
+                      "pos": 5,
+                      "type": "deepnav",
+                      "areas": {
+                        "depnvAnalisys": {
+                          "id": "depnvAnalisys",
+                          "description": "depnvAnalisys deepnavs",
+                          "pos": 5,
+                          "type": "deepnav",
+                          "buttons": {
+                            "depnvAnalisys": {
+                              "id": "depnvAnalisys",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "LabTestsOrdersList.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "aColheitas":{
-                              "id":"aColheitas",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"AnalysisHarvest.swf"
+                            "aColheitas": {
+                              "id": "aColheitas",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "AnalysisHarvest.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "aTranpAnalises":{
-                              "id":"aTranpAnalises",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"AnalysisHarvestTransport.swf"
+                            "aTranpAnalises": {
+                              "id": "aTranpAnalises",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "AnalysisHarvestTransport.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             }
                           },
-                          "buttonsPos":[
-                            "depnvAnalisys",
-                            "aColheitas",
-                            "aTranpAnalises"
-                          ]
+                          "buttonsPos": ["depnvAnalisys", "aColheitas", "aTranpAnalises"]
                         },
-                        "prescription":{
-                          "id":"prescription",
-                          "description":"prescription deepnavs",
-                          "pos":5,
-                          "areaName":"__areaName__",
-                          "buttons":{
-                            "prescription":{
-                              "id":"prescription",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"PrescViewMedicationMistakes.swf"
+                        "prescription": {
+                          "id": "prescription",
+                          "description": "prescription deepnavs",
+                          "pos": 5,
+                          "type": "deepnav",
+                          "buttons": {
+                            "prescription": {
+                              "id": "prescription",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "PrescViewMedicationMistakes.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             }
                           },
-                          "buttonsPos":[
-                            "prescription",
-                            "prescription",
-                            "prescription",
-                            "prescription",
-                            "prescription",
-                            "prescription"
-                          ]
+                          "buttonsPos": ["prescription", "prescription", "prescription", "prescription", "prescription", "prescription"]
                         },
-                        "pEnsinosenfermagem":{
-                          "id":"pEnsinosenfermagem",
-                          "description":"pEnsinosenfermagem deepnavs",
-                          "pos":5,
-                          "areaName":"__areaName__",
-                          "buttons":{
-                            "patientAssessment":{
-                              "id":"patientAssessment",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"PatientAssessmentSummary.swf"
+                        "pEnsinosenfermagem": {
+                          "id": "pEnsinosenfermagem",
+                          "description": "pEnsinosenfermagem deepnavs",
+                          "pos": 5,
+                          "type": "deepnav",
+                          "buttons": {
+                            "patientAssessment": {
+                              "id": "patientAssessment",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "PatientAssessmentSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "patientEducation":{
-                              "id":"patientEducation",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"PatientEducationList.swf"
+                            "patientEducation": {
+                              "id": "patientEducation",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "PatientEducationList.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             }
                           },
-                          "buttonsPos":[
-                            "patientAssessment",
-                            "patientEducation",
-                            "patientEducation"
-                          ]
+                          "buttonsPos": ["patientAssessment", "patientEducation", "patientEducation"]
                         },
-                        "physicalTherapy":{
-                          "id":"physicalTherapy",
-                          "description":"physicalTherapy deepnavs",
-                          "pos":5,
-                          "areaName":"__areaName__",
-                          "buttons":{
-                            "proceduresMfr":{
-                              "id":"proceduresMfr",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"RehabPlan.swf"
+                        "physicalTherapy": {
+                          "id": "physicalTherapy",
+                          "description": "physicalTherapy deepnavs",
+                          "pos": 5,
+                          "type": "deepnav",
+                          "buttons": {
+                            "proceduresMfr": {
+                              "id": "proceduresMfr",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "RehabPlan.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "rehabPlan":{
-                              "id":"rehabPlan",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"RehabTreatmentPlanView.swf"
+                            "rehabPlan": {
+                              "id": "rehabPlan",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "RehabTreatmentPlanView.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             }
                           },
-                          "buttonsPos":[
-                            "proceduresMfr",
-                            "rehabPlan",
-                            "rehabPlan"
-                          ]
+                          "buttonsPos": ["proceduresMfr", "rehabPlan", "rehabPlan"]
                         },
-                        "planningGroup":{
-                          "id":"planningGroup",
-                          "description":"planningGroup deepnavs",
-                          "pos":5,
-                          "areaName":"__areaName__",
-                          "buttons":{
-                            "carePlans":{
-                              "id":"carePlans",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"CarePlansList.swf"
+                        "planningGroup": {
+                          "id": "planningGroup",
+                          "description": "planningGroup deepnavs",
+                          "pos": 5,
+                          "type": "deepnav",
+                          "buttons": {
+                            "carePlans": {
+                              "id": "carePlans",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "CarePlansList.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "guideline":{
-                              "id":"guideline",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"GuidelinesSummary.swf"
+                            "guideline": {
+                              "id": "guideline",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "GuidelinesSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "protocol":{
-                              "id":"protocol",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"ProtocolSummary.swf"
+                            "protocol": {
+                              "id": "protocol",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "ProtocolSummary.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             }
                           },
-                          "buttonsPos":[
-                            "carePlans",
-                            "guideline",
-                            "protocol"
-                          ]
+                          "buttonsPos": ["carePlans", "guideline", "protocol"]
                         }
                       },
-                      "buttons":{
-                        "cpoe":{
-                          "id":"cpoe",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"CpoeGrid.swf"
+                      "buttons": {
+                        "cpoe": {
+                          "id": "cpoe",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "CpoeGrid.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "orderSets":{
-                          "id":"orderSets",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"OrderSetOngoing.swf"
+                        "orderSets": {
+                          "id": "orderSets",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "OrderSetOngoing.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "depnvAnalisys":{
-                          "id":"depnvAnalisys",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "targetArea":"inpatient.patient.mainMenu.left.orderEntry.depnvAnalisys"
-                          },
-                          "areaId":"patient"
+                        "depnvAnalisys": {
+                          "id": "depnvAnalisys",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.mainMenu.left.orderEntry.depnvAnalisys"
+                          }
                         },
-                        "depnvImages":{
-                          "id":"depnvImages",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ImageList.swf"
+                        "depnvImages": {
+                          "id": "depnvImages",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ImageList.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "depnvOtherExams":{
-                          "id":"depnvOtherExams",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ExamList.swf"
+                        "depnvOtherExams": {
+                          "id": "depnvOtherExams",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ExamList.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "prescription":{
-                          "id":"prescription",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "targetArea":"inpatient.patient.mainMenu.left.orderEntry.prescription",
-                            "component":{
-                              "type":"SWF",
-                              "id":"PrescViewAdminAndTasks.swf"
+                        "prescription": {
+                          "id": "prescription",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.mainMenu.left.orderEntry.prescription",
+                            "component": {
+                              "type": "SWF",
+                              "id": "PrescViewAdminAndTasks.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "pProcedures":{
-                          "id":"pProcedures",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ProceduresLoaderView.swf"
+                        "pProcedures": {
+                          "id": "pProcedures",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ProceduresLoaderView.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "pEnsinosenfermagem":{
-                          "id":"pEnsinosenfermagem",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "targetArea":"inpatient.patient.mainMenu.left.orderEntry.pEnsinosenfermagem"
-                          },
-                          "areaId":"patient"
+                        "pEnsinosenfermagem": {
+                          "id": "pEnsinosenfermagem",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.mainMenu.left.orderEntry.pEnsinosenfermagem"
+                          }
                         },
-                        "diets":{
-                          "id":"diets",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"DietSummary.swf"
+                        "diets": {
+                          "id": "diets",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "DietSummary.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "consultRequests":{
-                          "id":"consultRequests",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ParamedicalRequestList.swf"
+                        "consultRequests": {
+                          "id": "consultRequests",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ParamedicalRequestList.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "positioningInp":{
-                          "id":"positioningInp",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"PositioningsList.swf"
+                        "positioningInp": {
+                          "id": "positioningInp",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "PositioningsList.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "physicalTherapy":{
-                          "id":"physicalTherapy",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "targetArea":"inpatient.patient.mainMenu.left.orderEntry.physicalTherapy"
-                          },
-                          "areaId":"patient"
+                        "physicalTherapy": {
+                          "id": "physicalTherapy",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.mainMenu.left.orderEntry.physicalTherapy"
+                          }
                         },
-                        "planningGroup":{
-                          "id":"planningGroup",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "targetArea":"inpatient.patient.mainMenu.left.orderEntry.planningGroup"
-                          },
-                          "areaId":"patient"
+                        "planningGroup": {
+                          "id": "planningGroup",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.mainMenu.left.orderEntry.planningGroup"
+                          }
                         },
-                        "suppliesProcedures":{
-                          "id":"suppliesProcedures",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"SuppliesList.swf"
+                        "suppliesProcedures": {
+                          "id": "suppliesProcedures",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "SuppliesList.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         }
                       },
-                      "buttonsPos":[
-                        "cpoe",
-                        "orderSets",
-                        "depnvAnalisys",
-                        "depnvImages",
-                        "depnvOtherExams",
-                        "prescription",
-                        "pProcedures",
-                        "pEnsinosenfermagem",
-                        "diets",
-                        "consultRequests",
-                        "positioningInp",
-                        "physicalTherapy",
-                        "planningGroup",
-                        "suppliesProcedures"
-                      ]
+                      "buttonsPos": ["cpoe", "orderSets", "depnvAnalisys", "depnvImages", "depnvOtherExams", "prescription", "pProcedures", "pEnsinosenfermagem", "diets", "consultRequests", "positioningInp", "physicalTherapy", "planningGroup", "suppliesProcedures"]
                     },
-                    "nurse":{
-                      "id":"nurse",
-                      "description":"nurse deepnavs",
-                      "pos":5,
-                      "areaName":"__areaName__",
-                      "buttons":{
-                        "nursingInitialAssessment":{
-                          "id":"nursingInitialAssessment",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"NIASummary.swf"
+                    "nurse": {
+                      "id": "nurse",
+                      "description": "nurse deepnavs",
+                      "pos": 5,
+                      "type": "deepnav",
+                      "buttons": {
+                        "nursingInitialAssessment": {
+                          "id": "nursingInitialAssessment",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "NIASummary.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "depnvNursingCarePlan":{
-                          "id":"depnvNursingCarePlan",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ICNPLoaderView.swf"
+                        "depnvNursingCarePlan": {
+                          "id": "depnvNursingCarePlan",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ICNPLoaderView.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "depnvVitalSign":{
-                          "id":"depnvVitalSign",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"VitalSignsDetail.swf"
+                        "depnvVitalSign": {
+                          "id": "depnvVitalSign",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "VitalSignsDetail.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "biometric":{
-                          "id":"biometric",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"BiometricRead.swf"
+                        "biometric": {
+                          "id": "biometric",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "BiometricRead.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "hidrics":{
-                          "id":"hidrics",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"FluidBalanceRequestList.swf"
+                        "hidrics": {
+                          "id": "hidrics",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "FluidBalanceRequestList.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "observacaoPeriodica":{
-                          "id":"observacaoPeriodica",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"FlowSheetsLoaderViews.swf"
+                        "observacaoPeriodica": {
+                          "id": "observacaoPeriodica",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "FlowSheetsLoaderViews.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "healthProgr":{
-                          "id":"healthProgr",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"HealthProgramList.swf"
+                        "healthProgr": {
+                          "id": "healthProgr",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "HealthProgramList.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "dischargeAltaEnfer":{
-                          "id":"dischargeAltaEnfer",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"NursingDischarge.swf"
+                        "dischargeAltaEnfer": {
+                          "id": "dischargeAltaEnfer",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "NursingDischarge.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         }
                       },
-                      "buttonsPos":[
-                        "nursingInitialAssessment",
-                        "depnvNursingCarePlan",
-                        "depnvVitalSign",
-                        "biometric",
-                        "hidrics",
-                        "observacaoPeriodica",
-                        "healthProgr",
-                        "dischargeAltaEnfer"
-                      ]
+                      "buttonsPos": ["nursingInitialAssessment", "depnvNursingCarePlan", "depnvVitalSign", "biometric", "hidrics", "observacaoPeriodica", "healthProgr", "dischargeAltaEnfer"]
                     },
-                    "patientid":{
-                      "id":"patientid",
-                      "description":"patientid deepnavs",
-                      "pos":5,
-                      "areaName":"__areaName__",
-                      "buttons":{
-                        "identificationIdentification":{
-                          "id":"identificationIdentification",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"PatientAttributes.swf"
+                    "patientid": {
+                      "id": "patientid",
+                      "description": "patientid deepnavs",
+                      "pos": 5,
+                      "type": "deepnav",
+                      "buttons": {
+                        "identificationIdentification": {
+                          "id": "identificationIdentification",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "PatientAttributes.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "subdeepnvAdministradorPhoto":{
-                          "id":"subdeepnvAdministradorPhoto",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"PatientCapturePhotoDoctor.swf"
+                        "subdeepnvAdministradorPhoto": {
+                          "id": "subdeepnvAdministradorPhoto",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "PatientCapturePhotoDoctor.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "barcode":{
-                          "id":"barcode",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"PrintPatientBarCode.swf"
+                        "barcode": {
+                          "id": "barcode",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "PrintPatientBarCode.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "identificationDocumentos":{
-                          "id":"identificationDocumentos",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"DocumentsArchive.swf"
+                        "identificationDocumentos": {
+                          "id": "identificationDocumentos",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "DocumentsArchive.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "identificationPlanossaude":{
-                          "id":"identificationPlanossaude",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"PatientHealthPlan.swf"
+                        "identificationPlanossaude": {
+                          "id": "identificationPlanossaude",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "PatientHealthPlan.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "idArrivedByEdis":{
-                          "id":"idArrivedByEdis",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"PatientArrivedBy.swf"
+                        "idArrivedByEdis": {
+                          "id": "idArrivedByEdis",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "PatientArrivedBy.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "patientPortal":{
-                          "id":"patientPortal",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"AdtPatientPortalAccess.swf"
+                        "patientPortal": {
+                          "id": "patientPortal",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "AdtPatientPortalAccess.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "advancedDirectives":{
-                          "id":"advancedDirectives",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"AdvancedDirectivesSummary.swf"
+                        "advancedDirectives": {
+                          "id": "advancedDirectives",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "AdvancedDirectivesSummary.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "identificationNecessidades":{
-                          "id":"identificationNecessidades",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"PatientNeeds.swf"
+                        "identificationNecessidades": {
+                          "id": "identificationNecessidades",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "PatientNeeds.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         }
                       },
-                      "buttonsPos":[
-                        "identificationIdentification",
-                        "subdeepnvAdministradorPhoto",
-                        "barcode",
-                        "identificationDocumentos",
-                        "identificationPlanossaude",
-                        "idArrivedByEdis",
-                        "patientPortal",
-                        "advancedDirectives",
-                        "identificationNecessidades"
-                      ]
+                      "buttonsPos": ["identificationIdentification", "subdeepnvAdministradorPhoto", "barcode", "identificationDocumentos", "identificationPlanossaude", "idArrivedByEdis", "patientPortal", "advancedDirectives", "identificationNecessidades"]
                     },
-                    "coding":{
-                      "id":"coding",
-                      "description":"coding deepnavs",
-                      "pos":5,
-                      "areaName":"__areaName__",
-                      "buttons":{
-                        "codingPage":{
-                          "id":"codingPage",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"CpPatientGW.swf"
+                    "coding": {
+                      "id": "coding",
+                      "description": "coding deepnavs",
+                      "pos": 5,
+                      "type": "deepnav",
+                      "buttons": {
+                        "codingPage": {
+                          "id": "codingPage",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "CpPatientGW.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         }
                       },
-                      "buttonsPos":[
-                        "codingPage"
-                      ]
+                      "buttonsPos": ["codingPage"]
                     },
-                    "discharge":{
-                      "id":"discharge",
-                      "description":"discharge deepnavs",
-                      "pos":5,
-                      "areaName":"__areaName__",
-                      "areas":{
-                        "futureEvents":{
-                          "id":"futureEvents",
-                          "description":"futureEvents deepnavs",
-                          "pos":5,
-                          "areaName":"__areaName__",
-                          "buttons":{
-                            "p1DepnavSummary":{
-                              "id":"p1DepnavSummary",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"P1GridDoctorPat.swf"
+                    "discharge": {
+                      "id": "discharge",
+                      "description": "discharge deepnavs",
+                      "pos": 5,
+                      "type": "deepnav",
+                      "areas": {
+                        "futureEvents": {
+                          "id": "futureEvents",
+                          "description": "futureEvents deepnavs",
+                          "pos": 5,
+                          "type": "deepnav",
+                          "buttons": {
+                            "p1DepnavSummary": {
+                              "id": "p1DepnavSummary",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "P1GridDoctorPat.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "futureEvents":{
-                              "id":"futureEvents",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"FutureEventsList.swf"
+                            "futureEvents": {
+                              "id": "futureEvents",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "FutureEventsList.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "surgProcCreation":{
-                              "id":"surgProcCreation",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"SurgicalEpisodeLoader.swf"
+                            "surgProcCreation": {
+                              "id": "surgProcCreation",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "SurgicalEpisodeLoader.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "inpatientEpisodes":{
-                              "id":"inpatientEpisodes",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"InpatientEpisodesListLoader.swf"
+                            "inpatientEpisodes": {
+                              "id": "inpatientEpisodes",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "InpatientEpisodesListLoader.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             }
                           },
-                          "buttonsPos":[
-                            "p1DepnavSummary",
-                            "futureEvents",
-                            "surgProcCreation",
-                            "inpatientEpisodes"
-                          ]
+                          "buttonsPos": ["p1DepnavSummary", "futureEvents", "surgProcCreation", "inpatientEpisodes"]
                         }
                       },
-                      "buttons":{
-                        "dischargeDiagSaida":{
-                          "id":"dischargeDiagSaida",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"DiagnosisFinalList.swf"
+                      "buttons": {
+                        "dischargeDiagSaida": {
+                          "id": "dischargeDiagSaida",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "DiagnosisFinalList.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "dischargeReceita":{
-                          "id":"dischargeReceita",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"PrescViewAdminAndTasks.swf"
+                        "dischargeReceita": {
+                          "id": "dischargeReceita",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "PrescViewAdminAndTasks.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "futureEvents":{
-                          "id":"futureEvents",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "targetArea":"inpatient.patient.mainMenu.left.discharge.futureEvents"
-                          },
-                          "areaId":"patient"
+                        "futureEvents": {
+                          "id": "futureEvents",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.mainMenu.left.discharge.futureEvents"
+                          }
                         },
-                        "dischargeRecDoente":{
-                          "id":"dischargeRecDoente",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"RecommendPatientNotes.swf"
+                        "dischargeRecDoente": {
+                          "id": "dischargeRecDoente",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "RecommendPatientNotes.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "dischargeRecMedico":{
-                          "id":"dischargeRecMedico",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"DischargeDoctorSummary.swf"
+                        "dischargeRecMedico": {
+                          "id": "dischargeRecMedico",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "DischargeDoctorSummary.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "formulaires":{
-                          "id":"formulaires",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"CitsCerfas.swf"
+                        "formulaires": {
+                          "id": "formulaires",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "CitsCerfas.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "coSign":{
-                          "id":"coSign",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"CoSignTaskList.swf"
+                        "coSign": {
+                          "id": "coSign",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "CoSignTaskList.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "deathRegistry":{
-                          "id":"deathRegistry",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"DeathRegistrySummary.swf"
+                        "deathRegistry": {
+                          "id": "deathRegistry",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "DeathRegistrySummary.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "usDisposition":{
-                          "id":"usDisposition",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"USDispositionSummary.swf"
+                        "usDisposition": {
+                          "id": "usDisposition",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "USDispositionSummary.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "signoff":{
-                          "id":"signoff",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"SignOff.swf"
+                        "signoff": {
+                          "id": "signoff",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "SignOff.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "phyDischargeNotes":{
-                          "id":"phyDischargeNotes",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"DSSummary.swf"
+                        "phyDischargeNotes": {
+                          "id": "phyDischargeNotes",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "DSSummary.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "summaryInp":{
-                          "id":"summaryInp",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"INPSummary.swf"
+                        "summaryInp": {
+                          "id": "summaryInp",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "INPSummary.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         }
                       },
-                      "buttonsPos":[
-                        "dischargeDiagSaida",
-                        "dischargeReceita",
-                        "futureEvents",
-                        "dischargeRecDoente",
-                        "dischargeRecMedico",
-                        "formulaires",
-                        "coSign",
-                        "deathRegistry",
-                        "usDisposition",
-                        "signoff",
-                        "phyDischargeNotes",
-                        "summaryInp"
-                      ]
+                      "buttonsPos": ["dischargeDiagSaida", "dischargeReceita", "futureEvents", "dischargeRecDoente", "dischargeRecMedico", "formulaires", "coSign", "deathRegistry", "usDisposition", "signoff", "phyDischargeNotes", "summaryInp"]
                     },
-                    "patientManagement":{
-                      "id":"patientManagement",
-                      "description":"patientManagement deepnavs",
-                      "pos":5,
-                      "areaName":"__areaName__",
-                      "areas":{
-                        "pendingIssue":{
-                          "id":"pendingIssue",
-                          "description":"pendingIssue deepnavs",
-                          "pos":5,
-                          "areaName":"__areaName__",
-                          "buttons":{
-                            "myPendingIssue":{
-                              "id":"myPendingIssue",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"MyPendingIssues.swf"
+                    "patientManagement": {
+                      "id": "patientManagement",
+                      "description": "patientManagement deepnavs",
+                      "pos": 5,
+                      "type": "deepnav",
+                      "areas": {
+                        "pendingIssue": {
+                          "id": "pendingIssue",
+                          "description": "pendingIssue deepnavs",
+                          "pos": 5,
+                          "type": "deepnav",
+                          "buttons": {
+                            "myPendingIssue": {
+                              "id": "myPendingIssue",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "MyPendingIssues.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             },
-                            "allPendingIssue":{
-                              "id":"allPendingIssue",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"AllPendingIssues.swf"
+                            "allPendingIssue": {
+                              "id": "allPendingIssue",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.patient.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "AllPendingIssues.swf"
                                 }
-                              },
-                              "areaId":"patient"
+                              }
                             }
                           },
-                          "buttonsPos":[
-                            "myPendingIssue",
-                            "allPendingIssue"
-                          ]
+                          "buttonsPos": ["myPendingIssue", "allPendingIssue"]
                         }
                       },
-                      "buttons":{
-                        "patientTransfers":{
-                          "id":"patientTransfers",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ServiceTransferListPat.swf"
+                      "buttons": {
+                        "patientTransfers": {
+                          "id": "patientTransfers",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ServiceTransferListPat.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "physicianHandOffEdis":{
-                          "id":"physicianHandOffEdis",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"HandOffListPhysician.swf"
+                        "physicianHandOffEdis": {
+                          "id": "physicianHandOffEdis",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "HandOffListPhysician.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "nurseHandOffEdis":{
-                          "id":"nurseHandOffEdis",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"HandOffListNurse.swf"
+                        "nurseHandOffEdis": {
+                          "id": "nurseHandOffEdis",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "HandOffListNurse.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "medicalTeams":{
-                          "id":"medicalTeams",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"HandOffListTeams.swf"
+                        "medicalTeams": {
+                          "id": "medicalTeams",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "HandOffListTeams.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "transferInstitution":{
-                          "id":"transferInstitution",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"TransferInstitutionGrid.swf"
+                        "transferInstitution": {
+                          "id": "transferInstitution",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "TransferInstitutionGrid.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "transportationTransportes":{
-                          "id":"transportationTransportes",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"Movements.swf"
+                        "transportationTransportes": {
+                          "id": "transportationTransportes",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "Movements.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "transportationDesvio":{
-                          "id":"transportationDesvio",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"NewDetour.swf"
+                        "transportationDesvio": {
+                          "id": "transportationDesvio",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "NewDetour.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "allocateBedInp":{
-                          "id":"allocateBedInp",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"BedAssigmentLoader.swf"
+                        "allocateBedInp": {
+                          "id": "allocateBedInp",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "BedAssigmentLoader.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         },
-                        "pendingIssue":{
-                          "id":"pendingIssue",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "targetArea":"inpatient.patient.mainMenu.left.patientManagement.pendingIssue"
-                          },
-                          "areaId":"patient"
+                        "pendingIssue": {
+                          "id": "pendingIssue",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.mainMenu.left.patientManagement.pendingIssue"
+                          }
                         },
-                        "idBelongingsEdis":{
-                          "id":"idBelongingsEdis",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"PatientBelongings.swf"
+                        "idBelongingsEdis": {
+                          "id": "idBelongingsEdis",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "PatientBelongings.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         }
                       },
-                      "buttonsPos":[
-                        "patientTransfers",
-                        "physicianHandOffEdis",
-                        "nurseHandOffEdis",
-                        "medicalTeams",
-                        "transferInstitution",
-                        "transportationTransportes",
-                        "transportationTransportes",
-                        "transportationDesvio",
-                        "allocateBedInp",
-                        "pendingIssue",
-                        "idBelongingsEdis"
-                      ]
+                      "buttonsPos": ["patientTransfers", "physicianHandOffEdis", "nurseHandOffEdis", "medicalTeams", "transferInstitution", "transportationTransportes", "transportationTransportes", "transportationDesvio", "allocateBedInp", "pendingIssue", "idBelongingsEdis"]
                     },
-                    "pregnancyButton":{
-                      "id":"pregnancyButton",
-                      "description":"pregnancyButton deepnavs",
-                      "pos":5,
-                      "areaName":"__areaName__",
-                      "buttons":{
-                        "pregnancyList":{
-                          "id":"pregnancyList",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"WomanHealthPregnanciesSummary.swf"
+                    "pregnancyButton": {
+                      "id": "pregnancyButton",
+                      "description": "pregnancyButton deepnavs",
+                      "pos": 5,
+                      "type": "deepnav",
+                      "buttons": {
+                        "pregnancyList": {
+                          "id": "pregnancyList",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "WomanHealthPregnanciesSummary.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         }
                       },
-                      "buttonsPos":[
-                        "pregnancyList"
-                      ]
+                      "buttonsPos": ["pregnancyList"]
                     },
-                    "checklistFrontoffice":{
-                      "id":"checklistFrontoffice",
-                      "description":"checklistFrontoffice deepnavs",
-                      "pos":5,
-                      "areaName":"__areaName__",
-                      "buttons":{
-                        "frontofficeChecklist":{
-                          "id":"frontofficeChecklist",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ChecklistGrid.swf"
+                    "checklistFrontoffice": {
+                      "id": "checklistFrontoffice",
+                      "description": "checklistFrontoffice deepnavs",
+                      "pos": 5,
+                      "type": "deepnav",
+                      "buttons": {
+                        "frontofficeChecklist": {
+                          "id": "frontofficeChecklist",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.patient.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ChecklistGrid.swf"
                             }
-                          },
-                          "areaId":"patient"
+                          }
                         }
                       },
-                      "buttonsPos":[
-                        "frontofficeChecklist"
-                      ]
+                      "buttonsPos": ["frontofficeChecklist"]
                     }
                   },
-                  "buttons":{
-                    "ehr":{
-                      "id":"ehr",
-                      "label":"Electronic health record",
-                      "icon":"PreviousEpisodesIcon_3",
-                      "action":{
-                        "targetArea":"inpatient.patient.mainMenu.left.ehr"
-                      },
-                      "areaId":"patient"
+                  "buttons": {
+                    "ehr": {
+                      "id": "ehr",
+                      "label": "Electronic health record",
+                      "icon": "PreviousEpisodesIcon_3",
+                      "action": {
+                        "targetArea": "inpatient.patient.mainMenu.left.ehr"
+                      }
                     },
-                    "clinicalInfoIcon":{
-                      "id":"clinicalInfoIcon",
-                      "label":"Documentation",
-                      "icon":"ClinicalInfoIcon",
-                      "action":{
-                        "targetArea":"inpatient.patient.mainMenu.left.clinicalInfoIcon"
-                      },
-                      "areaId":"patient"
+                    "clinicalInfoIcon": {
+                      "id": "clinicalInfoIcon",
+                      "label": "Documentation",
+                      "icon": "ClinicalInfoIcon",
+                      "action": {
+                        "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon"
+                      }
                     },
-                    "pdms":{
-                      "id":"pdms",
-                      "label":"Patient Data Management System",
-                      "icon":"PDMSIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
+                    "pdms": {
+                      "id": "pdms",
+                      "label": "Patient Data Management System",
+                      "icon": "PDMSIcon",
+                      "action": {}
                     },
-                    "orderEntry":{
-                      "id":"orderEntry",
-                      "label":"Orders",
-                      "icon":"OrderEntryIcon",
-                      "action":{
-                        "targetArea":"inpatient.patient.mainMenu.left.orderEntry"
-                      },
-                      "areaId":"patient"
+                    "orderEntry": {
+                      "id": "orderEntry",
+                      "label": "Orders",
+                      "icon": "OrderEntryIcon",
+                      "action": {
+                        "targetArea": "inpatient.patient.mainMenu.left.orderEntry"
+                      }
                     },
-                    "nurse":{
-                      "id":"nurse",
-                      "label":"Nursing process",
-                      "icon":"NurseIcon",
-                      "action":{
-                        "targetArea":"inpatient.patient.mainMenu.left.nurse"
-                      },
-                      "areaId":"patient"
+                    "nurse": {
+                      "id": "nurse",
+                      "label": "Nursing process",
+                      "icon": "NurseIcon",
+                      "action": {
+                        "targetArea": "inpatient.patient.mainMenu.left.nurse"
+                      }
                     },
-                    "patientid":{
-                      "id":"patientid",
-                      "label":"Patient identification",
-                      "icon":"PatientIDNewIcon",
-                      "action":{
-                        "targetArea":"inpatient.patient.mainMenu.left.patientid"
-                      },
-                      "areaId":"patient"
+                    "patientid": {
+                      "id": "patientid",
+                      "label": "Patient identification",
+                      "icon": "PatientIDNewIcon",
+                      "action": {
+                        "targetArea": "inpatient.patient.mainMenu.left.patientid"
+                      }
                     },
-                    "coding":{
-                      "id":"coding",
-                      "label":"Coding",
-                      "icon":"CodingIcon",
-                      "action":{
-                        "targetArea":"inpatient.patient.mainMenu.left.coding"
-                      },
-                      "areaId":"patient"
+                    "coding": {
+                      "id": "coding",
+                      "label": "Coding",
+                      "icon": "CodingIcon",
+                      "action": {
+                        "targetArea": "inpatient.patient.mainMenu.left.coding"
+                      }
                     },
-                    "discharge":{
-                      "id":"discharge",
-                      "label":"Discharge",
-                      "icon":"DischargeIcon",
-                      "action":{
-                        "targetArea":"inpatient.patient.mainMenu.left.discharge"
-                      },
-                      "areaId":"patient"
+                    "discharge": {
+                      "id": "discharge",
+                      "label": "Discharge",
+                      "icon": "DischargeIcon",
+                      "action": {
+                        "targetArea": "inpatient.patient.mainMenu.left.discharge"
+                      }
                     },
-                    "agenda":{
-                      "id":"agenda",
-                      "label":"Scheduler",
-                      "icon":"ScheduledNewIcon",
-                      "action":{
-                        "component":{
-                          "type":"SWF",
-                          "id":"CalendarMonthOverview.swf"
+                    "agenda": {
+                      "id": "agenda",
+                      "label": "Scheduler",
+                      "icon": "ScheduledNewIcon",
+                      "action": {
+                        "targetArea": "inpatient.patient.screen",
+                        "component": {
+                          "type": "SWF",
+                          "id": "CalendarMonthOverview.swf"
                         }
-                      },
-                      "areaId":"patient"
+                      }
                     },
-                    "patientManagement":{
-                      "id":"patientManagement",
-                      "label":"Patient management",
-                      "icon":"PatientManagementIcon",
-                      "action":{
-                        "targetArea":"inpatient.patient.mainMenu.left.patientManagement"
-                      },
-                      "areaId":"patient"
+                    "patientManagement": {
+                      "id": "patientManagement",
+                      "label": "Patient management",
+                      "icon": "PatientManagementIcon",
+                      "action": {
+                        "targetArea": "inpatient.patient.mainMenu.left.patientManagement"
+                      }
                     },
-                    "pregnancyButton":{
-                      "id":"pregnancyButton",
-                      "label":"Pregnancy record",
-                      "icon":"PregnancyIcon",
-                      "action":{
-                        "targetArea":"inpatient.patient.mainMenu.left.pregnancyButton"
-                      },
-                      "areaId":"patient"
+                    "pregnancyButton": {
+                      "id": "pregnancyButton",
+                      "label": "Pregnancy record",
+                      "icon": "PregnancyIcon",
+                      "action": {
+                        "targetArea": "inpatient.patient.mainMenu.left.pregnancyButton"
+                      }
                     },
-                    "checklistFrontoffice":{
-                      "id":"checklistFrontoffice",
-                      "label":"Checklists",
-                      "icon":"ChecklistBackofficeIcon",
-                      "action":{
-                        "targetArea":"inpatient.patient.mainMenu.left.checklistFrontoffice"
-                      },
-                      "areaId":"patient"
+                    "checklistFrontoffice": {
+                      "id": "checklistFrontoffice",
+                      "label": "Checklists",
+                      "icon": "ChecklistBackofficeIcon",
+                      "action": {
+                        "targetArea": "inpatient.patient.mainMenu.left.checklistFrontoffice"
+                      }
                     }
                   },
-                  "buttonsPos":[
-                    "ehr",
-                    "clinicalInfoIcon",
-                    "pdms",
-                    "orderEntry",
-                    "nurse",
-                    "patientid",
-                    "coding",
-                    "discharge",
-                    "agenda",
-                    "patientManagement",
-                    "pregnancyButton",
-                    "checklistFrontoffice"
-                  ]
+                  "buttonsPos": ["ehr", "clinicalInfoIcon", "pdms", "orderEntry", "nurse", "patientid", "coding", "discharge", "agenda", "patientManagement", "pregnancyButton", "checklistFrontoffice"]
                 }
               }
             },
-            "headerLeft":{
-              "id":"headerLeft",
-              "description":"Personal settings area",
-              "pos":6,
-              "areaName":"leftTopHeader",
-              "buttons":{
-                "reset":{
-                  "id":"reset",
-                  "label":"Go back to patient area",
-                  "icon":"RestartIcon",
-                  "action":{
-    
-                  },
-                  "areaId":"patient"
+            "headerLeft": {
+              "id": "headerLeft",
+              "description": "Personal settings area",
+              "pos": 6,
+              "type": "headerLeft",
+              "buttons": {
+                "reset": {
+                  "id": "reset",
+                  "label": "Go back to patient area",
+                  "icon": "RestartIcon",
+                  "action": {}
                 }
               },
-              "buttonsPos":[
-                "reset"
-              ]
+              "buttonsPos": ["reset"]
             },
-            "actionMenuRight":{
-              "id":"actionMenuRight",
-              "description":"Ok area",
-              "pos":7,
-              "areaName":"rightFooter",
-              "buttons":{
-                "ok":{
-                  "id":"ok",
-                  "label":"Confirm/proceed",
-                  "icon":"OKIcon",
-                  "action":{
-    
-                  },
-                  "areaId":"patient"
+            "actionMenuRight": {
+              "id": "actionMenuRight",
+              "description": "Ok area",
+              "pos": 7,
+              "type": "actionMenuRight",
+              "buttons": {
+                "ok": {
+                  "id": "ok",
+                  "label": "Confirm/proceed",
+                  "icon": "OKIcon",
+                  "action": {}
                 }
               },
-              "buttonsPos":[
-                "ok"
-              ]
+              "buttonsPos": ["ok"]
             },
-            "mainMenuLeft":{
-              "id":"mainMenuLeft",
-              "description":"Alerts area",
-              "pos":8,
-              "areaName":"leftBottomHeader",
-              "buttons":{
-                "alert":{
-                  "id":"alert",
-                  "label":"Alert messages",
-                  "icon":"AlertIcon",
-                  "action":{
-                    "component":{
-                      "type":"SWF",
-                      "id":"AlertsInpatient.swf"
+            "mainMenuLeft": {
+              "id": "mainMenuLeft",
+              "description": "Alerts area",
+              "pos": 8,
+              "type": "mainMenuLeft",
+              "buttons": {
+                "alert": {
+                  "id": "alert",
+                  "label": "Alert messages",
+                  "icon": "AlertIcon",
+                  "action": {
+                    "targetArea": "inpatient.patient.screen",
+                    "component": {
+                      "type": "SWF",
+                      "id": "AlertsInpatient.swf"
+                    }
+                  }
+                }
+              },
+              "buttonsPos": ["alert"]
+            },
+            "actionMenu": {
+              "id": "actionMenu",
+              "description": "Bottom menu",
+              "pos": 10,
+              "type": "actionMenu",
+              "areas": {
+                "left": {
+                  "id": "left",
+                  "description": "Bottom menu left",
+                  "pos": 10,
+                  "type": "actionMenu",
+                  "buttons": {
+                    "print": {
+                      "id": "print",
+                      "label": "Print",
+                      "icon": "PrintIcon",
+                      "action": {}
+                    },
+                    "create": {
+                      "id": "create",
+                      "label": "Add",
+                      "icon": "AddIcon",
+                      "action": {}
+                    },
+                    "advanceSearchIcon": {
+                      "id": "advanceSearchIcon",
+                      "label": "Advanced search",
+                      "icon": "AdvancedSearchIcon",
+                      "action": {}
+                    },
+                    "cancel": {
+                      "id": "cancel",
+                      "label": "Cancel",
+                      "icon": "CancelIcon",
+                      "action": {}
+                    },
+                    "toolsCommontext": {
+                      "id": "toolsCommontext",
+                      "label": "Most frequent texts",
+                      "icon": "CommonTextIcon",
+                      "action": {}
+                    },
+                    "actionButton": {
+                      "id": "actionButton",
+                      "label": "Actions",
+                      "icon": "ActionsIcon",
+                      "action": {}
+                    },
+                    "viewsButton": {
+                      "id": "viewsButton",
+                      "label": "Views",
+                      "icon": "ViewsIcon",
+                      "action": {}
+                    },
+                    "firstView": {
+                      "id": "firstView",
+                      "label": "First view",
+                      "icon": "FirstVisionIcon",
+                      "action": {}
+                    },
+                    "barListEdis": {
+                      "id": "barListEdis",
+                      "label": "List view",
+                      "icon": "ListIcon",
+                      "action": {}
+                    },
+                    "secondView": {
+                      "id": "secondView",
+                      "label": "Second view",
+                      "icon": "SecondVisionIcon",
+                      "action": {}
+                    },
+                    "chartLinesEdis": {
+                      "id": "chartLinesEdis",
+                      "label": "Graphic view",
+                      "icon": "ChartsLinesIcon",
+                      "action": {}
+                    },
+                    "docImport": {
+                      "id": "docImport",
+                      "label": "Import documents",
+                      "icon": "ImportDocIcon",
+                      "action": {}
                     }
                   },
-                  "areaId":"patient"
-                }
-              },
-              "buttonsPos":[
-                "alert"
-              ]
-            },
-            "actionMenu":{
-              "id":"actionMenu",
-              "description":"Bottom menu",
-              "pos":10,
-              "areaName":"middleFooter",
-              "areas":{
-                "left":{
-                  "id":"left",
-                  "description":"Bottom menu left",
-                  "pos":10,
-                  "areaName":"middleFooter",
-                  "buttons":{
-                    "print":{
-                      "id":"print",
-                      "label":"Print",
-                      "icon":"PrintIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
-                    },
-                    "create":{
-                      "id":"create",
-                      "label":"Add",
-                      "icon":"AddIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
-                    },
-                    "advanceSearchIcon":{
-                      "id":"advanceSearchIcon",
-                      "label":"Advanced search",
-                      "icon":"AdvancedSearchIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
-                    },
-                    "cancel":{
-                      "id":"cancel",
-                      "label":"Cancel",
-                      "icon":"CancelIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
-                    },
-                    "toolsCommontext":{
-                      "id":"toolsCommontext",
-                      "label":"Most frequent texts",
-                      "icon":"CommonTextIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
-                    },
-                    "actionButton":{
-                      "id":"actionButton",
-                      "label":"Actions",
-                      "icon":"ActionsIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
-                    },
-                    "viewsButton":{
-                      "id":"viewsButton",
-                      "label":"Views",
-                      "icon":"ViewsIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
-                    },
-                    "firstView":{
-                      "id":"firstView",
-                      "label":"First view",
-                      "icon":"FirstVisionIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
-                    },
-                    "barListEdis":{
-                      "id":"barListEdis",
-                      "label":"List view",
-                      "icon":"ListIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
-                    },
-                    "secondView":{
-                      "id":"secondView",
-                      "label":"Second view",
-                      "icon":"SecondVisionIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
-                    },
-                    "chartLinesEdis":{
-                      "id":"chartLinesEdis",
-                      "label":"Graphic view",
-                      "icon":"ChartsLinesIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
-                    },
-                    "docImport":{
-                      "id":"docImport",
-                      "label":"Import documents",
-                      "icon":"ImportDocIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
-                    }
-                  },
-                  "buttonsPos":[
-                    "print",
-                    "create",
-                    "advanceSearchIcon",
-                    "cancel",
-                    "toolsCommontext",
-                    "actionButton",
-                    "viewsButton",
-                    "firstView",
-                    "barListEdis",
-                    "secondView",
-                    "chartLinesEdis",
-                    "docImport"
-                  ]
+                  "buttonsPos": ["print", "create", "advanceSearchIcon", "cancel", "toolsCommontext", "actionButton", "viewsButton", "firstView", "barListEdis", "secondView", "chartLinesEdis", "docImport"]
                 },
-                "right":{
-                  "id":"right",
-                  "description":"Bottom menu right",
-                  "pos":11,
-                  "areaName":"middleFooter",
-                  "buttons":{
-                    "eye":{
-                      "id":"eye",
-                      "label":"Details",
-                      "icon":"DetailsIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
+                "right": {
+                  "id": "right",
+                  "description": "Bottom menu right",
+                  "pos": 11,
+                  "type": "actionMenu",
+                  "buttons": {
+                    "eye": {
+                      "id": "eye",
+                      "label": "Details",
+                      "icon": "DetailsIcon",
+                      "action": {}
                     },
-                    "contextHelp":{
-                      "id":"contextHelp",
-                      "label":"Clinical context help",
-                      "icon":"ContentIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
+                    "contextHelp": {
+                      "id": "contextHelp",
+                      "label": "Clinical context help",
+                      "icon": "ContentIcon",
+                      "action": {}
                     },
-                    "infoButton":{
-                      "id":"infoButton",
-                      "label":"Infobutton",
-                      "icon":"InfoButtonIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
+                    "infoButton": {
+                      "id": "infoButton",
+                      "label": "Infobutton",
+                      "icon": "InfoButtonIcon",
+                      "action": {}
                     },
-                    "applicationHelp":{
-                      "id":"applicationHelp",
-                      "label":"Functionality help",
-                      "icon":"HelpIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
+                    "applicationHelp": {
+                      "id": "applicationHelp",
+                      "label": "Functionality help",
+                      "icon": "HelpIcon",
+                      "action": {}
                     },
-                    "globalShortcut":{
-                      "id":"globalShortcut",
-                      "label":"Shortcuts",
-                      "icon":"GlobalShortcutIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"patient"
+                    "globalShortcut": {
+                      "id": "globalShortcut",
+                      "label": "Shortcuts",
+                      "icon": "GlobalShortcutIcon",
+                      "action": {}
                     }
                   },
-                  "buttonsPos":[
-                    "eye",
-                    "contextHelp",
-                    "infoButton",
-                    "applicationHelp",
-                    "globalShortcut"
-                  ]
+                  "buttonsPos": ["eye", "contextHelp", "infoButton", "applicationHelp", "globalShortcut"]
                 }
               }
+            },
+            "screen": {
+              "id": "screen",
+              "description": "Main screen area",
+              "pos": 12,
+              "type": "screen"
             }
           }
         },
-        "tools":{
-          "id":"tools",
-          "description":"Inpatient tools area",
-          "pos":0,
-          "areaName":"",
-          "areas":{
-            "headerRight":{
-              "id":"headerRight",
-              "description":"Logout button area",
-              "pos":1,
-              "areaName":"rightTopHeader",
-              "buttons":{
-                "logout":{
-                  "id":"logout",
-                  "label":"Exit application",
-                  "icon":"ExitIcon",
-                  "action":{
-    
-                  },
-                  "areaId":"tools"
+        "tools": {
+          "id": "tools",
+          "description": "Inpatient tools area",
+          "pos": 0,
+          "type": "",
+          "areas": {
+            "headerRight": {
+              "id": "headerRight",
+              "description": "Logout button area",
+              "pos": 1,
+              "type": "headerRight",
+              "buttons": {
+                "logout": {
+                  "id": "logout",
+                  "label": "Exit application",
+                  "icon": "ExitIcon",
+                  "action": {}
                 }
               },
-              "buttonsPos":[
-                "logout"
-              ]
+              "buttonsPos": ["logout"]
             },
-            "actionMenuLeft":{
-              "id":"actionMenuLeft",
-              "description":"Back button area",
-              "pos":2,
-              "areaName":"leftFooter",
-              "buttons":{
-                "back":{
-                  "id":"back",
-                  "label":"Go back",
-                  "icon":"BackIcon",
-                  "action":{
-    
-                  },
-                  "areaId":"tools"
+            "actionMenuLeft": {
+              "id": "actionMenuLeft",
+              "description": "Back button area",
+              "pos": 2,
+              "type": "actionMenuLeft",
+              "buttons": {
+                "back": {
+                  "id": "back",
+                  "label": "Go back",
+                  "icon": "BackIcon",
+                  "action": {}
                 }
               },
-              "buttonsPos":[
-                "back"
-              ]
+              "buttonsPos": ["back"]
             },
-            "mainMenu":{
-              "id":"mainMenu",
-              "description":"Main menu",
-              "pos":3,
-              "areaName":"middleBottomHeader",
-              "areas":{
-                "left":{
-                  "id":"left",
-                  "description":"Main menu left",
-                  "pos":3,
-                  "areaName":"middleBottomHeader",
-                  "areas":{
-                    "toolsLang":{
-                      "id":"toolsLang",
-                      "description":"toolsLang deepnavs",
-                      "pos":5,
-                      "areaName":"__areaName__",
-                      "buttons":{
-                        "toolsEspecialidades":{
-                          "id":"toolsEspecialidades",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ToolsMySpecialities.swf"
+            "mainMenu": {
+              "id": "mainMenu",
+              "description": "Main menu",
+              "pos": 3,
+              "type": "mainMenu",
+              "areas": {
+                "left": {
+                  "id": "left",
+                  "description": "Main menu left",
+                  "pos": 3,
+                  "type": "mainMenu",
+                  "areas": {
+                    "toolsLang": {
+                      "id": "toolsLang",
+                      "description": "toolsLang deepnavs",
+                      "pos": 5,
+                      "type": "deepnav",
+                      "buttons": {
+                        "toolsEspecialidades": {
+                          "id": "toolsEspecialidades",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.tools.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ToolsMySpecialities.swf"
                             }
-                          },
-                          "areaId":"tools"
+                          }
                         },
-                        "backofficeGroups":{
-                          "id":"backofficeGroups",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"FollowUpCareGroupsList.swf"
+                        "backofficeGroups": {
+                          "id": "backofficeGroups",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.tools.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "FollowUpCareGroupsList.swf"
                             }
-                          },
-                          "areaId":"tools"
+                          }
                         },
-                        "toolsSalas":{
-                          "id":"toolsSalas",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ToolsMyRoomsSet.swf"
+                        "toolsSalas": {
+                          "id": "toolsSalas",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.tools.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ToolsMyRoomsSet.swf"
                             }
-                          },
-                          "areaId":"tools"
+                          }
                         },
-                        "toolsTouchOption":{
-                          "id":"toolsTouchOption",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ToolsDataEntryFormatSet.swf"
+                        "toolsTouchOption": {
+                          "id": "toolsTouchOption",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.tools.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ToolsDataEntryFormatSet.swf"
                             }
-                          },
-                          "areaId":"tools"
+                          }
                         },
-                        "biometrics":{
-                          "id":"biometrics",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ToolsBiometricID.swf"
+                        "biometrics": {
+                          "id": "biometrics",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.tools.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ToolsBiometricID.swf"
                             }
-                          },
-                          "areaId":"tools"
+                          }
                         },
-                        "toolsPersonalData":{
-                          "id":"toolsPersonalData",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ToolsProfessionalData.swf"
+                        "toolsPersonalData": {
+                          "id": "toolsPersonalData",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.tools.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ToolsProfessionalData.swf"
                             }
-                          },
-                          "areaId":"tools"
+                          }
                         },
-                        "releaseNotes":{
-                          "id":"releaseNotes",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ReleaseNoteList.swf"
+                        "releaseNotes": {
+                          "id": "releaseNotes",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.tools.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ReleaseNoteList.swf"
                             }
-                          },
-                          "areaId":"tools"
+                          }
                         }
                       },
-                      "buttonsPos":[
-                        "toolsEspecialidades",
-                        "backofficeGroups",
-                        "toolsSalas",
-                        "toolsTouchOption",
-                        "biometrics",
-                        "toolsPersonalData",
-                        "releaseNotes"
-                      ]
+                      "buttonsPos": ["toolsEspecialidades", "backofficeGroups", "toolsSalas", "toolsTouchOption", "biometrics", "toolsPersonalData", "releaseNotes"]
                     },
-                    "commontext":{
-                      "id":"commontext",
-                      "description":"commontext deepnavs",
-                      "pos":5,
-                      "areaName":"__areaName__",
-                      "areas":{
-                        "orderSetsTools":{
-                          "id":"orderSetsTools",
-                          "description":"orderSetsTools deepnavs",
-                          "pos":5,
-                          "areaName":"__areaName__",
-                          "buttons":{
-                            "orderSetsTools":{
-                              "id":"orderSetsTools",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"OrderSetList.swf"
+                    "commontext": {
+                      "id": "commontext",
+                      "description": "commontext deepnavs",
+                      "pos": 5,
+                      "type": "deepnav",
+                      "areas": {
+                        "orderSetsTools": {
+                          "id": "orderSetsTools",
+                          "description": "orderSetsTools deepnavs",
+                          "pos": 5,
+                          "type": "deepnav",
+                          "buttons": {
+                            "orderSetsTools": {
+                              "id": "orderSetsTools",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.tools.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "OrderSetList.swf"
                                 }
-                              },
-                              "areaId":"tools"
+                              }
                             },
-                            "groupsTools":{
-                              "id":"groupsTools",
-                              "label":"",
-                              "icon":"",
-                              "action":{
-                                "component":{
-                                  "type":"SWF",
-                                  "id":"GroupsList.swf"
+                            "groupsTools": {
+                              "id": "groupsTools",
+                              "label": "",
+                              "icon": "",
+                              "action": {
+                                "targetArea": "inpatient.tools.screen",
+                                "component": {
+                                  "type": "SWF",
+                                  "id": "GroupsList.swf"
                                 }
-                              },
-                              "areaId":"tools"
+                              }
                             }
                           },
-                          "buttonsPos":[
-                            "orderSetsTools",
-                            "groupsTools"
-                          ]
+                          "buttonsPos": ["orderSetsTools", "groupsTools"]
                         }
                       },
-                      "buttons":{
-                        "frequentText":{
-                          "id":"frequentText",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"MostFrequentTexts.swf"
+                      "buttons": {
+                        "frequentText": {
+                          "id": "frequentText",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.tools.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "MostFrequentTexts.swf"
                             }
-                          },
-                          "areaId":"tools"
+                          }
                         },
-                        "guidelineTools":{
-                          "id":"guidelineTools",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"GuidelineList.swf"
+                        "guidelineTools": {
+                          "id": "guidelineTools",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.tools.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "GuidelineList.swf"
                             }
-                          },
-                          "areaId":"tools"
+                          }
                         },
-                        "protocolTools":{
-                          "id":"protocolTools",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"ProtocolList.swf"
+                        "protocolTools": {
+                          "id": "protocolTools",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.tools.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "ProtocolList.swf"
                             }
-                          },
-                          "areaId":"tools"
+                          }
                         },
-                        "orderSetsTools":{
-                          "id":"orderSetsTools",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "targetArea":"inpatient.tools.mainMenu.left.commontext.orderSetsTools"
-                          },
-                          "areaId":"tools"
+                        "orderSetsTools": {
+                          "id": "orderSetsTools",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.tools.mainMenu.left.commontext.orderSetsTools"
+                          }
                         },
-                        "predefineDiet":{
-                          "id":"predefineDiet",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"DietTools.swf"
+                        "predefineDiet": {
+                          "id": "predefineDiet",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.tools.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "DietTools.swf"
                             }
-                          },
-                          "areaId":"tools"
+                          }
                         },
-                        "toolsDocMacro":{
-                          "id":"toolsDocMacro",
-                          "label":"",
-                          "icon":"",
-                          "action":{
-                            "component":{
-                              "type":"SWF",
-                              "id":"DocumentationMacrosGrid.swf"
+                        "toolsDocMacro": {
+                          "id": "toolsDocMacro",
+                          "label": "",
+                          "icon": "",
+                          "action": {
+                            "targetArea": "inpatient.tools.screen",
+                            "component": {
+                              "type": "SWF",
+                              "id": "DocumentationMacrosGrid.swf"
                             }
-                          },
-                          "areaId":"tools"
+                          }
                         }
                       },
-                      "buttonsPos":[
-                        "frequentText",
-                        "guidelineTools",
-                        "protocolTools",
-                        "orderSetsTools",
-                        "predefineDiet",
-                        "toolsDocMacro"
-                      ]
+                      "buttonsPos": ["frequentText", "guidelineTools", "protocolTools", "orderSetsTools", "predefineDiet", "toolsDocMacro"]
                     }
                   },
-                  "buttons":{
-                    "toolsLang":{
-                      "id":"toolsLang",
-                      "label":"User configurations",
-                      "icon":"PreferencesIcon",
-                      "action":{
-                        "targetArea":"inpatient.tools.mainMenu.left.toolsLang"
-                      },
-                      "areaId":"tools"
+                  "buttons": {
+                    "toolsLang": {
+                      "id": "toolsLang",
+                      "label": "User configurations",
+                      "icon": "PreferencesIcon",
+                      "action": {
+                        "targetArea": "inpatient.tools.mainMenu.left.toolsLang"
+                      }
                     },
-                    "commontext":{
-                      "id":"commontext",
-                      "label":"Content management",
-                      "icon":"ContentManagmentIcon",
-                      "action":{
-                        "targetArea":"inpatient.tools.mainMenu.left.commontext"
-                      },
-                      "areaId":"tools"
+                    "commontext": {
+                      "id": "commontext",
+                      "label": "Content management",
+                      "icon": "ContentManagmentIcon",
+                      "action": {
+                        "targetArea": "inpatient.tools.mainMenu.left.commontext"
+                      }
                     },
-                    "pdms":{
-                      "id":"pdms",
-                      "label":"Patient Data Management System",
-                      "icon":"PDMSIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"tools"
+                    "pdms": {
+                      "id": "pdms",
+                      "label": "Patient Data Management System",
+                      "icon": "PDMSIcon",
+                      "action": {}
                     }
                   },
-                  "buttonsPos":[
-                    "toolsLang",
-                    "commontext",
-                    "pdms"
-                  ]
+                  "buttonsPos": ["toolsLang", "commontext", "pdms"]
                 }
               }
             },
-            "headerLeft":{
-              "id":"headerLeft",
-              "description":"Personal settings area",
-              "pos":6,
-              "areaName":"leftTopHeader",
-              "buttons":{
-                "reset":{
-                  "id":"reset",
-                  "label":"Go back to patient area",
-                  "icon":"RestartIcon",
-                  "action":{
-    
-                  },
-                  "areaId":"tools"
+            "headerLeft": {
+              "id": "headerLeft",
+              "description": "Personal settings area",
+              "pos": 6,
+              "type": "headerLeft",
+              "buttons": {
+                "reset": {
+                  "id": "reset",
+                  "label": "Go back to patient area",
+                  "icon": "RestartIcon",
+                  "action": {}
                 }
               },
-              "buttonsPos":[
-                "reset"
-              ]
+              "buttonsPos": ["reset"]
             },
-            "actionMenuRight":{
-              "id":"actionMenuRight",
-              "description":"Ok area",
-              "pos":7,
-              "areaName":"rightFooter",
-              "buttons":{
-                "ok":{
-                  "id":"ok",
-                  "label":"Confirm/proceed",
-                  "icon":"OKIcon",
-                  "action":{
-    
-                  },
-                  "areaId":"tools"
+            "actionMenuRight": {
+              "id": "actionMenuRight",
+              "description": "Ok area",
+              "pos": 7,
+              "type": "actionMenuRight",
+              "buttons": {
+                "ok": {
+                  "id": "ok",
+                  "label": "Confirm/proceed",
+                  "icon": "OKIcon",
+                  "action": {}
                 }
               },
-              "buttonsPos":[
-                "ok"
-              ]
+              "buttonsPos": ["ok"]
             },
-            "mainMenuLeft":{
-              "id":"mainMenuLeft",
-              "description":"Alerts area",
-              "pos":8,
-              "areaName":"leftBottomHeader",
-              "buttons":{
-                "alert":{
-                  "id":"alert",
-                  "label":"Alert messages",
-                  "icon":"AlertIcon",
-                  "action":{
-                    "component":{
-                      "type":"SWF",
-                      "id":"AlertsInpatient.swf"
+            "mainMenuLeft": {
+              "id": "mainMenuLeft",
+              "description": "Alerts area",
+              "pos": 8,
+              "type": "mainMenuLeft",
+              "buttons": {
+                "alert": {
+                  "id": "alert",
+                  "label": "Alert messages",
+                  "icon": "AlertIcon",
+                  "action": {
+                    "targetArea": "inpatient.tools.screen",
+                    "component": {
+                      "type": "SWF",
+                      "id": "AlertsInpatient.swf"
+                    }
+                  }
+                }
+              },
+              "buttonsPos": ["alert"]
+            },
+            "actionMenu": {
+              "id": "actionMenu",
+              "description": "Bottom menu",
+              "pos": 10,
+              "type": "actionMenu",
+              "areas": {
+                "left": {
+                  "id": "left",
+                  "description": "Bottom menu left",
+                  "pos": 10,
+                  "type": "actionMenu",
+                  "buttons": {
+                    "print": {
+                      "id": "print",
+                      "label": "Print",
+                      "icon": "PrintIcon",
+                      "action": {}
+                    },
+                    "create": {
+                      "id": "create",
+                      "label": "Add",
+                      "icon": "AddIcon",
+                      "action": {}
+                    },
+                    "advanceSearchIcon": {
+                      "id": "advanceSearchIcon",
+                      "label": "Advanced search",
+                      "icon": "AdvancedSearchIcon",
+                      "action": {}
+                    },
+                    "cancel": {
+                      "id": "cancel",
+                      "label": "Cancel",
+                      "icon": "CancelIcon",
+                      "action": {}
+                    },
+                    "toolsCommontext": {
+                      "id": "toolsCommontext",
+                      "label": "Most frequent texts",
+                      "icon": "CommonTextIcon",
+                      "action": {}
+                    },
+                    "actionButton": {
+                      "id": "actionButton",
+                      "label": "Actions",
+                      "icon": "ActionsIcon",
+                      "action": {}
+                    },
+                    "viewsButton": {
+                      "id": "viewsButton",
+                      "label": "Views",
+                      "icon": "ViewsIcon",
+                      "action": {}
+                    },
+                    "docImport": {
+                      "id": "docImport",
+                      "label": "Import documents",
+                      "icon": "ImportDocIcon",
+                      "action": {}
                     }
                   },
-                  "areaId":"tools"
-                }
-              },
-              "buttonsPos":[
-                "alert"
-              ]
-            },
-            "actionMenu":{
-              "id":"actionMenu",
-              "description":"Bottom menu",
-              "pos":10,
-              "areaName":"middleFooter",
-              "areas":{
-                "left":{
-                  "id":"left",
-                  "description":"Bottom menu left",
-                  "pos":10,
-                  "areaName":"middleFooter",
-                  "buttons":{
-                    "print":{
-                      "id":"print",
-                      "label":"Print",
-                      "icon":"PrintIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"tools"
-                    },
-                    "create":{
-                      "id":"create",
-                      "label":"Add",
-                      "icon":"AddIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"tools"
-                    },
-                    "advanceSearchIcon":{
-                      "id":"advanceSearchIcon",
-                      "label":"Advanced search",
-                      "icon":"AdvancedSearchIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"tools"
-                    },
-                    "cancel":{
-                      "id":"cancel",
-                      "label":"Cancel",
-                      "icon":"CancelIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"tools"
-                    },
-                    "toolsCommontext":{
-                      "id":"toolsCommontext",
-                      "label":"Most frequent texts",
-                      "icon":"CommonTextIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"tools"
-                    },
-                    "actionButton":{
-                      "id":"actionButton",
-                      "label":"Actions",
-                      "icon":"ActionsIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"tools"
-                    },
-                    "viewsButton":{
-                      "id":"viewsButton",
-                      "label":"Views",
-                      "icon":"ViewsIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"tools"
-                    },
-                    "docImport":{
-                      "id":"docImport",
-                      "label":"Import documents",
-                      "icon":"ImportDocIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"tools"
-                    }
-                  },
-                  "buttonsPos":[
-                    "print",
-                    "create",
-                    "advanceSearchIcon",
-                    "cancel",
-                    "toolsCommontext",
-                    "actionButton",
-                    "viewsButton",
-                    "docImport"
-                  ]
+                  "buttonsPos": ["print", "create", "advanceSearchIcon", "cancel", "toolsCommontext", "actionButton", "viewsButton", "docImport"]
                 },
-                "right":{
-                  "id":"right",
-                  "description":"Bottom menu right",
-                  "pos":11,
-                  "areaName":"middleFooter",
-                  "buttons":{
-                    "eye":{
-                      "id":"eye",
-                      "label":"Details",
-                      "icon":"DetailsIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"tools"
+                "right": {
+                  "id": "right",
+                  "description": "Bottom menu right",
+                  "pos": 11,
+                  "type": "actionMenu",
+                  "buttons": {
+                    "eye": {
+                      "id": "eye",
+                      "label": "Details",
+                      "icon": "DetailsIcon",
+                      "action": {}
                     },
-                    "applicationHelp":{
-                      "id":"applicationHelp",
-                      "label":"Functionality help",
-                      "icon":"HelpIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"tools"
+                    "applicationHelp": {
+                      "id": "applicationHelp",
+                      "label": "Functionality help",
+                      "icon": "HelpIcon",
+                      "action": {}
                     },
-                    "contextHelp":{
-                      "id":"contextHelp",
-                      "label":"Clinical context help",
-                      "icon":"ContentIcon",
-                      "action":{
-    
-                      },
-                      "areaId":"tools"
+                    "contextHelp": {
+                      "id": "contextHelp",
+                      "label": "Clinical context help",
+                      "icon": "ContentIcon",
+                      "action": {}
                     }
                   },
-                  "buttonsPos":[
-                    "eye",
-                    "applicationHelp",
-                    "contextHelp"
-                  ]
+                  "buttonsPos": ["eye", "applicationHelp", "contextHelp"]
                 }
               }
+            },
+            "screen": {
+              "id": "screen",
+              "description": "Main screen area",
+              "pos": 12,
+              "type": "screen"
             }
           }
         }
       }
     }
+    
+    
+    
   }    
 })();
     

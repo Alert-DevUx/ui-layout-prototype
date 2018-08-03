@@ -86,8 +86,8 @@
 	grid-area: screen;
 }
 
-.scrool {
-	grid-area: scrool;
+.screen-right {
+	grid-area: screen-right;
 }
 
 .action-menu-left {
@@ -108,7 +108,7 @@
     grid-template-areas:
 		"header-left header header-right"
 	    "main-menu-left main-menu main-menu-right"
-        "deepnav screen scrool"
+        "deepnav screen screen-right"
         "action-menu-left action-menu action-menu-right"
 		;
 }

@@ -12,7 +12,7 @@
     Area.$inject = ['Path'];
     function Area(Path) {
 
-        function Area(id, description, pos, areaName) {
+        function Area(id, description, pos, type) {
 
             if(!this.validateParams()) {
                 throw 'Invalid parameters.';
@@ -20,7 +20,7 @@
             this.id = id;
             this.description = description;
             this.pos = pos;
-            this.areaName = areaName;
+            this.type = type;
             // Buttons map
             this.buttons = {};
             // Array of button ids to keep track of the buttons' position in the area

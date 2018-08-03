@@ -78,7 +78,7 @@ Area
 Screen area. Includes an id, its position in the screen, a list of buttons, and a list of child areas
 */
 class Area {
-    constructor(id, description, pos, areaName) {
+    constructor(id, description, pos, type) {
 
         if(!this._validateParams()) {
             throw 'Invalid parameters.';
@@ -86,7 +86,7 @@ class Area {
         this.id = id;
         this.description = description;
         this.pos = pos;
-        this.areaName = areaName;
+        this.type = type;
     }
 
     addButton(button, pos) {
@@ -196,14 +196,16 @@ class Area {
         return null;
     }
 
-
     _validateParams() {
         /*
         1. id is of type String and is mandatory
         2. description is of type String and is mandatory
         3. pos is of type int and correspond to a fixed position in the screen
-        4. elements of 'buttons' array are of type 'Button'
-        5. elements of 'areas' array are of type 'Area'
+        4. type is of type string and defines the type of area. the porssible values are: 
+            headerLeft,       header,      headerRight',
+            mainMenuLeft,     mainMenu,    mainMenuRight',
+            deepnav,          screen,      screenRight'
+            actionMenuLeft,   actionMenu,  actionMenuRight
         */
         return  true;
     }
@@ -214,7 +216,7 @@ Button
 Button attributes and the screen action it executes when called
 */
 class Button {
-    constructor(id, label, icon, action, areaId) {
+    constructor(id, label, icon, action) {
 
         if(!this.validateParams()) {
           throw 'Invalid parameters.';
@@ -223,7 +225,6 @@ class Button {
         this.label = label;
         this.icon = icon;
         this.action = action;
-        this.areaId = areaId;
     }
   
 
