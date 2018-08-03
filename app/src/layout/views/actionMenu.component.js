@@ -3,17 +3,20 @@
     
     angular.module('layout')
     .component('layout.actionMenu', {
-      templateUrl: 'src/layout/views/area.html',
+      template: '<buttons buttons="$ctrl.actionMenuArea.buttons" area-type="\'actionMenu\'"/>',
       controller: ActionMenuController
     });
     
-    ActionMenuController.$inject = ['$stateParams', 'Path'];
-    function ActionMenuController($stateParams, Path) {
+    ActionMenuController.$inject = ['$state', 'Path'];
+    function ActionMenuController($state, Path) {
       var $ctrl = this;
 
-      $ctrl.targetPath = $stateParams.targetPath;
-
-
+      // Get path from state (removing dynamicLayout.inpatient - TODO: REVIEW)
+      var path = new Path($state.current.name).removeHead().removeHead();
+      var layout = $state.current.data.layout;
+      var areaPath = $state.current.data.areaPath;
+      var area = layout.findArea(path);
+      $ctrl.actionMenuArea = area;
     }    
     
 })();

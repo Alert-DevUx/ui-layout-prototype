@@ -2,23 +2,7 @@
 /******* NORMAL LAYOUT *******/
 /***************************/
 
-.buttons {
-	float: left;
-    width: 80px;
-	height: 90px;
-	margin: 20px 22px;
-	/* border: 1px solid gray; */
-}
-
-.buttons1{
-	float: left;
-    width: 80px;
-	height: 90px;
-	margin: 20px 0px;
-	/* border: 1px solid gray; */
-}
-
-.button {
+.roundButton {
 	border-radius: 50%;
 	width: 64px;
 	height: 64px;
@@ -27,9 +11,43 @@
 	box-shadow: none;
 }
 
+.deepnavButton {
+	height: 64px;
+	width: 128px;
+	background-color: rgb(177, 174, 142);
+	border: 1px solid rgb(94, 92, 74);
+	box-shadow: none;
+}
+
+.regularBox {
+	float: left;
+    width: 80px;
+	height: 90px;
+	margin: 20px 22px;
+}
+
+.menuBox {
+	float: left;
+    width: 80px;
+	height: 90px;
+	margin: 20px 0px;
+}
+
+.deepnavBox {
+	float: left;
+    width: 128px;
+	height: 64px;
+	margin: 0px 0px;
+	padding: 0px;
+}
+
+
+
 .button:focus {
 	outline: none;	
 }
+
+
 
 /***************************/
 /******* GRID LAYOUT *******/

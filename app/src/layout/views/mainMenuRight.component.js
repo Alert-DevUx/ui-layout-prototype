@@ -3,7 +3,7 @@
     
     angular.module('layout')
     .component('layout.mainMenuRight', {
-      templateUrl: 'src/layout/views/mainMenuRight.html',
+      template: '<buttons buttons="$ctrl.mainMenuRightArea.buttons" area-type="\'mainMenuRight\'"/>',
       controller: MainMenuRightController
     });
     

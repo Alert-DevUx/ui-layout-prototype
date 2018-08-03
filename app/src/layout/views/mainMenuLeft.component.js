@@ -3,7 +3,7 @@
     
     angular.module('layout')
     .component('layout.mainMenuLeft', {
-      templateUrl: 'src/layout/views/mainMenuLeft.html',
+      template: '<buttons buttons="$ctrl.mainMenuLeftArea.buttons" area-type="\'mainMenuLeft\'"/>',
       controller: MainMenuLeftController
     });
     

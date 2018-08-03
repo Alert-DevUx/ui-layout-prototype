@@ -139,7 +139,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
             break;   
             
             case 3:
-                // Main menu 
+                // Main menu - TODO: mainMenu.left / mainMenu.right
                 views['mainMenu' + topViewAbsName] = 'layout.mainMenu';
                 break;
             case 4:

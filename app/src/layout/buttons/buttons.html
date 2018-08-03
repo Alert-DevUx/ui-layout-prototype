@@ -1,3 +1,4 @@
-<div ng-repeat="button in $ctrl.buttons" ng-class="$ctrl.getButtonsStyle('{{button.path}}')">
-    <button button="button" class="button"/>
+<div ng-repeat="button in $ctrl.buttons" ng-class="$ctrl.getButtonStyle($ctrl.areaType)" 
+     ng-init="buttonType=$ctrl.getButtonType($ctrl.areaType)">
+    <button button="button" ng-class="buttonType"/>
 </div>

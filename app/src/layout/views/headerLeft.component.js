@@ -3,15 +3,20 @@
     
     angular.module('layout')
     .component('layout.headerLeft', {
-      templateUrl: 'src/layout/views/area.html',
+      template: '<buttons buttons="$ctrl.headerLeftArea.buttons" area-type="\'headerLeft\'"/>',
       controller: HeaderLeftController
     });
     
-    HeaderLeftController.$inject = ['$stateParams', 'Path'];
-    function HeaderLeftController($stateParams, Path) {
+    HeaderLeftController.$inject = ['$state', 'Path'];
+    function HeaderLeftController($state, Path) {
       var $ctrl = this;
 
-      $ctrl.targetPath = $stateParams.targetPath;
+      var layout = $state.current.data.layout;
+      // Get path from state (removing public.dynamicLayout - TODO: REVIEW)
+      var path = new Path($state.current.name + '.headerLeft').removeHead().removeHead();
+      var auxArea = layout.findArea(path);
+
+      $ctrl.headerLeftArea = auxArea;
 
 
     }    

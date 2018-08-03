@@ -5,23 +5,38 @@
     .component('buttons', {
       templateUrl: 'src/layout/buttons/buttons.html',
       bindings: {
-        buttons: '<'
+        buttons: '<',
+        areaType: '<'
       },
       controller: ButtonsController
     });
     
     function ButtonsController() {
       var $ctrl = this;
+     
+      $ctrl.getButtonType = function(type) {
+        
+        var cls = 'roundButton';
 
-      $ctrl.getButtonsStyle = function(path) {
+        if( type === 'deepnav')  {
+          cls = 'deepnavButton'
+        } 
 
-        var re = new RegExp('([0-9]\.){2,}');
+        return cls;
+      }
 
-        if (re.test(path)) {
-          return 'buttons1';
-        } else {
-           return 'buttons';
+
+      $ctrl.getButtonStyle = function(type) {
+
+        var cls = 'regularBox';
+        if( type === 'mainMenu' || type === 'actionMenu') {
+              cls = 'menuBox'
+        } else 
+        if( type === 'deepnav') {
+          cls = 'deepnavBox'
         }
+
+        return cls;
       }
     }    
 

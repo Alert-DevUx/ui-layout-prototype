@@ -3,7 +3,7 @@
     
     angular.module('layout')
     .component('layout.mainMenu', {
-      templateUrl: 'src/layout/views/area.html',
+      template: '<buttons buttons="$ctrl.mainMenu.buttons" area-type="\'mainMenu\'"/>',
       controller: MainMenuController
     });
     
@@ -17,10 +17,7 @@
       var areaPath = $state.current.data.areaPath;
       var auxArea = layout.findArea(path);
 
-      // Update if only the type is mainMenu.left
-      if(auxArea && auxArea.pos === 3) {
-        $ctrl.area = auxArea;
-      }
+      $ctrl.mainMenu = auxArea;
 
 
     }    

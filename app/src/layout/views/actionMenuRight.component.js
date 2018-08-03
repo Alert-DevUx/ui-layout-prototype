@@ -3,15 +3,20 @@
     
     angular.module('layout')
     .component('layout.actionMenuRight', {
-      templateUrl: 'src/layout/views/area.html',
+      template: '<buttons buttons="$ctrl.actionMenuRightArea.buttons" area-type=""actionMenuRight""/>',
       controller: ActionMenuRightController
     });
     
-    ActionMenuRightController.$inject = ['$stateParams', 'Path'];
-    function ActionMenuRightController($stateParams, Path) {
+    ActionMenuRightController.$inject = ['$state', 'Path'];
+    function ActionMenuRightController($state, Path) {
       var $ctrl = this;
 
-      $ctrl.targetPath = $stateParams.targetPath;
+      var layout = $state.current.data.layout;
+      // Get path from state (removing public.dynamicLayout - TODO: REVIEW)
+      var path = new Path($state.current.name + '.actionMenuRight').removeHead().removeHead();
+      var auxArea = layout.findArea(path);
+
+      $ctrl.actionMenuRightArea = auxArea;
 
 
     }    
