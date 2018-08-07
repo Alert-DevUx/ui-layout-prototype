@@ -85,7 +85,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         // Check if state already exists
         var exists = $state.href(state) ? true: false;
         // Create otherwise
-        if(!exists) {
+        if(!exists && views) {
             console.log('Adding state ' + state + '. Views: ' + JSON.stringify(views) + '. Url: ' + url);
             $uiRouter.stateProvider
             .state(state, 
@@ -117,7 +117,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
 
     var topViewAbsName = '';
     function getViews(area) {
-        var views = {};
+        var views = null;
       
         switch(area.pos) {
             case -1:
@@ -139,15 +139,26 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
             break;   
             
             case 3:
-                // Main menu - TODO: mainMenu.left / mainMenu.right
-                views['mainMenu' + topViewAbsName] = 'layout.mainMenu';
+                // MainMenu and MainMenuLeft have both value 3 for "pos"
+                if(area.buttonsPos.length == 0) {
+                    // Main menu targets the base state
+                    views = {}
+                    views['mainMenu' + topViewAbsName] = 'layout.mainMenu';
+                } else {
+                    // Main menu left targets Main Menu
+                    views = {}
+                    views[''] = 'layout.mainMenu.left';
+                }
                 break;
             case 4:
-                views['mainMenu' + topViewAbsName] = 'layout.mainMenu';
+                views = {}
+                views[''] = 'layout.mainMenu.right';
                 break;
             case 5: 
+                views = {}
                 views['deepnav' + topViewAbsName] = 'layout.deepnav'; 
                 break;
+                
         }
 
         return views;

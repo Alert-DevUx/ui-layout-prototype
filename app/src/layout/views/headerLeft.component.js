@@ -13,7 +13,9 @@
 
       var layout = $state.current.data.layout;
       // Get path from state (removing public.dynamicLayout - TODO: REVIEW)
+      
       var path = new Path($state.current.name + '.headerLeft').removeHead().removeHead();
+     
       var auxArea = layout.findArea(path);
 
       $ctrl.headerLeftArea = auxArea;
