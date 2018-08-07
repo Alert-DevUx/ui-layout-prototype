@@ -145,20 +145,23 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                     views = {}
                     views['mainMenu' + topViewAbsName] = 'layout.mainMenu';
                 } else {
-                    // Main menu left targets Main Menu
+                    
                     views = {}
+                    // Main menu left targets parent's unamed view
                     views[''] = 'layout.mainMenu.left';
+                    // and top's "screen" view
+                    views['screen' + topViewAbsName] = 'layout.screen';
                 }
                 break;
             case 4:
                 views = {}
                 views[''] = 'layout.mainMenu.right';
+                views['screen' + topViewAbsName] = 'layout.screen';
                 break;
             case 5: 
                 views = {}
                 views['deepnav' + topViewAbsName] = 'layout.deepnav'; 
-                break;
-                
+                break;               
         }
 
         return views;

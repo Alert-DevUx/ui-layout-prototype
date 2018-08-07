@@ -608,12 +608,6 @@
                   "buttonsPos": ["eye", "contextHelp", "applicationHelp", "globalShortcut"]
                 }
               }
-            },
-            "screen": {
-              "id": "screen",
-              "description": "Main screen area",
-              "pos": 12,
-              "type": "screen"
             }
           }
         },
@@ -3217,12 +3211,6 @@
                   "buttonsPos": ["eye", "contextHelp", "infoButton", "applicationHelp", "globalShortcut"]
                 }
               }
-            },
-            "screen": {
-              "id": "screen",
-              "description": "Main screen area",
-              "pos": 12,
-              "type": "screen"
             }
           }
         },
@@ -3650,12 +3638,6 @@
                   "buttonsPos": ["eye", "applicationHelp", "contextHelp"]
                 }
               }
-            },
-            "screen": {
-              "id": "screen",
-              "description": "Main screen area",
-              "pos": 12,
-              "type": "screen"
             }
           }
         }
