@@ -260,7 +260,7 @@ processArea = function(line) {
     // If the line includes a screen then add an child area for holding that screen
     if(line.screenName) {
         var screenParentPath = line.path.clone();
-        topArea.addArea(new Area('screen', 'Screen', 12, 'screen for ' + area.id), screenParentPath);
+        topArea.addArea(new Area('screen', 'Screen', 12, 'screen'), screenParentPath);
     }
 }
 
@@ -312,6 +312,7 @@ getButton = function(line) {
 
     let component = null;
     if(line.screenName) {
+        line.targetArea = topAreaId + '.' + line.path + '.screen';
         component = new Component('SWF', line.screenName);
     }
 

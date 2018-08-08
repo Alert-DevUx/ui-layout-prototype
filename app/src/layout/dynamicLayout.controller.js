@@ -29,7 +29,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.entry' }, function(transition) {
         console.log('Transition hook inpatient.entry', $stateParams);
-        $state.go(transition.to().name + '.mainMenu.entry', $stateParams);
+        $state.go(transition.to().name + '.mainMenu', $stateParams);
     });
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.entry.mainMenu' }, function(transition) {
         console.log('Transition hook inpatient.entry.mainMenu', $stateParams);
@@ -94,46 +94,30 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     /** Create a state from the info in the area */
     function createState (state, abstract, url, views, area) {
         
+        var stateConfig = {};
+        stateConfig['abstract'] = abstract;
+        stateConfig['views'] = views;
+        stateConfig['url'] = url;
+        stateConfig['data'] = {
+                layout: layout,
+                areaPath: area.path
+            };
+        if(area.type === 'screen') {
+            stateConfig['params'] = { screenName: '' }
+        }
+        stateConfig['resolve'] = {
+                screenName: ['$stateParams', function ($stateParams) {
+                    return $stateParams.screenName;
+                }]
+            };
+
         // Check if state already exists
         var exists = $state.href(state) ? true: false;
         // Create otherwise
         if(!exists && views) {
             console.log('Adding state ' + state + '. Views: ' + JSON.stringify(views) + '. Url: ' + url);
             $uiRouter.stateProvider
-            .state(state, 
-                {   
-                    abstract: abstract,
-                    views: views,
-                    url: url,
-                    data: {
-                        layout: layout,
-                        areaPath: area.path
-                    },
-                    onEnter: function () {
-                        console.log("entered " + state + " state's onEnter function");
-                    },
-                    
-                    params: {
-                        screenName: ''
-                    },
-                      
-                    
-                    resolve: {
-                        screenName: ['$stateParams', function ($stateParams) {
-                            return $stateParams.screenName;
-                        }]
-                        /*
-                        ,                        
-                        area: function () {
-                           var path = new Path(state).removeHead().removeHead();
-                           // Remove 
-                           var area = layout.findArea(path); 
-                           return area;
-                       }
-                       */
-                    }  
-                }
-            );
+            .state(state, stateConfig);
         }
     }
 
@@ -157,13 +141,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                     // Must set the component in this state to make sure that the view is drawn in this state
                     views[viewAbsName] = 'layout.' + childAreaId;
                 }
-
-                /*
-                views [ 'screen@' + LAYOUT_BASE_STATE + '.' + area.path] = 'layout.screen';
-                */
-
-            break;   
-            
+                break;    
             case 3:
                 // MainMenu and MainMenuLeft have both value 3 for "pos"
                 if(area.buttonsPos.length == 0) {
@@ -171,30 +149,23 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                     views = {}
                     views['mainMenu' + topViewAbsName] = 'layout.mainMenu';
                 } else {
-                    
                     views = {}
                     // Main menu left targets parent's unamed view
                     views[''] = 'layout.mainMenu.left';
-                    // and top's "screen" view
-                    views['screen' + topViewAbsName] = 'layout.screen';
                 }
                 break;
             case 4:
                 views = {}
                 views[''] = 'layout.mainMenu.right';
-                views['screen' + topViewAbsName] = 'layout.screen';
                 break;
             case 5: 
                 views = {}
                 views['deepnav' + topViewAbsName] = 'layout.deepnav'; 
-                views['screen' + topViewAbsName] = 'layout.screen';
                 break;     
-                          
             case 12: 
                 views = {}
-                views[''] = 'layout.screen'; 
-                break;                   
-                
+                views['screen' + topViewAbsName] = 'layout.screen'; 
+                break;
         }
 
         return views;
@@ -202,7 +173,6 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
 
     // Create the states for all areas in layout
     createStates(layout);
-
 
     $scope.selectedArea = {};
     $scope.layout = layout;
