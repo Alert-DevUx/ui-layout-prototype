@@ -102,6 +102,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                 layout: layout,
                 areaPath: area.path
             };
+        // param screenName for 'screen' states only 
         if(area.type === 'screen') {
             stateConfig['params'] = { screenName: '' }
         }
