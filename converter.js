@@ -148,11 +148,14 @@ getPath = function(line){
     }
     // If line includes a screen names then define 'screen' (grandchild of the top area) as 
     // its target area (where the screen are loaded).
+    /*
     if(line.screenName) {
 
         var screenAreaPath = areaPath.clone();
         line.targetArea = topAreaId + '.' + screenAreaPath.getHead() + '.screen';
     }
+    */
+
     // Note that, the two previous blocks assume that an area which is a parent of another area can
     // not have a screen name (either loads a screen or loads another area).
 
@@ -221,11 +224,13 @@ processAreas = function(lines) {
     });
 
     //Add areas for main screens
+    /*
     for (var areaId in topArea.areas) {
         if (topArea.areas.hasOwnProperty(areaId)) {
-            topArea.areas[areaId].addArea(new Area('screen', 'Main screen area', 12, 'screen'));
+            topArea.areas[areaId].addArea(new Area('screen', 'Main screen area for ' + areaId, 12, 'screen'));
         }
     }
+    */
 }
 
 /** 
@@ -251,22 +256,39 @@ processArea = function(line) {
             topArea.addArea(area, parentPath);
         } 
     });
+
+    // If the line includes a screen then add an child area for holding that screen
+    if(line.screenName) {
+        var screenParentPath = line.path.clone();
+        topArea.addArea(new Area('screen', 'Screen', 12, 'screen for ' + area.id), screenParentPath);
+    }
 }
 
 /**
  * Get area
  */
 getArea = function(path) {
-    // The area id is the last segment of the path
+
     console.log('getArea - path.toString(): ' + path.toString());
-    return new Area(path.getId(), areaMap[path.toString()].description, areaMap[path.toString()].pos, areaMap[path.toString()].type);
+    /*
+    if(path.toString().endsWith('.screen')) {
+        // Screen areas special case 
+        return new Area('screen', 'Screen', 12, 'screen');
+    } else {
+        */
+        return new Area(path.getId(), areaMap[path.toString()].description, areaMap[path.toString()].pos, areaMap[path.toString()].type);
+        /*
+    }
+    */
 }
 
 /** */
 processButtons = function(lines) {
 
     lines.forEach(function(line){
-        processButton(line);
+        if(line.idSysScreenArea != 12 ) { // Ignore areas for screens
+            processButton(line);
+        }
     });
 
 }

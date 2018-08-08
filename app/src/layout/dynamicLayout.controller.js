@@ -10,6 +10,9 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     
     var ctrl = this;
 
+
+    var BASE_STATE = $uiRouter.stateService.current.name;
+
     // For debugging purposes only
     $transitions.onSuccess({}, function(transition) {
         console.log("Transition from " + transition.from().name + " to " + transition.to().name + ": SUCCESS");
@@ -25,43 +28,62 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     // TODO: Configure default state!!
     
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.entry' }, function(transition) {
-        $state.go(transition.to().name + '.mainMenu');
+        console.log('Transition hook inpatient.entry', $stateParams);
+        $state.go(transition.to().name + '.mainMenu.entry', $stateParams);
     });
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.entry.mainMenu' }, function(transition) {
-        $state.go(transition.to().name + '.left');
+        console.log('Transition hook inpatient.entry.mainMenu', $stateParams);
+        $state.go(transition.to().name + '.left', $stateParams);
     });
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.entry.mainMenu.left' }, function(transition) {
-        $state.go(transition.to().name + '.barcode');
+        console.log('Transition hook inpatient.entry.mainMenu.left', $stateParams);
+        $state.go(transition.to().name + '.barcode', $stateParams);
     });            
 
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.patient' }, function(transition) {
-        $state.go(transition.to().name + '.mainMenu');
+        console.log('Transition hook inpatient.patient', $stateParams);
+        $state.go(transition.to().name + '.mainMenu', $stateParams);
     });
 
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.patient.mainMenu' }, function(transition) {
-        $state.go(transition.to().name + '.left');
+        console.log('Transition hook inpatient.patient.mainMenu', $stateParams);
+        $state.go(transition.to().name + '.left', $stateParams);
     });
 
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.patient.mainMenu.left' }, function(transition) {
-        $state.go(transition.to().name + '.clinicalInfoIcon');
+        console.log('Transition hook inpatient.patient.mainMenu.left', $stateParams)
+        $state.go(transition.to().name + '.clinicalInfoIcon', $stateParams);
     });
 
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.tools' }, function(transition) {
-        $state.go(transition.to().name + '.mainMenu');
+        console.log('Transition hook inpatient.tools', $stateParams)
+        $state.go(transition.to().name + '.mainMenu', $stateParams);
     });
 
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.tools.mainMenu' }, function(transition) {
-        $state.go(transition.to().name + '.left');
+        console.log('Transition hook inpatient.tools.mainMenu', $stateParams)
+        $state.go(transition.to().name + '.left', $stateParams);
     });
 
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.tools.mainMenu.left' }, function(transition) {
-        $state.go(transition.to().name + '.commontext');
+        console.log('Transition hook inpatient.tools.mainMenu.left', $stateParams)
+        $state.go(transition.to().name + '.commontext', $stateParams);
     });
 
     /** Create states */
     function createStates(area) {
 
-        createState(area);
+        // or $state.current.name
+        var state = BASE_STATE + '.' + area.path
+        // If there is nothing to draw then the state is abstract
+        var abstract = area.buttons ? false : true;        
+        // When using nested states, the child url is appended to the parent's url, therefore the
+        // we simply have to provide the id.
+        // TODO: Validate if the url is actualy needed
+        var url = '/' + area.id; 
+        var views = getViews(area);
+
+        createState(state, abstract, url, views, area);
         for (var id in area.areas) {
             if (area.areas.hasOwnProperty(id)) {
                 createStates(area.areas[id]);
@@ -70,18 +92,8 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     }
 
     /** Create a state from the info in the area */
-    function createState (area) {
-
-        // or $state.current.name
-        var state = $uiRouter.stateService.current.name + '.' + area.path;
-        // When using nested states, the child url is appended to the parent's url, therefore the
-        // we simply have to provide the id.
-        // TODO: Validate if the url is actualy needed
-        var url = '/' + area.id; 
-
-        // If there is nothing to draw then the state is abstract
-        var abstract = area.buttons ? false : true;
-        var views = getViews(area);
+    function createState (state, abstract, url, views, area) {
+        
         // Check if state already exists
         var exists = $state.href(state) ? true: false;
         // Create otherwise
@@ -99,16 +111,26 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                     },
                     onEnter: function () {
                         console.log("entered " + state + " state's onEnter function");
-                    },                    
+                    },
+                    
+                    params: {
+                        screenName: ''
+                    },
+                      
+                    
                     resolve: {
-                       // Resolve area through state parameters
-                       area: function () {
-
+                        screenName: ['$stateParams', function ($stateParams) {
+                            return $stateParams.screenName;
+                        }]
+                        /*
+                        ,                        
+                        area: function () {
                            var path = new Path(state).removeHead().removeHead();
                            // Remove 
                            var area = layout.findArea(path); 
                            return area;
                        }
+                       */
                     }  
                 }
             );
@@ -136,6 +158,10 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                     views[viewAbsName] = 'layout.' + childAreaId;
                 }
 
+                /*
+                views [ 'screen@' + LAYOUT_BASE_STATE + '.' + area.path] = 'layout.screen';
+                */
+
             break;   
             
             case 3:
@@ -161,7 +187,14 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
             case 5: 
                 views = {}
                 views['deepnav' + topViewAbsName] = 'layout.deepnav'; 
-                break;               
+                views['screen' + topViewAbsName] = 'layout.screen';
+                break;     
+                          
+            case 12: 
+                views = {}
+                views[''] = 'layout.screen'; 
+                break;                   
+                
         }
 
         return views;
@@ -177,7 +210,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     $scope.go = function() {
         var state = LAYOUT_BASE_STATE + "." + layout.id + "." + $scope.selectedArea;
         // Jump to selected state. Send selected area through state parameters
-        $state.go(state);
+        $state.go(state, $stateParams);
     }
 }
 

@@ -11,12 +11,15 @@
     function ActionMenuController($state, Path) {
       var $ctrl = this;
 
+      var layout = $state.current.data.layout;
       // Get path from state (removing dynamicLayout.inpatient - TODO: REVIEW)
       var path = new Path($state.current.name).removeHead().removeHead();
-      var layout = $state.current.data.layout;
-      var areaPath = $state.current.data.areaPath;
+
       var area = layout.findArea(path);
-      $ctrl.actionMenuArea = area;
+
+      if(area.type === 'actionMenu') {
+        $ctrl.actionMenuArea = area;
+      }
     }    
     
 })();

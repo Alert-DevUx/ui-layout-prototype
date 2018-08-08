@@ -3,22 +3,16 @@
     
     angular.module('layout')
     .component('layout.screen', {
-      template: 'OLA',
+      template: '<p>SCREEN: {{$ctrl.screenName}} </p>',
+      bindings: {
+        screenName: '<'
+      },      
       controller: ScreenController
     });
     
-    ScreenController.$inject = ['$state', 'Path'];
-    function ScreenController($state, Path) {
+    ScreenController.$inject = ['$state'];
+    function ScreenController($state) {
       var $ctrl = this;
-
-      var layout = $state.current.data.layout;
-      // Get path from state (removing public.dynamicLayout - TODO: REVIEW)
-      
-      var path = new Path($state.current.name).removeHead().removeHead();
-     
-      var auxArea = layout.findArea(path);
-
-      $ctrl.screen = auxArea;
     } 
     
 })();

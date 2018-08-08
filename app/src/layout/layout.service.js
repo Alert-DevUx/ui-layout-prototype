@@ -95,12 +95,12 @@
 
     function getAction(actionJson) {
 
-        if(actionJson.targetArea) {
-          if((actionJson.component && actionJson.component.type && actionJson.component.id)) {
-            var component = new Component(actionJson.component.type, actionJson.component.id)
-          }
-          return new Action(actionJson.targetArea, actionJson.button, component);
-        }
+      // Build component
+      if((actionJson.component && actionJson.component.type && actionJson.component.id)) {
+        var component = new Component(actionJson.component.type, actionJson.component.id)
+      }
+
+      return new Action(actionJson.targetArea, actionJson.button, component);
     }
 
 
@@ -158,18 +158,31 @@
                   "pos": 3,
                   "type": "mainMenu",
                   "areas": {
+                    "screen": {
+                      "id": "screen",
+                      "description": "Screen",
+                      "pos": 12,
+                      "type": "screen for undefined"
+                    },
                     "barCode": {
                       "id": "barCode",
                       "description": "barCode deepnavs",
                       "pos": 5,
                       "type": "deepnav",
+                      "areas": {
+                        "screen": {
+                          "id": "screen",
+                          "description": "Screen",
+                          "pos": 12,
+                          "type": "screen for barCode"
+                        }
+                      },
                       "buttons": {
                         "technicianWorkBarcode": {
                           "id": "technicianWorkBarcode",
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.entry.screen",
                             "component": {
                               "type": "SWF",
                               "id": "SearchPatientBarcode.swf"
@@ -184,13 +197,20 @@
                       "description": "responsabilityTransferEdis deepnavs",
                       "pos": 5,
                       "type": "deepnav",
+                      "areas": {
+                        "screen": {
+                          "id": "screen",
+                          "description": "Screen",
+                          "pos": 12,
+                          "type": "screen for undefined"
+                        }
+                      },
                       "buttons": {
                         "serviceTransfer": {
                           "id": "serviceTransfer",
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.entry.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ServiceTransferList.swf"
@@ -202,7 +222,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.entry.screen",
                             "component": {
                               "type": "SWF",
                               "id": "HandOffMyPatientsList.swf"
@@ -214,7 +233,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.entry.screen",
                             "component": {
                               "type": "SWF",
                               "id": "InstitutionTransferList.swf"
@@ -226,7 +244,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.entry.screen",
                             "component": {
                               "type": "SWF",
                               "id": "HandOffRequestsList.swf"
@@ -241,13 +258,20 @@
                       "description": "pendingTasks deepnavs",
                       "pos": 5,
                       "type": "deepnav",
+                      "areas": {
+                        "screen": {
+                          "id": "screen",
+                          "description": "Screen",
+                          "pos": 12,
+                          "type": "screen for pendingTasks"
+                        }
+                      },
                       "buttons": {
                         "todoList": {
                           "id": "todoList",
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.entry.screen",
                             "component": {
                               "type": "SWF",
                               "id": "GridTodoList.swf"
@@ -264,7 +288,6 @@
                       "label": "My patients",
                       "icon": "MyPatientsIcon",
                       "action": {
-                        "targetArea": "inpatient.entry.screen",
                         "component": {
                           "type": "SWF",
                           "id": "INPGridMyPatients.swf"
@@ -276,7 +299,6 @@
                       "label": "Bed management",
                       "icon": "BedManagementIcon",
                       "action": {
-                        "targetArea": "inpatient.entry.screen",
                         "component": {
                           "type": "SWF",
                           "id": "BedManagementDashboard.swf"
@@ -288,7 +310,6 @@
                       "label": "All patients",
                       "icon": "AllPatientsIcon",
                       "action": {
-                        "targetArea": "inpatient.entry.screen",
                         "component": {
                           "type": "SWF",
                           "id": "INPGridAllPatients.swf"
@@ -300,7 +321,6 @@
                       "label": "Scheduled admissions",
                       "icon": "ScheduledIcon",
                       "action": {
-                        "targetArea": "inpatient.entry.screen",
                         "component": {
                           "type": "SWF",
                           "id": "INPScheduledEpisodes.swf"
@@ -312,7 +332,6 @@
                       "label": "Patient location",
                       "icon": "BirdsEyeIcon",
                       "action": {
-                        "targetArea": "inpatient.entry.screen",
                         "component": {
                           "type": "SWF",
                           "id": "INPBirdsEyeView.swf"
@@ -332,7 +351,6 @@
                       "label": "Scheduler",
                       "icon": "ScheduledNewIcon",
                       "action": {
-                        "targetArea": "inpatient.entry.screen",
                         "component": {
                           "type": "SWF",
                           "id": "CalendarMonthOverview.swf"
@@ -360,7 +378,6 @@
                       "label": "Coding",
                       "icon": "CodingIcon",
                       "action": {
-                        "targetArea": "inpatient.entry.screen",
                         "component": {
                           "type": "SWF",
                           "id": "CpMyProcessesGW.swf"
@@ -413,13 +430,20 @@
               "description": "Alerts area",
               "pos": 8,
               "type": "mainMenuLeft",
+              "areas": {
+                "screen": {
+                  "id": "screen",
+                  "description": "Screen",
+                  "pos": 12,
+                  "type": "screen for mainMenuLeft"
+                }
+              },
               "buttons": {
                 "alert": {
                   "id": "alert",
                   "label": "Alert messages",
                   "icon": "AlertIcon",
                   "action": {
-                    "targetArea": "inpatient.entry.screen",
                     "component": {
                       "type": "SWF",
                       "id": "AlertsInpatient.swf"
@@ -440,13 +464,20 @@
                   "description": "search deepnavs",
                   "pos": 5,
                   "type": "deepnav",
+                  "areas": {
+                    "screen": {
+                      "id": "screen",
+                      "description": "Screen",
+                      "pos": 12,
+                      "type": "screen for undefined"
+                    }
+                  },
                   "buttons": {
                     "allPatients": {
                       "id": "allPatients",
                       "label": "",
                       "icon": "",
                       "action": {
-                        "targetArea": "inpatient.entry.screen",
                         "component": {
                           "type": "SWF",
                           "id": "AdtSearchAllPatients.swf"
@@ -458,7 +489,6 @@
                       "label": "",
                       "icon": "",
                       "action": {
-                        "targetArea": "inpatient.entry.screen",
                         "component": {
                           "type": "SWF",
                           "id": "INPEpisodeSearchActive.swf"
@@ -470,7 +500,6 @@
                       "label": "",
                       "icon": "",
                       "action": {
-                        "targetArea": "inpatient.entry.screen",
                         "component": {
                           "type": "SWF",
                           "id": "INPEpisodeSearchInactive.swf"
@@ -482,7 +511,6 @@
                       "label": "",
                       "icon": "",
                       "action": {
-                        "targetArea": "inpatient.entry.screen",
                         "component": {
                           "type": "SWF",
                           "id": "SearchCanceledPatients.swf"
@@ -659,30 +687,55 @@
                   "pos": 3,
                   "type": "mainMenu",
                   "areas": {
+                    "screen": {
+                      "id": "screen",
+                      "description": "Screen",
+                      "pos": 12,
+                      "type": "screen for undefined"
+                    },
                     "ehr": {
                       "id": "ehr",
                       "description": "ehr deepnavs",
                       "pos": 5,
                       "type": "deepnav",
                       "areas": {
+                        "screen": {
+                          "id": "screen",
+                          "description": "Screen",
+                          "pos": 12,
+                          "type": "screen for undefined"
+                        },
                         "visits": {
                           "id": "visits",
                           "description": "visits deepnavs",
                           "pos": 5,
                           "type": "deepnav",
                           "areas": {
+                            "screen": {
+                              "id": "screen",
+                              "description": "Screen",
+                              "pos": 12,
+                              "type": "screen for undefined"
+                            },
                             "dietProcess": {
                               "id": "dietProcess",
                               "description": "dietProcess deepnavs",
                               "pos": 5,
                               "type": "deepnav",
+                              "areas": {
+                                "screen": {
+                                  "id": "screen",
+                                  "description": "Screen",
+                                  "pos": 12,
+                                  "type": "screen for undefined"
+                                }
+                              },
                               "buttons": {
                                 "nutritionSummary": {
                                   "id": "nutritionSummary",
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "EHRDIASummary.swf"
@@ -694,7 +747,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "EHRDPNSummary.swf"
@@ -706,7 +758,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "EHRNutritionistIntervPlanList.swf"
@@ -718,7 +769,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "EHRNVNSummary.swf"
@@ -733,13 +783,20 @@
                               "description": "detailsOnPastIllnesses deepnavs",
                               "pos": 5,
                               "type": "deepnav",
+                              "areas": {
+                                "screen": {
+                                  "id": "screen",
+                                  "description": "Screen",
+                                  "pos": 12,
+                                  "type": "screen for undefined"
+                                }
+                              },
                               "buttons": {
                                 "reasonForVisits": {
                                   "id": "reasonForVisits",
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "ReasonsForVisits.swf"
@@ -751,7 +808,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "HistoryOfPastIllnesses.swf"
@@ -763,7 +819,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "EHRHPSummary.swf"
@@ -775,7 +830,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "EHRPNSummary.swf"
@@ -787,7 +841,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "ReviewsOfSystems.swf"
@@ -799,7 +852,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "PhysicalExams.swf"
@@ -811,7 +863,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "EHRBodyDiagrams.swf"
@@ -823,7 +874,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "IndividualEncounterPlans.swf"
@@ -835,7 +885,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "DispositionInstructions.swf"
@@ -847,7 +896,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "RecordsReviewList.swf"
@@ -859,7 +907,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "EHRDSSummary.swf"
@@ -876,7 +923,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "PreviousEpisSummaryPage.swf"
@@ -888,7 +934,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRepisodes.swf"
@@ -900,7 +945,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "PlannedVisits.swf"
@@ -912,7 +956,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "OtherEvents.swf"
@@ -924,7 +967,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "SocialEHRSummary.swf"
@@ -944,7 +986,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "ActivityTherapyEHRSummary.swf"
@@ -956,7 +997,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "MFREvaluationSummary.swf"
@@ -968,7 +1008,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "RPNSummary.swf"
@@ -991,13 +1030,20 @@
                           "description": "planning deepnavs",
                           "pos": 5,
                           "type": "deepnav",
+                          "areas": {
+                            "screen": {
+                              "id": "screen",
+                              "description": "Screen",
+                              "pos": 12,
+                              "type": "screen for undefined"
+                            }
+                          },
                           "buttons": {
                             "carePlans": {
                               "id": "carePlans",
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRCarePlansList.swf"
@@ -1009,7 +1055,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "IndividualEncounterPlans.swf"
@@ -1021,7 +1066,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRGuidelinesSummary.swf"
@@ -1033,7 +1077,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRProtocolSummary.swf"
@@ -1045,7 +1088,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRSurgEpisodesLoader.swf"
@@ -1057,7 +1099,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRReferrals.swf"
@@ -1073,18 +1114,31 @@
                           "pos": 5,
                           "type": "deepnav",
                           "areas": {
+                            "screen": {
+                              "id": "screen",
+                              "description": "Screen",
+                              "pos": 12,
+                              "type": "screen for undefined"
+                            },
                             "rehab": {
                               "id": "rehab",
                               "description": "rehab deepnavs",
                               "pos": 5,
                               "type": "deepnav",
+                              "areas": {
+                                "screen": {
+                                  "id": "screen",
+                                  "description": "Screen",
+                                  "pos": 12,
+                                  "type": "screen for undefined"
+                                }
+                              },
                               "buttons": {
                                 "proceduresMfr": {
                                   "id": "proceduresMfr",
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "RehabTreatmentsAllList.swf"
@@ -1096,7 +1150,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "EHRRehabPlanHistory.swf"
@@ -1113,7 +1166,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRLabs.swf"
@@ -1125,7 +1177,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRImages.swf"
@@ -1137,7 +1188,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHROtherExams.swf"
@@ -1149,7 +1199,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "PrescViewPrescribedMedication.swf"
@@ -1161,7 +1210,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "PatientEducationAllList.swf"
@@ -1173,7 +1221,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "ProceduresTimeline.swf"
@@ -1185,7 +1232,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRLensPrescriptionList.swf"
@@ -1209,18 +1255,31 @@
                           "pos": 5,
                           "type": "deepnav",
                           "areas": {
+                            "screen": {
+                              "id": "screen",
+                              "description": "Screen",
+                              "pos": 12,
+                              "type": "screen for undefined"
+                            },
                             "assessToolsGroup": {
                               "id": "assessToolsGroup",
                               "description": "assessToolsGroup deepnavs",
                               "pos": 5,
                               "type": "deepnav",
+                              "areas": {
+                                "screen": {
+                                  "id": "screen",
+                                  "description": "Screen",
+                                  "pos": 12,
+                                  "type": "screen for undefined"
+                                }
+                              },
                               "buttons": {
                                 "factoresRisco": {
                                   "id": "factoresRisco",
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "EHRRiskFactorsSummary.swf"
@@ -1232,7 +1291,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "EHRPhysicalExamEvaluationSummary.swf"
@@ -1244,7 +1302,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "SeverityScoresSummaryHist.swf"
@@ -1259,13 +1316,20 @@
                               "description": "avaliacaoInfantil deepnavs",
                               "pos": 5,
                               "type": "deepnav",
+                              "areas": {
+                                "screen": {
+                                  "id": "screen",
+                                  "description": "Screen",
+                                  "pos": 12,
+                                  "type": "screen for undefined"
+                                }
+                              },
                               "buttons": {
                                 "pediatricAssessment": {
                                   "id": "pediatricAssessment",
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "PediatricAssessmentSummary.swf"
@@ -1277,7 +1341,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "GeneralPediatricAssessment.swf"
@@ -1289,7 +1352,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "DevelopmentMilestonesGrid.swf"
@@ -1301,7 +1363,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "AssessmentOfDevelopment.swf"
@@ -1313,7 +1374,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "PediatricNutritionGrid.swf"
@@ -1325,7 +1385,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "PediatricNutritionAssessment.swf"
@@ -1337,7 +1396,6 @@
                                   "label": "",
                                   "icon": "",
                                   "action": {
-                                    "targetArea": "inpatient.patient.screen",
                                     "component": {
                                       "type": "SWF",
                                       "id": "SchoolPerformance.swf"
@@ -1354,7 +1412,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRProblemList.swf"
@@ -1366,7 +1423,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "Diagnosis.swf"
@@ -1378,7 +1434,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRAllergyList.swf"
@@ -1390,7 +1445,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRPatientHabits.swf"
@@ -1402,7 +1456,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRPastHistorySummary.swf"
@@ -1414,7 +1467,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "PatientAttributes.swf"
@@ -1426,7 +1478,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "GridFamily.swf"
@@ -1446,7 +1497,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRVitalSigns.swf"
@@ -1458,7 +1508,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "BiometricRead.swf"
@@ -1470,7 +1519,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRWomanHealthPregnanciesSummary.swf"
@@ -1490,7 +1538,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRVaccinationSummaryPage.swf"
@@ -1505,13 +1552,20 @@
                           "description": "nursing deepnavs",
                           "pos": 5,
                           "type": "deepnav",
+                          "areas": {
+                            "screen": {
+                              "id": "screen",
+                              "description": "Screen",
+                              "pos": 12,
+                              "type": "screen for undefined"
+                            }
+                          },
                           "buttons": {
                             "nursingInitialAssessment": {
                               "id": "nursingInitialAssessment",
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRNIASummary.swf"
@@ -1523,7 +1577,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EHRNPNSummary.swf"
@@ -1535,7 +1588,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "NursingNotes.swf"
@@ -1547,7 +1599,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "NursingDiagnosisInterventions.swf"
@@ -1564,7 +1615,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "DashBoardLoader.swf"
@@ -1608,7 +1658,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "BloodList.swf"
@@ -1628,7 +1677,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "TrialsList.swf"
@@ -1640,7 +1688,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "DocumentsArchive.swf"
@@ -1656,18 +1703,31 @@
                       "pos": 5,
                       "type": "deepnav",
                       "areas": {
+                        "screen": {
+                          "id": "screen",
+                          "description": "Screen",
+                          "pos": 12,
+                          "type": "screen for undefined"
+                        },
                         "progressNotes": {
                           "id": "progressNotes",
                           "description": "progressNotes deepnavs",
                           "pos": 5,
                           "type": "deepnav",
+                          "areas": {
+                            "screen": {
+                              "id": "screen",
+                              "description": "Screen",
+                              "pos": 12,
+                              "type": "screen for undefined"
+                            }
+                          },
                           "buttons": {
                             "physicianProgressNotes": {
                               "id": "physicianProgressNotes",
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "INPPNSummary.swf"
@@ -1679,7 +1739,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "OpinionList.swf"
@@ -1691,7 +1750,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "NPNSummary.swf"
@@ -1703,7 +1761,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "RPNSummary.swf"
@@ -1715,7 +1772,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "MFREvaluationSummary.swf"
@@ -1727,7 +1783,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "DPNSummary.swf"
@@ -1739,7 +1794,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "ActivityTherapyEHRSummary.swf"
@@ -1751,7 +1805,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "SocialSummary.swf"
@@ -1766,13 +1819,20 @@
                           "description": "assessToolsGroup deepnavs",
                           "pos": 5,
                           "type": "deepnav",
+                          "areas": {
+                            "screen": {
+                              "id": "screen",
+                              "description": "Screen",
+                              "pos": 12,
+                              "type": "screen for undefined"
+                            }
+                          },
                           "buttons": {
                             "scores": {
                               "id": "scores",
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "SeverityScoresSummary.swf"
@@ -1784,7 +1844,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "EvaluationSummary.swf"
@@ -1796,7 +1855,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "RiskFactorsSummary.swf"
@@ -1813,7 +1871,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "INPSummary.swf"
@@ -1825,7 +1882,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "INPHPSummary.swf"
@@ -1845,7 +1901,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ProblemList.swf"
@@ -1857,7 +1912,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "PrescViewHomeMedication.swf"
@@ -1869,7 +1923,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "PastHistorySummary.swf"
@@ -1881,7 +1934,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "DiagnosisDifferentialList.swf"
@@ -1901,7 +1953,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "BodyDiagram.swf"
@@ -1913,7 +1964,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "PreviousEpisSummaryPage.swf"
@@ -1925,7 +1975,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "EDISEpisodeSummary.swf"
@@ -1941,18 +1990,31 @@
                       "pos": 5,
                       "type": "deepnav",
                       "areas": {
+                        "screen": {
+                          "id": "screen",
+                          "description": "Screen",
+                          "pos": 12,
+                          "type": "screen for undefined"
+                        },
                         "depnvAnalisys": {
                           "id": "depnvAnalisys",
                           "description": "depnvAnalisys deepnavs",
                           "pos": 5,
                           "type": "deepnav",
+                          "areas": {
+                            "screen": {
+                              "id": "screen",
+                              "description": "Screen",
+                              "pos": 12,
+                              "type": "screen for undefined"
+                            }
+                          },
                           "buttons": {
                             "depnvAnalisys": {
                               "id": "depnvAnalisys",
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "LabTestsOrdersList.swf"
@@ -1964,7 +2026,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "AnalysisHarvest.swf"
@@ -1976,7 +2037,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "AnalysisHarvestTransport.swf"
@@ -1991,13 +2051,20 @@
                           "description": "prescription deepnavs",
                           "pos": 5,
                           "type": "deepnav",
+                          "areas": {
+                            "screen": {
+                              "id": "screen",
+                              "description": "Screen",
+                              "pos": 12,
+                              "type": "screen for undefined"
+                            }
+                          },
                           "buttons": {
                             "prescription": {
                               "id": "prescription",
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "PrescViewMedicationMistakes.swf"
@@ -2012,13 +2079,20 @@
                           "description": "pEnsinosenfermagem deepnavs",
                           "pos": 5,
                           "type": "deepnav",
+                          "areas": {
+                            "screen": {
+                              "id": "screen",
+                              "description": "Screen",
+                              "pos": 12,
+                              "type": "screen for undefined"
+                            }
+                          },
                           "buttons": {
                             "patientAssessment": {
                               "id": "patientAssessment",
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "PatientAssessmentSummary.swf"
@@ -2030,7 +2104,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "PatientEducationList.swf"
@@ -2045,13 +2118,20 @@
                           "description": "physicalTherapy deepnavs",
                           "pos": 5,
                           "type": "deepnav",
+                          "areas": {
+                            "screen": {
+                              "id": "screen",
+                              "description": "Screen",
+                              "pos": 12,
+                              "type": "screen for undefined"
+                            }
+                          },
                           "buttons": {
                             "proceduresMfr": {
                               "id": "proceduresMfr",
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "RehabPlan.swf"
@@ -2063,7 +2143,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "RehabTreatmentPlanView.swf"
@@ -2078,13 +2157,20 @@
                           "description": "planningGroup deepnavs",
                           "pos": 5,
                           "type": "deepnav",
+                          "areas": {
+                            "screen": {
+                              "id": "screen",
+                              "description": "Screen",
+                              "pos": 12,
+                              "type": "screen for undefined"
+                            }
+                          },
                           "buttons": {
                             "carePlans": {
                               "id": "carePlans",
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "CarePlansList.swf"
@@ -2096,7 +2182,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "GuidelinesSummary.swf"
@@ -2108,7 +2193,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "ProtocolSummary.swf"
@@ -2125,7 +2209,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "CpoeGrid.swf"
@@ -2137,7 +2220,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "OrderSetOngoing.swf"
@@ -2157,7 +2239,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ImageList.swf"
@@ -2169,7 +2250,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ExamList.swf"
@@ -2193,7 +2273,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ProceduresLoaderView.swf"
@@ -2213,7 +2292,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "DietSummary.swf"
@@ -2225,7 +2303,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ParamedicalRequestList.swf"
@@ -2237,7 +2314,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "PositioningsList.swf"
@@ -2265,7 +2341,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "SuppliesList.swf"
@@ -2280,13 +2355,20 @@
                       "description": "nurse deepnavs",
                       "pos": 5,
                       "type": "deepnav",
+                      "areas": {
+                        "screen": {
+                          "id": "screen",
+                          "description": "Screen",
+                          "pos": 12,
+                          "type": "screen for undefined"
+                        }
+                      },
                       "buttons": {
                         "nursingInitialAssessment": {
                           "id": "nursingInitialAssessment",
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "NIASummary.swf"
@@ -2298,7 +2380,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ICNPLoaderView.swf"
@@ -2310,7 +2391,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "VitalSignsDetail.swf"
@@ -2322,7 +2402,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "BiometricRead.swf"
@@ -2334,7 +2413,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "FluidBalanceRequestList.swf"
@@ -2346,7 +2424,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "FlowSheetsLoaderViews.swf"
@@ -2358,7 +2435,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "HealthProgramList.swf"
@@ -2370,7 +2446,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "NursingDischarge.swf"
@@ -2385,13 +2460,20 @@
                       "description": "patientid deepnavs",
                       "pos": 5,
                       "type": "deepnav",
+                      "areas": {
+                        "screen": {
+                          "id": "screen",
+                          "description": "Screen",
+                          "pos": 12,
+                          "type": "screen for undefined"
+                        }
+                      },
                       "buttons": {
                         "identificationIdentification": {
                           "id": "identificationIdentification",
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "PatientAttributes.swf"
@@ -2403,7 +2485,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "PatientCapturePhotoDoctor.swf"
@@ -2415,7 +2496,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "PrintPatientBarCode.swf"
@@ -2427,7 +2507,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "DocumentsArchive.swf"
@@ -2439,7 +2518,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "PatientHealthPlan.swf"
@@ -2451,7 +2529,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "PatientArrivedBy.swf"
@@ -2463,7 +2540,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "AdtPatientPortalAccess.swf"
@@ -2475,7 +2551,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "AdvancedDirectivesSummary.swf"
@@ -2487,7 +2562,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "PatientNeeds.swf"
@@ -2502,13 +2576,20 @@
                       "description": "coding deepnavs",
                       "pos": 5,
                       "type": "deepnav",
+                      "areas": {
+                        "screen": {
+                          "id": "screen",
+                          "description": "Screen",
+                          "pos": 12,
+                          "type": "screen for coding"
+                        }
+                      },
                       "buttons": {
                         "codingPage": {
                           "id": "codingPage",
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "CpPatientGW.swf"
@@ -2524,18 +2605,31 @@
                       "pos": 5,
                       "type": "deepnav",
                       "areas": {
+                        "screen": {
+                          "id": "screen",
+                          "description": "Screen",
+                          "pos": 12,
+                          "type": "screen for undefined"
+                        },
                         "futureEvents": {
                           "id": "futureEvents",
                           "description": "futureEvents deepnavs",
                           "pos": 5,
                           "type": "deepnav",
+                          "areas": {
+                            "screen": {
+                              "id": "screen",
+                              "description": "Screen",
+                              "pos": 12,
+                              "type": "screen for undefined"
+                            }
+                          },
                           "buttons": {
                             "p1DepnavSummary": {
                               "id": "p1DepnavSummary",
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "P1GridDoctorPat.swf"
@@ -2547,7 +2641,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "FutureEventsList.swf"
@@ -2559,7 +2652,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "SurgicalEpisodeLoader.swf"
@@ -2571,7 +2663,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "InpatientEpisodesListLoader.swf"
@@ -2588,7 +2679,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "DiagnosisFinalList.swf"
@@ -2600,7 +2690,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "PrescViewAdminAndTasks.swf"
@@ -2620,7 +2709,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "RecommendPatientNotes.swf"
@@ -2632,7 +2720,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "DischargeDoctorSummary.swf"
@@ -2644,7 +2731,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "CitsCerfas.swf"
@@ -2656,7 +2742,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "CoSignTaskList.swf"
@@ -2668,7 +2753,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "DeathRegistrySummary.swf"
@@ -2680,7 +2764,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "USDispositionSummary.swf"
@@ -2692,7 +2775,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "SignOff.swf"
@@ -2704,7 +2786,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "DSSummary.swf"
@@ -2716,7 +2797,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "INPSummary.swf"
@@ -2732,18 +2812,31 @@
                       "pos": 5,
                       "type": "deepnav",
                       "areas": {
+                        "screen": {
+                          "id": "screen",
+                          "description": "Screen",
+                          "pos": 12,
+                          "type": "screen for undefined"
+                        },
                         "pendingIssue": {
                           "id": "pendingIssue",
                           "description": "pendingIssue deepnavs",
                           "pos": 5,
                           "type": "deepnav",
+                          "areas": {
+                            "screen": {
+                              "id": "screen",
+                              "description": "Screen",
+                              "pos": 12,
+                              "type": "screen for undefined"
+                            }
+                          },
                           "buttons": {
                             "myPendingIssue": {
                               "id": "myPendingIssue",
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "MyPendingIssues.swf"
@@ -2755,7 +2848,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.patient.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "AllPendingIssues.swf"
@@ -2772,7 +2864,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ServiceTransferListPat.swf"
@@ -2784,7 +2875,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "HandOffListPhysician.swf"
@@ -2796,7 +2886,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "HandOffListNurse.swf"
@@ -2808,7 +2897,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "HandOffListTeams.swf"
@@ -2820,7 +2908,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "TransferInstitutionGrid.swf"
@@ -2832,7 +2919,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "Movements.swf"
@@ -2844,7 +2930,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "NewDetour.swf"
@@ -2856,7 +2941,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "BedAssigmentLoader.swf"
@@ -2876,7 +2960,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "PatientBelongings.swf"
@@ -2891,13 +2974,20 @@
                       "description": "pregnancyButton deepnavs",
                       "pos": 5,
                       "type": "deepnav",
+                      "areas": {
+                        "screen": {
+                          "id": "screen",
+                          "description": "Screen",
+                          "pos": 12,
+                          "type": "screen for pregnancyButton"
+                        }
+                      },
                       "buttons": {
                         "pregnancyList": {
                           "id": "pregnancyList",
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "WomanHealthPregnanciesSummary.swf"
@@ -2912,13 +3002,20 @@
                       "description": "checklistFrontoffice deepnavs",
                       "pos": 5,
                       "type": "deepnav",
+                      "areas": {
+                        "screen": {
+                          "id": "screen",
+                          "description": "Screen",
+                          "pos": 12,
+                          "type": "screen for checklistFrontoffice"
+                        }
+                      },
                       "buttons": {
                         "frontofficeChecklist": {
                           "id": "frontofficeChecklist",
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.patient.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ChecklistGrid.swf"
@@ -2997,7 +3094,6 @@
                       "label": "Scheduler",
                       "icon": "ScheduledNewIcon",
                       "action": {
-                        "targetArea": "inpatient.patient.screen",
                         "component": {
                           "type": "SWF",
                           "id": "CalendarMonthOverview.swf"
@@ -3068,13 +3164,20 @@
               "description": "Alerts area",
               "pos": 8,
               "type": "mainMenuLeft",
+              "areas": {
+                "screen": {
+                  "id": "screen",
+                  "description": "Screen",
+                  "pos": 12,
+                  "type": "screen for mainMenuLeft"
+                }
+              },
               "buttons": {
                 "alert": {
                   "id": "alert",
                   "label": "Alert messages",
                   "icon": "AlertIcon",
                   "action": {
-                    "targetArea": "inpatient.patient.screen",
                     "component": {
                       "type": "SWF",
                       "id": "AlertsInpatient.swf"
@@ -3267,13 +3370,20 @@
                       "description": "toolsLang deepnavs",
                       "pos": 5,
                       "type": "deepnav",
+                      "areas": {
+                        "screen": {
+                          "id": "screen",
+                          "description": "Screen",
+                          "pos": 12,
+                          "type": "screen for undefined"
+                        }
+                      },
                       "buttons": {
                         "toolsEspecialidades": {
                           "id": "toolsEspecialidades",
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.tools.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ToolsMySpecialities.swf"
@@ -3285,7 +3395,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.tools.screen",
                             "component": {
                               "type": "SWF",
                               "id": "FollowUpCareGroupsList.swf"
@@ -3297,7 +3406,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.tools.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ToolsMyRoomsSet.swf"
@@ -3309,7 +3417,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.tools.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ToolsDataEntryFormatSet.swf"
@@ -3321,7 +3428,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.tools.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ToolsBiometricID.swf"
@@ -3333,7 +3439,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.tools.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ToolsProfessionalData.swf"
@@ -3345,7 +3450,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.tools.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ReleaseNoteList.swf"
@@ -3361,18 +3465,31 @@
                       "pos": 5,
                       "type": "deepnav",
                       "areas": {
+                        "screen": {
+                          "id": "screen",
+                          "description": "Screen",
+                          "pos": 12,
+                          "type": "screen for undefined"
+                        },
                         "orderSetsTools": {
                           "id": "orderSetsTools",
                           "description": "orderSetsTools deepnavs",
                           "pos": 5,
                           "type": "deepnav",
+                          "areas": {
+                            "screen": {
+                              "id": "screen",
+                              "description": "Screen",
+                              "pos": 12,
+                              "type": "screen for undefined"
+                            }
+                          },
                           "buttons": {
                             "orderSetsTools": {
                               "id": "orderSetsTools",
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.tools.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "OrderSetList.swf"
@@ -3384,7 +3501,6 @@
                               "label": "",
                               "icon": "",
                               "action": {
-                                "targetArea": "inpatient.tools.screen",
                                 "component": {
                                   "type": "SWF",
                                   "id": "GroupsList.swf"
@@ -3401,7 +3517,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.tools.screen",
                             "component": {
                               "type": "SWF",
                               "id": "MostFrequentTexts.swf"
@@ -3413,7 +3528,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.tools.screen",
                             "component": {
                               "type": "SWF",
                               "id": "GuidelineList.swf"
@@ -3425,7 +3539,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.tools.screen",
                             "component": {
                               "type": "SWF",
                               "id": "ProtocolList.swf"
@@ -3445,7 +3558,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.tools.screen",
                             "component": {
                               "type": "SWF",
                               "id": "DietTools.swf"
@@ -3457,7 +3569,6 @@
                           "label": "",
                           "icon": "",
                           "action": {
-                            "targetArea": "inpatient.tools.screen",
                             "component": {
                               "type": "SWF",
                               "id": "DocumentationMacrosGrid.swf"
@@ -3531,13 +3642,20 @@
               "description": "Alerts area",
               "pos": 8,
               "type": "mainMenuLeft",
+              "areas": {
+                "screen": {
+                  "id": "screen",
+                  "description": "Screen",
+                  "pos": 12,
+                  "type": "screen for mainMenuLeft"
+                }
+              },
               "buttons": {
                 "alert": {
                   "id": "alert",
                   "label": "Alert messages",
                   "icon": "AlertIcon",
                   "action": {
-                    "targetArea": "inpatient.tools.screen",
                     "component": {
                       "type": "SWF",
                       "id": "AlertsInpatient.swf"
@@ -3643,6 +3761,7 @@
         }
       }
     }
+    
     
     
     

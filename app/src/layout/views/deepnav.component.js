@@ -3,7 +3,7 @@
     
     angular.module('layout')
     .component('layout.deepnav', {
-      template: '<buttons buttons="$ctrl.deepnavArea.buttons" area-type="\'deepnav\'"/>',
+      templateUrl: 'src/layout/views/deepnav.html',
       controller: DeepnavController
     });
     
@@ -16,7 +16,10 @@
       var path = new Path($state.current.name).removeHead().removeHead();
 
       var area = layout.findArea(path);
-      $ctrl.deepnavArea = area;
+
+      if(area.type === 'deepnav') {
+        $ctrl.deepnavArea = area;
+      }
       
     }    
     

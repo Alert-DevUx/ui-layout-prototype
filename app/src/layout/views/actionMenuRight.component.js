@@ -14,10 +14,11 @@
       var layout = $state.current.data.layout;
       // Get path from state (removing public.dynamicLayout - TODO: REVIEW)
       var path = new Path($state.current.name + '.actionMenuRight').removeHead().removeHead();
-      var auxArea = layout.findArea(path);
+      var area = layout.findArea(path);
 
-      $ctrl.actionMenuRightArea = auxArea;
-
+      if(area.type === 'actionMenuRight') {
+        $ctrl.actionMenuRightArea = area;
+      }
 
     }    
     

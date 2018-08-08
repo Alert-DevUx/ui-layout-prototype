@@ -14,13 +14,15 @@
       var layout = $state.current.data.layout;
       // Get path from state (removing public.dynamicLayout - TODO: REVIEW)
       
-      var path = new Path($state.current.name + '.headerLeft').removeHead().removeHead();
-     
-      var auxArea = layout.findArea(path);
+      var path = new Path($state.current.name).removeHead().removeHead();
 
-      $ctrl.headerLeftArea = auxArea;
+      var auxPath = path.getHead();
+      path.removeHead();
+      auxPath = auxPath + '.' + path.getHead() + '.headerLeft';
 
+      var area = layout.findArea(new Path(auxPath));
 
+        $ctrl.headerLeftArea = area;
     }    
     
 })();

@@ -16,8 +16,14 @@
 
       $ctrl.go = function() {
         // Jump to selected state. Send selected area through state parameters
-        if($ctrl.button.action && $ctrl.button.action.targetArea) {
-          $state.go(LAYOUT_BASE_STATE + "." + $ctrl.button.action.targetArea);
+        if($ctrl.button.action) {
+          if($ctrl.button.action.targetArea) {
+            $state.go(LAYOUT_BASE_STATE + "." + $ctrl.button.action.targetArea, {screenName: ''});
+          } else if ($ctrl.button.action.component && $ctrl.button.action.component.type === 'SWF') {
+
+            var targetState = $state.current.name + '.screen';
+            $state.go(targetState, {screenName: $ctrl.button.action.component.id});
+          }
         }
       }
     }    

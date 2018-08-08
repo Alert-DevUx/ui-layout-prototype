@@ -3,7 +3,7 @@
     
     angular.module('layout')
     .component('layout.mainMenu.left', {
-      template: '<buttons buttons="$ctrl.mainMenu.buttons" area-type="\'mainMenu\'"/>',
+      templateUrl: 'src/layout/views/mainMenu.left.html',
       controller: MainMenu_LeftController
     });
     
@@ -15,9 +15,11 @@
       // Get path from state (removing dynamicLayout.inpatient - TODO: REVIEW)
       var path = new Path($state.current.name).removeHead().removeHead();
 
-      var auxArea = layout.findArea(path);
+      var area = layout.findArea(path);
 
-      $ctrl.mainMenu = auxArea;
+      if(area.type === 'mainMenu') {
+        $ctrl.mainMenu = area;
+      }
 
 
     }    
