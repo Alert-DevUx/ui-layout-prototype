@@ -44,12 +44,10 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         console.log('Transition hook inpatient.patient', $stateParams);
         $state.go(transition.to().name + '.mainMenu', $stateParams);
     });
-
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.patient.mainMenu' }, function(transition) {
         console.log('Transition hook inpatient.patient.mainMenu', $stateParams);
         $state.go(transition.to().name + '.left', $stateParams);
     });
-
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.patient.mainMenu.left' }, function(transition) {
         console.log('Transition hook inpatient.patient.mainMenu.left', $stateParams)
         $state.go(transition.to().name + '.clinicalInfoIcon', $stateParams);
@@ -59,12 +57,10 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         console.log('Transition hook inpatient.tools', $stateParams)
         $state.go(transition.to().name + '.mainMenu', $stateParams);
     });
-
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.tools.mainMenu' }, function(transition) {
         console.log('Transition hook inpatient.tools.mainMenu', $stateParams)
         $state.go(transition.to().name + '.left', $stateParams);
     });
-
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.tools.mainMenu.left' }, function(transition) {
         console.log('Transition hook inpatient.tools.mainMenu.left', $stateParams)
         $state.go(transition.to().name + '.commontext', $stateParams);
@@ -76,7 +72,9 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         // or $state.current.name
         var state = BASE_STATE + '.' + area.path
         // If there is nothing to draw then the state is abstract
-        var abstract = area.buttons ? false : true;        
+        // Abstract: if set layout not shown - REVIEW
+        // var abstract = area.buttonsPos.length == 0 ? false : true;        
+        var abstract = false;
         // When using nested states, the child url is appended to the parent's url, therefore the
         // we simply have to provide the id.
         // TODO: Validate if the url is actualy needed
@@ -123,14 +121,16 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         // Create otherwise
         if(!exists && views) {
             // Log...
-            logStateCreation(state, url, stateConfig['params'], views);
+            logStateCreation(state, abstract, url, stateConfig['params'], views);
             // Create...
             $uiRouter.stateProvider.state(state, stateConfig);
         }
     }
 
-    function logStateCreation(state, url, params, views) {
-        console.log('State ' + state + ' [' + url + ' ]');
+    function logStateCreation(state, abstract, url, params, views) {
+
+        var abs = abstract ? ' (abstract) ' : '';
+        console.log('State ' + state + abs + ' [' + url + ' ]');
         if(params) {
             console.log('\tParams: ' + JSON.stringify(params)); 
         }
@@ -177,7 +177,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
             case 5: 
                 views = {}
                 views['deepnav' + topViewAbsName] = 'layout.deepnav'; 
-                break;     
+                break;
             case 12: 
                 views = {}
                 views['screen' + topViewAbsName] = 'layout.screen'; 
