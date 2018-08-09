@@ -103,23 +103,38 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                 areaPath: area.path
             };
         // param screenName for 'screen' states only 
+        var resolve;
         if(area.type === 'screen') {
             stateConfig['params'] = { screenName: '' }
-        }
-        stateConfig['resolve'] = {
+
+            resolve = {
                 screenName: ['$stateParams', function ($stateParams) {
                     return $stateParams.screenName;
                 }]
             };
+        }
+
+        if(resolve) {
+            stateConfig['resolve'] =  resolve;
+        }
 
         // Check if state already exists
         var exists = $state.href(state) ? true: false;
         // Create otherwise
         if(!exists && views) {
-            console.log('Adding state ' + state + '. Views: ' + JSON.stringify(views) + '. Url: ' + url);
-            $uiRouter.stateProvider
-            .state(state, stateConfig);
+            // Log...
+            logStateCreation(state, url, stateConfig['params'], views);
+            // Create...
+            $uiRouter.stateProvider.state(state, stateConfig);
         }
+    }
+
+    function logStateCreation(state, url, params, views) {
+        console.log('State ' + state + ' [' + url + ' ]');
+        if(params) {
+            console.log('\tParams: ' + JSON.stringify(params)); 
+        }
+        console.log('\tViews: ' + JSON.stringify(views));
     }
 
     var topViewAbsName = '';
@@ -173,7 +188,9 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     }
 
     // Create the states for all areas in layout
+    console.log('< < < < < States creation > > > > > >');
     createStates(layout);
+    console.log('< < < < < States creation finished > > > > > >');
 
     $scope.selectedArea = {};
     $scope.layout = layout;
