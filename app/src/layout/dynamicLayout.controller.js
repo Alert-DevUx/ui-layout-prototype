@@ -26,7 +26,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
       
     // Redirecet to default state.
     // TODO: Configure default state!!
-    
+    /*
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.entry' }, function(transition) {
         console.log('Transition hook inpatient.entry', $stateParams);
         $state.go(transition.to().name + '.mainMenu', $stateParams);
@@ -38,7 +38,8 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.entry.mainMenu.left' }, function(transition) {
         console.log('Transition hook inpatient.entry.mainMenu.left', $stateParams);
         $state.go(transition.to().name + '.barcode', $stateParams);
-    });            
+    });
+                
 
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.patient' }, function(transition) {
         console.log('Transition hook inpatient.patient', $stateParams);
@@ -46,7 +47,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     });
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.patient.mainMenu' }, function(transition) {
         console.log('Transition hook inpatient.patient.mainMenu', $stateParams);
-        $state.go(transition.to().name + '.left', $stateParams);
+        $state.go(transition.to().name + '.left.clinicalInfoIcon.progressNotes', $stateParams);
     });
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.patient.mainMenu.left' }, function(transition) {
         console.log('Transition hook inpatient.patient.mainMenu.left', $stateParams)
@@ -59,12 +60,13 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     });
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.tools.mainMenu' }, function(transition) {
         console.log('Transition hook inpatient.tools.mainMenu', $stateParams)
-        $state.go(transition.to().name + '.left', $stateParams);
+        $state.go(transition.to().name + '.left.commontext.orderSetsTools', $stateParams);
     });
     $transitions.onSuccess({ entering: LAYOUT_BASE_STATE + '.inpatient.tools.mainMenu.left' }, function(transition) {
         console.log('Transition hook inpatient.tools.mainMenu.left', $stateParams)
         $state.go(transition.to().name + '.commontext', $stateParams);
     });
+    */
 
     /** Create states */
     function createStates(area) {
@@ -72,9 +74,9 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         // or $state.current.name
         var state = BASE_STATE + '.' + area.path
         // If there is nothing to draw then the state is abstract
-        // Abstract: if set layout not shown - REVIEW
-        // var abstract = area.buttonsPos.length == 0 ? false : true;        
-        var abstract = false;
+        // Abstract: exception for 'screen' - REVIEW
+        var abstract = area.buttonsPos.length == 0 && area.id != 'screen' ? true : false;        
+        //var abstract = false;
         // When using nested states, the child url is appended to the parent's url, therefore the
         // we simply have to provide the id.
         // TODO: Validate if the url is actualy needed
@@ -119,7 +121,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         // Check if state already exists
         var exists = $state.href(state) ? true: false;
         // Create otherwise
-        if(!exists && views) {
+        if(!exists) {
             // Log...
             logStateCreation(state, abstract, url, stateConfig['params'], views);
             // Create...
@@ -198,9 +200,10 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     $scope.go = function() {
         var state = LAYOUT_BASE_STATE + "." + layout.id + "." + $scope.selectedArea;
         // Jump to selected state. Send selected area through state parameters
-        $state.go(state, $stateParams);
+        $state.go(state + '.mainMenu.left', $stateParams);
     }
 }
+
 
 
 })();
