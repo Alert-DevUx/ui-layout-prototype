@@ -32,8 +32,6 @@ const screenAreaIdsMap = {  '1': 'headerRight',
 /**
  * Properties by area
  */
-
-
 const areaMap = { 
     'entry'  : {'description': 'Inpatient main grid',      'pos': 0,   'type': '' },
     'patient': {'description': 'Inpatient patient area',   'pos': 0,   'type': '' },
@@ -78,6 +76,37 @@ const areaMap = {
     'tools.actionMenuRight' : {'description': 'Ok area',                  'pos': 7,   'type': 'actionMenuRight' },
     'tools.mainMenuRight'   : {'description': 'Search area',              'pos': 9,   'type': 'mainMenuRight' },    
 }
+
+// return new Button(id, line.tooltipTitle, line.icon, new Action (line.targetArea, null, component));
+
+const areaMap = { 
+    'FLG_ACTION':           { id: 'ACTION_BUTTON', icon: '' },		
+    'FLG_SEARCH':           { id: 'ADVANCE_SEARCH_ICON',	icon: 'AdvancedSearchIcon', },	
+    'FLG_HELP':             { id: 'APPLICATION_HELP', icon: 'HelpIcon', },	
+    '':                     { id: 'BACK', icon: 'BackIcon', },
+    '':                     { id: 'BAR_CHART_EDIS', icon: 'chartsIcon', },
+    '':                     { id: 'BAR_LIST_EDIS', icon: 'ListIcon', },
+    'FLG_CANCEL':           { id: 'CANCEL', icon: 'CancelIcon', },
+    '':                     { id: 'CHART_LINES_EDIS', icon: 'ChartsLinesIcon', },
+    '':                     { id: 'COMMONTEXT', icon: 'CommonTextIcon', },
+    '':                     { id: 'CONTEXT_HELP', icon: 'ContentIcon', },
+    'FLG_CREATE':           { id: 'CREATE', icon: 'AddIcon', },
+    '':                     { id: 'DOC_IMPORT', icon: 'ImportDocIcon', },
+    'FLG_DETAIL':           { id: 'EYE', icon: 'DetailsIcon', },
+    'FLG_VIEW':             { id: 'FIRST_VIEW', icon: 'FirstVisionIcon', },	
+    '':                     { id: 'FIRST_VIEW', icon: 'PrenatalvisitsIcon', },
+    'FLG_GLOBAL_SHORTCUT':  { id: 'GLOBAL_SHORTCUT', icon: 'GlobalShortcutIcon', },	
+    'FLG_INFO_BUTTON':      { id: 'INFO_BUTTON', icon: 'InfoButtonIcon', },
+    'FLG_NO':               { id: 'NO_EDIS', icon: 'NoIcon', },
+    'FLG_OK':               { id: 'OK', icon: 'OKIcon', },
+    'FLG_PRINT':            { id: 'PRINT', icon: 'PrintIcon', },	
+    'FLG_PRINT':            { id: 'PRINT', icon: 'PrintIcon', },
+    '':                     { id: 'SECOND_VIEW', icon: 'SecondVisionIcon', },	
+    'FLG_FREQ':             { id: 'TOOLS_COMMONTEXT', icon: 'CommonTextIcon', },	
+    'FLG_VIEW':             { id: 'VIEWS_BUTTON', icon: '', },
+}
+
+
 
 /** */
 getPaths = function(lines) {
