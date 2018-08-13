@@ -47,7 +47,9 @@
 	outline: none;	
 }
 
-
+.grayed_out {
+	opacity: 0.6;
+}
 
 /***************************/
 /******* GRID LAYOUT *******/

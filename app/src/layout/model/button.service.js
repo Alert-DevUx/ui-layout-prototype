@@ -11,12 +11,13 @@
     
     function Button() {    
 
-        function Button(id, label, icon, action, areaId) {
+        function Button(id, status, label, icon, action, areaId) {
 
             if(!this.validateParams()) {
               throw 'Invalid parameters.';
             }
             this.id = id;
+            this.status = status;
             this.label = label;
             this.icon = icon;
             this.action = action;
@@ -35,9 +36,10 @@
         Button.prototype.validateParams = function() {
             /*
             1. id is of type String and is mandatory
-            2. label is the code of the button description text
-            3. icon is the code of the button's Icon
-            4. action is of type 'Action'
+            2. status is of 'A', 'I', or 'N')
+            3. label is the code of the button description text
+            4. icon is the code of the button's Icon
+            5. action is of type 'Action'
             */
             return true;
         }

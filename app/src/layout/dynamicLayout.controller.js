@@ -183,6 +183,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
             case 12: 
                 views = {}
                 views['screen' + topViewAbsName] = 'layout.screen'; 
+                views['actionMenu' + topViewAbsName] = 'layout.actionMenu'; 
                 break;
         }
 

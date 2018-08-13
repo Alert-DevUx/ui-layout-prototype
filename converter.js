@@ -77,33 +77,30 @@ const areaMap = {
     'tools.mainMenuRight'   : {'description': 'Search area',              'pos': 9,   'type': 'mainMenuRight' },    
 }
 
-// return new Button(id, line.tooltipTitle, line.icon, new Action (line.targetArea, null, component));
-
-const areaMap = { 
-    'FLG_ACTION':           { id: 'ACTION_BUTTON', icon: '' },		
-    'FLG_SEARCH':           { id: 'ADVANCE_SEARCH_ICON',	icon: 'AdvancedSearchIcon', },	
-    'FLG_HELP':             { id: 'APPLICATION_HELP', icon: 'HelpIcon', },	
-    '':                     { id: 'BACK', icon: 'BackIcon', },
-    '':                     { id: 'BAR_CHART_EDIS', icon: 'chartsIcon', },
-    '':                     { id: 'BAR_LIST_EDIS', icon: 'ListIcon', },
-    'FLG_CANCEL':           { id: 'CANCEL', icon: 'CancelIcon', },
-    '':                     { id: 'CHART_LINES_EDIS', icon: 'ChartsLinesIcon', },
-    '':                     { id: 'COMMONTEXT', icon: 'CommonTextIcon', },
-    '':                     { id: 'CONTEXT_HELP', icon: 'ContentIcon', },
-    'FLG_CREATE':           { id: 'CREATE', icon: 'AddIcon', },
-    '':                     { id: 'DOC_IMPORT', icon: 'ImportDocIcon', },
-    'FLG_DETAIL':           { id: 'EYE', icon: 'DetailsIcon', },
-    'FLG_VIEW':             { id: 'FIRST_VIEW', icon: 'FirstVisionIcon', },	
-    '':                     { id: 'FIRST_VIEW', icon: 'PrenatalvisitsIcon', },
-    'FLG_GLOBAL_SHORTCUT':  { id: 'GLOBAL_SHORTCUT', icon: 'GlobalShortcutIcon', },	
-    'FLG_INFO_BUTTON':      { id: 'INFO_BUTTON', icon: 'InfoButtonIcon', },
-    'FLG_NO':               { id: 'NO_EDIS', icon: 'NoIcon', },
-    'FLG_OK':               { id: 'OK', icon: 'OKIcon', },
-    'FLG_PRINT':            { id: 'PRINT', icon: 'PrintIcon', },	
-    'FLG_PRINT':            { id: 'PRINT', icon: 'PrintIcon', },
-    '':                     { id: 'SECOND_VIEW', icon: 'SecondVisionIcon', },	
-    'FLG_FREQ':             { id: 'TOOLS_COMMONTEXT', icon: 'CommonTextIcon', },	
-    'FLG_VIEW':             { id: 'VIEWS_BUTTON', icon: '', },
+const actionButtonMap = { 
+    'FLG_ACTION':           { id: 'actionButton', title: 'Actions', icon: '', status: 'N' },
+    'FLG_SEARCH':           { id: 'advanceSearch', title: 'Advanced search',	icon: 'AdvancedSearchIcon', status: 'N' },
+    'FLG_HELP':             { id: 'applicationHelp', title: 'Help', icon: 'HelpIcon', status: 'N' },
+//    '':                     { id: 'back', title: 'Back', icon: 'BackIcon', status: 'N' },
+//    '':                     { id: 'barChartEdis', title: 'Graph view', icon: 'chartsIcon', status: 'N' },
+//    '':                     { id: 'barListEdis', title: 'Grid view', icon: 'ListIcon', status: 'N' },
+    'FLG_CANCEL':           { id: 'cancel', title: 'Cancel records', icon: 'CancelIcon', status: 'N' },
+//    '':                     { id: 'chartLinesEdis', title: 'Graph view', icon: 'ChartsLinesIcon', status: 'N' },
+//    '':                     { id: 'commonText', title: 'Predefined texts', icon: 'CommonTextIcon', status: 'N' },
+//    '':                     { id: 'contextHelp', title: 'Technical content', icon: 'ContentIcon', status: 'N' },
+    'FLG_CREATE':           { id: 'create', title: 'Add or edit records', icon: 'AddIcon', status: 'N' },
+//    '':                     { id: 'docImport', title: 'Attach digital documents', icon: 'ImportDocIcon', status: 'N' },
+    'FLG_DETAIL':           { id: 'eye', title: 'Record details', icon: 'DetailsIcon', status: 'N' },
+    'FLG_VIEW':             { id: 'firstView', title: 'First view ', icon: 'FirstVisionIcon', status: 'N' },
+//    '':                     { id: 'firstView', title: '', icon: 'PrenatalvisitsIcon', status: 'N' },
+    'FLG_GLOBAL_SHORTCUT':  { id: 'globalShortcut', title: 'Shortcuts', icon: 'GlobalShortcutIcon', status: 'N' },
+    'FLG_INFO_BUTTON':      { id: 'infoButton', title: 'Infobutton', icon: 'InfoButtonIcon', status: 'N' },
+    'FLG_NO':               { id: 'noEdis', title: 'Negative for all discriminators on this page', icon: 'NoIcon', status: 'N' },
+    'FLG_OK':               { id: 'ok', title: 'Confirm and continue', icon: 'OKIcon', status: 'N' },
+    'FLG_PRINT':            { id: 'print', title: 'Print tool', icon: 'PrintIcon', status: 'N' },
+//    '':                     { id: 'secondView', title: 'Second view', icon: 'SecondVisionIcon', status: 'N' },
+    'FLG_FREQ':             { id: 'toolsCommonText', title: 'Predefined texts', icon: 'CommonTextIcon', status: 'N' },
+    'FLG_VIEW':             { id: 'viewsButton', title: 'View modes', icon: '', status: 'N' },
 }
 
 
@@ -118,7 +115,7 @@ getPaths = function(lines) {
 }
 
 /**
- * Return the provided string in camel case
+ * Return the provided dot separated string in camel case
  */
 camelize = function (str) {
     str = str.toLowerCase();
@@ -173,7 +170,7 @@ getPath = function(line){
     // Add this line as the target to the parent (if there is one). This info will be used to create
     // the navigation action in the button of the parent line
     if(line.idSbpParent) {
-        getParentLine(line).targetArea = topAreaId + '.' + areaPath.toString();
+        getParentLine(line).targetArea = areaPath.toString();
     }
     // If line includes a screen names then define 'screen' (grandchild of the top area) as 
     // its target area (where the screen are loaded).
@@ -201,7 +198,7 @@ setdMapEntry = function(areaPath) {
     mapEntry.description = areaPath.getId() + " deepnavs";
     mapEntry.pos = 5;
     mapEntry.type = 'deepnav';
-    areaMap[areaPath.toString()] = mapEntry;
+    areaMap[areaPath.clone().removeHead().toString()] = mapEntry;
 }
 
 /** get the parent line for the provided line (parent sys_button_prop) */
@@ -230,7 +227,7 @@ getParentPath = function(line){
         parentPath = getPath(parentLine);
     } else {
         // return top level path (using id_sys_application_area)
-        parentPath = new Path(appAreaIdsMap[line.idSysApplicationArea]);
+        parentPath = new Path(topAreaId + '.' + appAreaIdsMap[line.idSysApplicationArea]);
     }
 
     return parentPath;
@@ -270,6 +267,8 @@ processArea = function(line) {
     var auxPath = new Path('');
     let area = {};
 
+    console.log('line.path: ' + line.path.toString());
+
     // Iterate down the path and, if necessary, create the areas for each level.
     line.path.toArray().forEach(function(e){
         
@@ -277,7 +276,7 @@ processArea = function(line) {
         parentPath = auxPath.getParent();
 
         if(!topArea.findArea(auxPath)) {
-            area = getArea(auxPath);
+            area = getArea(auxPath.clone().removeHead());
 
             var p = parentPath.toString() ? parentPath.toString() + '.' : '';
             console.log('Adding area ' + p + area.id + '...');
@@ -330,6 +329,34 @@ processButton = function(line) {
     button = getButton(line);
 
     area.addButton(button);
+
+    setActionButtons(line);
+
+
+}
+
+/**
+ * Add action buttons (for areas that include a screen)
+ */
+setActionButtons = function (line) {
+    // Add action button for the screen
+    if(line.screenName) {
+
+        // For screen areas the target area was previously set with the location of the 'screen' area
+        var screenArea = topArea.findArea(new Path(line.targetArea));
+
+        for (var flag in actionButtonMap) {
+            if (actionButtonMap.hasOwnProperty(flag)) {
+                var flagKey = camelize(flag.replace(new RegExp('_', 'g'),'.'));
+                // Ignore actions with value 'N'
+                if(line[flagKey] != 'N') {
+                    // Empty action for now
+                    screenArea.addButton(
+                        new Button(actionButtonMap[flag].id, line[flagKey], actionButtonMap[flag].title, actionButtonMap[flag].icon, new Action()));
+                }
+            }
+        }
+    }
 }
 
 /**
@@ -341,11 +368,12 @@ getButton = function(line) {
 
     let component = null;
     if(line.screenName) {
-        line.targetArea = topAreaId + '.' + line.path + '.screen';
+        // If is a screen the target area will be a child of the line's area
+        line.targetArea = line.path + '.screen';
         component = new Component('SWF', line.screenName);
     }
 
-    return new Button(id, line.tooltipTitle, line.icon, 
+    return new Button(id, 'A', line.tooltipTitle, line.icon, 
         new Action (line.targetArea, null, component));
 }
 

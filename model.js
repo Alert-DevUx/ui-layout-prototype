@@ -157,37 +157,34 @@ class Area {
         // TODO: IMPLEMENT
     } 
 
-
-   
-   /**
+    /**
      * The path to an area is a '.' separated string of the ids of the area ancestors in the areas'
      * tree.
      * 
      * This method expect a path relative to the position of this area in the tree. I.e., the first
-     * id on the path must match one of the child areas of this area.
-     */    
+     * id on the path must match this area's id.
+     */      
     findArea(path) {
 
-        // Clone path object before calling _findAreaRec because it is changed in 
-        return this._findAreaRec(new Path(path.toString()));
+        // Clone path object before calling _findAreaRec because it is changed inside
+        return this._findAreaRec(path.clone());
   
     }
 
     _findAreaRec(path) {
-        for (var key in this.areas) {
-            if (this.areas.hasOwnProperty(key)) {
 
-                let childArea = this.areas[key];
-                if(path.getHead() === childArea.id) {
-                    // Remove path head
-                    path.removeHead();
-                    if(path.toString() === '') {
-                        // Id matches at last level: Found!
-                        return childArea;
-                    } else {
-                        // Proceed with search at next level removing the first position of the array
-                        return childArea.findArea(path);
-                    }
+        if(path.toString() === this.id) {
+            // Id matches at last level: Found!
+            return this;
+        } else {
+            // If top most element of path matches this id...
+            if(path.getHead() === this.id) {
+                // remove top most element from path...
+                path.removeHead();
+                // and continue searching in the child which id is the head of the new path
+                var childId = path.getHead();
+                if(this.areas && this.areas[childId]){
+                    return this.areas[childId].findArea(path);
                 }
             }
         }
@@ -195,6 +192,7 @@ class Area {
         // List of areas ended without a match: Not Found.
         return null;
     }
+
 
     _validateParams() {
         /*
@@ -216,12 +214,13 @@ Button
 Button attributes and the screen action it executes when called
 */
 class Button {
-    constructor(id, label, icon, action) {
+    constructor(id, status, label, icon, action) {
 
         if(!this.validateParams()) {
           throw 'Invalid parameters.';
         }
         this.id = id;
+        this.status = status;
         this.label = label;
         this.icon = icon;
         this.action = action;
@@ -232,9 +231,10 @@ class Button {
     validateParams() {
         /*
         1. id is of type String and is mandatory
-        2. label is the code of the button description text
-        3. icon is the code of the button's Icon
-        4. action is of type 'Action'
+        2. status is of 'A', 'I', or 'N')
+        3. label is the code of the button description text
+        4. icon is the code of the button's Icon
+        5. action is of type 'Action'
         */
         return  true;
     }

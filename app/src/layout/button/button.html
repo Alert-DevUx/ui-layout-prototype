@@ -1,4 +1,4 @@
-<div ng-click="$ctrl.go()"> 
+<div ng-click="$ctrl.go()"  ng-class="{'grayed_out': $ctrl.button.status == 'I'}"> 
     <p>{{$ctrl.button.id}}</p>
     <img src="{{$ctrl.button.icon}}" /> 
 </div> 

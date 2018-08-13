@@ -17,7 +17,8 @@
 
       var area = layout.findArea(path);
 
-      if(area.type === 'actionMenu') {
+      // Action buttons inside 'screen' area
+      if(area.type === 'screen') {
         $ctrl.actionMenuArea = area;
       }
     }    
