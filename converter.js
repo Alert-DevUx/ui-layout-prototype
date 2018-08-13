@@ -74,33 +74,33 @@ const areaMap = {
     'tools.actionMenu.left' : {'description': 'Bottom menu left',         'pos': 10,  'type': 'actionMenu' },
     'tools.actionMenu.right': {'description': 'Bottom menu right',        'pos': 11,  'type': 'actionMenu' },
     'tools.actionMenuRight' : {'description': 'Ok area',                  'pos': 7,   'type': 'actionMenuRight' },
-    'tools.mainMenuRight'   : {'description': 'Search area',              'pos': 9,   'type': 'mainMenuRight' },    
+    'tools.mainMenuRight'   : {'description': 'Search area',              'pos': 9,   'type': 'mainMenuRight' }
 }
 
 const actionButtonMap = { 
-    'FLG_ACTION':           { id: 'actionButton', title: 'Actions', icon: '', status: 'N' },
-    'FLG_SEARCH':           { id: 'advanceSearch', title: 'Advanced search',	icon: 'AdvancedSearchIcon', status: 'N' },
-    'FLG_HELP':             { id: 'applicationHelp', title: 'Help', icon: 'HelpIcon', status: 'N' },
-//    '':                     { id: 'back', title: 'Back', icon: 'BackIcon', status: 'N' },
-//    '':                     { id: 'barChartEdis', title: 'Graph view', icon: 'chartsIcon', status: 'N' },
-//    '':                     { id: 'barListEdis', title: 'Grid view', icon: 'ListIcon', status: 'N' },
-    'FLG_CANCEL':           { id: 'cancel', title: 'Cancel records', icon: 'CancelIcon', status: 'N' },
-//    '':                     { id: 'chartLinesEdis', title: 'Graph view', icon: 'ChartsLinesIcon', status: 'N' },
-//    '':                     { id: 'commonText', title: 'Predefined texts', icon: 'CommonTextIcon', status: 'N' },
-//    '':                     { id: 'contextHelp', title: 'Technical content', icon: 'ContentIcon', status: 'N' },
-    'FLG_CREATE':           { id: 'create', title: 'Add or edit records', icon: 'AddIcon', status: 'N' },
-//    '':                     { id: 'docImport', title: 'Attach digital documents', icon: 'ImportDocIcon', status: 'N' },
-    'FLG_DETAIL':           { id: 'eye', title: 'Record details', icon: 'DetailsIcon', status: 'N' },
-    'FLG_VIEW':             { id: 'firstView', title: 'First view ', icon: 'FirstVisionIcon', status: 'N' },
-//    '':                     { id: 'firstView', title: '', icon: 'PrenatalvisitsIcon', status: 'N' },
-    'FLG_GLOBAL_SHORTCUT':  { id: 'globalShortcut', title: 'Shortcuts', icon: 'GlobalShortcutIcon', status: 'N' },
-    'FLG_INFO_BUTTON':      { id: 'infoButton', title: 'Infobutton', icon: 'InfoButtonIcon', status: 'N' },
-    'FLG_NO':               { id: 'noEdis', title: 'Negative for all discriminators on this page', icon: 'NoIcon', status: 'N' },
-    'FLG_OK':               { id: 'ok', title: 'Confirm and continue', icon: 'OKIcon', status: 'N' },
-    'FLG_PRINT':            { id: 'print', title: 'Print tool', icon: 'PrintIcon', status: 'N' },
-//    '':                     { id: 'secondView', title: 'Second view', icon: 'SecondVisionIcon', status: 'N' },
-    'FLG_FREQ':             { id: 'toolsCommonText', title: 'Predefined texts', icon: 'CommonTextIcon', status: 'N' },
-    'FLG_VIEW':             { id: 'viewsButton', title: 'View modes', icon: '', status: 'N' },
+    'FLG_ACTION':           { id: 'actionButton', title: 'Actions', icon: '', status: 'N', rank:  6 },
+    'FLG_SEARCH':           { id: 'advanceSearch', title: 'Advanced search',	icon: 'AdvancedSearchIcon', status: 'N', rank: 5 },
+    'FLG_HELP':             { id: 'applicationHelp', title: 'Help', icon: 'HelpIcon', status: 'N', rank: 30 },
+//    '':                     { id: 'back', title: 'Back', icon: 'BackIcon', status: 'N', rank: 0},
+//    '':                     { id: 'barChartEdis', title: 'Graph view', icon: 'chartsIcon', status: 'N', rank: 0},
+//    '':                     { id: 'barListEdis', title: 'Grid view', icon: 'ListIcon', status: 'N', rank: 0},
+    'FLG_CANCEL':           { id: 'cancel', title: 'Cancel records', icon: 'CancelIcon', status: 'N', rank: 3 },
+//    '':                     { id: 'chartLinesEdis', title: 'Graph view', icon: 'ChartsLinesIcon', status: 'N', rank: 0},
+//    '':                     { id: 'commonText', title: 'Predefined texts', icon: 'CommonTextIcon', status: 'N', rank: 50},
+//    '':                     { id: 'contextHelp', title: 'Technical content', icon: 'ContentIcon', status: 'N', rank: 0},
+    'FLG_CREATE':           { id: 'create', title: 'Add or edit records', icon: 'AddIcon', status: 'N', rank: 2 },
+//    '':                     { id: 'docImport', title: 'Attach digital documents', icon: 'ImportDocIcon', status: 'N', rank: 0},
+    'FLG_DETAIL':           { id: 'eye', title: 'Record details', icon: 'DetailsIcon', status: 'N', rank: 0 },
+    'FLG_VIEW':             { id: 'firstView', title: 'First view ', icon: 'FirstVisionIcon', status: 'N', rank: 4 },
+//    '':                     { id: 'firstView', title: '', icon: 'PrenatalvisitsIcon', status: 'N', rank: 0 },
+    'FLG_GLOBAL_SHORTCUT':  { id: 'globalShortcut', title: 'Shortcuts', icon: 'GlobalShortcutIcon', status: 'N', rank: 9999 },
+    'FLG_INFO_BUTTON':      { id: 'infoButton', title: 'Infobutton', icon: 'InfoButtonIcon', status: 'N', rank: 10 },
+    'FLG_NO':               { id: 'noEdis', title: 'Negative for all discriminators on this page', icon: 'NoIcon', status: 'N', rank: 0 },
+//    'FLG_OK':               { id: 'ok', title: 'Confirm and continue', icon: 'OKIcon', status: 'N', rank: 0 },
+    'FLG_PRINT':            { id: 'print', title: 'Print tool', icon: 'PrintIcon', status: 'N', rank: 1 },
+//    '':                     { id: 'secondView', title: 'Second view', icon: 'SecondVisionIcon', status: 'N', rank: 4 },
+    'FLG_FREQ':             { id: 'toolsCommonText', title: 'Predefined texts', icon: 'CommonTextIcon', status: 'N', rank: 50},
+    'FLG_VIEW':             { id: 'viewsButton', title: 'View modes', icon: '', status: 'N', rank: 4 }
 }
 
 
@@ -331,8 +331,6 @@ processButton = function(line) {
     area.addButton(button);
 
     setActionButtons(line);
-
-
 }
 
 /**
@@ -352,7 +350,8 @@ setActionButtons = function (line) {
                 if(line[flagKey] != 'N') {
                     // Empty action for now
                     screenArea.addButton(
-                        new Button(actionButtonMap[flag].id, line[flagKey], actionButtonMap[flag].title, actionButtonMap[flag].icon, new Action()));
+                        new Button(actionButtonMap[flag].id, line[flagKey], actionButtonMap[flag].title, 
+                                   actionButtonMap[flag].icon, new Action(), actionButtonMap[flag].rank));
                 }
             }
         }
@@ -374,8 +373,36 @@ getButton = function(line) {
     }
 
     return new Button(id, 'A', line.tooltipTitle, line.icon, 
-        new Action (line.targetArea, null, component));
+        new Action (line.targetArea, null, component), line.rank);
 }
+
+/**
+ * Creates a button object from the information in the line
+ */
+cleanUp = function() {
+    cleanUpArea(topArea);
+}
+
+cleanUpArea = function(area) {
+    // Remove uneeded objects
+    // buttonsObj is an auxiliary map to remove duplicates
+    area.buttonsObj = undefined;
+    if(area.buttons) {
+        area.buttons.forEach(function(button) {
+            // rank is not needed, buttons order is defined by the buttons array index
+            button.rank = undefined;
+        });
+    }
+
+    // Clean subareas
+    for(var areaId in area.areas) {
+        if (area.areas.hasOwnProperty(areaId)) {
+            cleanUpArea(area.areas[areaId]);
+        }
+    }
+}
+
+
 
 
 // Input file 
@@ -412,6 +439,8 @@ lineReader.on('close', function(){
     processAreas(lines);
 
     processButtons(lines);
+
+    cleanUpArea(topArea);
 
     console.log(JSON.stringify(topArea));
 

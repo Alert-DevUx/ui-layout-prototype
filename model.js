@@ -89,27 +89,37 @@ class Area {
         this.type = type;
     }
 
-    addButton(button, pos) {
+    addButton(button) {
 
         if(!button || !button.id) {
             return null;
         }
 
         if(!this.buttons) {
-            // Initialize buttons object
-            this.buttons = {}
-            // Initialize buttonPos array
-            this.buttonsPos = [];
+            // Map to ignore duplicates buttons
+            this.buttonsObj = {}
+            // Buttons array 
+            this.buttons = [];
         }
 
-        if(pos) { 
-            this.buttonsPos.splice(pos, 0, button.id); 
-        } else {
-            this.buttonsPos.push(button.id);
+        // Add the button if it does not exist yet
+        if(!this.buttonsObj[button.id]) {
+        
+            this.buttonsObj[button.id] = button.id;
+            // Find index 
+            var idx = 0;
+            for(var i = 0; i< this.buttons.length; i ++) {
+                if(button.rank < this.buttons[i].rank) {
+                    break;
+                }
+                idx ++;
+            }
+            this.buttons.splice(idx, 0, button); 
         }
-
-        this.buttons[button.id] = button;
     }
+
+
+
 
     delButton(button) {
         // TODO: IMPLEMENT
@@ -214,7 +224,7 @@ Button
 Button attributes and the screen action it executes when called
 */
 class Button {
-    constructor(id, status, label, icon, action) {
+    constructor(id, status, label, icon, action, rank) {
 
         if(!this.validateParams()) {
           throw 'Invalid parameters.';
@@ -224,6 +234,7 @@ class Button {
         this.label = label;
         this.icon = icon;
         this.action = action;
+        this.rank = rank;        
     }
   
 

@@ -75,7 +75,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         var state = BASE_STATE + '.' + area.path
         // If there is nothing to draw then the state is abstract
         // Abstract: exception for 'screen' - REVIEW
-        var abstract = area.buttonsPos.length == 0 && area.id != 'screen' ? true : false;        
+        var abstract = area.buttons.length == 0 && area.id != 'screen' ? true : false;        
         //var abstract = false;
         // When using nested states, the child url is appended to the parent's url, therefore the
         // we simply have to provide the id.
@@ -162,7 +162,7 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                 break;    
             case 3:
                 // MainMenu and MainMenuLeft have both value 3 for "pos"
-                if(area.buttonsPos.length == 0) {
+                if(area.buttons.length == 0) {
                     // Main menu targets the base state
                     views = {}
                     views['mainMenu' + topViewAbsName] = 'layout.mainMenu';

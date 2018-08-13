@@ -21,10 +21,8 @@
             this.description = description;
             this.pos = pos;
             this.type = type;
-            // Buttons map
-            this.buttons = {};
-            // Array of button ids to keep track of the buttons' position in the area
-            this.buttonsPos = [];
+            // Buttons array
+            this.buttons = [];
             // Child areas map
             this.areas = {};
             // Path
@@ -43,30 +41,23 @@
             return areasArray;
         }
 
-        Area.prototype.setButtons = function(buttons, buttonsPos) {
+        Area.prototype.setButtons = function(buttons) {
 
             // for each key in buttons
             for(let key in buttons) {
-                
-                let index
-                // Find key in buttonsPos
-                if(!this.isUndefinedOrNull(buttonsPos) && buttonsPos.length > 0) {
-                    // get index of key
-                    index = buttonsPos.indexOf(key)
-                }
                 // adds button
-                this.addButton(buttons[key], index);
+                this.addButton(buttons[key]);
             }
         }
 
-        Area.prototype.addButton = function(button, pos) {
-            if(pos) { 
-                this.buttonsPos.splice(pos, 0, button.id); 
-            } else {
-                this.buttonsPos.push(button.id);
-            }
+        /** Add button at provided index. Append if index is not provided */
+        Area.prototype.addButton = function(button, idx) {
 
-            this.buttons[button.id] = button;
+            if(idx) { 
+                this.buttons.splice(idx, 0, button); 
+            } else {
+                this.buttons.push(button);
+            }
         }
         
         Area.prototype.delButton = function(button) {
@@ -167,11 +158,6 @@
             */
             return  true;
         }
-        
-        Area.prototype.isUndefinedOrNull = function(obj) {
-            return !angular.isDefined(obj) || obj===null;
-        }
-
         return Area;
     }
     

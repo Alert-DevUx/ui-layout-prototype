@@ -72,13 +72,11 @@
         if(!buttonsJson) 
             return;
 
-        var buttons = {}
-        for (var key in buttonsJson) {
-            if (buttonsJson.hasOwnProperty(key)) {
-                
-                buttons[key] = getButton(buttonsJson[key], parentPath);
-            }
-        }
+        var buttons = []
+        buttonsJson.forEach(function(bJson) {
+            buttons.push(getButton(bJson, parentPath));
+        });
+
         return buttons;
     }
 
@@ -122,32 +120,28 @@
                         "description": "Logout button area",
                         "pos": 1,
                         "type": "headerRight",
-                        "buttons": {
-                            "logout": {
+                        "buttons": [{
                                 "id": "logout",
                                 "status": "A",
                                 "label": "Exit application",
                                 "icon": "ExitIcon",
                                 "action": {}
                             }
-                        },
-                        "buttonsPos": ["logout"]
+                        ]
                     },
                     "actionMenuLeft": {
                         "id": "actionMenuLeft",
                         "description": "Back button area",
                         "pos": 2,
                         "type": "actionMenuLeft",
-                        "buttons": {
-                            "back": {
+                        "buttons": [{
                                 "id": "back",
                                 "status": "A",
                                 "label": "Go back",
                                 "icon": "BackIcon",
                                 "action": {}
                             }
-                        },
-                        "buttonsPos": ["back"]
+                        ]
                     },
                     "mainMenu": {
                         "id": "mainMenu",
@@ -166,93 +160,80 @@
                                         "description": "Screen",
                                         "pos": 12,
                                         "type": "screen",
-                                        "buttons": {
-                                            "actionButton": {
-                                                "id": "actionButton",
-                                                "status": "A",
-                                                "label": "Actions",
-                                                "icon": "",
-                                                "action": {}
-                                            },
-                                            "applicationHelp": {
-                                                "id": "applicationHelp",
-                                                "status": "A",
-                                                "label": "Help",
-                                                "icon": "HelpIcon",
-                                                "action": {}
-                                            },
-                                            "cancel": {
-                                                "id": "cancel",
-                                                "status": "A",
-                                                "label": "Cancel records",
-                                                "icon": "CancelIcon",
-                                                "action": {}
-                                            },
-                                            "create": {
-                                                "id": "create",
-                                                "status": "A",
-                                                "label": "Add or edit records",
-                                                "icon": "AddIcon",
-                                                "action": {}
-                                            },
-                                            "eye": {
+                                        "buttons": [{
                                                 "id": "eye",
-                                                "status": "A",
+                                                "status": "I",
                                                 "label": "Record details",
                                                 "icon": "DetailsIcon",
                                                 "action": {}
-                                            },
-                                            "viewsButton": {
-                                                "id": "viewsButton",
-                                                "status": "A",
-                                                "label": "View modes",
-                                                "icon": "",
-                                                "action": {}
-                                            },
-                                            "globalShortcut": {
-                                                "id": "globalShortcut",
-                                                "status": "A",
-                                                "label": "Shortcuts",
-                                                "icon": "GlobalShortcutIcon",
-                                                "action": {}
-                                            },
-                                            "ok": {
+                                            }, {
                                                 "id": "ok",
                                                 "status": "A",
                                                 "label": "Confirm and continue",
                                                 "icon": "OKIcon",
                                                 "action": {}
-                                            },
-                                            "print": {
-                                                "id": "print",
-                                                "status": "A",
-                                                "label": "Print tool",
-                                                "icon": "PrintIcon",
-                                                "action": {}
-                                            },
-                                            "advanceSearch": {
-                                                "id": "advanceSearch",
-                                                "status": "A",
-                                                "label": "Advanced search",
-                                                "icon": "AdvancedSearchIcon",
-                                                "action": {}
-                                            },
-                                            "toolsCommonText": {
-                                                "id": "toolsCommonText",
-                                                "status": "A",
-                                                "label": "Predefined texts",
-                                                "icon": "CommonTextIcon",
-                                                "action": {}
-                                            },
-                                            "noEdis": {
+                                            }, {
                                                 "id": "noEdis",
                                                 "status": "A",
                                                 "label": "Negative for all discriminators on this page",
                                                 "icon": "NoIcon",
                                                 "action": {}
+                                            }, {
+                                                "id": "print",
+                                                "status": "A",
+                                                "label": "Print tool",
+                                                "icon": "PrintIcon",
+                                                "action": {}
+                                            }, {
+                                                "id": "create",
+                                                "status": "A",
+                                                "label": "Add or edit records",
+                                                "icon": "AddIcon",
+                                                "action": {}
+                                            }, {
+                                                "id": "cancel",
+                                                "status": "A",
+                                                "label": "Cancel records",
+                                                "icon": "CancelIcon",
+                                                "action": {}
+                                            }, {
+                                                "id": "viewsButton",
+                                                "status": "A",
+                                                "label": "View modes",
+                                                "icon": "",
+                                                "action": {}
+                                            }, {
+                                                "id": "advanceSearch",
+                                                "status": "I",
+                                                "label": "Advanced search",
+                                                "icon": "AdvancedSearchIcon",
+                                                "action": {}
+                                            }, {
+                                                "id": "actionButton",
+                                                "status": "A",
+                                                "label": "Actions",
+                                                "icon": "",
+                                                "action": {}
+                                            }, {
+                                                "id": "applicationHelp",
+                                                "status": "A",
+                                                "label": "Help",
+                                                "icon": "HelpIcon",
+                                                "action": {}
+                                            }, {
+                                                "id": "toolsCommonText",
+                                                "status": "I",
+                                                "label": "Predefined texts",
+                                                "icon": "CommonTextIcon",
+                                                "action": {}
+                                            }, {
+                                                "id": "globalShortcut",
+                                                "status": "A",
+                                                "label": "Shortcuts",
+                                                "icon": "GlobalShortcutIcon",
+                                                "action": {}
                                             }
-                                        },
-                                        "buttonsPos": ["actionButton", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "actionButton", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "actionButton", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "noEdis", "ok", "print", "toolsCommonText"]
+                                        ]
                                     },
                                     "barCode": {
                                         "id": "barCode",
@@ -265,69 +246,59 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": {
-                                                    "applicationHelp": {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    },
-                                                    "cancel": {
-                                                        "id": "cancel",
-                                                        "status": "I",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    },
-                                                    "create": {
-                                                        "id": "create",
-                                                        "status": "I",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    },
-                                                    "eye": {
+                                                "buttons": [{
                                                         "id": "eye",
                                                         "status": "I",
                                                         "label": "Record details",
                                                         "icon": "DetailsIcon",
                                                         "action": {}
-                                                    },
-                                                    "viewsButton": {
-                                                        "id": "viewsButton",
-                                                        "status": "I",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "globalShortcut": {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    },
-                                                    "ok": {
+                                                    }, {
                                                         "id": "ok",
                                                         "status": "A",
                                                         "label": "Confirm and continue",
                                                         "icon": "OKIcon",
                                                         "action": {}
-                                                    },
-                                                    "print": {
+                                                    }, {
                                                         "id": "print",
                                                         "status": "I",
                                                         "label": "Print tool",
                                                         "icon": "PrintIcon",
                                                         "action": {}
+                                                    }, {
+                                                        "id": "create",
+                                                        "status": "I",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "I",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "viewsButton",
+                                                        "status": "I",
+                                                        "label": "View modes",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
                                                     }
-                                                },
-                                                "buttonsPos": ["applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print"]
+                                                ]
                                             }
                                         },
-                                        "buttons": {
-                                            "technicianWorkBarcode": {
+                                        "buttons": [{
                                                 "id": "technicianWorkBarcode",
                                                 "status": "A",
                                                 "label": "",
@@ -340,8 +311,7 @@
                                                     }
                                                 }
                                             }
-                                        },
-                                        "buttonsPos": ["technicianWorkBarcode"]
+                                        ]
                                     },
                                     "responsabilityTransferEdis": {
                                         "id": "responsabilityTransferEdis",
@@ -354,76 +324,65 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": {
-                                                    "applicationHelp": {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    },
-                                                    "cancel": {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    },
-                                                    "create": {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    },
-                                                    "eye": {
+                                                "buttons": [{
                                                         "id": "eye",
-                                                        "status": "I",
+                                                        "status": "A",
                                                         "label": "Record details",
                                                         "icon": "DetailsIcon",
                                                         "action": {}
-                                                    },
-                                                    "viewsButton": {
-                                                        "id": "viewsButton",
-                                                        "status": "I",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "globalShortcut": {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    },
-                                                    "ok": {
+                                                    }, {
                                                         "id": "ok",
                                                         "status": "A",
                                                         "label": "Confirm and continue",
                                                         "icon": "OKIcon",
                                                         "action": {}
-                                                    },
-                                                    "print": {
+                                                    }, {
                                                         "id": "print",
                                                         "status": "I",
                                                         "label": "Print tool",
                                                         "icon": "PrintIcon",
                                                         "action": {}
-                                                    },
-                                                    "toolsCommonText": {
+                                                    }, {
+                                                        "id": "create",
+                                                        "status": "I",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "I",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "viewsButton",
+                                                        "status": "I",
+                                                        "label": "View modes",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
                                                         "id": "toolsCommonText",
                                                         "status": "A",
                                                         "label": "Predefined texts",
                                                         "icon": "CommonTextIcon",
                                                         "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
                                                     }
-                                                },
-                                                "buttonsPos": ["applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print"]
+                                                ]
                                             }
                                         },
-                                        "buttons": {
-                                            "serviceTransfer": {
+                                        "buttons": [{
                                                 "id": "serviceTransfer",
                                                 "status": "A",
                                                 "label": "",
@@ -435,8 +394,7 @@
                                                         "id": "ServiceTransferList.swf"
                                                     }
                                                 }
-                                            },
-                                            "myPatientesHandOfEdis": {
+                                            }, {
                                                 "id": "myPatientesHandOfEdis",
                                                 "status": "A",
                                                 "label": "",
@@ -448,8 +406,7 @@
                                                         "id": "HandOffMyPatientsList.swf"
                                                     }
                                                 }
-                                            },
-                                            "transferInstitution": {
+                                            }, {
                                                 "id": "transferInstitution",
                                                 "status": "A",
                                                 "label": "",
@@ -461,8 +418,7 @@
                                                         "id": "InstitutionTransferList.swf"
                                                     }
                                                 }
-                                            },
-                                            "requestHandOfEdis": {
+                                            }, {
                                                 "id": "requestHandOfEdis",
                                                 "status": "A",
                                                 "label": "",
@@ -475,8 +431,7 @@
                                                     }
                                                 }
                                             }
-                                        },
-                                        "buttonsPos": ["serviceTransfer", "myPatientesHandOfEdis", "transferInstitution", "requestHandOfEdis"]
+                                        ]
                                     },
                                     "pendingTasks": {
                                         "id": "pendingTasks",
@@ -489,62 +444,53 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": {
-                                                    "applicationHelp": {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    },
-                                                    "cancel": {
-                                                        "id": "cancel",
-                                                        "status": "I",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    },
-                                                    "create": {
-                                                        "id": "create",
-                                                        "status": "I",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    },
-                                                    "eye": {
+                                                "buttons": [{
                                                         "id": "eye",
                                                         "status": "I",
                                                         "label": "Record details",
                                                         "icon": "DetailsIcon",
                                                         "action": {}
-                                                    },
-                                                    "globalShortcut": {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    },
-                                                    "ok": {
+                                                    }, {
                                                         "id": "ok",
                                                         "status": "A",
                                                         "label": "Confirm and continue",
                                                         "icon": "OKIcon",
                                                         "action": {}
-                                                    },
-                                                    "print": {
+                                                    }, {
                                                         "id": "print",
                                                         "status": "I",
                                                         "label": "Print tool",
                                                         "icon": "PrintIcon",
                                                         "action": {}
+                                                    }, {
+                                                        "id": "create",
+                                                        "status": "I",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "I",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
                                                     }
-                                                },
-                                                "buttonsPos": ["applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print"]
+                                                ]
                                             }
                                         },
-                                        "buttons": {
-                                            "todoList": {
+                                        "buttons": [{
                                                 "id": "todoList",
                                                 "status": "A",
                                                 "label": "",
@@ -557,12 +503,10 @@
                                                     }
                                                 }
                                             }
-                                        },
-                                        "buttonsPos": ["todoList"]
+                                        ]
                                     }
                                 },
-                                "buttons": {
-                                    "myPatientDoctor": {
+                                "buttons": [{
                                         "id": "myPatientDoctor",
                                         "status": "A",
                                         "label": "My patients",
@@ -574,8 +518,7 @@
                                                 "id": "INPGridMyPatients.swf"
                                             }
                                         }
-                                    },
-                                    "bmngGridDashboardServices": {
+                                    }, {
                                         "id": "bmngGridDashboardServices",
                                         "status": "A",
                                         "label": "Bed management",
@@ -587,8 +530,7 @@
                                                 "id": "BedManagementDashboard.swf"
                                             }
                                         }
-                                    },
-                                    "allPatientDoctor": {
+                                    }, {
                                         "id": "allPatientDoctor",
                                         "status": "A",
                                         "label": "All patients",
@@ -600,34 +542,7 @@
                                                 "id": "INPGridAllPatients.swf"
                                             }
                                         }
-                                    },
-                                    "gridScheduledInpatients": {
-                                        "id": "gridScheduledInpatients",
-                                        "status": "A",
-                                        "label": "Scheduled admissions",
-                                        "icon": "ScheduledIcon",
-                                        "action": {
-                                            "targetArea": "inpatient.entry.mainMenu.left.screen",
-                                            "component": {
-                                                "type": "SWF",
-                                                "id": "INPScheduledEpisodes.swf"
-                                            }
-                                        }
-                                    },
-                                    "birsEyeIcon": {
-                                        "id": "birsEyeIcon",
-                                        "status": "A",
-                                        "label": "Patient location",
-                                        "icon": "BirdsEyeIcon",
-                                        "action": {
-                                            "targetArea": "inpatient.entry.mainMenu.left.screen",
-                                            "component": {
-                                                "type": "SWF",
-                                                "id": "INPBirdsEyeView.swf"
-                                            }
-                                        }
-                                    },
-                                    "barCode": {
+                                    }, {
                                         "id": "barCode",
                                         "status": "A",
                                         "label": "Patient's barcode",
@@ -635,8 +550,7 @@
                                         "action": {
                                             "targetArea": "inpatient.entry.mainMenu.left.barCode"
                                         }
-                                    },
-                                    "agenda": {
+                                    }, {
                                         "id": "agenda",
                                         "status": "A",
                                         "label": "Scheduler",
@@ -648,8 +562,7 @@
                                                 "id": "CalendarMonthOverview.swf"
                                             }
                                         }
-                                    },
-                                    "responsabilityTransferEdis": {
+                                    }, {
                                         "id": "responsabilityTransferEdis",
                                         "status": "A",
                                         "label": "Transfers",
@@ -657,8 +570,7 @@
                                         "action": {
                                             "targetArea": "inpatient.entry.mainMenu.left.responsabilityTransferEdis"
                                         }
-                                    },
-                                    "pendingTasks": {
+                                    }, {
                                         "id": "pendingTasks",
                                         "status": "A",
                                         "label": "To-do list",
@@ -666,8 +578,7 @@
                                         "action": {
                                             "targetArea": "inpatient.entry.mainMenu.left.pendingTasks"
                                         }
-                                    },
-                                    "coding": {
+                                    }, {
                                         "id": "coding",
                                         "status": "A",
                                         "label": "Coding",
@@ -679,16 +590,38 @@
                                                 "id": "CpMyProcessesGW.swf"
                                             }
                                         }
-                                    },
-                                    "alertTv": {
+                                    }, {
                                         "id": "alertTv",
                                         "status": "A",
                                         "label": "Corporate TV",
                                         "icon": "AlertTVIcon",
                                         "action": {}
+                                    }, {
+                                        "id": "gridScheduledInpatients",
+                                        "status": "A",
+                                        "label": "Scheduled admissions",
+                                        "icon": "ScheduledIcon",
+                                        "action": {
+                                            "targetArea": "inpatient.entry.mainMenu.left.screen",
+                                            "component": {
+                                                "type": "SWF",
+                                                "id": "INPScheduledEpisodes.swf"
+                                            }
+                                        }
+                                    }, {
+                                        "id": "birsEyeIcon",
+                                        "status": "A",
+                                        "label": "Patient location",
+                                        "icon": "BirdsEyeIcon",
+                                        "action": {
+                                            "targetArea": "inpatient.entry.mainMenu.left.screen",
+                                            "component": {
+                                                "type": "SWF",
+                                                "id": "INPBirdsEyeView.swf"
+                                            }
+                                        }
                                     }
-                                },
-                                "buttonsPos": ["myPatientDoctor", "bmngGridDashboardServices", "allPatientDoctor", "gridScheduledInpatients", "birsEyeIcon", "barCode", "agenda", "responsabilityTransferEdis", "pendingTasks", "coding", "alertTv"]
+                                ]
                             }
                         }
                     },
@@ -697,32 +630,28 @@
                         "description": "Personal settings area",
                         "pos": 6,
                         "type": "headerLeft",
-                        "buttons": {
-                            "tools": {
+                        "buttons": [{
                                 "id": "tools",
                                 "status": "A",
                                 "label": "Settings ",
                                 "icon": "ToolsIcon",
                                 "action": {}
                             }
-                        },
-                        "buttonsPos": ["tools"]
+                        ]
                     },
                     "actionMenuRight": {
                         "id": "actionMenuRight",
                         "description": "Ok area",
                         "pos": 7,
                         "type": "actionMenuRight",
-                        "buttons": {
-                            "ok": {
+                        "buttons": [{
                                 "id": "ok",
                                 "status": "A",
                                 "label": "Confirm/proceed",
                                 "icon": "OKIcon",
                                 "action": {}
                             }
-                        },
-                        "buttonsPos": ["ok"]
+                        ]
                     },
                     "mainMenuLeft": {
                         "id": "mainMenuLeft",
@@ -735,69 +664,59 @@
                                 "description": "Screen",
                                 "pos": 12,
                                 "type": "screen",
-                                "buttons": {
-                                    "applicationHelp": {
-                                        "id": "applicationHelp",
-                                        "status": "A",
-                                        "label": "Help",
-                                        "icon": "HelpIcon",
-                                        "action": {}
-                                    },
-                                    "cancel": {
-                                        "id": "cancel",
-                                        "status": "I",
-                                        "label": "Cancel records",
-                                        "icon": "CancelIcon",
-                                        "action": {}
-                                    },
-                                    "create": {
-                                        "id": "create",
-                                        "status": "A",
-                                        "label": "Add or edit records",
-                                        "icon": "AddIcon",
-                                        "action": {}
-                                    },
-                                    "eye": {
+                                "buttons": [{
                                         "id": "eye",
                                         "status": "I",
                                         "label": "Record details",
                                         "icon": "DetailsIcon",
                                         "action": {}
-                                    },
-                                    "viewsButton": {
-                                        "id": "viewsButton",
-                                        "status": "I",
-                                        "label": "View modes",
-                                        "icon": "",
-                                        "action": {}
-                                    },
-                                    "globalShortcut": {
-                                        "id": "globalShortcut",
-                                        "status": "A",
-                                        "label": "Shortcuts",
-                                        "icon": "GlobalShortcutIcon",
-                                        "action": {}
-                                    },
-                                    "ok": {
+                                    }, {
                                         "id": "ok",
                                         "status": "A",
                                         "label": "Confirm and continue",
                                         "icon": "OKIcon",
                                         "action": {}
-                                    },
-                                    "print": {
+                                    }, {
                                         "id": "print",
                                         "status": "I",
                                         "label": "Print tool",
                                         "icon": "PrintIcon",
                                         "action": {}
+                                    }, {
+                                        "id": "create",
+                                        "status": "A",
+                                        "label": "Add or edit records",
+                                        "icon": "AddIcon",
+                                        "action": {}
+                                    }, {
+                                        "id": "cancel",
+                                        "status": "I",
+                                        "label": "Cancel records",
+                                        "icon": "CancelIcon",
+                                        "action": {}
+                                    }, {
+                                        "id": "viewsButton",
+                                        "status": "I",
+                                        "label": "View modes",
+                                        "icon": "",
+                                        "action": {}
+                                    }, {
+                                        "id": "applicationHelp",
+                                        "status": "A",
+                                        "label": "Help",
+                                        "icon": "HelpIcon",
+                                        "action": {}
+                                    }, {
+                                        "id": "globalShortcut",
+                                        "status": "A",
+                                        "label": "Shortcuts",
+                                        "icon": "GlobalShortcutIcon",
+                                        "action": {}
                                     }
-                                },
-                                "buttonsPos": ["applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print"]
+                                ]
                             }
                         },
-                        "buttons": {
-                            "alert": {
+                        "buttons": [{
                                 "id": "alert",
                                 "status": "A",
                                 "label": "Alert messages",
@@ -810,8 +729,7 @@
                                     }
                                 }
                             }
-                        },
-                        "buttonsPos": ["alert"]
+                        ]
                     },
                     "mainMenuRight": {
                         "id": "mainMenuRight",
@@ -830,96 +748,71 @@
                                         "description": "Screen",
                                         "pos": 12,
                                         "type": "screen",
-                                        "buttons": {
-                                            "actionButton": {
-                                                "id": "actionButton",
-                                                "status": "A",
-                                                "label": "Actions",
-                                                "icon": "",
-                                                "action": {}
-                                            },
-                                            "advanceSearch": {
-                                                "id": "advanceSearch",
-                                                "status": "A",
-                                                "label": "Advanced search",
-                                                "icon": "AdvancedSearchIcon",
-                                                "action": {}
-                                            },
-                                            "applicationHelp": {
-                                                "id": "applicationHelp",
-                                                "status": "A",
-                                                "label": "Help",
-                                                "icon": "HelpIcon",
-                                                "action": {}
-                                            },
-                                            "cancel": {
-                                                "id": "cancel",
-                                                "status": "I",
-                                                "label": "Cancel records",
-                                                "icon": "CancelIcon",
-                                                "action": {}
-                                            },
-                                            "create": {
-                                                "id": "create",
-                                                "status": "A",
-                                                "label": "Add or edit records",
-                                                "icon": "AddIcon",
-                                                "action": {}
-                                            },
-                                            "eye": {
+                                        "buttons": [{
                                                 "id": "eye",
-                                                "status": "I",
+                                                "status": "A",
                                                 "label": "Record details",
                                                 "icon": "DetailsIcon",
                                                 "action": {}
-                                            },
-                                            "viewsButton": {
-                                                "id": "viewsButton",
-                                                "status": "I",
-                                                "label": "View modes",
-                                                "icon": "",
-                                                "action": {}
-                                            },
-                                            "globalShortcut": {
-                                                "id": "globalShortcut",
-                                                "status": "A",
-                                                "label": "Shortcuts",
-                                                "icon": "GlobalShortcutIcon",
-                                                "action": {}
-                                            },
-                                            "ok": {
+                                            }, {
                                                 "id": "ok",
                                                 "status": "A",
                                                 "label": "Confirm and continue",
                                                 "icon": "OKIcon",
                                                 "action": {}
-                                            },
-                                            "print": {
+                                            }, {
                                                 "id": "print",
                                                 "status": "I",
                                                 "label": "Print tool",
                                                 "icon": "PrintIcon",
                                                 "action": {}
+                                            }, {
+                                                "id": "create",
+                                                "status": "A",
+                                                "label": "Add or edit records",
+                                                "icon": "AddIcon",
+                                                "action": {}
+                                            }, {
+                                                "id": "cancel",
+                                                "status": "A",
+                                                "label": "Cancel records",
+                                                "icon": "CancelIcon",
+                                                "action": {}
+                                            }, {
+                                                "id": "viewsButton",
+                                                "status": "A",
+                                                "label": "View modes",
+                                                "icon": "",
+                                                "action": {}
+                                            }, {
+                                                "id": "advanceSearch",
+                                                "status": "A",
+                                                "label": "Advanced search",
+                                                "icon": "AdvancedSearchIcon",
+                                                "action": {}
+                                            }, {
+                                                "id": "actionButton",
+                                                "status": "A",
+                                                "label": "Actions",
+                                                "icon": "",
+                                                "action": {}
+                                            }, {
+                                                "id": "applicationHelp",
+                                                "status": "A",
+                                                "label": "Help",
+                                                "icon": "HelpIcon",
+                                                "action": {}
+                                            }, {
+                                                "id": "globalShortcut",
+                                                "status": "A",
+                                                "label": "Shortcuts",
+                                                "icon": "GlobalShortcutIcon",
+                                                "action": {}
                                             }
-                                        },
-                                        "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print"]
+                                        ]
                                     }
                                 },
-                                "buttons": {
-                                    "allPatients": {
-                                        "id": "allPatients",
-                                        "status": "A",
-                                        "label": "",
-                                        "icon": "",
-                                        "action": {
-                                            "targetArea": "inpatient.entry.mainMenuRight.search.screen",
-                                            "component": {
-                                                "type": "SWF",
-                                                "id": "AdtSearchAllPatients.swf"
-                                            }
-                                        }
-                                    },
-                                    "depnvSearchActiveInp": {
+                                "buttons": [{
                                         "id": "depnvSearchActiveInp",
                                         "status": "A",
                                         "label": "",
@@ -931,8 +824,7 @@
                                                 "id": "INPEpisodeSearchActive.swf"
                                             }
                                         }
-                                    },
-                                    "depnvSearchInactiveInp": {
+                                    }, {
                                         "id": "depnvSearchInactiveInp",
                                         "status": "A",
                                         "label": "",
@@ -944,8 +836,7 @@
                                                 "id": "INPEpisodeSearchInactive.swf"
                                             }
                                         }
-                                    },
-                                    "depnvSearchCancelled": {
+                                    }, {
                                         "id": "depnvSearchCancelled",
                                         "status": "A",
                                         "label": "",
@@ -957,13 +848,23 @@
                                                 "id": "SearchCanceledPatients.swf"
                                             }
                                         }
+                                    }, {
+                                        "id": "allPatients",
+                                        "status": "A",
+                                        "label": "",
+                                        "icon": "",
+                                        "action": {
+                                            "targetArea": "inpatient.entry.mainMenuRight.search.screen",
+                                            "component": {
+                                                "type": "SWF",
+                                                "id": "AdtSearchAllPatients.swf"
+                                            }
+                                        }
                                     }
-                                },
-                                "buttonsPos": ["allPatients", "depnvSearchActiveInp", "depnvSearchInactiveInp", "depnvSearchCancelled"]
+                                ]
                             }
                         },
-                        "buttons": {
-                            "search": {
+                        "buttons": [{
                                 "id": "search",
                                 "status": "A",
                                 "label": "Patient search",
@@ -972,8 +873,7 @@
                                     "targetArea": "inpatient.entry.mainMenuRight.search"
                                 }
                             }
-                        },
-                        "buttonsPos": ["search"]
+                        ]
                     },
                     "actionMenu": {
                         "id": "actionMenu",
@@ -986,109 +886,94 @@
                                 "description": "Bottom menu left",
                                 "pos": 10,
                                 "type": "actionMenu",
-                                "buttons": {
-                                    "print": {
+                                "buttons": [{
                                         "id": "print",
                                         "status": "A",
                                         "label": "Print",
                                         "icon": "PrintIcon",
                                         "action": {}
-                                    },
-                                    "create": {
+                                    }, {
                                         "id": "create",
                                         "status": "A",
                                         "label": "Add",
                                         "icon": "AddIcon",
                                         "action": {}
-                                    },
-                                    "cancel": {
+                                    }, {
                                         "id": "cancel",
                                         "status": "A",
                                         "label": "Cancel",
                                         "icon": "CancelIcon",
                                         "action": {}
-                                    },
-                                    "firstView": {
+                                    }, {
                                         "id": "firstView",
                                         "status": "A",
                                         "label": "First view",
                                         "icon": "FirstVisionIcon",
                                         "action": {}
-                                    },
-                                    "secondView": {
+                                    }, {
                                         "id": "secondView",
                                         "status": "A",
                                         "label": "Second view",
                                         "icon": "SecondVisionIcon",
                                         "action": {}
-                                    },
-                                    "viewsButton": {
+                                    }, {
                                         "id": "viewsButton",
                                         "status": "A",
                                         "label": "Views",
                                         "icon": "ViewsIcon",
                                         "action": {}
-                                    },
-                                    "advanceSearchIcon": {
+                                    }, {
                                         "id": "advanceSearchIcon",
                                         "status": "A",
                                         "label": "Advanced search",
                                         "icon": "AdvancedSearchIcon",
                                         "action": {}
-                                    },
-                                    "actionButton": {
-                                        "id": "actionButton",
-                                        "status": "A",
-                                        "label": "Actions",
-                                        "icon": "ActionsIcon",
-                                        "action": {}
-                                    },
-                                    "toolsCommontext": {
+                                    }, {
                                         "id": "toolsCommontext",
                                         "status": "A",
                                         "label": "Most frequent texts",
                                         "icon": "CommonTextIcon",
                                         "action": {}
+                                    }, {
+                                        "id": "actionButton",
+                                        "status": "A",
+                                        "label": "Actions",
+                                        "icon": "ActionsIcon",
+                                        "action": {}
                                     }
-                                },
-                                "buttonsPos": ["print", "create", "cancel", "firstView", "secondView", "viewsButton", "advanceSearchIcon", "actionButton", "viewsButton", "toolsCommontext"]
+                                ]
                             },
                             "right": {
                                 "id": "right",
                                 "description": "Bottom menu right",
                                 "pos": 11,
                                 "type": "actionMenu",
-                                "buttons": {
-                                    "eye": {
+                                "buttons": [{
                                         "id": "eye",
                                         "status": "A",
                                         "label": "Details",
                                         "icon": "DetailsIcon",
                                         "action": {}
-                                    },
-                                    "contextHelp": {
+                                    }, {
                                         "id": "contextHelp",
                                         "status": "A",
                                         "label": "Clinical context help",
                                         "icon": "ContentIcon",
                                         "action": {}
-                                    },
-                                    "applicationHelp": {
+                                    }, {
                                         "id": "applicationHelp",
                                         "status": "A",
                                         "label": "Functionality help",
                                         "icon": "HelpIcon",
                                         "action": {}
-                                    },
-                                    "globalShortcut": {
+                                    }, {
                                         "id": "globalShortcut",
                                         "status": "A",
                                         "label": "Shortcuts",
                                         "icon": "GlobalShortcutIcon",
                                         "action": {}
                                     }
-                                },
-                                "buttonsPos": ["eye", "contextHelp", "applicationHelp", "globalShortcut"]
+                                ]
                             }
                         }
                     }
@@ -1105,32 +990,28 @@
                         "description": "Logout button area",
                         "pos": 1,
                         "type": "headerRight",
-                        "buttons": {
-                            "logout": {
+                        "buttons": [{
                                 "id": "logout",
                                 "status": "A",
                                 "label": "Exit application",
                                 "icon": "ExitIcon",
                                 "action": {}
                             }
-                        },
-                        "buttonsPos": ["logout"]
+                        ]
                     },
                     "actionMenuLeft": {
                         "id": "actionMenuLeft",
                         "description": "Back button area",
                         "pos": 2,
                         "type": "actionMenuLeft",
-                        "buttons": {
-                            "back": {
+                        "buttons": [{
                                 "id": "back",
                                 "status": "A",
                                 "label": "Go back",
                                 "icon": "BackIcon",
                                 "action": {}
                             }
-                        },
-                        "buttonsPos": ["back"]
+                        ]
                     },
                     "mainMenu": {
                         "id": "mainMenu",
@@ -1149,79 +1030,68 @@
                                         "description": "Screen",
                                         "pos": 12,
                                         "type": "screen",
-                                        "buttons": {
-                                            "actionButton": {
-                                                "id": "actionButton",
-                                                "status": "I",
-                                                "label": "Actions",
-                                                "icon": "",
-                                                "action": {}
-                                            },
-                                            "advanceSearch": {
-                                                "id": "advanceSearch",
-                                                "status": "I",
-                                                "label": "Advanced search",
-                                                "icon": "AdvancedSearchIcon",
-                                                "action": {}
-                                            },
-                                            "applicationHelp": {
-                                                "id": "applicationHelp",
-                                                "status": "A",
-                                                "label": "Help",
-                                                "icon": "HelpIcon",
-                                                "action": {}
-                                            },
-                                            "cancel": {
-                                                "id": "cancel",
-                                                "status": "I",
-                                                "label": "Cancel records",
-                                                "icon": "CancelIcon",
-                                                "action": {}
-                                            },
-                                            "create": {
-                                                "id": "create",
-                                                "status": "I",
-                                                "label": "Add or edit records",
-                                                "icon": "AddIcon",
-                                                "action": {}
-                                            },
-                                            "eye": {
+                                        "buttons": [{
                                                 "id": "eye",
                                                 "status": "I",
                                                 "label": "Record details",
                                                 "icon": "DetailsIcon",
                                                 "action": {}
-                                            },
-                                            "globalShortcut": {
-                                                "id": "globalShortcut",
-                                                "status": "A",
-                                                "label": "Shortcuts",
-                                                "icon": "GlobalShortcutIcon",
-                                                "action": {}
-                                            },
-                                            "ok": {
+                                            }, {
                                                 "id": "ok",
                                                 "status": "A",
                                                 "label": "Confirm and continue",
                                                 "icon": "OKIcon",
                                                 "action": {}
-                                            },
-                                            "print": {
+                                            }, {
                                                 "id": "print",
                                                 "status": "I",
                                                 "label": "Print tool",
                                                 "icon": "PrintIcon",
                                                 "action": {}
-                                            },
-                                            "toolsCommonText": {
+                                            }, {
+                                                "id": "create",
+                                                "status": "I",
+                                                "label": "Add or edit records",
+                                                "icon": "AddIcon",
+                                                "action": {}
+                                            }, {
+                                                "id": "cancel",
+                                                "status": "I",
+                                                "label": "Cancel records",
+                                                "icon": "CancelIcon",
+                                                "action": {}
+                                            }, {
+                                                "id": "advanceSearch",
+                                                "status": "I",
+                                                "label": "Advanced search",
+                                                "icon": "AdvancedSearchIcon",
+                                                "action": {}
+                                            }, {
+                                                "id": "actionButton",
+                                                "status": "I",
+                                                "label": "Actions",
+                                                "icon": "",
+                                                "action": {}
+                                            }, {
+                                                "id": "applicationHelp",
+                                                "status": "A",
+                                                "label": "Help",
+                                                "icon": "HelpIcon",
+                                                "action": {}
+                                            }, {
                                                 "id": "toolsCommonText",
                                                 "status": "I",
                                                 "label": "Predefined texts",
                                                 "icon": "CommonTextIcon",
                                                 "action": {}
+                                            }, {
+                                                "id": "globalShortcut",
+                                                "status": "A",
+                                                "label": "Shortcuts",
+                                                "icon": "GlobalShortcutIcon",
+                                                "action": {}
                                             }
-                                        },
-                                        "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                        ]
                                     },
                                     "ehr": {
                                         "id": "ehr",
@@ -1234,86 +1104,74 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": {
-                                                    "actionButton": {
-                                                        "id": "actionButton",
-                                                        "status": "A",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "advanceSearch": {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    },
-                                                    "applicationHelp": {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    },
-                                                    "cancel": {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    },
-                                                    "create": {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    },
-                                                    "eye": {
+                                                "buttons": [{
                                                         "id": "eye",
                                                         "status": "A",
                                                         "label": "Record details",
                                                         "icon": "DetailsIcon",
                                                         "action": {}
-                                                    },
-                                                    "viewsButton": {
-                                                        "id": "viewsButton",
-                                                        "status": "I",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "globalShortcut": {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    },
-                                                    "ok": {
+                                                    }, {
                                                         "id": "ok",
                                                         "status": "A",
                                                         "label": "Confirm and continue",
                                                         "icon": "OKIcon",
                                                         "action": {}
-                                                    },
-                                                    "print": {
+                                                    }, {
                                                         "id": "print",
                                                         "status": "A",
                                                         "label": "Print tool",
                                                         "icon": "PrintIcon",
                                                         "action": {}
-                                                    },
-                                                    "toolsCommonText": {
-                                                        "id": "toolsCommonText",
+                                                    }, {
+                                                        "id": "create",
+                                                        "status": "I",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "cancel",
                                                         "status": "A",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "viewsButton",
+                                                        "status": "A",
+                                                        "label": "View modes",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "advanceSearch",
+                                                        "status": "I",
+                                                        "label": "Advanced search",
+                                                        "icon": "AdvancedSearchIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "actionButton",
+                                                        "status": "I",
+                                                        "label": "Actions",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "toolsCommonText",
+                                                        "status": "I",
                                                         "label": "Predefined texts",
                                                         "icon": "CommonTextIcon",
                                                         "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
                                                     }
-                                                },
-                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                ]
                                             },
                                             "visits": {
                                                 "id": "visits",
@@ -1326,93 +1184,80 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": {
-                                                            "advanceSearch": {
-                                                                "id": "advanceSearch",
-                                                                "status": "I",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            },
-                                                            "applicationHelp": {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            },
-                                                            "cancel": {
-                                                                "id": "cancel",
-                                                                "status": "I",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            },
-                                                            "create": {
-                                                                "id": "create",
-                                                                "status": "I",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            },
-                                                            "eye": {
+                                                        "buttons": [{
                                                                 "id": "eye",
                                                                 "status": "A",
                                                                 "label": "Record details",
                                                                 "icon": "DetailsIcon",
                                                                 "action": {}
-                                                            },
-                                                            "globalShortcut": {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
-                                                            },
-                                                            "noEdis": {
+                                                            }, {
                                                                 "id": "noEdis",
                                                                 "status": "I",
                                                                 "label": "Negative for all discriminators on this page",
                                                                 "icon": "NoIcon",
                                                                 "action": {}
-                                                            },
-                                                            "ok": {
+                                                            }, {
                                                                 "id": "ok",
-                                                                "status": "I",
+                                                                "status": "A",
                                                                 "label": "Confirm and continue",
                                                                 "icon": "OKIcon",
                                                                 "action": {}
-                                                            },
-                                                            "print": {
+                                                            }, {
                                                                 "id": "print",
                                                                 "status": "A",
                                                                 "label": "Print tool",
                                                                 "icon": "PrintIcon",
                                                                 "action": {}
-                                                            },
-                                                            "toolsCommonText": {
-                                                                "id": "toolsCommonText",
-                                                                "status": "I",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
+                                                            }, {
+                                                                "id": "create",
+                                                                "status": "A",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
                                                                 "action": {}
-                                                            },
-                                                            "actionButton": {
-                                                                "id": "actionButton",
-                                                                "status": "I",
-                                                                "label": "Actions",
-                                                                "icon": "",
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "A",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
                                                                 "action": {}
-                                                            },
-                                                            "viewsButton": {
+                                                            }, {
                                                                 "id": "viewsButton",
                                                                 "status": "A",
                                                                 "label": "View modes",
                                                                 "icon": "",
                                                                 "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "I",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "I",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "toolsCommonText",
+                                                                "status": "I",
+                                                                "label": "Predefined texts",
+                                                                "icon": "CommonTextIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
                                                             }
-                                                        },
-                                                        "buttonsPos": ["advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "noEdis", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "noEdis", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                        ]
                                                     },
                                                     "dietProcess": {
                                                         "id": "dietProcess",
@@ -1425,83 +1270,71 @@
                                                                 "description": "Screen",
                                                                 "pos": 12,
                                                                 "type": "screen",
-                                                                "buttons": {
-                                                                    "advanceSearch": {
-                                                                        "id": "advanceSearch",
-                                                                        "status": "I",
-                                                                        "label": "Advanced search",
-                                                                        "icon": "AdvancedSearchIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "applicationHelp": {
-                                                                        "id": "applicationHelp",
-                                                                        "status": "A",
-                                                                        "label": "Help",
-                                                                        "icon": "HelpIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "cancel": {
-                                                                        "id": "cancel",
-                                                                        "status": "I",
-                                                                        "label": "Cancel records",
-                                                                        "icon": "CancelIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "create": {
-                                                                        "id": "create",
-                                                                        "status": "I",
-                                                                        "label": "Add or edit records",
-                                                                        "icon": "AddIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "eye": {
+                                                                "buttons": [{
                                                                         "id": "eye",
-                                                                        "status": "A",
+                                                                        "status": "I",
                                                                         "label": "Record details",
                                                                         "icon": "DetailsIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "globalShortcut": {
-                                                                        "id": "globalShortcut",
-                                                                        "status": "A",
-                                                                        "label": "Shortcuts",
-                                                                        "icon": "GlobalShortcutIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "ok": {
+                                                                    }, {
                                                                         "id": "ok",
                                                                         "status": "I",
                                                                         "label": "Confirm and continue",
                                                                         "icon": "OKIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "print": {
+                                                                    }, {
                                                                         "id": "print",
                                                                         "status": "A",
                                                                         "label": "Print tool",
                                                                         "icon": "PrintIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "actionButton": {
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "I",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "I",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "I",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
                                                                         "id": "actionButton",
                                                                         "status": "I",
                                                                         "label": "Actions",
                                                                         "icon": "",
                                                                         "action": {}
-                                                                    },
-                                                                    "toolsCommonText": {
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
                                                                         "id": "toolsCommonText",
                                                                         "status": "I",
                                                                         "label": "Predefined texts",
                                                                         "icon": "CommonTextIcon",
                                                                         "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
                                                                     }
-                                                                },
-                                                                "buttonsPos": ["advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                                ]
                                                             }
                                                         },
-                                                        "buttons": {
-                                                            "nutritionSummary": {
+                                                        "buttons": [{
                                                                 "id": "nutritionSummary",
                                                                 "status": "A",
                                                                 "label": "",
@@ -1513,8 +1346,7 @@
                                                                         "id": "EHRDIASummary.swf"
                                                                     }
                                                                 }
-                                                            },
-                                                            "dietaryProgressNotes": {
+                                                            }, {
                                                                 "id": "dietaryProgressNotes",
                                                                 "status": "A",
                                                                 "label": "",
@@ -1526,8 +1358,7 @@
                                                                         "id": "EHRDPNSummary.swf"
                                                                     }
                                                                 }
-                                                            },
-                                                            "nutriPrevIntervention": {
+                                                            }, {
                                                                 "id": "nutriPrevIntervention",
                                                                 "status": "A",
                                                                 "label": "",
@@ -1539,8 +1370,7 @@
                                                                         "id": "EHRNutritionistIntervPlanList.swf"
                                                                     }
                                                                 }
-                                                            },
-                                                            "nutriReport": {
+                                                            }, {
                                                                 "id": "nutriReport",
                                                                 "status": "A",
                                                                 "label": "",
@@ -1553,8 +1383,7 @@
                                                                     }
                                                                 }
                                                             }
-                                                        },
-                                                        "buttonsPos": ["nutritionSummary", "dietaryProgressNotes", "nutriPrevIntervention", "nutriReport"]
+                                                        ]
                                                     },
                                                     "detailsOnPastIllnesses": {
                                                         "id": "detailsOnPastIllnesses",
@@ -1567,83 +1396,71 @@
                                                                 "description": "Screen",
                                                                 "pos": 12,
                                                                 "type": "screen",
-                                                                "buttons": {
-                                                                    "actionButton": {
-                                                                        "id": "actionButton",
-                                                                        "status": "I",
-                                                                        "label": "Actions",
-                                                                        "icon": "",
-                                                                        "action": {}
-                                                                    },
-                                                                    "advanceSearch": {
-                                                                        "id": "advanceSearch",
-                                                                        "status": "I",
-                                                                        "label": "Advanced search",
-                                                                        "icon": "AdvancedSearchIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "applicationHelp": {
-                                                                        "id": "applicationHelp",
-                                                                        "status": "A",
-                                                                        "label": "Help",
-                                                                        "icon": "HelpIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "cancel": {
-                                                                        "id": "cancel",
-                                                                        "status": "I",
-                                                                        "label": "Cancel records",
-                                                                        "icon": "CancelIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "create": {
-                                                                        "id": "create",
-                                                                        "status": "I",
-                                                                        "label": "Add or edit records",
-                                                                        "icon": "AddIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "eye": {
+                                                                "buttons": [{
                                                                         "id": "eye",
-                                                                        "status": "A",
+                                                                        "status": "I",
                                                                         "label": "Record details",
                                                                         "icon": "DetailsIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "globalShortcut": {
-                                                                        "id": "globalShortcut",
-                                                                        "status": "A",
-                                                                        "label": "Shortcuts",
-                                                                        "icon": "GlobalShortcutIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "ok": {
+                                                                    }, {
                                                                         "id": "ok",
                                                                         "status": "I",
                                                                         "label": "Confirm and continue",
                                                                         "icon": "OKIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "print": {
+                                                                    }, {
                                                                         "id": "print",
                                                                         "status": "A",
                                                                         "label": "Print tool",
                                                                         "icon": "PrintIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "toolsCommonText": {
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "I",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "I",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "I",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "actionButton",
+                                                                        "status": "I",
+                                                                        "label": "Actions",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
                                                                         "id": "toolsCommonText",
                                                                         "status": "I",
                                                                         "label": "Predefined texts",
                                                                         "icon": "CommonTextIcon",
                                                                         "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
                                                                     }
-                                                                },
-                                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                                ]
                                                             }
                                                         },
-                                                        "buttons": {
-                                                            "reasonForVisits": {
+                                                        "buttons": [{
                                                                 "id": "reasonForVisits",
                                                                 "status": "A",
                                                                 "label": "",
@@ -1655,99 +1472,7 @@
                                                                         "id": "ReasonsForVisits.swf"
                                                                     }
                                                                 }
-                                                            },
-                                                            "historyOfPastIllnesses": {
-                                                                "id": "historyOfPastIllnesses",
-                                                                "status": "A",
-                                                                "label": "",
-                                                                "icon": "",
-                                                                "action": {
-                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses.screen",
-                                                                    "component": {
-                                                                        "type": "SWF",
-                                                                        "id": "HistoryOfPastIllnesses.swf"
-                                                                    }
-                                                                }
-                                                            },
-                                                            "hp": {
-                                                                "id": "hp",
-                                                                "status": "A",
-                                                                "label": "",
-                                                                "icon": "",
-                                                                "action": {
-                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses.screen",
-                                                                    "component": {
-                                                                        "type": "SWF",
-                                                                        "id": "EHRHPSummary.swf"
-                                                                    }
-                                                                }
-                                                            },
-                                                            "physicianProgressNotes": {
-                                                                "id": "physicianProgressNotes",
-                                                                "status": "A",
-                                                                "label": "",
-                                                                "icon": "",
-                                                                "action": {
-                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses.screen",
-                                                                    "component": {
-                                                                        "type": "SWF",
-                                                                        "id": "EHRPNSummary.swf"
-                                                                    }
-                                                                }
-                                                            },
-                                                            "reviewsOfSystems": {
-                                                                "id": "reviewsOfSystems",
-                                                                "status": "A",
-                                                                "label": "",
-                                                                "icon": "",
-                                                                "action": {
-                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses.screen",
-                                                                    "component": {
-                                                                        "type": "SWF",
-                                                                        "id": "ReviewsOfSystems.swf"
-                                                                    }
-                                                                }
-                                                            },
-                                                            "physicalExams": {
-                                                                "id": "physicalExams",
-                                                                "status": "A",
-                                                                "label": "",
-                                                                "icon": "",
-                                                                "action": {
-                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses.screen",
-                                                                    "component": {
-                                                                        "type": "SWF",
-                                                                        "id": "PhysicalExams.swf"
-                                                                    }
-                                                                }
-                                                            },
-                                                            "bodyDiagrams": {
-                                                                "id": "bodyDiagrams",
-                                                                "status": "A",
-                                                                "label": "",
-                                                                "icon": "",
-                                                                "action": {
-                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses.screen",
-                                                                    "component": {
-                                                                        "type": "SWF",
-                                                                        "id": "EHRBodyDiagrams.swf"
-                                                                    }
-                                                                }
-                                                            },
-                                                            "plans": {
-                                                                "id": "plans",
-                                                                "status": "A",
-                                                                "label": "",
-                                                                "icon": "",
-                                                                "action": {
-                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses.screen",
-                                                                    "component": {
-                                                                        "type": "SWF",
-                                                                        "id": "IndividualEncounterPlans.swf"
-                                                                    }
-                                                                }
-                                                            },
-                                                            "ehrDeepnavDispositionRecDoente": {
+                                                            }, {
                                                                 "id": "ehrDeepnavDispositionRecDoente",
                                                                 "status": "A",
                                                                 "label": "",
@@ -1759,9 +1484,8 @@
                                                                         "id": "DispositionInstructions.swf"
                                                                     }
                                                                 }
-                                                            },
-                                                            "recordsReview": {
-                                                                "id": "recordsReview",
+                                                            }, {
+                                                                "id": "historyOfPastIllnesses",
                                                                 "status": "A",
                                                                 "label": "",
                                                                 "icon": "",
@@ -1769,11 +1493,10 @@
                                                                     "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses.screen",
                                                                     "component": {
                                                                         "type": "SWF",
-                                                                        "id": "RecordsReviewList.swf"
+                                                                        "id": "HistoryOfPastIllnesses.swf"
                                                                     }
                                                                 }
-                                                            },
-                                                            "ehrDischargeSummaryVisitNote": {
+                                                            }, {
                                                                 "id": "ehrDischargeSummaryVisitNote",
                                                                 "status": "A",
                                                                 "label": "",
@@ -1785,26 +1508,95 @@
                                                                         "id": "EHRDSSummary.swf"
                                                                     }
                                                                 }
+                                                            }, {
+                                                                "id": "recordsReview",
+                                                                "status": "A",
+                                                                "label": "",
+                                                                "icon": "",
+                                                                "action": {
+                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses.screen",
+                                                                    "component": {
+                                                                        "type": "SWF",
+                                                                        "id": "RecordsReviewList.swf"
+                                                                    }
+                                                                }
+                                                            }, {
+                                                                "id": "hp",
+                                                                "status": "A",
+                                                                "label": "",
+                                                                "icon": "",
+                                                                "action": {
+                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses.screen",
+                                                                    "component": {
+                                                                        "type": "SWF",
+                                                                        "id": "EHRHPSummary.swf"
+                                                                    }
+                                                                }
+                                                            }, {
+                                                                "id": "physicianProgressNotes",
+                                                                "status": "A",
+                                                                "label": "",
+                                                                "icon": "",
+                                                                "action": {
+                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses.screen",
+                                                                    "component": {
+                                                                        "type": "SWF",
+                                                                        "id": "EHRPNSummary.swf"
+                                                                    }
+                                                                }
+                                                            }, {
+                                                                "id": "reviewsOfSystems",
+                                                                "status": "A",
+                                                                "label": "",
+                                                                "icon": "",
+                                                                "action": {
+                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses.screen",
+                                                                    "component": {
+                                                                        "type": "SWF",
+                                                                        "id": "ReviewsOfSystems.swf"
+                                                                    }
+                                                                }
+                                                            }, {
+                                                                "id": "physicalExams",
+                                                                "status": "A",
+                                                                "label": "",
+                                                                "icon": "",
+                                                                "action": {
+                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses.screen",
+                                                                    "component": {
+                                                                        "type": "SWF",
+                                                                        "id": "PhysicalExams.swf"
+                                                                    }
+                                                                }
+                                                            }, {
+                                                                "id": "bodyDiagrams",
+                                                                "status": "A",
+                                                                "label": "",
+                                                                "icon": "",
+                                                                "action": {
+                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses.screen",
+                                                                    "component": {
+                                                                        "type": "SWF",
+                                                                        "id": "EHRBodyDiagrams.swf"
+                                                                    }
+                                                                }
+                                                            }, {
+                                                                "id": "plans",
+                                                                "status": "A",
+                                                                "label": "",
+                                                                "icon": "",
+                                                                "action": {
+                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses.screen",
+                                                                    "component": {
+                                                                        "type": "SWF",
+                                                                        "id": "IndividualEncounterPlans.swf"
+                                                                    }
+                                                                }
                                                             }
-                                                        },
-                                                        "buttonsPos": ["reasonForVisits", "historyOfPastIllnesses", "hp", "physicianProgressNotes", "reviewsOfSystems", "physicalExams", "bodyDiagrams", "plans", "ehrDeepnavDispositionRecDoente", "recordsReview", "ehrDischargeSummaryVisitNote"]
+                                                        ]
                                                     }
                                                 },
-                                                "buttons": {
-                                                    "consultasAnteriores": {
-                                                        "id": "consultasAnteriores",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "PreviousEpisSummaryPage.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "ehrTimeline": {
+                                                "buttons": [{
                                                         "id": "ehrTimeline",
                                                         "status": "A",
                                                         "label": "",
@@ -1816,34 +1608,7 @@
                                                                 "id": "EHRepisodes.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "plannedVisits": {
-                                                        "id": "plannedVisits",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "PlannedVisits.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "otherEvents": {
-                                                        "id": "otherEvents",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "OtherEvents.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "socialSummary": {
+                                                    }, {
                                                         "id": "socialSummary",
                                                         "status": "A",
                                                         "label": "",
@@ -1855,17 +1620,7 @@
                                                                 "id": "SocialEHRSummary.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "dietProcess": {
-                                                        "id": "dietProcess",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.dietProcess"
-                                                        }
-                                                    },
-                                                    "activityTherapy": {
+                                                    }, {
                                                         "id": "activityTherapy",
                                                         "status": "A",
                                                         "label": "",
@@ -1877,21 +1632,7 @@
                                                                 "id": "ActivityTherapyEHRSummary.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "evaluationmfr": {
-                                                        "id": "evaluationmfr",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "MFREvaluationSummary.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "intervalNotes": {
+                                                    }, {
                                                         "id": "intervalNotes",
                                                         "status": "A",
                                                         "label": "",
@@ -1903,8 +1644,31 @@
                                                                 "id": "RPNSummary.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "detailsOnPastIllnesses": {
+                                                    }, {
+                                                        "id": "consultasAnteriores",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "PreviousEpisSummaryPage.swf"
+                                                            }
+                                                        }
+                                                    }, {
+                                                        "id": "plannedVisits",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "PlannedVisits.swf"
+                                                            }
+                                                        }
+                                                    }, {
                                                         "id": "detailsOnPastIllnesses",
                                                         "status": "A",
                                                         "label": "",
@@ -1912,9 +1676,40 @@
                                                         "action": {
                                                             "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.detailsOnPastIllnesses"
                                                         }
+                                                    }, {
+                                                        "id": "dietProcess",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.dietProcess"
+                                                        }
+                                                    }, {
+                                                        "id": "evaluationmfr",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "MFREvaluationSummary.swf"
+                                                            }
+                                                        }
+                                                    }, {
+                                                        "id": "otherEvents",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.visits.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "OtherEvents.swf"
+                                                            }
+                                                        }
                                                     }
-                                                },
-                                                "buttonsPos": ["consultasAnteriores", "ehrTimeline", "plannedVisits", "otherEvents", "socialSummary", "dietProcess", "activityTherapy", "evaluationmfr", "intervalNotes", "detailsOnPastIllnesses"]
+                                                ]
                                             },
                                             "planning": {
                                                 "id": "planning",
@@ -1927,90 +1722,77 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": {
-                                                            "actionButton": {
-                                                                "id": "actionButton",
-                                                                "status": "I",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "advanceSearch": {
-                                                                "id": "advanceSearch",
-                                                                "status": "I",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            },
-                                                            "applicationHelp": {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            },
-                                                            "cancel": {
-                                                                "id": "cancel",
-                                                                "status": "I",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            },
-                                                            "create": {
-                                                                "id": "create",
-                                                                "status": "I",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            },
-                                                            "eye": {
+                                                        "buttons": [{
                                                                 "id": "eye",
                                                                 "status": "A",
                                                                 "label": "Record details",
                                                                 "icon": "DetailsIcon",
                                                                 "action": {}
-                                                            },
-                                                            "viewsButton": {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "globalShortcut": {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
-                                                            },
-                                                            "ok": {
+                                                            }, {
                                                                 "id": "ok",
-                                                                "status": "I",
+                                                                "status": "A",
                                                                 "label": "Confirm and continue",
                                                                 "icon": "OKIcon",
                                                                 "action": {}
-                                                            },
-                                                            "print": {
+                                                            }, {
                                                                 "id": "print",
                                                                 "status": "A",
                                                                 "label": "Print tool",
                                                                 "icon": "PrintIcon",
                                                                 "action": {}
-                                                            },
-                                                            "toolsCommonText": {
+                                                            }, {
+                                                                "id": "create",
+                                                                "status": "A",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "A",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "viewsButton",
+                                                                "status": "A",
+                                                                "label": "View modes",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "A",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "A",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
                                                                 "id": "toolsCommonText",
                                                                 "status": "I",
                                                                 "label": "Predefined texts",
                                                                 "icon": "CommonTextIcon",
                                                                 "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
                                                             }
-                                                        },
-                                                        "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                        ]
                                                     }
                                                 },
-                                                "buttons": {
-                                                    "carePlans": {
+                                                "buttons": [{
                                                         "id": "carePlans",
                                                         "status": "A",
                                                         "label": "",
@@ -2022,8 +1804,7 @@
                                                                 "id": "EHRCarePlansList.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "individualEncounterPlans": {
+                                                    }, {
                                                         "id": "individualEncounterPlans",
                                                         "status": "A",
                                                         "label": "",
@@ -2035,8 +1816,7 @@
                                                                 "id": "IndividualEncounterPlans.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "guideline": {
+                                                    }, {
                                                         "id": "guideline",
                                                         "status": "A",
                                                         "label": "",
@@ -2048,8 +1828,7 @@
                                                                 "id": "EHRGuidelinesSummary.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "protocol": {
+                                                    }, {
                                                         "id": "protocol",
                                                         "status": "A",
                                                         "label": "",
@@ -2061,8 +1840,7 @@
                                                                 "id": "EHRProtocolSummary.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "plannedSurgeries": {
+                                                    }, {
                                                         "id": "plannedSurgeries",
                                                         "status": "A",
                                                         "label": "",
@@ -2074,8 +1852,7 @@
                                                                 "id": "EHRSurgEpisodesLoader.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "referrals": {
+                                                    }, {
                                                         "id": "referrals",
                                                         "status": "A",
                                                         "label": "",
@@ -2088,8 +1865,7 @@
                                                             }
                                                         }
                                                     }
-                                                },
-                                                "buttonsPos": ["carePlans", "individualEncounterPlans", "guideline", "protocol", "plannedSurgeries", "referrals"]
+                                                ]
                                             },
                                             "testAndTreatments": {
                                                 "id": "testAndTreatments",
@@ -2102,93 +1878,80 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": {
-                                                            "actionButton": {
-                                                                "id": "actionButton",
-                                                                "status": "I",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "advanceSearch": {
-                                                                "id": "advanceSearch",
-                                                                "status": "I",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            },
-                                                            "applicationHelp": {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            },
-                                                            "cancel": {
-                                                                "id": "cancel",
-                                                                "status": "I",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            },
-                                                            "create": {
-                                                                "id": "create",
-                                                                "status": "I",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            },
-                                                            "eye": {
+                                                        "buttons": [{
                                                                 "id": "eye",
-                                                                "status": "I",
+                                                                "status": "A",
                                                                 "label": "Record details",
                                                                 "icon": "DetailsIcon",
                                                                 "action": {}
-                                                            },
-                                                            "viewsButton": {
-                                                                "id": "viewsButton",
-                                                                "status": "I",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "globalShortcut": {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
-                                                            },
-                                                            "ok": {
+                                                            }, {
                                                                 "id": "ok",
                                                                 "status": "I",
                                                                 "label": "Confirm and continue",
                                                                 "icon": "OKIcon",
                                                                 "action": {}
-                                                            },
-                                                            "print": {
+                                                            }, {
                                                                 "id": "print",
                                                                 "status": "A",
                                                                 "label": "Print tool",
                                                                 "icon": "PrintIcon",
                                                                 "action": {}
-                                                            },
-                                                            "toolsCommonText": {
-                                                                "id": "toolsCommonText",
+                                                            }, {
+                                                                "id": "create",
                                                                 "status": "I",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
                                                                 "action": {}
-                                                            },
-                                                            "infoButton": {
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "I",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "viewsButton",
+                                                                "status": "I",
+                                                                "label": "View modes",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "I",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "I",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
                                                                 "id": "infoButton",
                                                                 "status": "A",
                                                                 "label": "Infobutton",
                                                                 "icon": "InfoButtonIcon",
                                                                 "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "toolsCommonText",
+                                                                "status": "I",
+                                                                "label": "Predefined texts",
+                                                                "icon": "CommonTextIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
                                                             }
-                                                        },
-                                                        "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "infoButton", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                        ]
                                                     },
                                                     "rehab": {
                                                         "id": "rehab",
@@ -2201,90 +1964,77 @@
                                                                 "description": "Screen",
                                                                 "pos": 12,
                                                                 "type": "screen",
-                                                                "buttons": {
-                                                                    "actionButton": {
-                                                                        "id": "actionButton",
-                                                                        "status": "A",
-                                                                        "label": "Actions",
-                                                                        "icon": "",
-                                                                        "action": {}
-                                                                    },
-                                                                    "advanceSearch": {
-                                                                        "id": "advanceSearch",
-                                                                        "status": "A",
-                                                                        "label": "Advanced search",
-                                                                        "icon": "AdvancedSearchIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "applicationHelp": {
-                                                                        "id": "applicationHelp",
-                                                                        "status": "A",
-                                                                        "label": "Help",
-                                                                        "icon": "HelpIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "cancel": {
-                                                                        "id": "cancel",
-                                                                        "status": "A",
-                                                                        "label": "Cancel records",
-                                                                        "icon": "CancelIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "create": {
-                                                                        "id": "create",
-                                                                        "status": "A",
-                                                                        "label": "Add or edit records",
-                                                                        "icon": "AddIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "eye": {
+                                                                "buttons": [{
                                                                         "id": "eye",
                                                                         "status": "A",
                                                                         "label": "Record details",
                                                                         "icon": "DetailsIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "globalShortcut": {
-                                                                        "id": "globalShortcut",
-                                                                        "status": "A",
-                                                                        "label": "Shortcuts",
-                                                                        "icon": "GlobalShortcutIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "ok": {
+                                                                    }, {
                                                                         "id": "ok",
                                                                         "status": "A",
                                                                         "label": "Confirm and continue",
                                                                         "icon": "OKIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "print": {
+                                                                    }, {
                                                                         "id": "print",
                                                                         "status": "A",
                                                                         "label": "Print tool",
                                                                         "icon": "PrintIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "toolsCommonText": {
-                                                                        "id": "toolsCommonText",
+                                                                    }, {
+                                                                        "id": "create",
                                                                         "status": "A",
-                                                                        "label": "Predefined texts",
-                                                                        "icon": "CommonTextIcon",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "viewsButton": {
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "A",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
                                                                         "id": "viewsButton",
                                                                         "status": "A",
                                                                         "label": "View modes",
                                                                         "icon": "",
                                                                         "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "A",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "actionButton",
+                                                                        "status": "A",
+                                                                        "label": "Actions",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "toolsCommonText",
+                                                                        "status": "A",
+                                                                        "label": "Predefined texts",
+                                                                        "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
                                                                     }
-                                                                },
-                                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print"]
+                                                                ]
                                                             }
                                                         },
-                                                        "buttons": {
-                                                            "proceduresMfr": {
+                                                        "buttons": [{
                                                                 "id": "proceduresMfr",
                                                                 "status": "A",
                                                                 "label": "",
@@ -2296,8 +2046,7 @@
                                                                         "id": "RehabTreatmentsAllList.swf"
                                                                     }
                                                                 }
-                                                            },
-                                                            "rehabPlan": {
+                                                            }, {
                                                                 "id": "rehabPlan",
                                                                 "status": "A",
                                                                 "label": "",
@@ -2310,12 +2059,10 @@
                                                                     }
                                                                 }
                                                             }
-                                                        },
-                                                        "buttonsPos": ["proceduresMfr", "rehabPlan"]
+                                                        ]
                                                     }
                                                 },
-                                                "buttons": {
-                                                    "depnvAnalisys": {
+                                                "buttons": [{
                                                         "id": "depnvAnalisys",
                                                         "status": "A",
                                                         "label": "",
@@ -2327,34 +2074,7 @@
                                                                 "id": "EHRLabs.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "depnvImages": {
-                                                        "id": "depnvImages",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.testAndTreatments.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "EHRImages.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "depnvOtherExams": {
-                                                        "id": "depnvOtherExams",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.testAndTreatments.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "EHROtherExams.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "prescription": {
+                                                    }, {
                                                         "id": "prescription",
                                                         "status": "A",
                                                         "label": "",
@@ -2366,8 +2086,19 @@
                                                                 "id": "PrescViewPrescribedMedication.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "pEnsinosenfermagem": {
+                                                    }, {
+                                                        "id": "depnvImages",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.testAndTreatments.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "EHRImages.swf"
+                                                            }
+                                                        }
+                                                    }, {
                                                         "id": "pEnsinosenfermagem",
                                                         "status": "A",
                                                         "label": "",
@@ -2379,8 +2110,27 @@
                                                                 "id": "PatientEducationAllList.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "pProcedures": {
+                                                    }, {
+                                                        "id": "depnvOtherExams",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.testAndTreatments.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "EHROtherExams.swf"
+                                                            }
+                                                        }
+                                                    }, {
+                                                        "id": "rehab",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.testAndTreatments.rehab"
+                                                        }
+                                                    }, {
                                                         "id": "pProcedures",
                                                         "status": "A",
                                                         "label": "",
@@ -2392,8 +2142,7 @@
                                                                 "id": "ProceduresTimeline.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "ehrLensPresc": {
+                                                    }, {
                                                         "id": "ehrLensPresc",
                                                         "status": "A",
                                                         "label": "",
@@ -2405,18 +2154,8 @@
                                                                 "id": "EHRLensPrescriptionList.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "rehab": {
-                                                        "id": "rehab",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.testAndTreatments.rehab"
-                                                        }
                                                     }
-                                                },
-                                                "buttonsPos": ["depnvAnalisys", "depnvImages", "depnvOtherExams", "prescription", "pEnsinosenfermagem", "pProcedures", "ehrLensPresc", "rehab"]
+                                                ]
                                             },
                                             "history": {
                                                 "id": "history",
@@ -2429,93 +2168,80 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": {
-                                                            "actionButton": {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "advanceSearch": {
-                                                                "id": "advanceSearch",
-                                                                "status": "A",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            },
-                                                            "applicationHelp": {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            },
-                                                            "cancel": {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            },
-                                                            "create": {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            },
-                                                            "eye": {
+                                                        "buttons": [{
                                                                 "id": "eye",
                                                                 "status": "A",
                                                                 "label": "Record details",
                                                                 "icon": "DetailsIcon",
                                                                 "action": {}
-                                                            },
-                                                            "viewsButton": {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "globalShortcut": {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
-                                                            },
-                                                            "infoButton": {
-                                                                "id": "infoButton",
-                                                                "status": "A",
-                                                                "label": "Infobutton",
-                                                                "icon": "InfoButtonIcon",
-                                                                "action": {}
-                                                            },
-                                                            "ok": {
+                                                            }, {
                                                                 "id": "ok",
                                                                 "status": "A",
                                                                 "label": "Confirm and continue",
                                                                 "icon": "OKIcon",
                                                                 "action": {}
-                                                            },
-                                                            "print": {
+                                                            }, {
                                                                 "id": "print",
                                                                 "status": "A",
                                                                 "label": "Print tool",
                                                                 "icon": "PrintIcon",
                                                                 "action": {}
-                                                            },
-                                                            "toolsCommonText": {
+                                                            }, {
+                                                                "id": "create",
+                                                                "status": "A",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "A",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "viewsButton",
+                                                                "status": "A",
+                                                                "label": "View modes",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "I",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "A",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "infoButton",
+                                                                "status": "A",
+                                                                "label": "Infobutton",
+                                                                "icon": "InfoButtonIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
                                                                 "id": "toolsCommonText",
                                                                 "status": "A",
                                                                 "label": "Predefined texts",
                                                                 "icon": "CommonTextIcon",
                                                                 "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
                                                             }
-                                                        },
-                                                        "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "infoButton", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                        ]
                                                     },
                                                     "assessToolsGroup": {
                                                         "id": "assessToolsGroup",
@@ -2528,123 +2254,83 @@
                                                                 "description": "Screen",
                                                                 "pos": 12,
                                                                 "type": "screen",
-                                                                "buttons": {
-                                                                    "actionButton": {
-                                                                        "id": "actionButton",
-                                                                        "status": "I",
-                                                                        "label": "Actions",
-                                                                        "icon": "",
-                                                                        "action": {}
-                                                                    },
-                                                                    "advanceSearch": {
-                                                                        "id": "advanceSearch",
-                                                                        "status": "I",
-                                                                        "label": "Advanced search",
-                                                                        "icon": "AdvancedSearchIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "applicationHelp": {
-                                                                        "id": "applicationHelp",
-                                                                        "status": "A",
-                                                                        "label": "Help",
-                                                                        "icon": "HelpIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "cancel": {
-                                                                        "id": "cancel",
-                                                                        "status": "I",
-                                                                        "label": "Cancel records",
-                                                                        "icon": "CancelIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "create": {
-                                                                        "id": "create",
-                                                                        "status": "I",
-                                                                        "label": "Add or edit records",
-                                                                        "icon": "AddIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "eye": {
+                                                                "buttons": [{
                                                                         "id": "eye",
                                                                         "status": "A",
                                                                         "label": "Record details",
                                                                         "icon": "DetailsIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "globalShortcut": {
-                                                                        "id": "globalShortcut",
-                                                                        "status": "A",
-                                                                        "label": "Shortcuts",
-                                                                        "icon": "GlobalShortcutIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "ok": {
+                                                                    }, {
                                                                         "id": "ok",
-                                                                        "status": "I",
+                                                                        "status": "A",
                                                                         "label": "Confirm and continue",
                                                                         "icon": "OKIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "print": {
-                                                                        "id": "print",
-                                                                        "status": "A",
-                                                                        "label": "Print tool",
-                                                                        "icon": "PrintIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "toolsCommonText": {
-                                                                        "id": "toolsCommonText",
-                                                                        "status": "I",
-                                                                        "label": "Predefined texts",
-                                                                        "icon": "CommonTextIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "viewsButton": {
-                                                                        "id": "viewsButton",
-                                                                        "status": "I",
-                                                                        "label": "View modes",
-                                                                        "icon": "",
-                                                                        "action": {}
-                                                                    },
-                                                                    "noEdis": {
+                                                                    }, {
                                                                         "id": "noEdis",
                                                                         "status": "I",
                                                                         "label": "Negative for all discriminators on this page",
                                                                         "icon": "NoIcon",
                                                                         "action": {}
+                                                                    }, {
+                                                                        "id": "print",
+                                                                        "status": "A",
+                                                                        "label": "Print tool",
+                                                                        "icon": "PrintIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "A",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "A",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "viewsButton",
+                                                                        "status": "I",
+                                                                        "label": "View modes",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "I",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "actionButton",
+                                                                        "status": "A",
+                                                                        "label": "Actions",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "toolsCommonText",
+                                                                        "status": "A",
+                                                                        "label": "Predefined texts",
+                                                                        "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
                                                                     }
-                                                                },
-                                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "noEdis", "ok", "print", "toolsCommonText"]
+                                                                ]
                                                             }
                                                         },
-                                                        "buttons": {
-                                                            "factoresRisco": {
-                                                                "id": "factoresRisco",
-                                                                "status": "A",
-                                                                "label": "",
-                                                                "icon": "",
-                                                                "action": {
-                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.history.assessToolsGroup.screen",
-                                                                    "component": {
-                                                                        "type": "SWF",
-                                                                        "id": "EHRRiskFactorsSummary.swf"
-                                                                    }
-                                                                }
-                                                            },
-                                                            "depnvFuncEval": {
-                                                                "id": "depnvFuncEval",
-                                                                "status": "A",
-                                                                "label": "",
-                                                                "icon": "",
-                                                                "action": {
-                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.history.assessToolsGroup.screen",
-                                                                    "component": {
-                                                                        "type": "SWF",
-                                                                        "id": "EHRPhysicalExamEvaluationSummary.swf"
-                                                                    }
-                                                                }
-                                                            },
-                                                            "scores": {
+                                                        "buttons": [{
                                                                 "id": "scores",
                                                                 "status": "A",
                                                                 "label": "",
@@ -2656,9 +2342,32 @@
                                                                         "id": "SeverityScoresSummaryHist.swf"
                                                                     }
                                                                 }
+                                                            }, {
+                                                                "id": "factoresRisco",
+                                                                "status": "A",
+                                                                "label": "",
+                                                                "icon": "",
+                                                                "action": {
+                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.history.assessToolsGroup.screen",
+                                                                    "component": {
+                                                                        "type": "SWF",
+                                                                        "id": "EHRRiskFactorsSummary.swf"
+                                                                    }
+                                                                }
+                                                            }, {
+                                                                "id": "depnvFuncEval",
+                                                                "status": "A",
+                                                                "label": "",
+                                                                "icon": "",
+                                                                "action": {
+                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.history.assessToolsGroup.screen",
+                                                                    "component": {
+                                                                        "type": "SWF",
+                                                                        "id": "EHRPhysicalExamEvaluationSummary.swf"
+                                                                    }
+                                                                }
                                                             }
-                                                        },
-                                                        "buttonsPos": ["factoresRisco", "depnvFuncEval", "scores"]
+                                                        ]
                                                     },
                                                     "avaliacaoInfantil": {
                                                         "id": "avaliacaoInfantil",
@@ -2671,103 +2380,77 @@
                                                                 "description": "Screen",
                                                                 "pos": 12,
                                                                 "type": "screen",
-                                                                "buttons": {
-                                                                    "actionButton": {
-                                                                        "id": "actionButton",
-                                                                        "status": "A",
-                                                                        "label": "Actions",
-                                                                        "icon": "",
-                                                                        "action": {}
-                                                                    },
-                                                                    "advanceSearch": {
-                                                                        "id": "advanceSearch",
-                                                                        "status": "I",
-                                                                        "label": "Advanced search",
-                                                                        "icon": "AdvancedSearchIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "applicationHelp": {
-                                                                        "id": "applicationHelp",
-                                                                        "status": "A",
-                                                                        "label": "Help",
-                                                                        "icon": "HelpIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "cancel": {
-                                                                        "id": "cancel",
-                                                                        "status": "A",
-                                                                        "label": "Cancel records",
-                                                                        "icon": "CancelIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "create": {
-                                                                        "id": "create",
-                                                                        "status": "A",
-                                                                        "label": "Add or edit records",
-                                                                        "icon": "AddIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "eye": {
+                                                                "buttons": [{
                                                                         "id": "eye",
                                                                         "status": "A",
                                                                         "label": "Record details",
                                                                         "icon": "DetailsIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "globalShortcut": {
-                                                                        "id": "globalShortcut",
-                                                                        "status": "A",
-                                                                        "label": "Shortcuts",
-                                                                        "icon": "GlobalShortcutIcon",
-                                                                        "action": {}
-                                                                    },
-                                                                    "ok": {
+                                                                    }, {
                                                                         "id": "ok",
                                                                         "status": "A",
                                                                         "label": "Confirm and continue",
                                                                         "icon": "OKIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "print": {
+                                                                    }, {
                                                                         "id": "print",
                                                                         "status": "A",
                                                                         "label": "Print tool",
                                                                         "icon": "PrintIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "toolsCommonText": {
-                                                                        "id": "toolsCommonText",
+                                                                    }, {
+                                                                        "id": "create",
                                                                         "status": "A",
-                                                                        "label": "Predefined texts",
-                                                                        "icon": "CommonTextIcon",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
                                                                         "action": {}
-                                                                    },
-                                                                    "viewsButton": {
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "A",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
                                                                         "id": "viewsButton",
                                                                         "status": "A",
                                                                         "label": "View modes",
                                                                         "icon": "",
                                                                         "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "I",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "actionButton",
+                                                                        "status": "A",
+                                                                        "label": "Actions",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "toolsCommonText",
+                                                                        "status": "A",
+                                                                        "label": "Predefined texts",
+                                                                        "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
                                                                     }
-                                                                },
-                                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                                ]
                                                             }
                                                         },
-                                                        "buttons": {
-                                                            "pediatricAssessment": {
-                                                                "id": "pediatricAssessment",
-                                                                "status": "A",
-                                                                "label": "",
-                                                                "icon": "",
-                                                                "action": {
-                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.history.avaliacaoInfantil.screen",
-                                                                    "component": {
-                                                                        "type": "SWF",
-                                                                        "id": "PediatricAssessmentSummary.swf"
-                                                                    }
-                                                                }
-                                                            },
-                                                            "genPediatricAssessment": {
+                                                        "buttons": [{
                                                                 "id": "genPediatricAssessment",
                                                                 "status": "A",
                                                                 "label": "",
@@ -2779,8 +2462,7 @@
                                                                         "id": "GeneralPediatricAssessment.swf"
                                                                     }
                                                                 }
-                                                            },
-                                                            "developmentMilestones": {
+                                                            }, {
                                                                 "id": "developmentMilestones",
                                                                 "status": "A",
                                                                 "label": "",
@@ -2792,8 +2474,7 @@
                                                                         "id": "DevelopmentMilestonesGrid.swf"
                                                                     }
                                                                 }
-                                                            },
-                                                            "assessmentDevelopment": {
+                                                            }, {
                                                                 "id": "assessmentDevelopment",
                                                                 "status": "A",
                                                                 "label": "",
@@ -2805,8 +2486,7 @@
                                                                         "id": "AssessmentOfDevelopment.swf"
                                                                     }
                                                                 }
-                                                            },
-                                                            "pediatricNutrition": {
+                                                            }, {
                                                                 "id": "pediatricNutrition",
                                                                 "status": "A",
                                                                 "label": "",
@@ -2818,8 +2498,7 @@
                                                                         "id": "PediatricNutritionGrid.swf"
                                                                     }
                                                                 }
-                                                            },
-                                                            "pediatricNutritionAssess": {
+                                                            }, {
                                                                 "id": "pediatricNutritionAssess",
                                                                 "status": "A",
                                                                 "label": "",
@@ -2831,8 +2510,7 @@
                                                                         "id": "PediatricNutritionAssessment.swf"
                                                                     }
                                                                 }
-                                                            },
-                                                            "rendimentoEscolar": {
+                                                            }, {
                                                                 "id": "rendimentoEscolar",
                                                                 "status": "A",
                                                                 "label": "",
@@ -2844,13 +2522,23 @@
                                                                         "id": "SchoolPerformance.swf"
                                                                     }
                                                                 }
+                                                            }, {
+                                                                "id": "pediatricAssessment",
+                                                                "status": "A",
+                                                                "label": "",
+                                                                "icon": "",
+                                                                "action": {
+                                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.history.avaliacaoInfantil.screen",
+                                                                    "component": {
+                                                                        "type": "SWF",
+                                                                        "id": "PediatricAssessmentSummary.swf"
+                                                                    }
+                                                                }
                                                             }
-                                                        },
-                                                        "buttonsPos": ["pediatricAssessment", "genPediatricAssessment", "developmentMilestones", "assessmentDevelopment", "pediatricNutrition", "pediatricNutritionAssess", "rendimentoEscolar"]
+                                                        ]
                                                     }
                                                 },
-                                                "buttons": {
-                                                    "depnvProblemas": {
+                                                "buttons": [{
                                                         "id": "depnvProblemas",
                                                         "status": "A",
                                                         "label": "",
@@ -2862,47 +2550,7 @@
                                                                 "id": "EHRProblemList.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "ehrDeepnavPrevDiagnosis": {
-                                                        "id": "ehrDeepnavPrevDiagnosis",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.history.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "Diagnosis.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "historicohospitalarAlergias": {
-                                                        "id": "historicohospitalarAlergias",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.history.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "EHRAllergyList.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "depnvHabitos": {
-                                                        "id": "depnvHabitos",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.history.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "EHRPatientHabits.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "antecedentes": {
+                                                    }, {
                                                         "id": "antecedentes",
                                                         "status": "A",
                                                         "label": "",
@@ -2914,8 +2562,7 @@
                                                                 "id": "EHRPastHistorySummary.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "identificationIdentification": {
+                                                    }, {
                                                         "id": "identificationIdentification",
                                                         "status": "A",
                                                         "label": "",
@@ -2927,8 +2574,7 @@
                                                                 "id": "PatientAttributes.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "familyRelationships": {
+                                                    }, {
                                                         "id": "familyRelationships",
                                                         "status": "A",
                                                         "label": "",
@@ -2940,18 +2586,8 @@
                                                                 "id": "GridFamily.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "assessToolsGroup": {
-                                                        "id": "assessToolsGroup",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.history.assessToolsGroup"
-                                                        }
-                                                    },
-                                                    "ehrDepnvVitalSign": {
-                                                        "id": "ehrDepnvVitalSign",
+                                                    }, {
+                                                        "id": "historicohospitalarAlergias",
                                                         "status": "A",
                                                         "label": "",
                                                         "icon": "",
@@ -2959,11 +2595,10 @@
                                                             "targetArea": "inpatient.patient.mainMenu.left.ehr.history.screen",
                                                             "component": {
                                                                 "type": "SWF",
-                                                                "id": "EHRVitalSigns.swf"
+                                                                "id": "EHRAllergyList.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "biometric": {
+                                                    }, {
                                                         "id": "biometric",
                                                         "status": "A",
                                                         "label": "",
@@ -2975,8 +2610,39 @@
                                                                 "id": "BiometricRead.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "pregnancyList": {
+                                                    }, {
+                                                        "id": "depnvHabitos",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.history.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "EHRPatientHabits.swf"
+                                                            }
+                                                        }
+                                                    }, {
+                                                        "id": "ehrDepnvVitalSign",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.history.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "EHRVitalSigns.swf"
+                                                            }
+                                                        }
+                                                    }, {
+                                                        "id": "assessToolsGroup",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.history.assessToolsGroup"
+                                                        }
+                                                    }, {
                                                         "id": "pregnancyList",
                                                         "status": "A",
                                                         "label": "",
@@ -2988,8 +2654,7 @@
                                                                 "id": "EHRWomanHealthPregnanciesSummary.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "avaliacaoInfantil": {
+                                                    }, {
                                                         "id": "avaliacaoInfantil",
                                                         "status": "A",
                                                         "label": "",
@@ -2997,8 +2662,7 @@
                                                         "action": {
                                                             "targetArea": "inpatient.patient.mainMenu.left.ehr.history.avaliacaoInfantil"
                                                         }
-                                                    },
-                                                    "vacinacao": {
+                                                    }, {
                                                         "id": "vacinacao",
                                                         "status": "A",
                                                         "label": "",
@@ -3010,9 +2674,20 @@
                                                                 "id": "EHRVaccinationSummaryPage.swf"
                                                             }
                                                         }
+                                                    }, {
+                                                        "id": "ehrDeepnavPrevDiagnosis",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.ehr.history.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "Diagnosis.swf"
+                                                            }
+                                                        }
                                                     }
-                                                },
-                                                "buttonsPos": ["depnvProblemas", "ehrDeepnavPrevDiagnosis", "historicohospitalarAlergias", "depnvHabitos", "antecedentes", "identificationIdentification", "familyRelationships", "assessToolsGroup", "ehrDepnvVitalSign", "biometric", "pregnancyList", "avaliacaoInfantil", "vacinacao"]
+                                                ]
                                             },
                                             "nursing": {
                                                 "id": "nursing",
@@ -3025,83 +2700,71 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": {
-                                                            "actionButton": {
-                                                                "id": "actionButton",
-                                                                "status": "I",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "advanceSearch": {
-                                                                "id": "advanceSearch",
-                                                                "status": "I",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            },
-                                                            "applicationHelp": {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            },
-                                                            "cancel": {
-                                                                "id": "cancel",
-                                                                "status": "I",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            },
-                                                            "create": {
-                                                                "id": "create",
-                                                                "status": "I",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            },
-                                                            "eye": {
+                                                        "buttons": [{
                                                                 "id": "eye",
                                                                 "status": "I",
                                                                 "label": "Record details",
                                                                 "icon": "DetailsIcon",
                                                                 "action": {}
-                                                            },
-                                                            "globalShortcut": {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
-                                                            },
-                                                            "ok": {
+                                                            }, {
                                                                 "id": "ok",
                                                                 "status": "I",
                                                                 "label": "Confirm and continue",
                                                                 "icon": "OKIcon",
                                                                 "action": {}
-                                                            },
-                                                            "print": {
+                                                            }, {
                                                                 "id": "print",
                                                                 "status": "A",
                                                                 "label": "Print tool",
                                                                 "icon": "PrintIcon",
                                                                 "action": {}
-                                                            },
-                                                            "toolsCommonText": {
+                                                            }, {
+                                                                "id": "create",
+                                                                "status": "I",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "I",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "I",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "I",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
                                                                 "id": "toolsCommonText",
                                                                 "status": "I",
                                                                 "label": "Predefined texts",
                                                                 "icon": "CommonTextIcon",
                                                                 "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
                                                             }
-                                                        },
-                                                        "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                        ]
                                                     }
                                                 },
-                                                "buttons": {
-                                                    "nursingInitialAssessment": {
+                                                "buttons": [{
                                                         "id": "nursingInitialAssessment",
                                                         "status": "A",
                                                         "label": "",
@@ -3113,8 +2776,7 @@
                                                                 "id": "EHRNIASummary.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "nursingProgressNotes": {
+                                                    }, {
                                                         "id": "nursingProgressNotes",
                                                         "status": "A",
                                                         "label": "",
@@ -3126,8 +2788,7 @@
                                                                 "id": "EHRNPNSummary.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "nurseNotesSr": {
+                                                    }, {
                                                         "id": "nurseNotesSr",
                                                         "status": "A",
                                                         "label": "",
@@ -3139,8 +2800,7 @@
                                                                 "id": "NursingNotes.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "depnvNursingCarePlan": {
+                                                    }, {
                                                         "id": "depnvNursingCarePlan",
                                                         "status": "A",
                                                         "label": "",
@@ -3153,12 +2813,10 @@
                                                             }
                                                         }
                                                     }
-                                                },
-                                                "buttonsPos": ["nursingInitialAssessment", "nursingProgressNotes", "nurseNotesSr", "depnvNursingCarePlan"]
+                                                ]
                                             }
                                         },
-                                        "buttons": {
-                                            "dashboard": {
+                                        "buttons": [{
                                                 "id": "dashboard",
                                                 "status": "A",
                                                 "label": "",
@@ -3170,8 +2828,7 @@
                                                         "id": "DashBoardLoader.swf"
                                                     }
                                                 }
-                                            },
-                                            "visits": {
+                                            }, {
                                                 "id": "visits",
                                                 "status": "A",
                                                 "label": "",
@@ -3179,8 +2836,7 @@
                                                 "action": {
                                                     "targetArea": "inpatient.patient.mainMenu.left.ehr.visits"
                                                 }
-                                            },
-                                            "planning": {
+                                            }, {
                                                 "id": "planning",
                                                 "status": "A",
                                                 "label": "",
@@ -3188,8 +2844,7 @@
                                                 "action": {
                                                     "targetArea": "inpatient.patient.mainMenu.left.ehr.planning"
                                                 }
-                                            },
-                                            "testAndTreatments": {
+                                            }, {
                                                 "id": "testAndTreatments",
                                                 "status": "A",
                                                 "label": "",
@@ -3197,8 +2852,7 @@
                                                 "action": {
                                                     "targetArea": "inpatient.patient.mainMenu.left.ehr.testAndTreatments"
                                                 }
-                                            },
-                                            "history": {
+                                            }, {
                                                 "id": "history",
                                                 "status": "A",
                                                 "label": "",
@@ -3206,8 +2860,15 @@
                                                 "action": {
                                                     "targetArea": "inpatient.patient.mainMenu.left.ehr.history"
                                                 }
-                                            },
-                                            "historicohospitalarGruposang": {
+                                            }, {
+                                                "id": "nursing",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.nursing"
+                                                }
+                                            }, {
                                                 "id": "historicohospitalarGruposang",
                                                 "status": "A",
                                                 "label": "",
@@ -3219,17 +2880,7 @@
                                                         "id": "BloodList.swf"
                                                     }
                                                 }
-                                            },
-                                            "nursing": {
-                                                "id": "nursing",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.ehr.nursing"
-                                                }
-                                            },
-                                            "trials": {
+                                            }, {
                                                 "id": "trials",
                                                 "status": "A",
                                                 "label": "",
@@ -3241,8 +2892,7 @@
                                                         "id": "TrialsList.swf"
                                                     }
                                                 }
-                                            },
-                                            "mediaArchive": {
+                                            }, {
                                                 "id": "mediaArchive",
                                                 "status": "A",
                                                 "label": "",
@@ -3255,8 +2905,7 @@
                                                     }
                                                 }
                                             }
-                                        },
-                                        "buttonsPos": ["dashboard", "visits", "planning", "testAndTreatments", "history", "historicohospitalarGruposang", "nursing", "trials", "mediaArchive"]
+                                        ]
                                     },
                                     "clinicalInfoIcon": {
                                         "id": "clinicalInfoIcon",
@@ -3269,93 +2918,80 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": {
-                                                    "actionButton": {
-                                                        "id": "actionButton",
-                                                        "status": "I",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "advanceSearch": {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    },
-                                                    "applicationHelp": {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    },
-                                                    "cancel": {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    },
-                                                    "create": {
-                                                        "id": "create",
-                                                        "status": "I",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    },
-                                                    "eye": {
+                                                "buttons": [{
                                                         "id": "eye",
                                                         "status": "I",
                                                         "label": "Record details",
                                                         "icon": "DetailsIcon",
                                                         "action": {}
-                                                    },
-                                                    "viewsButton": {
-                                                        "id": "viewsButton",
-                                                        "status": "A",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "globalShortcut": {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    },
-                                                    "ok": {
+                                                    }, {
                                                         "id": "ok",
-                                                        "status": "I",
+                                                        "status": "A",
                                                         "label": "Confirm and continue",
                                                         "icon": "OKIcon",
                                                         "action": {}
-                                                    },
-                                                    "print": {
+                                                    }, {
                                                         "id": "print",
                                                         "status": "A",
                                                         "label": "Print tool",
                                                         "icon": "PrintIcon",
                                                         "action": {}
-                                                    },
-                                                    "toolsCommonText": {
-                                                        "id": "toolsCommonText",
+                                                    }, {
+                                                        "id": "create",
                                                         "status": "I",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
                                                         "action": {}
-                                                    },
-                                                    "infoButton": {
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "I",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "viewsButton",
+                                                        "status": "A",
+                                                        "label": "View modes",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "advanceSearch",
+                                                        "status": "I",
+                                                        "label": "Advanced search",
+                                                        "icon": "AdvancedSearchIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "actionButton",
+                                                        "status": "I",
+                                                        "label": "Actions",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
                                                         "id": "infoButton",
                                                         "status": "A",
                                                         "label": "Infobutton",
                                                         "icon": "InfoButtonIcon",
                                                         "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "toolsCommonText",
+                                                        "status": "I",
+                                                        "label": "Predefined texts",
+                                                        "icon": "CommonTextIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
                                                     }
-                                                },
-                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "infoButton", "ok", "print", "toolsCommonText", "actionButton", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "infoButton", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                ]
                                             },
                                             "progressNotes": {
                                                 "id": "progressNotes",
@@ -3368,110 +3004,83 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": {
-                                                            "actionButton": {
-                                                                "id": "actionButton",
-                                                                "status": "I",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "advanceSearch": {
-                                                                "id": "advanceSearch",
-                                                                "status": "I",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            },
-                                                            "applicationHelp": {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            },
-                                                            "cancel": {
-                                                                "id": "cancel",
-                                                                "status": "I",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            },
-                                                            "create": {
-                                                                "id": "create",
-                                                                "status": "I",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            },
-                                                            "eye": {
+                                                        "buttons": [{
                                                                 "id": "eye",
-                                                                "status": "I",
+                                                                "status": "A",
                                                                 "label": "Record details",
                                                                 "icon": "DetailsIcon",
                                                                 "action": {}
-                                                            },
-                                                            "viewsButton": {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "globalShortcut": {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
-                                                            },
-                                                            "ok": {
+                                                            }, {
                                                                 "id": "ok",
-                                                                "status": "I",
+                                                                "status": "A",
                                                                 "label": "Confirm and continue",
                                                                 "icon": "OKIcon",
                                                                 "action": {}
-                                                            },
-                                                            "print": {
-                                                                "id": "print",
-                                                                "status": "A",
-                                                                "label": "Print tool",
-                                                                "icon": "PrintIcon",
-                                                                "action": {}
-                                                            },
-                                                            "toolsCommonText": {
-                                                                "id": "toolsCommonText",
-                                                                "status": "I",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
-                                                                "action": {}
-                                                            },
-                                                            "noEdis": {
+                                                            }, {
                                                                 "id": "noEdis",
                                                                 "status": "I",
                                                                 "label": "Negative for all discriminators on this page",
                                                                 "icon": "NoIcon",
                                                                 "action": {}
+                                                            }, {
+                                                                "id": "print",
+                                                                "status": "A",
+                                                                "label": "Print tool",
+                                                                "icon": "PrintIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "create",
+                                                                "status": "A",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "A",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "viewsButton",
+                                                                "status": "A",
+                                                                "label": "View modes",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "I",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "A",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "toolsCommonText",
+                                                                "status": "A",
+                                                                "label": "Predefined texts",
+                                                                "icon": "CommonTextIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
                                                             }
-                                                        },
-                                                        "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "applicationHelp", "eye", "viewsButton", "globalShortcut", "ok", "print", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "noEdis", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                        ]
                                                     }
                                                 },
-                                                "buttons": {
-                                                    "physicianProgressNotes": {
-                                                        "id": "physicianProgressNotes",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.progressNotes.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "INPPNSummary.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "depnvPareceres": {
+                                                "buttons": [{
                                                         "id": "depnvPareceres",
                                                         "status": "A",
                                                         "label": "",
@@ -3483,21 +3092,7 @@
                                                                 "id": "OpinionList.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "nursingProgressNotes": {
-                                                        "id": "nursingProgressNotes",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.progressNotes.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "NPNSummary.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "intervalNotes": {
+                                                    }, {
                                                         "id": "intervalNotes",
                                                         "status": "A",
                                                         "label": "",
@@ -3509,8 +3104,31 @@
                                                                 "id": "RPNSummary.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "evaluationmfr": {
+                                                    }, {
+                                                        "id": "nursingProgressNotes",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.progressNotes.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "NPNSummary.swf"
+                                                            }
+                                                        }
+                                                    }, {
+                                                        "id": "physicianProgressNotes",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.progressNotes.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "INPPNSummary.swf"
+                                                            }
+                                                        }
+                                                    }, {
                                                         "id": "evaluationmfr",
                                                         "status": "A",
                                                         "label": "",
@@ -3522,34 +3140,7 @@
                                                                 "id": "MFREvaluationSummary.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "dietaryProgressNotes": {
-                                                        "id": "dietaryProgressNotes",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.progressNotes.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "DPNSummary.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "activityTherapy": {
-                                                        "id": "activityTherapy",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.progressNotes.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "ActivityTherapyEHRSummary.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "socialSummary": {
+                                                    }, {
                                                         "id": "socialSummary",
                                                         "status": "A",
                                                         "label": "",
@@ -3561,9 +3152,32 @@
                                                                 "id": "SocialSummary.swf"
                                                             }
                                                         }
+                                                    }, {
+                                                        "id": "dietaryProgressNotes",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.progressNotes.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "DPNSummary.swf"
+                                                            }
+                                                        }
+                                                    }, {
+                                                        "id": "activityTherapy",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.progressNotes.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "ActivityTherapyEHRSummary.swf"
+                                                            }
+                                                        }
                                                     }
-                                                },
-                                                "buttonsPos": ["physicianProgressNotes", "depnvPareceres", "nursingProgressNotes", "intervalNotes", "evaluationmfr", "dietaryProgressNotes", "activityTherapy", "socialSummary"]
+                                                ]
                                             },
                                             "assessToolsGroup": {
                                                 "id": "assessToolsGroup",
@@ -3576,116 +3190,77 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": {
-                                                            "actionButton": {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "advanceSearch": {
-                                                                "id": "advanceSearch",
-                                                                "status": "I",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            },
-                                                            "applicationHelp": {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            },
-                                                            "cancel": {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            },
-                                                            "create": {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            },
-                                                            "eye": {
+                                                        "buttons": [{
                                                                 "id": "eye",
                                                                 "status": "A",
                                                                 "label": "Record details",
                                                                 "icon": "DetailsIcon",
                                                                 "action": {}
-                                                            },
-                                                            "viewsButton": {
-                                                                "id": "viewsButton",
-                                                                "status": "I",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "globalShortcut": {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
-                                                            },
-                                                            "ok": {
+                                                            }, {
                                                                 "id": "ok",
                                                                 "status": "A",
                                                                 "label": "Confirm and continue",
                                                                 "icon": "OKIcon",
                                                                 "action": {}
-                                                            },
-                                                            "print": {
+                                                            }, {
                                                                 "id": "print",
                                                                 "status": "A",
                                                                 "label": "Print tool",
                                                                 "icon": "PrintIcon",
                                                                 "action": {}
-                                                            },
-                                                            "toolsCommonText": {
-                                                                "id": "toolsCommonText",
+                                                            }, {
+                                                                "id": "create",
                                                                 "status": "A",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "A",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "viewsButton",
+                                                                "status": "I",
+                                                                "label": "View modes",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "I",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "A",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "toolsCommonText",
+                                                                "status": "I",
                                                                 "label": "Predefined texts",
                                                                 "icon": "CommonTextIcon",
                                                                 "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
                                                             }
-                                                        },
-                                                        "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                        ]
                                                     }
                                                 },
-                                                "buttons": {
-                                                    "scores": {
-                                                        "id": "scores",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.assessToolsGroup.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "SeverityScoresSummary.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "depnvFuncEval": {
-                                                        "id": "depnvFuncEval",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.assessToolsGroup.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "EvaluationSummary.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "factoresRisco": {
+                                                "buttons": [{
                                                         "id": "factoresRisco",
                                                         "status": "A",
                                                         "label": "",
@@ -3697,26 +3272,35 @@
                                                                 "id": "RiskFactorsSummary.swf"
                                                             }
                                                         }
+                                                    }, {
+                                                        "id": "depnvFuncEval",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.assessToolsGroup.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "EvaluationSummary.swf"
+                                                            }
+                                                        }
+                                                    }, {
+                                                        "id": "scores",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.assessToolsGroup.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "SeverityScoresSummary.swf"
+                                                            }
+                                                        }
                                                     }
-                                                },
-                                                "buttonsPos": ["scores", "depnvFuncEval", "factoresRisco"]
+                                                ]
                                             }
                                         },
-                                        "buttons": {
-                                            "summaryInp": {
-                                                "id": "summaryInp",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "INPSummary.swf"
-                                                    }
-                                                }
-                                            },
-                                            "hp": {
+                                        "buttons": [{
                                                 "id": "hp",
                                                 "status": "A",
                                                 "label": "",
@@ -3728,91 +3312,7 @@
                                                         "id": "INPHPSummary.swf"
                                                     }
                                                 }
-                                            },
-                                            "progressNotes": {
-                                                "id": "progressNotes",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.progressNotes"
-                                                }
-                                            },
-                                            "depnvProblemas": {
-                                                "id": "depnvProblemas",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "ProblemList.swf"
-                                                    }
-                                                }
-                                            },
-                                            "medicacaoAnt": {
-                                                "id": "medicacaoAnt",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "PrescViewHomeMedication.swf"
-                                                    }
-                                                }
-                                            },
-                                            "antecedentes": {
-                                                "id": "antecedentes",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "PastHistorySummary.swf"
-                                                    }
-                                                }
-                                            },
-                                            "depnvDiagnosticos": {
-                                                "id": "depnvDiagnosticos",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "DiagnosisDifferentialList.swf"
-                                                    }
-                                                }
-                                            },
-                                            "assessToolsGroup": {
-                                                "id": "assessToolsGroup",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.assessToolsGroup"
-                                                }
-                                            },
-                                            "depnvTopografia": {
-                                                "id": "depnvTopografia",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "BodyDiagram.swf"
-                                                    }
-                                                }
-                                            },
-                                            "consultasAnteriores": {
+                                            }, {
                                                 "id": "consultasAnteriores",
                                                 "status": "A",
                                                 "label": "",
@@ -3824,8 +3324,7 @@
                                                         "id": "PreviousEpisSummaryPage.swf"
                                                     }
                                                 }
-                                            },
-                                            "emergencyEpisodeSummary": {
+                                            }, {
                                                 "id": "emergencyEpisodeSummary",
                                                 "status": "A",
                                                 "label": "",
@@ -3837,9 +3336,96 @@
                                                         "id": "EDISEpisodeSummary.swf"
                                                     }
                                                 }
+                                            }, {
+                                                "id": "medicacaoAnt",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "PrescViewHomeMedication.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "depnvTopografia",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "BodyDiagram.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "progressNotes",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.progressNotes"
+                                                }
+                                            }, {
+                                                "id": "assessToolsGroup",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.assessToolsGroup"
+                                                }
+                                            }, {
+                                                "id": "summaryInp",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "INPSummary.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "depnvProblemas",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "ProblemList.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "antecedentes",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "PastHistorySummary.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "depnvDiagnosticos",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "DiagnosisDifferentialList.swf"
+                                                    }
+                                                }
                                             }
-                                        },
-                                        "buttonsPos": ["summaryInp", "hp", "progressNotes", "depnvProblemas", "medicacaoAnt", "antecedentes", "depnvDiagnosticos", "assessToolsGroup", "depnvTopografia", "consultasAnteriores", "emergencyEpisodeSummary"]
+                                        ]
                                     },
                                     "orderEntry": {
                                         "id": "orderEntry",
@@ -3852,100 +3438,86 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": {
-                                                    "actionButton": {
-                                                        "id": "actionButton",
-                                                        "status": "A",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "advanceSearch": {
-                                                        "id": "advanceSearch",
-                                                        "status": "A",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    },
-                                                    "applicationHelp": {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    },
-                                                    "cancel": {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    },
-                                                    "create": {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    },
-                                                    "eye": {
+                                                "buttons": [{
                                                         "id": "eye",
                                                         "status": "A",
                                                         "label": "Record details",
                                                         "icon": "DetailsIcon",
                                                         "action": {}
-                                                    },
-                                                    "viewsButton": {
-                                                        "id": "viewsButton",
-                                                        "status": "I",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "globalShortcut": {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    },
-                                                    "noEdis": {
+                                                    }, {
                                                         "id": "noEdis",
-                                                        "status": "",
+                                                        "status": "A",
                                                         "label": "Negative for all discriminators on this page",
                                                         "icon": "NoIcon",
                                                         "action": {}
-                                                    },
-                                                    "ok": {
+                                                    }, {
                                                         "id": "ok",
                                                         "status": "A",
                                                         "label": "Confirm and continue",
                                                         "icon": "OKIcon",
                                                         "action": {}
-                                                    },
-                                                    "print": {
+                                                    }, {
                                                         "id": "print",
                                                         "status": "A",
                                                         "label": "Print tool",
                                                         "icon": "PrintIcon",
                                                         "action": {}
-                                                    },
-                                                    "toolsCommonText": {
-                                                        "id": "toolsCommonText",
+                                                    }, {
+                                                        "id": "create",
                                                         "status": "A",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
                                                         "action": {}
-                                                    },
-                                                    "infoButton": {
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "A",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "viewsButton",
+                                                        "status": "A",
+                                                        "label": "View modes",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "advanceSearch",
+                                                        "status": "A",
+                                                        "label": "Advanced search",
+                                                        "icon": "AdvancedSearchIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "actionButton",
+                                                        "status": "A",
+                                                        "label": "Actions",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
                                                         "id": "infoButton",
                                                         "status": "A",
                                                         "label": "Infobutton",
                                                         "icon": "InfoButtonIcon",
                                                         "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "toolsCommonText",
+                                                        "status": "A",
+                                                        "label": "Predefined texts",
+                                                        "icon": "CommonTextIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
                                                     }
-                                                },
-                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "noEdis", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "infoButton", "noEdis", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                ]
                                             },
                                             "depnvAnalisys": {
                                                 "id": "depnvAnalisys",
@@ -3958,97 +3530,83 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": {
-                                                            "actionButton": {
-                                                                "id": "actionButton",
-                                                                "status": "I",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "advanceSearch": {
-                                                                "id": "advanceSearch",
-                                                                "status": "I",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            },
-                                                            "applicationHelp": {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            },
-                                                            "cancel": {
-                                                                "id": "cancel",
-                                                                "status": "I",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            },
-                                                            "create": {
-                                                                "id": "create",
-                                                                "status": "I",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            },
-                                                            "eye": {
+                                                        "buttons": [{
                                                                 "id": "eye",
                                                                 "status": "A",
                                                                 "label": "Record details",
                                                                 "icon": "DetailsIcon",
                                                                 "action": {}
-                                                            },
-                                                            "viewsButton": {
-                                                                "id": "viewsButton",
-                                                                "status": "I",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "globalShortcut": {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
-                                                            },
-                                                            "infoButton": {
-                                                                "id": "infoButton",
-                                                                "status": "A",
-                                                                "label": "Infobutton",
-                                                                "icon": "InfoButtonIcon",
-                                                                "action": {}
-                                                            },
-                                                            "ok": {
+                                                            }, {
                                                                 "id": "ok",
                                                                 "status": "A",
                                                                 "label": "Confirm and continue",
                                                                 "icon": "OKIcon",
                                                                 "action": {}
-                                                            },
-                                                            "print": {
+                                                            }, {
                                                                 "id": "print",
                                                                 "status": "A",
                                                                 "label": "Print tool",
                                                                 "icon": "PrintIcon",
                                                                 "action": {}
-                                                            },
-                                                            "toolsCommonText": {
+                                                            }, {
+                                                                "id": "create",
+                                                                "status": "A",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "A",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "viewsButton",
+                                                                "status": "A",
+                                                                "label": "View modes",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "A",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "A",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "infoButton",
+                                                                "status": "A",
+                                                                "label": "Infobutton",
+                                                                "icon": "InfoButtonIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
                                                                 "id": "toolsCommonText",
-                                                                "status": "I",
+                                                                "status": "A",
                                                                 "label": "Predefined texts",
                                                                 "icon": "CommonTextIcon",
                                                                 "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
                                                             }
-                                                        },
-                                                        "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "infoButton", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                        ]
                                                     }
                                                 },
-                                                "buttons": {
-                                                    "depnvAnalisys": {
+                                                "buttons": [{
                                                         "id": "depnvAnalisys",
                                                         "status": "A",
                                                         "label": "",
@@ -4060,8 +3618,7 @@
                                                                 "id": "LabTestsOrdersList.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "aColheitas": {
+                                                    }, {
                                                         "id": "aColheitas",
                                                         "status": "A",
                                                         "label": "",
@@ -4073,8 +3630,7 @@
                                                                 "id": "AnalysisHarvest.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "aTranpAnalises": {
+                                                    }, {
                                                         "id": "aTranpAnalises",
                                                         "status": "A",
                                                         "label": "",
@@ -4087,8 +3643,7 @@
                                                             }
                                                         }
                                                     }
-                                                },
-                                                "buttonsPos": ["depnvAnalisys", "aColheitas", "aTranpAnalises"]
+                                                ]
                                             },
                                             "prescription": {
                                                 "id": "prescription",
@@ -4101,90 +3656,77 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": {
-                                                            "actionButton": {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "applicationHelp": {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            },
-                                                            "cancel": {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            },
-                                                            "create": {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            },
-                                                            "eye": {
+                                                        "buttons": [{
                                                                 "id": "eye",
                                                                 "status": "A",
                                                                 "label": "Record details",
                                                                 "icon": "DetailsIcon",
                                                                 "action": {}
-                                                            },
-                                                            "viewsButton": {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "globalShortcut": {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
-                                                            },
-                                                            "infoButton": {
-                                                                "id": "infoButton",
-                                                                "status": "A",
-                                                                "label": "Infobutton",
-                                                                "icon": "InfoButtonIcon",
-                                                                "action": {}
-                                                            },
-                                                            "ok": {
+                                                            }, {
                                                                 "id": "ok",
                                                                 "status": "A",
                                                                 "label": "Confirm and continue",
                                                                 "icon": "OKIcon",
                                                                 "action": {}
-                                                            },
-                                                            "print": {
+                                                            }, {
                                                                 "id": "print",
                                                                 "status": "A",
                                                                 "label": "Print tool",
                                                                 "icon": "PrintIcon",
                                                                 "action": {}
-                                                            },
-                                                            "toolsCommonText": {
+                                                            }, {
+                                                                "id": "create",
+                                                                "status": "A",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "A",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "viewsButton",
+                                                                "status": "A",
+                                                                "label": "View modes",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "A",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "infoButton",
+                                                                "status": "A",
+                                                                "label": "Infobutton",
+                                                                "icon": "InfoButtonIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
                                                                 "id": "toolsCommonText",
                                                                 "status": "A",
                                                                 "label": "Predefined texts",
                                                                 "icon": "CommonTextIcon",
                                                                 "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
                                                             }
-                                                        },
-                                                        "buttonsPos": ["actionButton", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "infoButton", "ok", "print", "toolsCommonText", "actionButton", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "infoButton", "ok", "print", "toolsCommonText", "actionButton", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "infoButton", "ok", "print", "toolsCommonText", "actionButton", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "infoButton", "ok", "print", "toolsCommonText", "actionButton", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "infoButton", "ok", "print", "toolsCommonText", "actionButton", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "infoButton", "ok", "print", "toolsCommonText"]
+                                                        ]
                                                     }
                                                 },
-                                                "buttons": {
-                                                    "prescription": {
+                                                "buttons": [{
                                                         "id": "prescription",
                                                         "status": "A",
                                                         "label": "",
@@ -4193,12 +3735,11 @@
                                                             "targetArea": "inpatient.patient.mainMenu.left.orderEntry.prescription.screen",
                                                             "component": {
                                                                 "type": "SWF",
-                                                                "id": "PrescViewMedicationMistakes.swf"
+                                                                "id": "PrescViewAdminAndTasks.swf"
                                                             }
                                                         }
                                                     }
-                                                },
-                                                "buttonsPos": ["prescription", "prescription", "prescription", "prescription", "prescription", "prescription"]
+                                                ]
                                             },
                                             "pEnsinosenfermagem": {
                                                 "id": "pEnsinosenfermagem",
@@ -4211,97 +3752,83 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": {
-                                                            "actionButton": {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "advanceSearch": {
-                                                                "id": "advanceSearch",
-                                                                "status": "A",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            },
-                                                            "applicationHelp": {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            },
-                                                            "cancel": {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            },
-                                                            "create": {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            },
-                                                            "eye": {
+                                                        "buttons": [{
                                                                 "id": "eye",
                                                                 "status": "A",
                                                                 "label": "Record details",
                                                                 "icon": "DetailsIcon",
                                                                 "action": {}
-                                                            },
-                                                            "viewsButton": {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "globalShortcut": {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
-                                                            },
-                                                            "ok": {
+                                                            }, {
                                                                 "id": "ok",
                                                                 "status": "A",
                                                                 "label": "Confirm and continue",
                                                                 "icon": "OKIcon",
                                                                 "action": {}
-                                                            },
-                                                            "print": {
+                                                            }, {
                                                                 "id": "print",
                                                                 "status": "A",
                                                                 "label": "Print tool",
                                                                 "icon": "PrintIcon",
                                                                 "action": {}
-                                                            },
-                                                            "toolsCommonText": {
-                                                                "id": "toolsCommonText",
+                                                            }, {
+                                                                "id": "create",
                                                                 "status": "A",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
                                                                 "action": {}
-                                                            },
-                                                            "infoButton": {
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "A",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "viewsButton",
+                                                                "status": "A",
+                                                                "label": "View modes",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "I",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "A",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
                                                                 "id": "infoButton",
                                                                 "status": "A",
                                                                 "label": "Infobutton",
                                                                 "icon": "InfoButtonIcon",
                                                                 "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "toolsCommonText",
+                                                                "status": "I",
+                                                                "label": "Predefined texts",
+                                                                "icon": "CommonTextIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
                                                             }
-                                                        },
-                                                        "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "infoButton", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "infoButton", "ok", "print", "toolsCommonText"]
+                                                        ]
                                                     }
                                                 },
-                                                "buttons": {
-                                                    "patientAssessment": {
+                                                "buttons": [{
                                                         "id": "patientAssessment",
                                                         "status": "A",
                                                         "label": "",
@@ -4313,8 +3840,7 @@
                                                                 "id": "PatientAssessmentSummary.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "patientEducation": {
+                                                    }, {
                                                         "id": "patientEducation",
                                                         "status": "A",
                                                         "label": "",
@@ -4327,8 +3853,7 @@
                                                             }
                                                         }
                                                     }
-                                                },
-                                                "buttonsPos": ["patientAssessment", "patientEducation", "patientEducation"]
+                                                ]
                                             },
                                             "physicalTherapy": {
                                                 "id": "physicalTherapy",
@@ -4341,103 +3866,77 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": {
-                                                            "actionButton": {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "advanceSearch": {
-                                                                "id": "advanceSearch",
-                                                                "status": "A",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            },
-                                                            "applicationHelp": {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            },
-                                                            "cancel": {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            },
-                                                            "create": {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            },
-                                                            "eye": {
+                                                        "buttons": [{
                                                                 "id": "eye",
                                                                 "status": "A",
                                                                 "label": "Record details",
                                                                 "icon": "DetailsIcon",
                                                                 "action": {}
-                                                            },
-                                                            "viewsButton": {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "globalShortcut": {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
-                                                            },
-                                                            "ok": {
+                                                            }, {
                                                                 "id": "ok",
                                                                 "status": "A",
                                                                 "label": "Confirm and continue",
                                                                 "icon": "OKIcon",
                                                                 "action": {}
-                                                            },
-                                                            "print": {
+                                                            }, {
                                                                 "id": "print",
                                                                 "status": "A",
                                                                 "label": "Print tool",
                                                                 "icon": "PrintIcon",
                                                                 "action": {}
-                                                            },
-                                                            "toolsCommonText": {
+                                                            }, {
+                                                                "id": "create",
+                                                                "status": "A",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "A",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "viewsButton",
+                                                                "status": "A",
+                                                                "label": "View modes",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "A",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "A",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
                                                                 "id": "toolsCommonText",
                                                                 "status": "A",
                                                                 "label": "Predefined texts",
                                                                 "icon": "CommonTextIcon",
                                                                 "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
                                                             }
-                                                        },
-                                                        "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                        ]
                                                     }
                                                 },
-                                                "buttons": {
-                                                    "proceduresMfr": {
-                                                        "id": "proceduresMfr",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.orderEntry.physicalTherapy.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "RehabPlan.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "rehabPlan": {
+                                                "buttons": [{
                                                         "id": "rehabPlan",
                                                         "status": "A",
                                                         "label": "",
@@ -4449,9 +3948,20 @@
                                                                 "id": "RehabTreatmentPlanView.swf"
                                                             }
                                                         }
+                                                    }, {
+                                                        "id": "proceduresMfr",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.orderEntry.physicalTherapy.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "RehabPlan.swf"
+                                                            }
+                                                        }
                                                     }
-                                                },
-                                                "buttonsPos": ["proceduresMfr", "rehabPlan", "rehabPlan"]
+                                                ]
                                             },
                                             "planningGroup": {
                                                 "id": "planningGroup",
@@ -4464,116 +3974,77 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": {
-                                                            "actionButton": {
-                                                                "id": "actionButton",
-                                                                "status": "I",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "advanceSearch": {
-                                                                "id": "advanceSearch",
-                                                                "status": "A",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            },
-                                                            "applicationHelp": {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            },
-                                                            "cancel": {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            },
-                                                            "create": {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            },
-                                                            "eye": {
+                                                        "buttons": [{
                                                                 "id": "eye",
                                                                 "status": "A",
                                                                 "label": "Record details",
                                                                 "icon": "DetailsIcon",
                                                                 "action": {}
-                                                            },
-                                                            "viewsButton": {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "globalShortcut": {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
-                                                            },
-                                                            "ok": {
+                                                            }, {
                                                                 "id": "ok",
                                                                 "status": "A",
                                                                 "label": "Confirm and continue",
                                                                 "icon": "OKIcon",
                                                                 "action": {}
-                                                            },
-                                                            "print": {
+                                                            }, {
                                                                 "id": "print",
                                                                 "status": "A",
                                                                 "label": "Print tool",
                                                                 "icon": "PrintIcon",
                                                                 "action": {}
-                                                            },
-                                                            "toolsCommonText": {
+                                                            }, {
+                                                                "id": "create",
+                                                                "status": "A",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "A",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "viewsButton",
+                                                                "status": "A",
+                                                                "label": "View modes",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "A",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "A",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
                                                                 "id": "toolsCommonText",
-                                                                "status": "I",
+                                                                "status": "A",
                                                                 "label": "Predefined texts",
                                                                 "icon": "CommonTextIcon",
                                                                 "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
                                                             }
-                                                        },
-                                                        "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                        ]
                                                     }
                                                 },
-                                                "buttons": {
-                                                    "carePlans": {
-                                                        "id": "carePlans",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.orderEntry.planningGroup.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "CarePlansList.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "guideline": {
-                                                        "id": "guideline",
-                                                        "status": "A",
-                                                        "label": "",
-                                                        "icon": "",
-                                                        "action": {
-                                                            "targetArea": "inpatient.patient.mainMenu.left.orderEntry.planningGroup.screen",
-                                                            "component": {
-                                                                "type": "SWF",
-                                                                "id": "GuidelinesSummary.swf"
-                                                            }
-                                                        }
-                                                    },
-                                                    "protocol": {
+                                                "buttons": [{
                                                         "id": "protocol",
                                                         "status": "A",
                                                         "label": "",
@@ -4585,74 +4056,35 @@
                                                                 "id": "ProtocolSummary.swf"
                                                             }
                                                         }
+                                                    }, {
+                                                        "id": "carePlans",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.orderEntry.planningGroup.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "CarePlansList.swf"
+                                                            }
+                                                        }
+                                                    }, {
+                                                        "id": "guideline",
+                                                        "status": "A",
+                                                        "label": "",
+                                                        "icon": "",
+                                                        "action": {
+                                                            "targetArea": "inpatient.patient.mainMenu.left.orderEntry.planningGroup.screen",
+                                                            "component": {
+                                                                "type": "SWF",
+                                                                "id": "GuidelinesSummary.swf"
+                                                            }
+                                                        }
                                                     }
-                                                },
-                                                "buttonsPos": ["carePlans", "guideline", "protocol"]
+                                                ]
                                             }
                                         },
-                                        "buttons": {
-                                            "cpoe": {
-                                                "id": "cpoe",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "CpoeGrid.swf"
-                                                    }
-                                                }
-                                            },
-                                            "orderSets": {
-                                                "id": "orderSets",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "OrderSetOngoing.swf"
-                                                    }
-                                                }
-                                            },
-                                            "depnvAnalisys": {
-                                                "id": "depnvAnalisys",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.depnvAnalisys"
-                                                }
-                                            },
-                                            "depnvImages": {
-                                                "id": "depnvImages",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "ImageList.swf"
-                                                    }
-                                                }
-                                            },
-                                            "depnvOtherExams": {
-                                                "id": "depnvOtherExams",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "ExamList.swf"
-                                                    }
-                                                }
-                                            },
-                                            "prescription": {
+                                        "buttons": [{
                                                 "id": "prescription",
                                                 "status": "A",
                                                 "label": "",
@@ -4664,43 +4096,7 @@
                                                         "id": "PrescViewAdminAndTasks.swf"
                                                     }
                                                 }
-                                            },
-                                            "pProcedures": {
-                                                "id": "pProcedures",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "ProceduresLoaderView.swf"
-                                                    }
-                                                }
-                                            },
-                                            "pEnsinosenfermagem": {
-                                                "id": "pEnsinosenfermagem",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.pEnsinosenfermagem"
-                                                }
-                                            },
-                                            "diets": {
-                                                "id": "diets",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "DietSummary.swf"
-                                                    }
-                                                }
-                                            },
-                                            "consultRequests": {
+                                            }, {
                                                 "id": "consultRequests",
                                                 "status": "A",
                                                 "label": "",
@@ -4712,8 +4108,7 @@
                                                         "id": "ParamedicalRequestList.swf"
                                                     }
                                                 }
-                                            },
-                                            "positioningInp": {
+                                            }, {
                                                 "id": "positioningInp",
                                                 "status": "A",
                                                 "label": "",
@@ -4725,26 +4120,7 @@
                                                         "id": "PositioningsList.swf"
                                                     }
                                                 }
-                                            },
-                                            "physicalTherapy": {
-                                                "id": "physicalTherapy",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.physicalTherapy"
-                                                }
-                                            },
-                                            "planningGroup": {
-                                                "id": "planningGroup",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.planningGroup"
-                                                }
-                                            },
-                                            "suppliesProcedures": {
+                                            }, {
                                                 "id": "suppliesProcedures",
                                                 "status": "A",
                                                 "label": "",
@@ -4756,9 +4132,112 @@
                                                         "id": "SuppliesList.swf"
                                                     }
                                                 }
+                                            }, {
+                                                "id": "planningGroup",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.planningGroup"
+                                                }
+                                            }, {
+                                                "id": "depnvAnalisys",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.depnvAnalisys"
+                                                }
+                                            }, {
+                                                "id": "depnvImages",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "ImageList.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "depnvOtherExams",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "ExamList.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "cpoe",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "CpoeGrid.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "pProcedures",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "ProceduresLoaderView.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "physicalTherapy",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.physicalTherapy"
+                                                }
+                                            }, {
+                                                "id": "orderSets",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "OrderSetOngoing.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "diets",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "DietSummary.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "pEnsinosenfermagem",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.orderEntry.pEnsinosenfermagem"
+                                                }
                                             }
-                                        },
-                                        "buttonsPos": ["cpoe", "orderSets", "depnvAnalisys", "depnvImages", "depnvOtherExams", "prescription", "pProcedures", "pEnsinosenfermagem", "diets", "consultRequests", "positioningInp", "physicalTherapy", "planningGroup", "suppliesProcedures"]
+                                        ]
                                     },
                                     "nurse": {
                                         "id": "nurse",
@@ -4771,97 +4250,83 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": {
-                                                    "actionButton": {
-                                                        "id": "actionButton",
-                                                        "status": "I",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "advanceSearch": {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    },
-                                                    "applicationHelp": {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    },
-                                                    "cancel": {
-                                                        "id": "cancel",
-                                                        "status": "I",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    },
-                                                    "create": {
-                                                        "id": "create",
-                                                        "status": "I",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    },
-                                                    "eye": {
+                                                "buttons": [{
                                                         "id": "eye",
                                                         "status": "A",
                                                         "label": "Record details",
                                                         "icon": "DetailsIcon",
                                                         "action": {}
-                                                    },
-                                                    "viewsButton": {
-                                                        "id": "viewsButton",
-                                                        "status": "A",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "globalShortcut": {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    },
-                                                    "noEdis": {
+                                                    }, {
                                                         "id": "noEdis",
                                                         "status": "A",
                                                         "label": "Negative for all discriminators on this page",
                                                         "icon": "NoIcon",
                                                         "action": {}
-                                                    },
-                                                    "ok": {
+                                                    }, {
                                                         "id": "ok",
                                                         "status": "I",
                                                         "label": "Confirm and continue",
                                                         "icon": "OKIcon",
                                                         "action": {}
-                                                    },
-                                                    "print": {
+                                                    }, {
                                                         "id": "print",
                                                         "status": "A",
                                                         "label": "Print tool",
                                                         "icon": "PrintIcon",
                                                         "action": {}
-                                                    },
-                                                    "toolsCommonText": {
+                                                    }, {
+                                                        "id": "create",
+                                                        "status": "I",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "I",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "viewsButton",
+                                                        "status": "A",
+                                                        "label": "View modes",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "advanceSearch",
+                                                        "status": "I",
+                                                        "label": "Advanced search",
+                                                        "icon": "AdvancedSearchIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "actionButton",
+                                                        "status": "I",
+                                                        "label": "Actions",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
                                                         "id": "toolsCommonText",
                                                         "status": "A",
                                                         "label": "Predefined texts",
                                                         "icon": "CommonTextIcon",
                                                         "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
                                                     }
-                                                },
-                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "noEdis", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                ]
                                             }
                                         },
-                                        "buttons": {
-                                            "nursingInitialAssessment": {
+                                        "buttons": [{
                                                 "id": "nursingInitialAssessment",
                                                 "status": "A",
                                                 "label": "",
@@ -4873,21 +4338,7 @@
                                                         "id": "NIASummary.swf"
                                                     }
                                                 }
-                                            },
-                                            "depnvNursingCarePlan": {
-                                                "id": "depnvNursingCarePlan",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.nurse.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "ICNPLoaderView.swf"
-                                                    }
-                                                }
-                                            },
-                                            "depnvVitalSign": {
+                                            }, {
                                                 "id": "depnvVitalSign",
                                                 "status": "A",
                                                 "label": "",
@@ -4899,60 +4350,7 @@
                                                         "id": "VitalSignsDetail.swf"
                                                     }
                                                 }
-                                            },
-                                            "biometric": {
-                                                "id": "biometric",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.nurse.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "BiometricRead.swf"
-                                                    }
-                                                }
-                                            },
-                                            "hidrics": {
-                                                "id": "hidrics",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.nurse.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "FluidBalanceRequestList.swf"
-                                                    }
-                                                }
-                                            },
-                                            "observacaoPeriodica": {
-                                                "id": "observacaoPeriodica",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.nurse.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "FlowSheetsLoaderViews.swf"
-                                                    }
-                                                }
-                                            },
-                                            "healthProgr": {
-                                                "id": "healthProgr",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.nurse.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "HealthProgramList.swf"
-                                                    }
-                                                }
-                                            },
-                                            "dischargeAltaEnfer": {
+                                            }, {
                                                 "id": "dischargeAltaEnfer",
                                                 "status": "A",
                                                 "label": "",
@@ -4964,9 +4362,68 @@
                                                         "id": "NursingDischarge.swf"
                                                     }
                                                 }
+                                            }, {
+                                                "id": "depnvNursingCarePlan",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.nurse.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "ICNPLoaderView.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "biometric",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.nurse.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "BiometricRead.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "observacaoPeriodica",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.nurse.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "FlowSheetsLoaderViews.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "healthProgr",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.nurse.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "HealthProgramList.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "hidrics",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.nurse.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "FluidBalanceRequestList.swf"
+                                                    }
+                                                }
                                             }
-                                        },
-                                        "buttonsPos": ["nursingInitialAssessment", "depnvNursingCarePlan", "depnvVitalSign", "biometric", "hidrics", "observacaoPeriodica", "healthProgr", "dischargeAltaEnfer"]
+                                        ]
                                     },
                                     "patientid": {
                                         "id": "patientid",
@@ -4979,90 +4436,77 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": {
-                                                    "actionButton": {
-                                                        "id": "actionButton",
-                                                        "status": "I",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "advanceSearch": {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    },
-                                                    "applicationHelp": {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    },
-                                                    "cancel": {
-                                                        "id": "cancel",
-                                                        "status": "I",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    },
-                                                    "create": {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    },
-                                                    "eye": {
+                                                "buttons": [{
                                                         "id": "eye",
-                                                        "status": "I",
+                                                        "status": "A",
                                                         "label": "Record details",
                                                         "icon": "DetailsIcon",
                                                         "action": {}
-                                                    },
-                                                    "globalShortcut": {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    },
-                                                    "ok": {
+                                                    }, {
                                                         "id": "ok",
                                                         "status": "A",
                                                         "label": "Confirm and continue",
                                                         "icon": "OKIcon",
                                                         "action": {}
-                                                    },
-                                                    "print": {
+                                                    }, {
                                                         "id": "print",
                                                         "status": "A",
                                                         "label": "Print tool",
                                                         "icon": "PrintIcon",
                                                         "action": {}
-                                                    },
-                                                    "toolsCommonText": {
-                                                        "id": "toolsCommonText",
-                                                        "status": "I",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
+                                                    }, {
+                                                        "id": "create",
+                                                        "status": "A",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
                                                         "action": {}
-                                                    },
-                                                    "viewsButton": {
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "A",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
                                                         "id": "viewsButton",
                                                         "status": "I",
                                                         "label": "View modes",
                                                         "icon": "",
                                                         "action": {}
+                                                    }, {
+                                                        "id": "advanceSearch",
+                                                        "status": "I",
+                                                        "label": "Advanced search",
+                                                        "icon": "AdvancedSearchIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "actionButton",
+                                                        "status": "A",
+                                                        "label": "Actions",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "toolsCommonText",
+                                                        "status": "A",
+                                                        "label": "Predefined texts",
+                                                        "icon": "CommonTextIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
                                                     }
-                                                },
-                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                ]
                                             }
                                         },
-                                        "buttons": {
-                                            "identificationIdentification": {
+                                        "buttons": [{
                                                 "id": "identificationIdentification",
                                                 "status": "A",
                                                 "label": "",
@@ -5074,99 +4518,7 @@
                                                         "id": "PatientAttributes.swf"
                                                     }
                                                 }
-                                            },
-                                            "subdeepnvAdministradorPhoto": {
-                                                "id": "subdeepnvAdministradorPhoto",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.patientid.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "PatientCapturePhotoDoctor.swf"
-                                                    }
-                                                }
-                                            },
-                                            "barcode": {
-                                                "id": "barcode",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.patientid.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "PrintPatientBarCode.swf"
-                                                    }
-                                                }
-                                            },
-                                            "identificationDocumentos": {
-                                                "id": "identificationDocumentos",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.patientid.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "DocumentsArchive.swf"
-                                                    }
-                                                }
-                                            },
-                                            "identificationPlanossaude": {
-                                                "id": "identificationPlanossaude",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.patientid.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "PatientHealthPlan.swf"
-                                                    }
-                                                }
-                                            },
-                                            "idArrivedByEdis": {
-                                                "id": "idArrivedByEdis",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.patientid.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "PatientArrivedBy.swf"
-                                                    }
-                                                }
-                                            },
-                                            "patientPortal": {
-                                                "id": "patientPortal",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.patientid.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "AdtPatientPortalAccess.swf"
-                                                    }
-                                                }
-                                            },
-                                            "advancedDirectives": {
-                                                "id": "advancedDirectives",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.patientid.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "AdvancedDirectivesSummary.swf"
-                                                    }
-                                                }
-                                            },
-                                            "identificationNecessidades": {
+                                            }, {
                                                 "id": "identificationNecessidades",
                                                 "status": "A",
                                                 "label": "",
@@ -5178,9 +4530,92 @@
                                                         "id": "PatientNeeds.swf"
                                                     }
                                                 }
+                                            }, {
+                                                "id": "subdeepnvAdministradorPhoto",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.patientid.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "PatientCapturePhotoDoctor.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "barcode",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.patientid.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "PrintPatientBarCode.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "identificationDocumentos",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.patientid.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "DocumentsArchive.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "identificationPlanossaude",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.patientid.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "PatientHealthPlan.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "idArrivedByEdis",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.patientid.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "PatientArrivedBy.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "patientPortal",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.patientid.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "AdtPatientPortalAccess.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "advancedDirectives",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.patientid.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "AdvancedDirectivesSummary.swf"
+                                                    }
+                                                }
                                             }
-                                        },
-                                        "buttonsPos": ["identificationIdentification", "subdeepnvAdministradorPhoto", "barcode", "identificationDocumentos", "identificationPlanossaude", "idArrivedByEdis", "patientPortal", "advancedDirectives", "identificationNecessidades"]
+                                        ]
                                     },
                                     "coding": {
                                         "id": "coding",
@@ -5193,97 +4628,83 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": {
-                                                    "actionButton": {
-                                                        "id": "actionButton",
-                                                        "status": "A",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "advanceSearch": {
-                                                        "id": "advanceSearch",
-                                                        "status": "A",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    },
-                                                    "applicationHelp": {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    },
-                                                    "cancel": {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    },
-                                                    "create": {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    },
-                                                    "eye": {
+                                                "buttons": [{
                                                         "id": "eye",
                                                         "status": "A",
                                                         "label": "Record details",
                                                         "icon": "DetailsIcon",
                                                         "action": {}
-                                                    },
-                                                    "viewsButton": {
-                                                        "id": "viewsButton",
-                                                        "status": "A",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "globalShortcut": {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    },
-                                                    "noEdis": {
+                                                    }, {
                                                         "id": "noEdis",
                                                         "status": "A",
                                                         "label": "Negative for all discriminators on this page",
                                                         "icon": "NoIcon",
                                                         "action": {}
-                                                    },
-                                                    "ok": {
+                                                    }, {
                                                         "id": "ok",
                                                         "status": "A",
                                                         "label": "Confirm and continue",
                                                         "icon": "OKIcon",
                                                         "action": {}
-                                                    },
-                                                    "print": {
+                                                    }, {
                                                         "id": "print",
                                                         "status": "A",
                                                         "label": "Print tool",
                                                         "icon": "PrintIcon",
                                                         "action": {}
-                                                    },
-                                                    "toolsCommonText": {
+                                                    }, {
+                                                        "id": "create",
+                                                        "status": "A",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "A",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "viewsButton",
+                                                        "status": "A",
+                                                        "label": "View modes",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "advanceSearch",
+                                                        "status": "A",
+                                                        "label": "Advanced search",
+                                                        "icon": "AdvancedSearchIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "actionButton",
+                                                        "status": "A",
+                                                        "label": "Actions",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
                                                         "id": "toolsCommonText",
                                                         "status": "A",
                                                         "label": "Predefined texts",
                                                         "icon": "CommonTextIcon",
                                                         "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
                                                     }
-                                                },
-                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "noEdis", "ok", "print", "toolsCommonText"]
+                                                ]
                                             }
                                         },
-                                        "buttons": {
-                                            "codingPage": {
+                                        "buttons": [{
                                                 "id": "codingPage",
                                                 "status": "A",
                                                 "label": "",
@@ -5296,8 +4717,7 @@
                                                     }
                                                 }
                                             }
-                                        },
-                                        "buttonsPos": ["codingPage"]
+                                        ]
                                     },
                                     "discharge": {
                                         "id": "discharge",
@@ -5310,100 +4730,86 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": {
-                                                    "actionButton": {
-                                                        "id": "actionButton",
-                                                        "status": "I",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "advanceSearch": {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    },
-                                                    "applicationHelp": {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    },
-                                                    "cancel": {
-                                                        "id": "cancel",
-                                                        "status": "I",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    },
-                                                    "create": {
-                                                        "id": "create",
-                                                        "status": "I",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    },
-                                                    "eye": {
+                                                "buttons": [{
                                                         "id": "eye",
-                                                        "status": "I",
+                                                        "status": "A",
                                                         "label": "Record details",
                                                         "icon": "DetailsIcon",
                                                         "action": {}
-                                                    },
-                                                    "globalShortcut": {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    },
-                                                    "ok": {
+                                                    }, {
                                                         "id": "ok",
                                                         "status": "A",
                                                         "label": "Confirm and continue",
                                                         "icon": "OKIcon",
                                                         "action": {}
-                                                    },
-                                                    "print": {
-                                                        "id": "print",
-                                                        "status": "A",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    },
-                                                    "toolsCommonText": {
-                                                        "id": "toolsCommonText",
-                                                        "status": "I",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
-                                                        "action": {}
-                                                    },
-                                                    "viewsButton": {
-                                                        "id": "viewsButton",
-                                                        "status": "A",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "infoButton": {
-                                                        "id": "infoButton",
-                                                        "status": "A",
-                                                        "label": "Infobutton",
-                                                        "icon": "InfoButtonIcon",
-                                                        "action": {}
-                                                    },
-                                                    "noEdis": {
+                                                    }, {
                                                         "id": "noEdis",
                                                         "status": "I",
                                                         "label": "Negative for all discriminators on this page",
                                                         "icon": "NoIcon",
                                                         "action": {}
+                                                    }, {
+                                                        "id": "print",
+                                                        "status": "A",
+                                                        "label": "Print tool",
+                                                        "icon": "PrintIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "create",
+                                                        "status": "A",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "A",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "viewsButton",
+                                                        "status": "A",
+                                                        "label": "View modes",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "advanceSearch",
+                                                        "status": "I",
+                                                        "label": "Advanced search",
+                                                        "icon": "AdvancedSearchIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "actionButton",
+                                                        "status": "A",
+                                                        "label": "Actions",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "infoButton",
+                                                        "status": "A",
+                                                        "label": "Infobutton",
+                                                        "icon": "InfoButtonIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "toolsCommonText",
+                                                        "status": "A",
+                                                        "label": "Predefined texts",
+                                                        "icon": "CommonTextIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
                                                     }
-                                                },
-                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "infoButton", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "noEdis", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "noEdis", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                ]
                                             },
                                             "futureEvents": {
                                                 "id": "futureEvents",
@@ -5416,90 +4822,77 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": {
-                                                            "actionButton": {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "advanceSearch": {
-                                                                "id": "advanceSearch",
-                                                                "status": "A",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            },
-                                                            "applicationHelp": {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            },
-                                                            "cancel": {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            },
-                                                            "create": {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            },
-                                                            "eye": {
+                                                        "buttons": [{
                                                                 "id": "eye",
                                                                 "status": "A",
                                                                 "label": "Record details",
                                                                 "icon": "DetailsIcon",
                                                                 "action": {}
-                                                            },
-                                                            "globalShortcut": {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
-                                                            },
-                                                            "ok": {
+                                                            }, {
                                                                 "id": "ok",
                                                                 "status": "A",
                                                                 "label": "Confirm and continue",
                                                                 "icon": "OKIcon",
                                                                 "action": {}
-                                                            },
-                                                            "print": {
+                                                            }, {
                                                                 "id": "print",
                                                                 "status": "A",
                                                                 "label": "Print tool",
                                                                 "icon": "PrintIcon",
                                                                 "action": {}
-                                                            },
-                                                            "toolsCommonText": {
-                                                                "id": "toolsCommonText",
+                                                            }, {
+                                                                "id": "create",
                                                                 "status": "A",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
                                                                 "action": {}
-                                                            },
-                                                            "viewsButton": {
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "A",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
                                                                 "id": "viewsButton",
                                                                 "status": "A",
                                                                 "label": "View modes",
                                                                 "icon": "",
                                                                 "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "A",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "A",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "toolsCommonText",
+                                                                "status": "A",
+                                                                "label": "Predefined texts",
+                                                                "icon": "CommonTextIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
                                                             }
-                                                        },
-                                                        "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                        ]
                                                     }
                                                 },
-                                                "buttons": {
-                                                    "p1DepnavSummary": {
+                                                "buttons": [{
                                                         "id": "p1DepnavSummary",
                                                         "status": "A",
                                                         "label": "",
@@ -5511,8 +4904,7 @@
                                                                 "id": "P1GridDoctorPat.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "futureEvents": {
+                                                    }, {
                                                         "id": "futureEvents",
                                                         "status": "A",
                                                         "label": "",
@@ -5524,8 +4916,7 @@
                                                                 "id": "FutureEventsList.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "surgProcCreation": {
+                                                    }, {
                                                         "id": "surgProcCreation",
                                                         "status": "A",
                                                         "label": "",
@@ -5537,8 +4928,7 @@
                                                                 "id": "SurgicalEpisodeLoader.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "inpatientEpisodes": {
+                                                    }, {
                                                         "id": "inpatientEpisodes",
                                                         "status": "A",
                                                         "label": "",
@@ -5551,12 +4941,10 @@
                                                             }
                                                         }
                                                     }
-                                                },
-                                                "buttonsPos": ["p1DepnavSummary", "futureEvents", "surgProcCreation", "inpatientEpisodes"]
+                                                ]
                                             }
                                         },
-                                        "buttons": {
-                                            "dischargeDiagSaida": {
+                                        "buttons": [{
                                                 "id": "dischargeDiagSaida",
                                                 "status": "A",
                                                 "label": "",
@@ -5568,69 +4956,7 @@
                                                         "id": "DiagnosisFinalList.swf"
                                                     }
                                                 }
-                                            },
-                                            "dischargeReceita": {
-                                                "id": "dischargeReceita",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.discharge.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "PrescViewAdminAndTasks.swf"
-                                                    }
-                                                }
-                                            },
-                                            "futureEvents": {
-                                                "id": "futureEvents",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.discharge.futureEvents"
-                                                }
-                                            },
-                                            "dischargeRecDoente": {
-                                                "id": "dischargeRecDoente",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.discharge.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "RecommendPatientNotes.swf"
-                                                    }
-                                                }
-                                            },
-                                            "dischargeRecMedico": {
-                                                "id": "dischargeRecMedico",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.discharge.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "DischargeDoctorSummary.swf"
-                                                    }
-                                                }
-                                            },
-                                            "formulaires": {
-                                                "id": "formulaires",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.discharge.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "CitsCerfas.swf"
-                                                    }
-                                                }
-                                            },
-                                            "coSign": {
+                                            }, {
                                                 "id": "coSign",
                                                 "status": "A",
                                                 "label": "",
@@ -5642,21 +4968,7 @@
                                                         "id": "CoSignTaskList.swf"
                                                     }
                                                 }
-                                            },
-                                            "deathRegistry": {
-                                                "id": "deathRegistry",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.discharge.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "DeathRegistrySummary.swf"
-                                                    }
-                                                }
-                                            },
-                                            "usDisposition": {
+                                            }, {
                                                 "id": "usDisposition",
                                                 "status": "A",
                                                 "label": "",
@@ -5668,8 +4980,7 @@
                                                         "id": "USDispositionSummary.swf"
                                                     }
                                                 }
-                                            },
-                                            "signoff": {
+                                            }, {
                                                 "id": "signoff",
                                                 "status": "A",
                                                 "label": "",
@@ -5681,8 +4992,7 @@
                                                         "id": "SignOff.swf"
                                                     }
                                                 }
-                                            },
-                                            "phyDischargeNotes": {
+                                            }, {
                                                 "id": "phyDischargeNotes",
                                                 "status": "A",
                                                 "label": "",
@@ -5694,8 +5004,31 @@
                                                         "id": "DSSummary.swf"
                                                     }
                                                 }
-                                            },
-                                            "summaryInp": {
+                                            }, {
+                                                "id": "dischargeReceita",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.discharge.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "PrescViewAdminAndTasks.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "deathRegistry",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.discharge.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "DeathRegistrySummary.swf"
+                                                    }
+                                                }
+                                            }, {
                                                 "id": "summaryInp",
                                                 "status": "A",
                                                 "label": "",
@@ -5707,9 +5040,52 @@
                                                         "id": "INPSummary.swf"
                                                     }
                                                 }
+                                            }, {
+                                                "id": "futureEvents",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.discharge.futureEvents"
+                                                }
+                                            }, {
+                                                "id": "dischargeRecDoente",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.discharge.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "RecommendPatientNotes.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "dischargeRecMedico",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.discharge.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "DischargeDoctorSummary.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "formulaires",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.discharge.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "CitsCerfas.swf"
+                                                    }
+                                                }
                                             }
-                                        },
-                                        "buttonsPos": ["dischargeDiagSaida", "dischargeReceita", "futureEvents", "dischargeRecDoente", "dischargeRecMedico", "formulaires", "coSign", "deathRegistry", "usDisposition", "signoff", "phyDischargeNotes", "summaryInp"]
+                                        ]
                                     },
                                     "patientManagement": {
                                         "id": "patientManagement",
@@ -5722,93 +5098,80 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": {
-                                                    "actionButton": {
-                                                        "id": "actionButton",
-                                                        "status": "A",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "advanceSearch": {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    },
-                                                    "applicationHelp": {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    },
-                                                    "cancel": {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    },
-                                                    "create": {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    },
-                                                    "eye": {
+                                                "buttons": [{
                                                         "id": "eye",
                                                         "status": "A",
                                                         "label": "Record details",
                                                         "icon": "DetailsIcon",
                                                         "action": {}
-                                                    },
-                                                    "viewsButton": {
-                                                        "id": "viewsButton",
-                                                        "status": "A",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "globalShortcut": {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    },
-                                                    "noEdis": {
+                                                    }, {
                                                         "id": "noEdis",
                                                         "status": "A",
                                                         "label": "Negative for all discriminators on this page",
                                                         "icon": "NoIcon",
                                                         "action": {}
-                                                    },
-                                                    "ok": {
+                                                    }, {
                                                         "id": "ok",
                                                         "status": "A",
                                                         "label": "Confirm and continue",
                                                         "icon": "OKIcon",
                                                         "action": {}
-                                                    },
-                                                    "print": {
+                                                    }, {
                                                         "id": "print",
                                                         "status": "A",
                                                         "label": "Print tool",
                                                         "icon": "PrintIcon",
                                                         "action": {}
-                                                    },
-                                                    "toolsCommonText": {
+                                                    }, {
+                                                        "id": "create",
+                                                        "status": "A",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "A",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "viewsButton",
+                                                        "status": "A",
+                                                        "label": "View modes",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "advanceSearch",
+                                                        "status": "A",
+                                                        "label": "Advanced search",
+                                                        "icon": "AdvancedSearchIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "actionButton",
+                                                        "status": "A",
+                                                        "label": "Actions",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
                                                         "id": "toolsCommonText",
                                                         "status": "A",
                                                         "label": "Predefined texts",
                                                         "icon": "CommonTextIcon",
                                                         "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
                                                     }
-                                                },
-                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "noEdis", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "noEdis", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                ]
                                             },
                                             "pendingIssue": {
                                                 "id": "pendingIssue",
@@ -5821,90 +5184,77 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": {
-                                                            "actionButton": {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "advanceSearch": {
-                                                                "id": "advanceSearch",
-                                                                "status": "I",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            },
-                                                            "applicationHelp": {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            },
-                                                            "cancel": {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            },
-                                                            "create": {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            },
-                                                            "eye": {
+                                                        "buttons": [{
                                                                 "id": "eye",
                                                                 "status": "I",
                                                                 "label": "Record details",
                                                                 "icon": "DetailsIcon",
                                                                 "action": {}
-                                                            },
-                                                            "viewsButton": {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "globalShortcut": {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
-                                                            },
-                                                            "ok": {
+                                                            }, {
                                                                 "id": "ok",
                                                                 "status": "A",
                                                                 "label": "Confirm and continue",
                                                                 "icon": "OKIcon",
                                                                 "action": {}
-                                                            },
-                                                            "print": {
+                                                            }, {
                                                                 "id": "print",
                                                                 "status": "A",
                                                                 "label": "Print tool",
                                                                 "icon": "PrintIcon",
                                                                 "action": {}
-                                                            },
-                                                            "toolsCommonText": {
+                                                            }, {
+                                                                "id": "create",
+                                                                "status": "A",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "A",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "viewsButton",
+                                                                "status": "A",
+                                                                "label": "View modes",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "I",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "A",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
                                                                 "id": "toolsCommonText",
                                                                 "status": "I",
                                                                 "label": "Predefined texts",
                                                                 "icon": "CommonTextIcon",
                                                                 "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
                                                             }
-                                                        },
-                                                        "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                        ]
                                                     }
                                                 },
-                                                "buttons": {
-                                                    "myPendingIssue": {
+                                                "buttons": [{
                                                         "id": "myPendingIssue",
                                                         "status": "A",
                                                         "label": "",
@@ -5916,8 +5266,7 @@
                                                                 "id": "MyPendingIssues.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "allPendingIssue": {
+                                                    }, {
                                                         "id": "allPendingIssue",
                                                         "status": "A",
                                                         "label": "",
@@ -5930,12 +5279,10 @@
                                                             }
                                                         }
                                                     }
-                                                },
-                                                "buttonsPos": ["myPendingIssue", "allPendingIssue"]
+                                                ]
                                             }
                                         },
-                                        "buttons": {
-                                            "patientTransfers": {
+                                        "buttons": [{
                                                 "id": "patientTransfers",
                                                 "status": "A",
                                                 "label": "",
@@ -5947,108 +5294,7 @@
                                                         "id": "ServiceTransferListPat.swf"
                                                     }
                                                 }
-                                            },
-                                            "physicianHandOffEdis": {
-                                                "id": "physicianHandOffEdis",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "HandOffListPhysician.swf"
-                                                    }
-                                                }
-                                            },
-                                            "nurseHandOffEdis": {
-                                                "id": "nurseHandOffEdis",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "HandOffListNurse.swf"
-                                                    }
-                                                }
-                                            },
-                                            "medicalTeams": {
-                                                "id": "medicalTeams",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "HandOffListTeams.swf"
-                                                    }
-                                                }
-                                            },
-                                            "transferInstitution": {
-                                                "id": "transferInstitution",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "TransferInstitutionGrid.swf"
-                                                    }
-                                                }
-                                            },
-                                            "transportationTransportes": {
-                                                "id": "transportationTransportes",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "Movements.swf"
-                                                    }
-                                                }
-                                            },
-                                            "transportationDesvio": {
-                                                "id": "transportationDesvio",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "NewDetour.swf"
-                                                    }
-                                                }
-                                            },
-                                            "allocateBedInp": {
-                                                "id": "allocateBedInp",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "BedAssigmentLoader.swf"
-                                                    }
-                                                }
-                                            },
-                                            "pendingIssue": {
-                                                "id": "pendingIssue",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.pendingIssue"
-                                                }
-                                            },
-                                            "idBelongingsEdis": {
+                                            }, {
                                                 "id": "idBelongingsEdis",
                                                 "status": "A",
                                                 "label": "",
@@ -6060,9 +5306,100 @@
                                                         "id": "PatientBelongings.swf"
                                                     }
                                                 }
+                                            }, {
+                                                "id": "physicianHandOffEdis",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "HandOffListPhysician.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "nurseHandOffEdis",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "HandOffListNurse.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "medicalTeams",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "HandOffListTeams.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "transferInstitution",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "TransferInstitutionGrid.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "transportationTransportes",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "Movements.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "transportationDesvio",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "NewDetour.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "allocateBedInp",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "BedAssigmentLoader.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "pendingIssue",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.patient.mainMenu.left.patientManagement.pendingIssue"
+                                                }
                                             }
-                                        },
-                                        "buttonsPos": ["patientTransfers", "physicianHandOffEdis", "nurseHandOffEdis", "medicalTeams", "transferInstitution", "transportationTransportes", "transportationTransportes", "transportationDesvio", "allocateBedInp", "pendingIssue", "idBelongingsEdis"]
+                                        ]
                                     },
                                     "pregnancyButton": {
                                         "id": "pregnancyButton",
@@ -6075,83 +5412,71 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": {
-                                                    "actionButton": {
-                                                        "id": "actionButton",
-                                                        "status": "A",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "advanceSearch": {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    },
-                                                    "applicationHelp": {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    },
-                                                    "cancel": {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    },
-                                                    "create": {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    },
-                                                    "eye": {
+                                                "buttons": [{
                                                         "id": "eye",
                                                         "status": "A",
                                                         "label": "Record details",
                                                         "icon": "DetailsIcon",
                                                         "action": {}
-                                                    },
-                                                    "globalShortcut": {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    },
-                                                    "ok": {
+                                                    }, {
                                                         "id": "ok",
                                                         "status": "A",
                                                         "label": "Confirm and continue",
                                                         "icon": "OKIcon",
                                                         "action": {}
-                                                    },
-                                                    "print": {
+                                                    }, {
                                                         "id": "print",
                                                         "status": "A",
                                                         "label": "Print tool",
                                                         "icon": "PrintIcon",
                                                         "action": {}
-                                                    },
-                                                    "toolsCommonText": {
+                                                    }, {
+                                                        "id": "create",
+                                                        "status": "A",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "A",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "advanceSearch",
+                                                        "status": "I",
+                                                        "label": "Advanced search",
+                                                        "icon": "AdvancedSearchIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "actionButton",
+                                                        "status": "A",
+                                                        "label": "Actions",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
                                                         "id": "toolsCommonText",
                                                         "status": "A",
                                                         "label": "Predefined texts",
                                                         "icon": "CommonTextIcon",
                                                         "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
                                                     }
-                                                },
-                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                ]
                                             }
                                         },
-                                        "buttons": {
-                                            "pregnancyList": {
+                                        "buttons": [{
                                                 "id": "pregnancyList",
                                                 "status": "A",
                                                 "label": "",
@@ -6164,8 +5489,7 @@
                                                     }
                                                 }
                                             }
-                                        },
-                                        "buttonsPos": ["pregnancyList"]
+                                        ]
                                     },
                                     "checklistFrontoffice": {
                                         "id": "checklistFrontoffice",
@@ -6178,90 +5502,77 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": {
-                                                    "actionButton": {
-                                                        "id": "actionButton",
-                                                        "status": "A",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "advanceSearch": {
-                                                        "id": "advanceSearch",
-                                                        "status": "A",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    },
-                                                    "applicationHelp": {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    },
-                                                    "cancel": {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    },
-                                                    "create": {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    },
-                                                    "eye": {
+                                                "buttons": [{
                                                         "id": "eye",
                                                         "status": "A",
                                                         "label": "Record details",
                                                         "icon": "DetailsIcon",
                                                         "action": {}
-                                                    },
-                                                    "viewsButton": {
-                                                        "id": "viewsButton",
-                                                        "status": "I",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "globalShortcut": {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    },
-                                                    "ok": {
+                                                    }, {
                                                         "id": "ok",
                                                         "status": "A",
                                                         "label": "Confirm and continue",
                                                         "icon": "OKIcon",
                                                         "action": {}
-                                                    },
-                                                    "print": {
+                                                    }, {
                                                         "id": "print",
                                                         "status": "A",
                                                         "label": "Print tool",
                                                         "icon": "PrintIcon",
                                                         "action": {}
-                                                    },
-                                                    "toolsCommonText": {
+                                                    }, {
+                                                        "id": "create",
+                                                        "status": "A",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "A",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "viewsButton",
+                                                        "status": "I",
+                                                        "label": "View modes",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "advanceSearch",
+                                                        "status": "A",
+                                                        "label": "Advanced search",
+                                                        "icon": "AdvancedSearchIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "actionButton",
+                                                        "status": "A",
+                                                        "label": "Actions",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
                                                         "id": "toolsCommonText",
                                                         "status": "I",
                                                         "label": "Predefined texts",
                                                         "icon": "CommonTextIcon",
                                                         "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
                                                     }
-                                                },
-                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                ]
                                             }
                                         },
-                                        "buttons": {
-                                            "frontofficeChecklist": {
+                                        "buttons": [{
                                                 "id": "frontofficeChecklist",
                                                 "status": "A",
                                                 "label": "",
@@ -6274,12 +5585,10 @@
                                                     }
                                                 }
                                             }
-                                        },
-                                        "buttonsPos": ["frontofficeChecklist"]
+                                        ]
                                     }
                                 },
-                                "buttons": {
-                                    "ehr": {
+                                "buttons": [{
                                         "id": "ehr",
                                         "status": "A",
                                         "label": "Electronic health record",
@@ -6287,8 +5596,7 @@
                                         "action": {
                                             "targetArea": "inpatient.patient.mainMenu.left.ehr"
                                         }
-                                    },
-                                    "clinicalInfoIcon": {
+                                    }, {
                                         "id": "clinicalInfoIcon",
                                         "status": "A",
                                         "label": "Documentation",
@@ -6296,42 +5604,7 @@
                                         "action": {
                                             "targetArea": "inpatient.patient.mainMenu.left.clinicalInfoIcon"
                                         }
-                                    },
-                                    "pdms": {
-                                        "id": "pdms",
-                                        "status": "A",
-                                        "label": "Patient Data Management System",
-                                        "icon": "PDMSIcon",
-                                        "action": {}
-                                    },
-                                    "orderEntry": {
-                                        "id": "orderEntry",
-                                        "status": "A",
-                                        "label": "Orders",
-                                        "icon": "OrderEntryIcon",
-                                        "action": {
-                                            "targetArea": "inpatient.patient.mainMenu.left.orderEntry"
-                                        }
-                                    },
-                                    "nurse": {
-                                        "id": "nurse",
-                                        "status": "A",
-                                        "label": "Nursing process",
-                                        "icon": "NurseIcon",
-                                        "action": {
-                                            "targetArea": "inpatient.patient.mainMenu.left.nurse"
-                                        }
-                                    },
-                                    "patientid": {
-                                        "id": "patientid",
-                                        "status": "A",
-                                        "label": "Patient identification",
-                                        "icon": "PatientIDNewIcon",
-                                        "action": {
-                                            "targetArea": "inpatient.patient.mainMenu.left.patientid"
-                                        }
-                                    },
-                                    "coding": {
+                                    }, {
                                         "id": "coding",
                                         "status": "A",
                                         "label": "Coding",
@@ -6339,8 +5612,7 @@
                                         "action": {
                                             "targetArea": "inpatient.patient.mainMenu.left.coding"
                                         }
-                                    },
-                                    "discharge": {
+                                    }, {
                                         "id": "discharge",
                                         "status": "A",
                                         "label": "Discharge",
@@ -6348,8 +5620,7 @@
                                         "action": {
                                             "targetArea": "inpatient.patient.mainMenu.left.discharge"
                                         }
-                                    },
-                                    "agenda": {
+                                    }, {
                                         "id": "agenda",
                                         "status": "A",
                                         "label": "Scheduler",
@@ -6361,8 +5632,7 @@
                                                 "id": "CalendarMonthOverview.swf"
                                             }
                                         }
-                                    },
-                                    "patientManagement": {
+                                    }, {
                                         "id": "patientManagement",
                                         "status": "A",
                                         "label": "Patient management",
@@ -6370,8 +5640,7 @@
                                         "action": {
                                             "targetArea": "inpatient.patient.mainMenu.left.patientManagement"
                                         }
-                                    },
-                                    "pregnancyButton": {
+                                    }, {
                                         "id": "pregnancyButton",
                                         "status": "A",
                                         "label": "Pregnancy record",
@@ -6379,8 +5648,21 @@
                                         "action": {
                                             "targetArea": "inpatient.patient.mainMenu.left.pregnancyButton"
                                         }
-                                    },
-                                    "checklistFrontoffice": {
+                                    }, {
+                                        "id": "pdms",
+                                        "status": "A",
+                                        "label": "Patient Data Management System",
+                                        "icon": "PDMSIcon",
+                                        "action": {}
+                                    }, {
+                                        "id": "orderEntry",
+                                        "status": "A",
+                                        "label": "Orders",
+                                        "icon": "OrderEntryIcon",
+                                        "action": {
+                                            "targetArea": "inpatient.patient.mainMenu.left.orderEntry"
+                                        }
+                                    }, {
                                         "id": "checklistFrontoffice",
                                         "status": "A",
                                         "label": "Checklists",
@@ -6388,9 +5670,24 @@
                                         "action": {
                                             "targetArea": "inpatient.patient.mainMenu.left.checklistFrontoffice"
                                         }
+                                    }, {
+                                        "id": "nurse",
+                                        "status": "A",
+                                        "label": "Nursing process",
+                                        "icon": "NurseIcon",
+                                        "action": {
+                                            "targetArea": "inpatient.patient.mainMenu.left.nurse"
+                                        }
+                                    }, {
+                                        "id": "patientid",
+                                        "status": "A",
+                                        "label": "Patient identification",
+                                        "icon": "PatientIDNewIcon",
+                                        "action": {
+                                            "targetArea": "inpatient.patient.mainMenu.left.patientid"
+                                        }
                                     }
-                                },
-                                "buttonsPos": ["ehr", "clinicalInfoIcon", "pdms", "orderEntry", "nurse", "patientid", "coding", "discharge", "agenda", "patientManagement", "pregnancyButton", "checklistFrontoffice"]
+                                ]
                             }
                         }
                     },
@@ -6399,32 +5696,28 @@
                         "description": "Personal settings area",
                         "pos": 6,
                         "type": "headerLeft",
-                        "buttons": {
-                            "reset": {
+                        "buttons": [{
                                 "id": "reset",
                                 "status": "A",
                                 "label": "Go back to patient area",
                                 "icon": "RestartIcon",
                                 "action": {}
                             }
-                        },
-                        "buttonsPos": ["reset"]
+                        ]
                     },
                     "actionMenuRight": {
                         "id": "actionMenuRight",
                         "description": "Ok area",
                         "pos": 7,
                         "type": "actionMenuRight",
-                        "buttons": {
-                            "ok": {
+                        "buttons": [{
                                 "id": "ok",
                                 "status": "A",
                                 "label": "Confirm/proceed",
                                 "icon": "OKIcon",
                                 "action": {}
                             }
-                        },
-                        "buttonsPos": ["ok"]
+                        ]
                     },
                     "mainMenuLeft": {
                         "id": "mainMenuLeft",
@@ -6437,83 +5730,71 @@
                                 "description": "Screen",
                                 "pos": 12,
                                 "type": "screen",
-                                "buttons": {
-                                    "actionButton": {
-                                        "id": "actionButton",
-                                        "status": "I",
-                                        "label": "Actions",
-                                        "icon": "",
-                                        "action": {}
-                                    },
-                                    "advanceSearch": {
-                                        "id": "advanceSearch",
-                                        "status": "I",
-                                        "label": "Advanced search",
-                                        "icon": "AdvancedSearchIcon",
-                                        "action": {}
-                                    },
-                                    "applicationHelp": {
-                                        "id": "applicationHelp",
-                                        "status": "A",
-                                        "label": "Help",
-                                        "icon": "HelpIcon",
-                                        "action": {}
-                                    },
-                                    "cancel": {
-                                        "id": "cancel",
-                                        "status": "I",
-                                        "label": "Cancel records",
-                                        "icon": "CancelIcon",
-                                        "action": {}
-                                    },
-                                    "create": {
-                                        "id": "create",
-                                        "status": "I",
-                                        "label": "Add or edit records",
-                                        "icon": "AddIcon",
-                                        "action": {}
-                                    },
-                                    "eye": {
+                                "buttons": [{
                                         "id": "eye",
                                         "status": "A",
                                         "label": "Record details",
                                         "icon": "DetailsIcon",
                                         "action": {}
-                                    },
-                                    "globalShortcut": {
-                                        "id": "globalShortcut",
-                                        "status": "A",
-                                        "label": "Shortcuts",
-                                        "icon": "GlobalShortcutIcon",
-                                        "action": {}
-                                    },
-                                    "ok": {
+                                    }, {
                                         "id": "ok",
                                         "status": "A",
                                         "label": "Confirm and continue",
                                         "icon": "OKIcon",
                                         "action": {}
-                                    },
-                                    "print": {
+                                    }, {
                                         "id": "print",
                                         "status": "I",
                                         "label": "Print tool",
                                         "icon": "PrintIcon",
                                         "action": {}
-                                    },
-                                    "toolsCommonText": {
+                                    }, {
+                                        "id": "create",
+                                        "status": "I",
+                                        "label": "Add or edit records",
+                                        "icon": "AddIcon",
+                                        "action": {}
+                                    }, {
+                                        "id": "cancel",
+                                        "status": "I",
+                                        "label": "Cancel records",
+                                        "icon": "CancelIcon",
+                                        "action": {}
+                                    }, {
+                                        "id": "advanceSearch",
+                                        "status": "I",
+                                        "label": "Advanced search",
+                                        "icon": "AdvancedSearchIcon",
+                                        "action": {}
+                                    }, {
+                                        "id": "actionButton",
+                                        "status": "I",
+                                        "label": "Actions",
+                                        "icon": "",
+                                        "action": {}
+                                    }, {
+                                        "id": "applicationHelp",
+                                        "status": "A",
+                                        "label": "Help",
+                                        "icon": "HelpIcon",
+                                        "action": {}
+                                    }, {
                                         "id": "toolsCommonText",
                                         "status": "I",
                                         "label": "Predefined texts",
                                         "icon": "CommonTextIcon",
                                         "action": {}
+                                    }, {
+                                        "id": "globalShortcut",
+                                        "status": "A",
+                                        "label": "Shortcuts",
+                                        "icon": "GlobalShortcutIcon",
+                                        "action": {}
                                     }
-                                },
-                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                ]
                             }
                         },
-                        "buttons": {
-                            "alert": {
+                        "buttons": [{
                                 "id": "alert",
                                 "status": "A",
                                 "label": "Alert messages",
@@ -6526,8 +5807,7 @@
                                     }
                                 }
                             }
-                        },
-                        "buttonsPos": ["alert"]
+                        ]
                     },
                     "actionMenu": {
                         "id": "actionMenu",
@@ -6540,137 +5820,118 @@
                                 "description": "Bottom menu left",
                                 "pos": 10,
                                 "type": "actionMenu",
-                                "buttons": {
-                                    "print": {
+                                "buttons": [{
                                         "id": "print",
                                         "status": "A",
                                         "label": "Print",
                                         "icon": "PrintIcon",
                                         "action": {}
-                                    },
-                                    "create": {
+                                    }, {
                                         "id": "create",
                                         "status": "A",
                                         "label": "Add",
                                         "icon": "AddIcon",
                                         "action": {}
-                                    },
-                                    "advanceSearchIcon": {
+                                    }, {
                                         "id": "advanceSearchIcon",
                                         "status": "A",
                                         "label": "Advanced search",
                                         "icon": "AdvancedSearchIcon",
                                         "action": {}
-                                    },
-                                    "cancel": {
+                                    }, {
                                         "id": "cancel",
                                         "status": "A",
                                         "label": "Cancel",
                                         "icon": "CancelIcon",
                                         "action": {}
-                                    },
-                                    "toolsCommontext": {
+                                    }, {
                                         "id": "toolsCommontext",
                                         "status": "A",
                                         "label": "Most frequent texts",
                                         "icon": "CommonTextIcon",
                                         "action": {}
-                                    },
-                                    "actionButton": {
+                                    }, {
                                         "id": "actionButton",
                                         "status": "A",
                                         "label": "Actions",
                                         "icon": "ActionsIcon",
                                         "action": {}
-                                    },
-                                    "viewsButton": {
+                                    }, {
                                         "id": "viewsButton",
                                         "status": "A",
                                         "label": "Views",
                                         "icon": "ViewsIcon",
                                         "action": {}
-                                    },
-                                    "firstView": {
+                                    }, {
                                         "id": "firstView",
                                         "status": "A",
                                         "label": "First view",
                                         "icon": "FirstVisionIcon",
                                         "action": {}
-                                    },
-                                    "barListEdis": {
+                                    }, {
                                         "id": "barListEdis",
                                         "status": "A",
                                         "label": "List view",
                                         "icon": "ListIcon",
                                         "action": {}
-                                    },
-                                    "secondView": {
+                                    }, {
                                         "id": "secondView",
                                         "status": "A",
                                         "label": "Second view",
                                         "icon": "SecondVisionIcon",
                                         "action": {}
-                                    },
-                                    "chartLinesEdis": {
+                                    }, {
                                         "id": "chartLinesEdis",
                                         "status": "A",
                                         "label": "Graphic view",
                                         "icon": "ChartsLinesIcon",
                                         "action": {}
-                                    },
-                                    "docImport": {
+                                    }, {
                                         "id": "docImport",
                                         "status": "A",
                                         "label": "Import documents",
                                         "icon": "ImportDocIcon",
                                         "action": {}
                                     }
-                                },
-                                "buttonsPos": ["print", "create", "advanceSearchIcon", "cancel", "toolsCommontext", "actionButton", "viewsButton", "firstView", "barListEdis", "secondView", "chartLinesEdis", "docImport"]
+                                ]
                             },
                             "right": {
                                 "id": "right",
                                 "description": "Bottom menu right",
                                 "pos": 11,
                                 "type": "actionMenu",
-                                "buttons": {
-                                    "eye": {
+                                "buttons": [{
                                         "id": "eye",
                                         "status": "A",
                                         "label": "Details",
                                         "icon": "DetailsIcon",
                                         "action": {}
-                                    },
-                                    "contextHelp": {
+                                    }, {
                                         "id": "contextHelp",
                                         "status": "A",
                                         "label": "Clinical context help",
                                         "icon": "ContentIcon",
                                         "action": {}
-                                    },
-                                    "infoButton": {
+                                    }, {
                                         "id": "infoButton",
                                         "status": "A",
                                         "label": "Infobutton",
                                         "icon": "InfoButtonIcon",
                                         "action": {}
-                                    },
-                                    "applicationHelp": {
+                                    }, {
                                         "id": "applicationHelp",
                                         "status": "A",
                                         "label": "Functionality help",
                                         "icon": "HelpIcon",
                                         "action": {}
-                                    },
-                                    "globalShortcut": {
+                                    }, {
                                         "id": "globalShortcut",
                                         "status": "A",
                                         "label": "Shortcuts",
                                         "icon": "GlobalShortcutIcon",
                                         "action": {}
                                     }
-                                },
-                                "buttonsPos": ["eye", "contextHelp", "infoButton", "applicationHelp", "globalShortcut"]
+                                ]
                             }
                         }
                     }
@@ -6687,32 +5948,28 @@
                         "description": "Logout button area",
                         "pos": 1,
                         "type": "headerRight",
-                        "buttons": {
-                            "logout": {
+                        "buttons": [{
                                 "id": "logout",
                                 "status": "A",
                                 "label": "Exit application",
                                 "icon": "ExitIcon",
                                 "action": {}
                             }
-                        },
-                        "buttonsPos": ["logout"]
+                        ]
                     },
                     "actionMenuLeft": {
                         "id": "actionMenuLeft",
                         "description": "Back button area",
                         "pos": 2,
                         "type": "actionMenuLeft",
-                        "buttons": {
-                            "back": {
+                        "buttons": [{
                                 "id": "back",
                                 "status": "A",
                                 "label": "Go back",
                                 "icon": "BackIcon",
                                 "action": {}
                             }
-                        },
-                        "buttonsPos": ["back"]
+                        ]
                     },
                     "mainMenu": {
                         "id": "mainMenu",
@@ -6737,97 +5994,83 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": {
-                                                    "actionButton": {
-                                                        "id": "actionButton",
-                                                        "status": "I",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "advanceSearch": {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    },
-                                                    "applicationHelp": {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    },
-                                                    "cancel": {
-                                                        "id": "cancel",
-                                                        "status": "I",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    },
-                                                    "create": {
-                                                        "id": "create",
-                                                        "status": "I",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    },
-                                                    "eye": {
+                                                "buttons": [{
                                                         "id": "eye",
                                                         "status": "I",
                                                         "label": "Record details",
                                                         "icon": "DetailsIcon",
                                                         "action": {}
-                                                    },
-                                                    "viewsButton": {
-                                                        "id": "viewsButton",
-                                                        "status": "I",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "globalShortcut": {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    },
-                                                    "ok": {
+                                                    }, {
                                                         "id": "ok",
-                                                        "status": "I",
+                                                        "status": "A",
                                                         "label": "Confirm and continue",
                                                         "icon": "OKIcon",
                                                         "action": {}
-                                                    },
-                                                    "print": {
-                                                        "id": "print",
-                                                        "status": "I",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    },
-                                                    "noEdis": {
+                                                    }, {
                                                         "id": "noEdis",
                                                         "status": "I",
                                                         "label": "Negative for all discriminators on this page",
                                                         "icon": "NoIcon",
                                                         "action": {}
-                                                    },
-                                                    "toolsCommonText": {
+                                                    }, {
+                                                        "id": "print",
+                                                        "status": "I",
+                                                        "label": "Print tool",
+                                                        "icon": "PrintIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "create",
+                                                        "status": "I",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "I",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "viewsButton",
+                                                        "status": "I",
+                                                        "label": "View modes",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "advanceSearch",
+                                                        "status": "I",
+                                                        "label": "Advanced search",
+                                                        "icon": "AdvancedSearchIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "actionButton",
+                                                        "status": "I",
+                                                        "label": "Actions",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
                                                         "id": "toolsCommonText",
                                                         "status": "I",
                                                         "label": "Predefined texts",
                                                         "icon": "CommonTextIcon",
                                                         "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
                                                     }
-                                                },
-                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "noEdis", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print"]
+                                                ]
                                             }
                                         },
-                                        "buttons": {
-                                            "toolsEspecialidades": {
+                                        "buttons": [{
                                                 "id": "toolsEspecialidades",
                                                 "status": "A",
                                                 "label": "",
@@ -6839,60 +6082,7 @@
                                                         "id": "ToolsMySpecialities.swf"
                                                     }
                                                 }
-                                            },
-                                            "backofficeGroups": {
-                                                "id": "backofficeGroups",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.tools.mainMenu.left.toolsLang.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "FollowUpCareGroupsList.swf"
-                                                    }
-                                                }
-                                            },
-                                            "toolsSalas": {
-                                                "id": "toolsSalas",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.tools.mainMenu.left.toolsLang.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "ToolsMyRoomsSet.swf"
-                                                    }
-                                                }
-                                            },
-                                            "toolsTouchOption": {
-                                                "id": "toolsTouchOption",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.tools.mainMenu.left.toolsLang.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "ToolsDataEntryFormatSet.swf"
-                                                    }
-                                                }
-                                            },
-                                            "biometrics": {
-                                                "id": "biometrics",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.tools.mainMenu.left.toolsLang.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "ToolsBiometricID.swf"
-                                                    }
-                                                }
-                                            },
-                                            "toolsPersonalData": {
+                                            }, {
                                                 "id": "toolsPersonalData",
                                                 "status": "A",
                                                 "label": "",
@@ -6904,8 +6094,55 @@
                                                         "id": "ToolsProfessionalData.swf"
                                                     }
                                                 }
-                                            },
-                                            "releaseNotes": {
+                                            }, {
+                                                "id": "backofficeGroups",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.tools.mainMenu.left.toolsLang.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "FollowUpCareGroupsList.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "toolsSalas",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.tools.mainMenu.left.toolsLang.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "ToolsMyRoomsSet.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "toolsTouchOption",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.tools.mainMenu.left.toolsLang.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "ToolsDataEntryFormatSet.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "biometrics",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.tools.mainMenu.left.toolsLang.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "ToolsBiometricID.swf"
+                                                    }
+                                                }
+                                            }, {
                                                 "id": "releaseNotes",
                                                 "status": "A",
                                                 "label": "",
@@ -6918,8 +6155,7 @@
                                                     }
                                                 }
                                             }
-                                        },
-                                        "buttonsPos": ["toolsEspecialidades", "backofficeGroups", "toolsSalas", "toolsTouchOption", "biometrics", "toolsPersonalData", "releaseNotes"]
+                                        ]
                                     },
                                     "commontext": {
                                         "id": "commontext",
@@ -6932,86 +6168,74 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": {
-                                                    "actionButton": {
-                                                        "id": "actionButton",
-                                                        "status": "A",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "advanceSearch": {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    },
-                                                    "applicationHelp": {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    },
-                                                    "cancel": {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    },
-                                                    "create": {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    },
-                                                    "eye": {
+                                                "buttons": [{
                                                         "id": "eye",
                                                         "status": "A",
                                                         "label": "Record details",
                                                         "icon": "DetailsIcon",
                                                         "action": {}
-                                                    },
-                                                    "viewsButton": {
-                                                        "id": "viewsButton",
-                                                        "status": "A",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    },
-                                                    "globalShortcut": {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    },
-                                                    "ok": {
+                                                    }, {
                                                         "id": "ok",
                                                         "status": "A",
                                                         "label": "Confirm and continue",
                                                         "icon": "OKIcon",
                                                         "action": {}
-                                                    },
-                                                    "print": {
+                                                    }, {
                                                         "id": "print",
                                                         "status": "I",
                                                         "label": "Print tool",
                                                         "icon": "PrintIcon",
                                                         "action": {}
-                                                    },
-                                                    "toolsCommonText": {
+                                                    }, {
+                                                        "id": "create",
+                                                        "status": "A",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "A",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "viewsButton",
+                                                        "status": "I",
+                                                        "label": "View modes",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "advanceSearch",
+                                                        "status": "I",
+                                                        "label": "Advanced search",
+                                                        "icon": "AdvancedSearchIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "actionButton",
+                                                        "status": "I",
+                                                        "label": "Actions",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
                                                         "id": "toolsCommonText",
                                                         "status": "I",
                                                         "label": "Predefined texts",
                                                         "icon": "CommonTextIcon",
                                                         "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
                                                     }
-                                                },
-                                                "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "viewsButton", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok"]
+                                                ]
                                             },
                                             "orderSetsTools": {
                                                 "id": "orderSetsTools",
@@ -7024,83 +6248,71 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": {
-                                                            "actionButton": {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            },
-                                                            "advanceSearch": {
-                                                                "id": "advanceSearch",
-                                                                "status": "A",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            },
-                                                            "applicationHelp": {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            },
-                                                            "cancel": {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            },
-                                                            "create": {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            },
-                                                            "eye": {
+                                                        "buttons": [{
                                                                 "id": "eye",
                                                                 "status": "A",
                                                                 "label": "Record details",
                                                                 "icon": "DetailsIcon",
                                                                 "action": {}
-                                                            },
-                                                            "globalShortcut": {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
-                                                            },
-                                                            "ok": {
+                                                            }, {
                                                                 "id": "ok",
                                                                 "status": "A",
                                                                 "label": "Confirm and continue",
                                                                 "icon": "OKIcon",
                                                                 "action": {}
-                                                            },
-                                                            "print": {
+                                                            }, {
                                                                 "id": "print",
                                                                 "status": "I",
                                                                 "label": "Print tool",
                                                                 "icon": "PrintIcon",
                                                                 "action": {}
-                                                            },
-                                                            "toolsCommonText": {
+                                                            }, {
+                                                                "id": "create",
+                                                                "status": "A",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "A",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "A",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "A",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
                                                                 "id": "toolsCommonText",
                                                                 "status": "A",
                                                                 "label": "Predefined texts",
                                                                 "icon": "CommonTextIcon",
                                                                 "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
                                                             }
-                                                        },
-                                                        "buttonsPos": ["actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText", "actionButton", "advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok", "print", "toolsCommonText"]
+                                                        ]
                                                     }
                                                 },
-                                                "buttons": {
-                                                    "orderSetsTools": {
+                                                "buttons": [{
                                                         "id": "orderSetsTools",
                                                         "status": "A",
                                                         "label": "",
@@ -7112,8 +6324,7 @@
                                                                 "id": "OrderSetList.swf"
                                                             }
                                                         }
-                                                    },
-                                                    "groupsTools": {
+                                                    }, {
                                                         "id": "groupsTools",
                                                         "status": "A",
                                                         "label": "",
@@ -7126,12 +6337,10 @@
                                                             }
                                                         }
                                                     }
-                                                },
-                                                "buttonsPos": ["orderSetsTools", "groupsTools"]
+                                                ]
                                             }
                                         },
-                                        "buttons": {
-                                            "frequentText": {
+                                        "buttons": [{
                                                 "id": "frequentText",
                                                 "status": "A",
                                                 "label": "",
@@ -7143,56 +6352,7 @@
                                                         "id": "MostFrequentTexts.swf"
                                                     }
                                                 }
-                                            },
-                                            "guidelineTools": {
-                                                "id": "guidelineTools",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.tools.mainMenu.left.commontext.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "GuidelineList.swf"
-                                                    }
-                                                }
-                                            },
-                                            "protocolTools": {
-                                                "id": "protocolTools",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.tools.mainMenu.left.commontext.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "ProtocolList.swf"
-                                                    }
-                                                }
-                                            },
-                                            "orderSetsTools": {
-                                                "id": "orderSetsTools",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.tools.mainMenu.left.commontext.orderSetsTools"
-                                                }
-                                            },
-                                            "predefineDiet": {
-                                                "id": "predefineDiet",
-                                                "status": "A",
-                                                "label": "",
-                                                "icon": "",
-                                                "action": {
-                                                    "targetArea": "inpatient.tools.mainMenu.left.commontext.screen",
-                                                    "component": {
-                                                        "type": "SWF",
-                                                        "id": "DietTools.swf"
-                                                    }
-                                                }
-                                            },
-                                            "toolsDocMacro": {
+                                            }, {
                                                 "id": "toolsDocMacro",
                                                 "status": "A",
                                                 "label": "",
@@ -7204,22 +6364,55 @@
                                                         "id": "DocumentationMacrosGrid.swf"
                                                     }
                                                 }
+                                            }, {
+                                                "id": "guidelineTools",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.tools.mainMenu.left.commontext.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "GuidelineList.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "protocolTools",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.tools.mainMenu.left.commontext.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "ProtocolList.swf"
+                                                    }
+                                                }
+                                            }, {
+                                                "id": "orderSetsTools",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.tools.mainMenu.left.commontext.orderSetsTools"
+                                                }
+                                            }, {
+                                                "id": "predefineDiet",
+                                                "status": "A",
+                                                "label": "",
+                                                "icon": "",
+                                                "action": {
+                                                    "targetArea": "inpatient.tools.mainMenu.left.commontext.screen",
+                                                    "component": {
+                                                        "type": "SWF",
+                                                        "id": "DietTools.swf"
+                                                    }
+                                                }
                                             }
-                                        },
-                                        "buttonsPos": ["frequentText", "guidelineTools", "protocolTools", "orderSetsTools", "predefineDiet", "toolsDocMacro"]
+                                        ]
                                     }
                                 },
-                                "buttons": {
-                                    "toolsLang": {
-                                        "id": "toolsLang",
-                                        "status": "A",
-                                        "label": "User configurations",
-                                        "icon": "PreferencesIcon",
-                                        "action": {
-                                            "targetArea": "inpatient.tools.mainMenu.left.toolsLang"
-                                        }
-                                    },
-                                    "commontext": {
+                                "buttons": [{
                                         "id": "commontext",
                                         "status": "A",
                                         "label": "Content management",
@@ -7227,16 +6420,22 @@
                                         "action": {
                                             "targetArea": "inpatient.tools.mainMenu.left.commontext"
                                         }
-                                    },
-                                    "pdms": {
+                                    }, {
                                         "id": "pdms",
                                         "status": "A",
                                         "label": "Patient Data Management System",
                                         "icon": "PDMSIcon",
                                         "action": {}
+                                    }, {
+                                        "id": "toolsLang",
+                                        "status": "A",
+                                        "label": "User configurations",
+                                        "icon": "PreferencesIcon",
+                                        "action": {
+                                            "targetArea": "inpatient.tools.mainMenu.left.toolsLang"
+                                        }
                                     }
-                                },
-                                "buttonsPos": ["toolsLang", "commontext", "pdms"]
+                                ]
                             }
                         }
                     },
@@ -7245,32 +6444,28 @@
                         "description": "Personal settings area",
                         "pos": 6,
                         "type": "headerLeft",
-                        "buttons": {
-                            "reset": {
+                        "buttons": [{
                                 "id": "reset",
                                 "status": "A",
                                 "label": "Go back to patient area",
                                 "icon": "RestartIcon",
                                 "action": {}
                             }
-                        },
-                        "buttonsPos": ["reset"]
+                        ]
                     },
                     "actionMenuRight": {
                         "id": "actionMenuRight",
                         "description": "Ok area",
                         "pos": 7,
                         "type": "actionMenuRight",
-                        "buttons": {
-                            "ok": {
+                        "buttons": [{
                                 "id": "ok",
                                 "status": "A",
                                 "label": "Confirm/proceed",
                                 "icon": "OKIcon",
                                 "action": {}
                             }
-                        },
-                        "buttonsPos": ["ok"]
+                        ]
                     },
                     "mainMenuLeft": {
                         "id": "mainMenuLeft",
@@ -7283,62 +6478,53 @@
                                 "description": "Screen",
                                 "pos": 12,
                                 "type": "screen",
-                                "buttons": {
-                                    "advanceSearch": {
-                                        "id": "advanceSearch",
-                                        "status": "I",
-                                        "label": "Advanced search",
-                                        "icon": "AdvancedSearchIcon",
-                                        "action": {}
-                                    },
-                                    "applicationHelp": {
-                                        "id": "applicationHelp",
-                                        "status": "A",
-                                        "label": "Help",
-                                        "icon": "HelpIcon",
-                                        "action": {}
-                                    },
-                                    "cancel": {
-                                        "id": "cancel",
-                                        "status": "I",
-                                        "label": "Cancel records",
-                                        "icon": "CancelIcon",
-                                        "action": {}
-                                    },
-                                    "create": {
-                                        "id": "create",
-                                        "status": "A",
-                                        "label": "Add or edit records",
-                                        "icon": "AddIcon",
-                                        "action": {}
-                                    },
-                                    "eye": {
+                                "buttons": [{
                                         "id": "eye",
                                         "status": "A",
                                         "label": "Record details",
                                         "icon": "DetailsIcon",
                                         "action": {}
-                                    },
-                                    "globalShortcut": {
-                                        "id": "globalShortcut",
-                                        "status": "A",
-                                        "label": "Shortcuts",
-                                        "icon": "GlobalShortcutIcon",
-                                        "action": {}
-                                    },
-                                    "ok": {
+                                    }, {
                                         "id": "ok",
                                         "status": "A",
                                         "label": "Confirm and continue",
                                         "icon": "OKIcon",
                                         "action": {}
+                                    }, {
+                                        "id": "create",
+                                        "status": "A",
+                                        "label": "Add or edit records",
+                                        "icon": "AddIcon",
+                                        "action": {}
+                                    }, {
+                                        "id": "cancel",
+                                        "status": "I",
+                                        "label": "Cancel records",
+                                        "icon": "CancelIcon",
+                                        "action": {}
+                                    }, {
+                                        "id": "advanceSearch",
+                                        "status": "I",
+                                        "label": "Advanced search",
+                                        "icon": "AdvancedSearchIcon",
+                                        "action": {}
+                                    }, {
+                                        "id": "applicationHelp",
+                                        "status": "A",
+                                        "label": "Help",
+                                        "icon": "HelpIcon",
+                                        "action": {}
+                                    }, {
+                                        "id": "globalShortcut",
+                                        "status": "A",
+                                        "label": "Shortcuts",
+                                        "icon": "GlobalShortcutIcon",
+                                        "action": {}
                                     }
-                                },
-                                "buttonsPos": ["advanceSearch", "applicationHelp", "cancel", "create", "eye", "globalShortcut", "ok"]
+                                ]
                             }
                         },
-                        "buttons": {
-                            "alert": {
+                        "buttons": [{
                                 "id": "alert",
                                 "status": "A",
                                 "label": "Alert messages",
@@ -7351,8 +6537,7 @@
                                     }
                                 }
                             }
-                        },
-                        "buttonsPos": ["alert"]
+                        ]
                     },
                     "actionMenu": {
                         "id": "actionMenu",
@@ -7365,95 +6550,82 @@
                                 "description": "Bottom menu left",
                                 "pos": 10,
                                 "type": "actionMenu",
-                                "buttons": {
-                                    "print": {
+                                "buttons": [{
                                         "id": "print",
                                         "status": "A",
                                         "label": "Print",
                                         "icon": "PrintIcon",
                                         "action": {}
-                                    },
-                                    "create": {
+                                    }, {
                                         "id": "create",
                                         "status": "A",
                                         "label": "Add",
                                         "icon": "AddIcon",
                                         "action": {}
-                                    },
-                                    "advanceSearchIcon": {
+                                    }, {
                                         "id": "advanceSearchIcon",
                                         "status": "A",
                                         "label": "Advanced search",
                                         "icon": "AdvancedSearchIcon",
                                         "action": {}
-                                    },
-                                    "cancel": {
+                                    }, {
                                         "id": "cancel",
                                         "status": "A",
                                         "label": "Cancel",
                                         "icon": "CancelIcon",
                                         "action": {}
-                                    },
-                                    "toolsCommontext": {
+                                    }, {
                                         "id": "toolsCommontext",
                                         "status": "A",
                                         "label": "Most frequent texts",
                                         "icon": "CommonTextIcon",
                                         "action": {}
-                                    },
-                                    "actionButton": {
+                                    }, {
                                         "id": "actionButton",
                                         "status": "A",
                                         "label": "Actions",
                                         "icon": "ActionsIcon",
                                         "action": {}
-                                    },
-                                    "viewsButton": {
+                                    }, {
                                         "id": "viewsButton",
                                         "status": "A",
                                         "label": "Views",
                                         "icon": "ViewsIcon",
                                         "action": {}
-                                    },
-                                    "docImport": {
+                                    }, {
                                         "id": "docImport",
                                         "status": "A",
                                         "label": "Import documents",
                                         "icon": "ImportDocIcon",
                                         "action": {}
                                     }
-                                },
-                                "buttonsPos": ["print", "create", "advanceSearchIcon", "cancel", "toolsCommontext", "actionButton", "viewsButton", "docImport"]
+                                ]
                             },
                             "right": {
                                 "id": "right",
                                 "description": "Bottom menu right",
                                 "pos": 11,
                                 "type": "actionMenu",
-                                "buttons": {
-                                    "eye": {
+                                "buttons": [{
                                         "id": "eye",
                                         "status": "A",
                                         "label": "Details",
                                         "icon": "DetailsIcon",
                                         "action": {}
-                                    },
-                                    "applicationHelp": {
+                                    }, {
                                         "id": "applicationHelp",
                                         "status": "A",
                                         "label": "Functionality help",
                                         "icon": "HelpIcon",
                                         "action": {}
-                                    },
-                                    "contextHelp": {
+                                    }, {
                                         "id": "contextHelp",
                                         "status": "A",
                                         "label": "Clinical context help",
                                         "icon": "ContentIcon",
                                         "action": {}
                                     }
-                                },
-                                "buttonsPos": ["eye", "applicationHelp", "contextHelp"]
+                                ]
                             }
                         }
                     }
@@ -7461,6 +6633,8 @@
             }
         }
     }
+    
+    
     
     
     
