@@ -146,16 +146,16 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
     function getViews(area) {
         var views = null;
       
-        switch(area.pos) {
-            case -1:
+        switch(area.type) {
+            case 'root':
                 views = { '': 'layout.root' };
             break;
-            case 0:
+            case 'top':
                 // Get the views abs name to be used by the children states to reference the views
                 topViewAbsName = '@' + LAYOUT_BASE_STATE + '.' + area.path;
 
                 views = { '': 'layout.top' };
-                
+              
                 for(var childAreaId in area.areas) {
                     // Views names must be absolute because they refer this state (an not the parent)
                     var viewAbsName = childAreaId + '@' + LAYOUT_BASE_STATE + '.' + area.path;
@@ -163,27 +163,23 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                     views[viewAbsName] = 'layout.' + childAreaId;
                 }
                 break;    
-            case 3:
-                // MainMenu and MainMenuLeft have both value 3 for "pos"
-                if(area.buttons.length == 0) {
-                    // Main menu targets the base state
-                    views = {}
-                    views['mainMenu' + topViewAbsName] = 'layout.mainMenu';
-                } else {
-                    views = {}
-                    // Main menu left targets parent's unamed view
-                    views[''] = 'layout.mainMenu.left';
-                }
+            case 'mainMenu':
+                views = {}
+                views['mainMenu' + topViewAbsName] = 'layout.mainMenu';
                 break;
-            case 4:
+            case 'mainMenu.left':
+                views = {}
+                views[''] = 'layout.mainMenu.left';
+                break;
+            case 'mainMenu.right':
                 views = {}
                 views[''] = 'layout.mainMenu.right';
                 break;
-            case 5: 
+            case 'deepnav': 
                 views = {}
                 views['deepnav' + topViewAbsName] = 'layout.deepnav'; 
                 break;
-            case 12: 
+            case 'screen': 
                 views = {}
                 // Screen 
                 views['screen' + topViewAbsName] = 'layout.screen'; 

@@ -106,19 +106,16 @@
     service.JSON_MOCK = {
         "id": "inpatient",
         "description": "Default layout for INPATIENT",
-        "pos": -1,
-        "type": "",
+        "type": "root",
         "areas": {
             "entry": {
                 "id": "entry",
                 "description": "Inpatient main grid",
-                "pos": 0,
-                "type": "",
+                "type": "top",
                 "areas": {
                     "headerRight": {
                         "id": "headerRight",
-                        "description": "Logout button area",
-                        "pos": 1,
+                        "description": "Logout button",
                         "type": "headerRight",
                         "buttons": [{
                                 "id": "logout",
@@ -131,8 +128,7 @@
                     },
                     "actionMenuLeft": {
                         "id": "actionMenuLeft",
-                        "description": "Back button area",
-                        "pos": 2,
+                        "description": "Back button ",
                         "type": "actionMenuLeft",
                         "buttons": [{
                                 "id": "back",
@@ -146,31 +142,26 @@
                     "mainMenu": {
                         "id": "mainMenu",
                         "description": "Main menu",
-                        "pos": 3,
                         "type": "mainMenu",
                         "areas": {
                             "left": {
                                 "id": "left",
                                 "description": "Main menu left",
-                                "pos": 3,
                                 "type": "mainMenu.left",
                                 "areas": {
                                     "screen": {
                                         "id": "screen",
                                         "description": "Screen",
-                                        "pos": 12,
                                         "type": "screen",
                                         "areas": {
                                             "actionMenu": {
                                                 "id": "actionMenu",
                                                 "description": "Action",
-                                                "pos": 13,
                                                 "type": "actionMenu",
                                                 "areas": {
                                                     "left": {
                                                         "id": "left",
                                                         "description": "Action",
-                                                        "pos": 14,
                                                         "type": "actionMenu.left",
                                                         "buttons": [{
                                                                 "id": "noEdis",
@@ -226,7 +217,6 @@
                                                     "right": {
                                                         "id": "right",
                                                         "description": "Action",
-                                                        "pos": 15,
                                                         "type": "actionMenu.right",
                                                         "buttons": [{
                                                                 "id": "eye",
@@ -256,25 +246,21 @@
                                     "barCode": {
                                         "id": "barCode",
                                         "description": "barCode deepnavs",
-                                        "pos": 5,
                                         "type": "deepnav",
                                         "areas": {
                                             "screen": {
                                                 "id": "screen",
                                                 "description": "Screen",
-                                                "pos": 12,
                                                 "type": "screen",
                                                 "areas": {
                                                     "actionMenu": {
                                                         "id": "actionMenu",
                                                         "description": "Action",
-                                                        "pos": 13,
                                                         "type": "actionMenu",
                                                         "areas": {
                                                             "left": {
                                                                 "id": "left",
                                                                 "description": "Action",
-                                                                "pos": 14,
                                                                 "type": "actionMenu.left",
                                                                 "buttons": [{
                                                                         "id": "print",
@@ -306,7 +292,6 @@
                                                             "right": {
                                                                 "id": "right",
                                                                 "description": "Action",
-                                                                "pos": 15,
                                                                 "type": "actionMenu.right",
                                                                 "buttons": [{
                                                                         "id": "eye",
@@ -352,25 +337,21 @@
                                     "responsabilityTransferEdis": {
                                         "id": "responsabilityTransferEdis",
                                         "description": "responsabilityTransferEdis deepnavs",
-                                        "pos": 5,
                                         "type": "deepnav",
                                         "areas": {
                                             "screen": {
                                                 "id": "screen",
                                                 "description": "Screen",
-                                                "pos": 12,
                                                 "type": "screen",
                                                 "areas": {
                                                     "actionMenu": {
                                                         "id": "actionMenu",
                                                         "description": "Action",
-                                                        "pos": 13,
                                                         "type": "actionMenu",
                                                         "areas": {
                                                             "left": {
                                                                 "id": "left",
                                                                 "description": "Action",
-                                                                "pos": 14,
                                                                 "type": "actionMenu.left",
                                                                 "buttons": [{
                                                                         "id": "print",
@@ -408,7 +389,6 @@
                                                             "right": {
                                                                 "id": "right",
                                                                 "description": "Action",
-                                                                "pos": 15,
                                                                 "type": "actionMenu.right",
                                                                 "buttons": [{
                                                                         "id": "eye",
@@ -490,25 +470,21 @@
                                     "pendingTasks": {
                                         "id": "pendingTasks",
                                         "description": "pendingTasks deepnavs",
-                                        "pos": 5,
                                         "type": "deepnav",
                                         "areas": {
                                             "screen": {
                                                 "id": "screen",
                                                 "description": "Screen",
-                                                "pos": 12,
                                                 "type": "screen",
                                                 "areas": {
                                                     "actionMenu": {
                                                         "id": "actionMenu",
                                                         "description": "Action",
-                                                        "pos": 13,
                                                         "type": "actionMenu",
                                                         "areas": {
                                                             "left": {
                                                                 "id": "left",
                                                                 "description": "Action",
-                                                                "pos": 14,
                                                                 "type": "actionMenu.left",
                                                                 "buttons": [{
                                                                         "id": "print",
@@ -534,7 +510,6 @@
                                                             "right": {
                                                                 "id": "right",
                                                                 "description": "Action",
-                                                                "pos": 15,
                                                                 "type": "actionMenu.right",
                                                                 "buttons": [{
                                                                         "id": "eye",
@@ -699,8 +674,7 @@
                     },
                     "headerLeft": {
                         "id": "headerLeft",
-                        "description": "Personal settings area",
-                        "pos": 6,
+                        "description": "Personal settings",
                         "type": "headerLeft",
                         "buttons": [{
                                 "id": "tools",
@@ -713,8 +687,7 @@
                     },
                     "actionMenuRight": {
                         "id": "actionMenuRight",
-                        "description": "Ok area",
-                        "pos": 7,
+                        "description": "Ok",
                         "type": "actionMenuRight",
                         "buttons": [{
                                 "id": "ok",
@@ -727,26 +700,22 @@
                     },
                     "mainMenuLeft": {
                         "id": "mainMenuLeft",
-                        "description": "Alerts area",
-                        "pos": 8,
+                        "description": "Alerts",
                         "type": "mainMenuLeft",
                         "areas": {
                             "screen": {
                                 "id": "screen",
                                 "description": "Screen",
-                                "pos": 12,
                                 "type": "screen",
                                 "areas": {
                                     "actionMenu": {
                                         "id": "actionMenu",
                                         "description": "Action",
-                                        "pos": 13,
                                         "type": "actionMenu",
                                         "areas": {
                                             "left": {
                                                 "id": "left",
                                                 "description": "Action",
-                                                "pos": 14,
                                                 "type": "actionMenu.left",
                                                 "buttons": [{
                                                         "id": "print",
@@ -778,7 +747,6 @@
                                             "right": {
                                                 "id": "right",
                                                 "description": "Action",
-                                                "pos": 15,
                                                 "type": "actionMenu.right",
                                                 "buttons": [{
                                                         "id": "eye",
@@ -823,32 +791,27 @@
                     },
                     "mainMenuRight": {
                         "id": "mainMenuRight",
-                        "description": "Search area",
-                        "pos": 9,
+                        "description": "Search",
                         "type": "mainMenuRight",
                         "areas": {
                             "search": {
                                 "id": "search",
                                 "description": "search deepnavs",
-                                "pos": 5,
                                 "type": "deepnav",
                                 "areas": {
                                     "screen": {
                                         "id": "screen",
                                         "description": "Screen",
-                                        "pos": 12,
                                         "type": "screen",
                                         "areas": {
                                             "actionMenu": {
                                                 "id": "actionMenu",
                                                 "description": "Action",
-                                                "pos": 13,
                                                 "type": "actionMenu",
                                                 "areas": {
                                                     "left": {
                                                         "id": "left",
                                                         "description": "Action",
-                                                        "pos": 14,
                                                         "type": "actionMenu.left",
                                                         "buttons": [{
                                                                 "id": "print",
@@ -892,7 +855,6 @@
                                                     "right": {
                                                         "id": "right",
                                                         "description": "Action",
-                                                        "pos": 15,
                                                         "type": "actionMenu.right",
                                                         "buttons": [{
                                                                 "id": "eye",
@@ -986,13 +948,11 @@
                     "actionMenu": {
                         "id": "actionMenu",
                         "description": "Bottom menu",
-                        "pos": 10,
                         "type": "actionMenu",
                         "areas": {
                             "left": {
                                 "id": "left",
                                 "description": "Bottom menu left",
-                                "pos": 10,
                                 "type": "actionMenu.left",
                                 "buttons": [{
                                         "id": "print",
@@ -1054,7 +1014,6 @@
                             "right": {
                                 "id": "right",
                                 "description": "Bottom menu right",
-                                "pos": 11,
                                 "type": "actionMenu.right",
                                 "buttons": [{
                                         "id": "eye",
@@ -1090,13 +1049,11 @@
             "patient": {
                 "id": "patient",
                 "description": "Inpatient patient area",
-                "pos": 0,
-                "type": "",
+                "type": "top",
                 "areas": {
                     "headerRight": {
                         "id": "headerRight",
-                        "description": "Logout button area",
-                        "pos": 1,
+                        "description": "Logout button",
                         "type": "headerRight",
                         "buttons": [{
                                 "id": "logout",
@@ -1109,8 +1066,7 @@
                     },
                     "actionMenuLeft": {
                         "id": "actionMenuLeft",
-                        "description": "Back button area",
-                        "pos": 2,
+                        "description": "Back button",
                         "type": "actionMenuLeft",
                         "buttons": [{
                                 "id": "back",
@@ -1124,31 +1080,26 @@
                     "mainMenu": {
                         "id": "mainMenu",
                         "description": "Main menu",
-                        "pos": 3,
                         "type": "mainMenu",
                         "areas": {
                             "left": {
                                 "id": "left",
                                 "description": "Main menu left",
-                                "pos": 3,
                                 "type": "mainMenu.left",
                                 "areas": {
                                     "screen": {
                                         "id": "screen",
                                         "description": "Screen",
-                                        "pos": 12,
                                         "type": "screen",
                                         "areas": {
                                             "actionMenu": {
                                                 "id": "actionMenu",
                                                 "description": "Action",
-                                                "pos": 13,
                                                 "type": "actionMenu",
                                                 "areas": {
                                                     "left": {
                                                         "id": "left",
                                                         "description": "Action",
-                                                        "pos": 14,
                                                         "type": "actionMenu.left",
                                                         "buttons": [{
                                                                 "id": "print",
@@ -1192,7 +1143,6 @@
                                                     "right": {
                                                         "id": "right",
                                                         "description": "Action",
-                                                        "pos": 15,
                                                         "type": "actionMenu.right",
                                                         "buttons": [{
                                                                 "id": "eye",
@@ -1222,25 +1172,21 @@
                                     "ehr": {
                                         "id": "ehr",
                                         "description": "ehr deepnavs",
-                                        "pos": 5,
                                         "type": "deepnav",
                                         "areas": {
                                             "screen": {
                                                 "id": "screen",
                                                 "description": "Screen",
-                                                "pos": 12,
                                                 "type": "screen",
                                                 "areas": {
                                                     "actionMenu": {
                                                         "id": "actionMenu",
                                                         "description": "Action",
-                                                        "pos": 13,
                                                         "type": "actionMenu",
                                                         "areas": {
                                                             "left": {
                                                                 "id": "left",
                                                                 "description": "Action",
-                                                                "pos": 14,
                                                                 "type": "actionMenu.left",
                                                                 "buttons": [{
                                                                         "id": "print",
@@ -1290,7 +1236,6 @@
                                                             "right": {
                                                                 "id": "right",
                                                                 "description": "Action",
-                                                                "pos": 15,
                                                                 "type": "actionMenu.right",
                                                                 "buttons": [{
                                                                         "id": "eye",
@@ -1320,25 +1265,21 @@
                                             "visits": {
                                                 "id": "visits",
                                                 "description": "visits deepnavs",
-                                                "pos": 5,
                                                 "type": "deepnav",
                                                 "areas": {
                                                     "screen": {
                                                         "id": "screen",
                                                         "description": "Screen",
-                                                        "pos": 12,
                                                         "type": "screen",
                                                         "areas": {
                                                             "actionMenu": {
                                                                 "id": "actionMenu",
                                                                 "description": "Action",
-                                                                "pos": 13,
                                                                 "type": "actionMenu",
                                                                 "areas": {
                                                                     "left": {
                                                                         "id": "left",
                                                                         "description": "Action",
-                                                                        "pos": 14,
                                                                         "type": "actionMenu.left",
                                                                         "buttons": [{
                                                                                 "id": "noEdis",
@@ -1394,7 +1335,6 @@
                                                                     "right": {
                                                                         "id": "right",
                                                                         "description": "Action",
-                                                                        "pos": 15,
                                                                         "type": "actionMenu.right",
                                                                         "buttons": [{
                                                                                 "id": "eye",
@@ -1424,25 +1364,21 @@
                                                     "dietProcess": {
                                                         "id": "dietProcess",
                                                         "description": "dietProcess deepnavs",
-                                                        "pos": 5,
                                                         "type": "deepnav",
                                                         "areas": {
                                                             "screen": {
                                                                 "id": "screen",
                                                                 "description": "Screen",
-                                                                "pos": 12,
                                                                 "type": "screen",
                                                                 "areas": {
                                                                     "actionMenu": {
                                                                         "id": "actionMenu",
                                                                         "description": "Action",
-                                                                        "pos": 13,
                                                                         "type": "actionMenu",
                                                                         "areas": {
                                                                             "left": {
                                                                                 "id": "left",
                                                                                 "description": "Action",
-                                                                                "pos": 14,
                                                                                 "type": "actionMenu.left",
                                                                                 "buttons": [{
                                                                                         "id": "print",
@@ -1486,7 +1422,6 @@
                                                                             "right": {
                                                                                 "id": "right",
                                                                                 "description": "Action",
-                                                                                "pos": 15,
                                                                                 "type": "actionMenu.right",
                                                                                 "buttons": [{
                                                                                         "id": "eye",
@@ -1568,25 +1503,21 @@
                                                     "detailsOnPastIllnesses": {
                                                         "id": "detailsOnPastIllnesses",
                                                         "description": "detailsOnPastIllnesses deepnavs",
-                                                        "pos": 5,
                                                         "type": "deepnav",
                                                         "areas": {
                                                             "screen": {
                                                                 "id": "screen",
                                                                 "description": "Screen",
-                                                                "pos": 12,
                                                                 "type": "screen",
                                                                 "areas": {
                                                                     "actionMenu": {
                                                                         "id": "actionMenu",
                                                                         "description": "Action",
-                                                                        "pos": 13,
                                                                         "type": "actionMenu",
                                                                         "areas": {
                                                                             "left": {
                                                                                 "id": "left",
                                                                                 "description": "Action",
-                                                                                "pos": 14,
                                                                                 "type": "actionMenu.left",
                                                                                 "buttons": [{
                                                                                         "id": "print",
@@ -1630,7 +1561,6 @@
                                                                             "right": {
                                                                                 "id": "right",
                                                                                 "description": "Action",
-                                                                                "pos": 15,
                                                                                 "type": "actionMenu.right",
                                                                                 "buttons": [{
                                                                                         "id": "eye",
@@ -1912,25 +1842,21 @@
                                             "planning": {
                                                 "id": "planning",
                                                 "description": "planning deepnavs",
-                                                "pos": 5,
                                                 "type": "deepnav",
                                                 "areas": {
                                                     "screen": {
                                                         "id": "screen",
                                                         "description": "Screen",
-                                                        "pos": 12,
                                                         "type": "screen",
                                                         "areas": {
                                                             "actionMenu": {
                                                                 "id": "actionMenu",
                                                                 "description": "Action",
-                                                                "pos": 13,
                                                                 "type": "actionMenu",
                                                                 "areas": {
                                                                     "left": {
                                                                         "id": "left",
                                                                         "description": "Action",
-                                                                        "pos": 14,
                                                                         "type": "actionMenu.left",
                                                                         "buttons": [{
                                                                                 "id": "print",
@@ -1980,7 +1906,6 @@
                                                                     "right": {
                                                                         "id": "right",
                                                                         "description": "Action",
-                                                                        "pos": 15,
                                                                         "type": "actionMenu.right",
                                                                         "buttons": [{
                                                                                 "id": "eye",
@@ -2086,25 +2011,21 @@
                                             "testAndTreatments": {
                                                 "id": "testAndTreatments",
                                                 "description": "testAndTreatments deepnavs",
-                                                "pos": 5,
                                                 "type": "deepnav",
                                                 "areas": {
                                                     "screen": {
                                                         "id": "screen",
                                                         "description": "Screen",
-                                                        "pos": 12,
                                                         "type": "screen",
                                                         "areas": {
                                                             "actionMenu": {
                                                                 "id": "actionMenu",
                                                                 "description": "Action",
-                                                                "pos": 13,
                                                                 "type": "actionMenu",
                                                                 "areas": {
                                                                     "left": {
                                                                         "id": "left",
                                                                         "description": "Action",
-                                                                        "pos": 14,
                                                                         "type": "actionMenu.left",
                                                                         "buttons": [{
                                                                                 "id": "print",
@@ -2160,7 +2081,6 @@
                                                                     "right": {
                                                                         "id": "right",
                                                                         "description": "Action",
-                                                                        "pos": 15,
                                                                         "type": "actionMenu.right",
                                                                         "buttons": [{
                                                                                 "id": "eye",
@@ -2190,25 +2110,21 @@
                                                     "rehab": {
                                                         "id": "rehab",
                                                         "description": "rehab deepnavs",
-                                                        "pos": 5,
                                                         "type": "deepnav",
                                                         "areas": {
                                                             "screen": {
                                                                 "id": "screen",
                                                                 "description": "Screen",
-                                                                "pos": 12,
                                                                 "type": "screen",
                                                                 "areas": {
                                                                     "actionMenu": {
                                                                         "id": "actionMenu",
                                                                         "description": "Action",
-                                                                        "pos": 13,
                                                                         "type": "actionMenu",
                                                                         "areas": {
                                                                             "left": {
                                                                                 "id": "left",
                                                                                 "description": "Action",
-                                                                                "pos": 14,
                                                                                 "type": "actionMenu.left",
                                                                                 "buttons": [{
                                                                                         "id": "print",
@@ -2258,7 +2174,6 @@
                                                                             "right": {
                                                                                 "id": "right",
                                                                                 "description": "Action",
-                                                                                "pos": 15,
                                                                                 "type": "actionMenu.right",
                                                                                 "buttons": [{
                                                                                         "id": "eye",
@@ -2412,25 +2327,21 @@
                                             "history": {
                                                 "id": "history",
                                                 "description": "history deepnavs",
-                                                "pos": 5,
                                                 "type": "deepnav",
                                                 "areas": {
                                                     "screen": {
                                                         "id": "screen",
                                                         "description": "Screen",
-                                                        "pos": 12,
                                                         "type": "screen",
                                                         "areas": {
                                                             "actionMenu": {
                                                                 "id": "actionMenu",
                                                                 "description": "Action",
-                                                                "pos": 13,
                                                                 "type": "actionMenu",
                                                                 "areas": {
                                                                     "left": {
                                                                         "id": "left",
                                                                         "description": "Action",
-                                                                        "pos": 14,
                                                                         "type": "actionMenu.left",
                                                                         "buttons": [{
                                                                                 "id": "print",
@@ -2486,7 +2397,6 @@
                                                                     "right": {
                                                                         "id": "right",
                                                                         "description": "Action",
-                                                                        "pos": 15,
                                                                         "type": "actionMenu.right",
                                                                         "buttons": [{
                                                                                 "id": "eye",
@@ -2516,25 +2426,21 @@
                                                     "assessToolsGroup": {
                                                         "id": "assessToolsGroup",
                                                         "description": "assessToolsGroup deepnavs",
-                                                        "pos": 5,
                                                         "type": "deepnav",
                                                         "areas": {
                                                             "screen": {
                                                                 "id": "screen",
                                                                 "description": "Screen",
-                                                                "pos": 12,
                                                                 "type": "screen",
                                                                 "areas": {
                                                                     "actionMenu": {
                                                                         "id": "actionMenu",
                                                                         "description": "Action",
-                                                                        "pos": 13,
                                                                         "type": "actionMenu",
                                                                         "areas": {
                                                                             "left": {
                                                                                 "id": "left",
                                                                                 "description": "Action",
-                                                                                "pos": 14,
                                                                                 "type": "actionMenu.left",
                                                                                 "buttons": [{
                                                                                         "id": "noEdis",
@@ -2590,7 +2496,6 @@
                                                                             "right": {
                                                                                 "id": "right",
                                                                                 "description": "Action",
-                                                                                "pos": 15,
                                                                                 "type": "actionMenu.right",
                                                                                 "buttons": [{
                                                                                         "id": "eye",
@@ -2660,25 +2565,21 @@
                                                     "avaliacaoInfantil": {
                                                         "id": "avaliacaoInfantil",
                                                         "description": "avaliacaoInfantil deepnavs",
-                                                        "pos": 5,
                                                         "type": "deepnav",
                                                         "areas": {
                                                             "screen": {
                                                                 "id": "screen",
                                                                 "description": "Screen",
-                                                                "pos": 12,
                                                                 "type": "screen",
                                                                 "areas": {
                                                                     "actionMenu": {
                                                                         "id": "actionMenu",
                                                                         "description": "Action",
-                                                                        "pos": 13,
                                                                         "type": "actionMenu",
                                                                         "areas": {
                                                                             "left": {
                                                                                 "id": "left",
                                                                                 "description": "Action",
-                                                                                "pos": 14,
                                                                                 "type": "actionMenu.left",
                                                                                 "buttons": [{
                                                                                         "id": "print",
@@ -2728,7 +2629,6 @@
                                                                             "right": {
                                                                                 "id": "right",
                                                                                 "description": "Action",
-                                                                                "pos": 15,
                                                                                 "type": "actionMenu.right",
                                                                                 "buttons": [{
                                                                                         "id": "eye",
@@ -2998,25 +2898,21 @@
                                             "nursing": {
                                                 "id": "nursing",
                                                 "description": "nursing deepnavs",
-                                                "pos": 5,
                                                 "type": "deepnav",
                                                 "areas": {
                                                     "screen": {
                                                         "id": "screen",
                                                         "description": "Screen",
-                                                        "pos": 12,
                                                         "type": "screen",
                                                         "areas": {
                                                             "actionMenu": {
                                                                 "id": "actionMenu",
                                                                 "description": "Action",
-                                                                "pos": 13,
                                                                 "type": "actionMenu",
                                                                 "areas": {
                                                                     "left": {
                                                                         "id": "left",
                                                                         "description": "Action",
-                                                                        "pos": 14,
                                                                         "type": "actionMenu.left",
                                                                         "buttons": [{
                                                                                 "id": "print",
@@ -3060,7 +2956,6 @@
                                                                     "right": {
                                                                         "id": "right",
                                                                         "description": "Action",
-                                                                        "pos": 15,
                                                                         "type": "actionMenu.right",
                                                                         "buttons": [{
                                                                                 "id": "eye",
@@ -3234,25 +3129,21 @@
                                     "clinicalInfoIcon": {
                                         "id": "clinicalInfoIcon",
                                         "description": "clinicalInfoIcon deepnavs",
-                                        "pos": 5,
                                         "type": "deepnav",
                                         "areas": {
                                             "screen": {
                                                 "id": "screen",
                                                 "description": "Screen",
-                                                "pos": 12,
                                                 "type": "screen",
                                                 "areas": {
                                                     "actionMenu": {
                                                         "id": "actionMenu",
                                                         "description": "Action",
-                                                        "pos": 13,
                                                         "type": "actionMenu",
                                                         "areas": {
                                                             "left": {
                                                                 "id": "left",
                                                                 "description": "Action",
-                                                                "pos": 14,
                                                                 "type": "actionMenu.left",
                                                                 "buttons": [{
                                                                         "id": "print",
@@ -3308,7 +3199,6 @@
                                                             "right": {
                                                                 "id": "right",
                                                                 "description": "Action",
-                                                                "pos": 15,
                                                                 "type": "actionMenu.right",
                                                                 "buttons": [{
                                                                         "id": "eye",
@@ -3338,25 +3228,21 @@
                                             "progressNotes": {
                                                 "id": "progressNotes",
                                                 "description": "progressNotes deepnavs",
-                                                "pos": 5,
                                                 "type": "deepnav",
                                                 "areas": {
                                                     "screen": {
                                                         "id": "screen",
                                                         "description": "Screen",
-                                                        "pos": 12,
                                                         "type": "screen",
                                                         "areas": {
                                                             "actionMenu": {
                                                                 "id": "actionMenu",
                                                                 "description": "Action",
-                                                                "pos": 13,
                                                                 "type": "actionMenu",
                                                                 "areas": {
                                                                     "left": {
                                                                         "id": "left",
                                                                         "description": "Action",
-                                                                        "pos": 14,
                                                                         "type": "actionMenu.left",
                                                                         "buttons": [{
                                                                                 "id": "noEdis",
@@ -3412,7 +3298,6 @@
                                                                     "right": {
                                                                         "id": "right",
                                                                         "description": "Action",
-                                                                        "pos": 15,
                                                                         "type": "actionMenu.right",
                                                                         "buttons": [{
                                                                                 "id": "eye",
@@ -3542,25 +3427,21 @@
                                             "assessToolsGroup": {
                                                 "id": "assessToolsGroup",
                                                 "description": "assessToolsGroup deepnavs",
-                                                "pos": 5,
                                                 "type": "deepnav",
                                                 "areas": {
                                                     "screen": {
                                                         "id": "screen",
                                                         "description": "Screen",
-                                                        "pos": 12,
                                                         "type": "screen",
                                                         "areas": {
                                                             "actionMenu": {
                                                                 "id": "actionMenu",
                                                                 "description": "Action",
-                                                                "pos": 13,
                                                                 "type": "actionMenu",
                                                                 "areas": {
                                                                     "left": {
                                                                         "id": "left",
                                                                         "description": "Action",
-                                                                        "pos": 14,
                                                                         "type": "actionMenu.left",
                                                                         "buttons": [{
                                                                                 "id": "print",
@@ -3610,7 +3491,6 @@
                                                                     "right": {
                                                                         "id": "right",
                                                                         "description": "Action",
-                                                                        "pos": 15,
                                                                         "type": "actionMenu.right",
                                                                         "buttons": [{
                                                                                 "id": "eye",
@@ -3808,25 +3688,21 @@
                                     "orderEntry": {
                                         "id": "orderEntry",
                                         "description": "orderEntry deepnavs",
-                                        "pos": 5,
                                         "type": "deepnav",
                                         "areas": {
                                             "screen": {
                                                 "id": "screen",
                                                 "description": "Screen",
-                                                "pos": 12,
                                                 "type": "screen",
                                                 "areas": {
                                                     "actionMenu": {
                                                         "id": "actionMenu",
                                                         "description": "Action",
-                                                        "pos": 13,
                                                         "type": "actionMenu",
                                                         "areas": {
                                                             "left": {
                                                                 "id": "left",
                                                                 "description": "Action",
-                                                                "pos": 14,
                                                                 "type": "actionMenu.left",
                                                                 "buttons": [{
                                                                         "id": "noEdis",
@@ -3888,7 +3764,6 @@
                                                             "right": {
                                                                 "id": "right",
                                                                 "description": "Action",
-                                                                "pos": 15,
                                                                 "type": "actionMenu.right",
                                                                 "buttons": [{
                                                                         "id": "eye",
@@ -3918,25 +3793,21 @@
                                             "depnvAnalisys": {
                                                 "id": "depnvAnalisys",
                                                 "description": "depnvAnalisys deepnavs",
-                                                "pos": 5,
                                                 "type": "deepnav",
                                                 "areas": {
                                                     "screen": {
                                                         "id": "screen",
                                                         "description": "Screen",
-                                                        "pos": 12,
                                                         "type": "screen",
                                                         "areas": {
                                                             "actionMenu": {
                                                                 "id": "actionMenu",
                                                                 "description": "Action",
-                                                                "pos": 13,
                                                                 "type": "actionMenu",
                                                                 "areas": {
                                                                     "left": {
                                                                         "id": "left",
                                                                         "description": "Action",
-                                                                        "pos": 14,
                                                                         "type": "actionMenu.left",
                                                                         "buttons": [{
                                                                                 "id": "print",
@@ -3992,7 +3863,6 @@
                                                                     "right": {
                                                                         "id": "right",
                                                                         "description": "Action",
-                                                                        "pos": 15,
                                                                         "type": "actionMenu.right",
                                                                         "buttons": [{
                                                                                 "id": "eye",
@@ -4062,25 +3932,21 @@
                                             "prescription": {
                                                 "id": "prescription",
                                                 "description": "prescription deepnavs",
-                                                "pos": 5,
                                                 "type": "deepnav",
                                                 "areas": {
                                                     "screen": {
                                                         "id": "screen",
                                                         "description": "Screen",
-                                                        "pos": 12,
                                                         "type": "screen",
                                                         "areas": {
                                                             "actionMenu": {
                                                                 "id": "actionMenu",
                                                                 "description": "Action",
-                                                                "pos": 13,
                                                                 "type": "actionMenu",
                                                                 "areas": {
                                                                     "left": {
                                                                         "id": "left",
                                                                         "description": "Action",
-                                                                        "pos": 14,
                                                                         "type": "actionMenu.left",
                                                                         "buttons": [{
                                                                                 "id": "print",
@@ -4130,7 +3996,6 @@
                                                                     "right": {
                                                                         "id": "right",
                                                                         "description": "Action",
-                                                                        "pos": 15,
                                                                         "type": "actionMenu.right",
                                                                         "buttons": [{
                                                                                 "id": "eye",
@@ -4176,25 +4041,21 @@
                                             "pEnsinosenfermagem": {
                                                 "id": "pEnsinosenfermagem",
                                                 "description": "pEnsinosenfermagem deepnavs",
-                                                "pos": 5,
                                                 "type": "deepnav",
                                                 "areas": {
                                                     "screen": {
                                                         "id": "screen",
                                                         "description": "Screen",
-                                                        "pos": 12,
                                                         "type": "screen",
                                                         "areas": {
                                                             "actionMenu": {
                                                                 "id": "actionMenu",
                                                                 "description": "Action",
-                                                                "pos": 13,
                                                                 "type": "actionMenu",
                                                                 "areas": {
                                                                     "left": {
                                                                         "id": "left",
                                                                         "description": "Action",
-                                                                        "pos": 14,
                                                                         "type": "actionMenu.left",
                                                                         "buttons": [{
                                                                                 "id": "print",
@@ -4250,7 +4111,6 @@
                                                                     "right": {
                                                                         "id": "right",
                                                                         "description": "Action",
-                                                                        "pos": 15,
                                                                         "type": "actionMenu.right",
                                                                         "buttons": [{
                                                                                 "id": "eye",
@@ -4308,25 +4168,21 @@
                                             "physicalTherapy": {
                                                 "id": "physicalTherapy",
                                                 "description": "physicalTherapy deepnavs",
-                                                "pos": 5,
                                                 "type": "deepnav",
                                                 "areas": {
                                                     "screen": {
                                                         "id": "screen",
                                                         "description": "Screen",
-                                                        "pos": 12,
                                                         "type": "screen",
                                                         "areas": {
                                                             "actionMenu": {
                                                                 "id": "actionMenu",
                                                                 "description": "Action",
-                                                                "pos": 13,
                                                                 "type": "actionMenu",
                                                                 "areas": {
                                                                     "left": {
                                                                         "id": "left",
                                                                         "description": "Action",
-                                                                        "pos": 14,
                                                                         "type": "actionMenu.left",
                                                                         "buttons": [{
                                                                                 "id": "print",
@@ -4376,7 +4232,6 @@
                                                                     "right": {
                                                                         "id": "right",
                                                                         "description": "Action",
-                                                                        "pos": 15,
                                                                         "type": "actionMenu.right",
                                                                         "buttons": [{
                                                                                 "id": "eye",
@@ -4434,25 +4289,21 @@
                                             "planningGroup": {
                                                 "id": "planningGroup",
                                                 "description": "planningGroup deepnavs",
-                                                "pos": 5,
                                                 "type": "deepnav",
                                                 "areas": {
                                                     "screen": {
                                                         "id": "screen",
                                                         "description": "Screen",
-                                                        "pos": 12,
                                                         "type": "screen",
                                                         "areas": {
                                                             "actionMenu": {
                                                                 "id": "actionMenu",
                                                                 "description": "Action",
-                                                                "pos": 13,
                                                                 "type": "actionMenu",
                                                                 "areas": {
                                                                     "left": {
                                                                         "id": "left",
                                                                         "description": "Action",
-                                                                        "pos": 14,
                                                                         "type": "actionMenu.left",
                                                                         "buttons": [{
                                                                                 "id": "print",
@@ -4502,7 +4353,6 @@
                                                                     "right": {
                                                                         "id": "right",
                                                                         "description": "Action",
-                                                                        "pos": 15,
                                                                         "type": "actionMenu.right",
                                                                         "buttons": [{
                                                                                 "id": "eye",
@@ -4728,25 +4578,21 @@
                                     "nurse": {
                                         "id": "nurse",
                                         "description": "nurse deepnavs",
-                                        "pos": 5,
                                         "type": "deepnav",
                                         "areas": {
                                             "screen": {
                                                 "id": "screen",
                                                 "description": "Screen",
-                                                "pos": 12,
                                                 "type": "screen",
                                                 "areas": {
                                                     "actionMenu": {
                                                         "id": "actionMenu",
                                                         "description": "Action",
-                                                        "pos": 13,
                                                         "type": "actionMenu",
                                                         "areas": {
                                                             "left": {
                                                                 "id": "left",
                                                                 "description": "Action",
-                                                                "pos": 14,
                                                                 "type": "actionMenu.left",
                                                                 "buttons": [{
                                                                         "id": "noEdis",
@@ -4802,7 +4648,6 @@
                                                             "right": {
                                                                 "id": "right",
                                                                 "description": "Action",
-                                                                "pos": 15,
                                                                 "type": "actionMenu.right",
                                                                 "buttons": [{
                                                                         "id": "eye",
@@ -4932,25 +4777,21 @@
                                     "patientid": {
                                         "id": "patientid",
                                         "description": "patientid deepnavs",
-                                        "pos": 5,
                                         "type": "deepnav",
                                         "areas": {
                                             "screen": {
                                                 "id": "screen",
                                                 "description": "Screen",
-                                                "pos": 12,
                                                 "type": "screen",
                                                 "areas": {
                                                     "actionMenu": {
                                                         "id": "actionMenu",
                                                         "description": "Action",
-                                                        "pos": 13,
                                                         "type": "actionMenu",
                                                         "areas": {
                                                             "left": {
                                                                 "id": "left",
                                                                 "description": "Action",
-                                                                "pos": 14,
                                                                 "type": "actionMenu.left",
                                                                 "buttons": [{
                                                                         "id": "print",
@@ -5000,7 +4841,6 @@
                                                             "right": {
                                                                 "id": "right",
                                                                 "description": "Action",
-                                                                "pos": 15,
                                                                 "type": "actionMenu.right",
                                                                 "buttons": [{
                                                                         "id": "eye",
@@ -5142,25 +4982,21 @@
                                     "coding": {
                                         "id": "coding",
                                         "description": "coding deepnavs",
-                                        "pos": 5,
                                         "type": "deepnav",
                                         "areas": {
                                             "screen": {
                                                 "id": "screen",
                                                 "description": "Screen",
-                                                "pos": 12,
                                                 "type": "screen",
                                                 "areas": {
                                                     "actionMenu": {
                                                         "id": "actionMenu",
                                                         "description": "Action",
-                                                        "pos": 13,
                                                         "type": "actionMenu",
                                                         "areas": {
                                                             "left": {
                                                                 "id": "left",
                                                                 "description": "Action",
-                                                                "pos": 14,
                                                                 "type": "actionMenu.left",
                                                                 "buttons": [{
                                                                         "id": "noEdis",
@@ -5216,7 +5052,6 @@
                                                             "right": {
                                                                 "id": "right",
                                                                 "description": "Action",
-                                                                "pos": 15,
                                                                 "type": "actionMenu.right",
                                                                 "buttons": [{
                                                                         "id": "eye",
@@ -5262,25 +5097,21 @@
                                     "discharge": {
                                         "id": "discharge",
                                         "description": "discharge deepnavs",
-                                        "pos": 5,
                                         "type": "deepnav",
                                         "areas": {
                                             "screen": {
                                                 "id": "screen",
                                                 "description": "Screen",
-                                                "pos": 12,
                                                 "type": "screen",
                                                 "areas": {
                                                     "actionMenu": {
                                                         "id": "actionMenu",
                                                         "description": "Action",
-                                                        "pos": 13,
                                                         "type": "actionMenu",
                                                         "areas": {
                                                             "left": {
                                                                 "id": "left",
                                                                 "description": "Action",
-                                                                "pos": 14,
                                                                 "type": "actionMenu.left",
                                                                 "buttons": [{
                                                                         "id": "noEdis",
@@ -5342,7 +5173,6 @@
                                                             "right": {
                                                                 "id": "right",
                                                                 "description": "Action",
-                                                                "pos": 15,
                                                                 "type": "actionMenu.right",
                                                                 "buttons": [{
                                                                         "id": "eye",
@@ -5372,25 +5202,21 @@
                                             "futureEvents": {
                                                 "id": "futureEvents",
                                                 "description": "futureEvents deepnavs",
-                                                "pos": 5,
                                                 "type": "deepnav",
                                                 "areas": {
                                                     "screen": {
                                                         "id": "screen",
                                                         "description": "Screen",
-                                                        "pos": 12,
                                                         "type": "screen",
                                                         "areas": {
                                                             "actionMenu": {
                                                                 "id": "actionMenu",
                                                                 "description": "Action",
-                                                                "pos": 13,
                                                                 "type": "actionMenu",
                                                                 "areas": {
                                                                     "left": {
                                                                         "id": "left",
                                                                         "description": "Action",
-                                                                        "pos": 14,
                                                                         "type": "actionMenu.left",
                                                                         "buttons": [{
                                                                                 "id": "print",
@@ -5440,7 +5266,6 @@
                                                                     "right": {
                                                                         "id": "right",
                                                                         "description": "Action",
-                                                                        "pos": 15,
                                                                         "type": "actionMenu.right",
                                                                         "buttons": [{
                                                                                 "id": "eye",
@@ -5666,25 +5491,21 @@
                                     "patientManagement": {
                                         "id": "patientManagement",
                                         "description": "patientManagement deepnavs",
-                                        "pos": 5,
                                         "type": "deepnav",
                                         "areas": {
                                             "screen": {
                                                 "id": "screen",
                                                 "description": "Screen",
-                                                "pos": 12,
                                                 "type": "screen",
                                                 "areas": {
                                                     "actionMenu": {
                                                         "id": "actionMenu",
                                                         "description": "Action",
-                                                        "pos": 13,
                                                         "type": "actionMenu",
                                                         "areas": {
                                                             "left": {
                                                                 "id": "left",
                                                                 "description": "Action",
-                                                                "pos": 14,
                                                                 "type": "actionMenu.left",
                                                                 "buttons": [{
                                                                         "id": "noEdis",
@@ -5740,7 +5561,6 @@
                                                             "right": {
                                                                 "id": "right",
                                                                 "description": "Action",
-                                                                "pos": 15,
                                                                 "type": "actionMenu.right",
                                                                 "buttons": [{
                                                                         "id": "eye",
@@ -5770,25 +5590,21 @@
                                             "pendingIssue": {
                                                 "id": "pendingIssue",
                                                 "description": "pendingIssue deepnavs",
-                                                "pos": 5,
                                                 "type": "deepnav",
                                                 "areas": {
                                                     "screen": {
                                                         "id": "screen",
                                                         "description": "Screen",
-                                                        "pos": 12,
                                                         "type": "screen",
                                                         "areas": {
                                                             "actionMenu": {
                                                                 "id": "actionMenu",
                                                                 "description": "Action",
-                                                                "pos": 13,
                                                                 "type": "actionMenu",
                                                                 "areas": {
                                                                     "left": {
                                                                         "id": "left",
                                                                         "description": "Action",
-                                                                        "pos": 14,
                                                                         "type": "actionMenu.left",
                                                                         "buttons": [{
                                                                                 "id": "print",
@@ -5838,7 +5654,6 @@
                                                                     "right": {
                                                                         "id": "right",
                                                                         "description": "Action",
-                                                                        "pos": 15,
                                                                         "type": "actionMenu.right",
                                                                         "buttons": [{
                                                                                 "id": "eye",
@@ -6016,25 +5831,21 @@
                                     "pregnancyButton": {
                                         "id": "pregnancyButton",
                                         "description": "pregnancyButton deepnavs",
-                                        "pos": 5,
                                         "type": "deepnav",
                                         "areas": {
                                             "screen": {
                                                 "id": "screen",
                                                 "description": "Screen",
-                                                "pos": 12,
                                                 "type": "screen",
                                                 "areas": {
                                                     "actionMenu": {
                                                         "id": "actionMenu",
                                                         "description": "Action",
-                                                        "pos": 13,
                                                         "type": "actionMenu",
                                                         "areas": {
                                                             "left": {
                                                                 "id": "left",
                                                                 "description": "Action",
-                                                                "pos": 14,
                                                                 "type": "actionMenu.left",
                                                                 "buttons": [{
                                                                         "id": "print",
@@ -6078,7 +5889,6 @@
                                                             "right": {
                                                                 "id": "right",
                                                                 "description": "Action",
-                                                                "pos": 15,
                                                                 "type": "actionMenu.right",
                                                                 "buttons": [{
                                                                         "id": "eye",
@@ -6124,25 +5934,21 @@
                                     "checklistFrontoffice": {
                                         "id": "checklistFrontoffice",
                                         "description": "checklistFrontoffice deepnavs",
-                                        "pos": 5,
                                         "type": "deepnav",
                                         "areas": {
                                             "screen": {
                                                 "id": "screen",
                                                 "description": "Screen",
-                                                "pos": 12,
                                                 "type": "screen",
                                                 "areas": {
                                                     "actionMenu": {
                                                         "id": "actionMenu",
                                                         "description": "Action",
-                                                        "pos": 13,
                                                         "type": "actionMenu",
                                                         "areas": {
                                                             "left": {
                                                                 "id": "left",
                                                                 "description": "Action",
-                                                                "pos": 14,
                                                                 "type": "actionMenu.left",
                                                                 "buttons": [{
                                                                         "id": "print",
@@ -6192,7 +5998,6 @@
                                                             "right": {
                                                                 "id": "right",
                                                                 "description": "Action",
-                                                                "pos": 15,
                                                                 "type": "actionMenu.right",
                                                                 "buttons": [{
                                                                         "id": "eye",
@@ -6341,8 +6146,7 @@
                     },
                     "headerLeft": {
                         "id": "headerLeft",
-                        "description": "Personal settings area",
-                        "pos": 6,
+                        "description": "Personal settings",
                         "type": "headerLeft",
                         "buttons": [{
                                 "id": "reset",
@@ -6355,8 +6159,7 @@
                     },
                     "actionMenuRight": {
                         "id": "actionMenuRight",
-                        "description": "Ok area",
-                        "pos": 7,
+                        "description": "Ok",
                         "type": "actionMenuRight",
                         "buttons": [{
                                 "id": "ok",
@@ -6369,26 +6172,22 @@
                     },
                     "mainMenuLeft": {
                         "id": "mainMenuLeft",
-                        "description": "Alerts area",
-                        "pos": 8,
+                        "description": "Alerts",
                         "type": "mainMenuLeft",
                         "areas": {
                             "screen": {
                                 "id": "screen",
                                 "description": "Screen",
-                                "pos": 12,
                                 "type": "screen",
                                 "areas": {
                                     "actionMenu": {
                                         "id": "actionMenu",
                                         "description": "Action",
-                                        "pos": 13,
                                         "type": "actionMenu",
                                         "areas": {
                                             "left": {
                                                 "id": "left",
                                                 "description": "Action",
-                                                "pos": 14,
                                                 "type": "actionMenu.left",
                                                 "buttons": [{
                                                         "id": "print",
@@ -6432,7 +6231,6 @@
                                             "right": {
                                                 "id": "right",
                                                 "description": "Action",
-                                                "pos": 15,
                                                 "type": "actionMenu.right",
                                                 "buttons": [{
                                                         "id": "eye",
@@ -6478,13 +6276,11 @@
                     "actionMenu": {
                         "id": "actionMenu",
                         "description": "Bottom menu",
-                        "pos": 10,
                         "type": "actionMenu",
                         "areas": {
                             "left": {
                                 "id": "left",
                                 "description": "Bottom menu left",
-                                "pos": 10,
                                 "type": "actionMenu.left",
                                 "buttons": [{
                                         "id": "print",
@@ -6564,7 +6360,6 @@
                             "right": {
                                 "id": "right",
                                 "description": "Bottom menu right",
-                                "pos": 11,
                                 "type": "actionMenu.right",
                                 "buttons": [{
                                         "id": "eye",
@@ -6606,13 +6401,11 @@
             "tools": {
                 "id": "tools",
                 "description": "Inpatient tools area",
-                "pos": 0,
-                "type": "",
+                "type": "top",
                 "areas": {
                     "headerRight": {
                         "id": "headerRight",
-                        "description": "Logout button area",
-                        "pos": 1,
+                        "description": "Logout button",
                         "type": "headerRight",
                         "buttons": [{
                                 "id": "logout",
@@ -6625,8 +6418,7 @@
                     },
                     "actionMenuLeft": {
                         "id": "actionMenuLeft",
-                        "description": "Back button area",
-                        "pos": 2,
+                        "description": "Back button",
                         "type": "actionMenuLeft",
                         "buttons": [{
                                 "id": "back",
@@ -6640,37 +6432,31 @@
                     "mainMenu": {
                         "id": "mainMenu",
                         "description": "Main menu",
-                        "pos": 3,
                         "type": "mainMenu",
                         "areas": {
                             "left": {
                                 "id": "left",
                                 "description": "Main menu left",
-                                "pos": 3,
                                 "type": "mainMenu.left",
                                 "areas": {
                                     "toolsLang": {
                                         "id": "toolsLang",
                                         "description": "toolsLang deepnavs",
-                                        "pos": 5,
                                         "type": "deepnav",
                                         "areas": {
                                             "screen": {
                                                 "id": "screen",
                                                 "description": "Screen",
-                                                "pos": 12,
                                                 "type": "screen",
                                                 "areas": {
                                                     "actionMenu": {
                                                         "id": "actionMenu",
                                                         "description": "Action",
-                                                        "pos": 13,
                                                         "type": "actionMenu",
                                                         "areas": {
                                                             "left": {
                                                                 "id": "left",
                                                                 "description": "Action",
-                                                                "pos": 14,
                                                                 "type": "actionMenu.left",
                                                                 "buttons": [{
                                                                         "id": "noEdis",
@@ -6726,7 +6512,6 @@
                                                             "right": {
                                                                 "id": "right",
                                                                 "description": "Action",
-                                                                "pos": 15,
                                                                 "type": "actionMenu.right",
                                                                 "buttons": [{
                                                                         "id": "eye",
@@ -6844,25 +6629,21 @@
                                     "commontext": {
                                         "id": "commontext",
                                         "description": "commontext deepnavs",
-                                        "pos": 5,
                                         "type": "deepnav",
                                         "areas": {
                                             "screen": {
                                                 "id": "screen",
                                                 "description": "Screen",
-                                                "pos": 12,
                                                 "type": "screen",
                                                 "areas": {
                                                     "actionMenu": {
                                                         "id": "actionMenu",
                                                         "description": "Action",
-                                                        "pos": 13,
                                                         "type": "actionMenu",
                                                         "areas": {
                                                             "left": {
                                                                 "id": "left",
                                                                 "description": "Action",
-                                                                "pos": 14,
                                                                 "type": "actionMenu.left",
                                                                 "buttons": [{
                                                                         "id": "print",
@@ -6912,7 +6693,6 @@
                                                             "right": {
                                                                 "id": "right",
                                                                 "description": "Action",
-                                                                "pos": 15,
                                                                 "type": "actionMenu.right",
                                                                 "buttons": [{
                                                                         "id": "eye",
@@ -6942,25 +6722,21 @@
                                             "orderSetsTools": {
                                                 "id": "orderSetsTools",
                                                 "description": "orderSetsTools deepnavs",
-                                                "pos": 5,
                                                 "type": "deepnav",
                                                 "areas": {
                                                     "screen": {
                                                         "id": "screen",
                                                         "description": "Screen",
-                                                        "pos": 12,
                                                         "type": "screen",
                                                         "areas": {
                                                             "actionMenu": {
                                                                 "id": "actionMenu",
                                                                 "description": "Action",
-                                                                "pos": 13,
                                                                 "type": "actionMenu",
                                                                 "areas": {
                                                                     "left": {
                                                                         "id": "left",
                                                                         "description": "Action",
-                                                                        "pos": 14,
                                                                         "type": "actionMenu.left",
                                                                         "buttons": [{
                                                                                 "id": "print",
@@ -7004,7 +6780,6 @@
                                                                     "right": {
                                                                         "id": "right",
                                                                         "description": "Action",
-                                                                        "pos": 15,
                                                                         "type": "actionMenu.right",
                                                                         "buttons": [{
                                                                                 "id": "eye",
@@ -7161,8 +6936,7 @@
                     },
                     "headerLeft": {
                         "id": "headerLeft",
-                        "description": "Personal settings area",
-                        "pos": 6,
+                        "description": "Personal settings",
                         "type": "headerLeft",
                         "buttons": [{
                                 "id": "reset",
@@ -7175,8 +6949,7 @@
                     },
                     "actionMenuRight": {
                         "id": "actionMenuRight",
-                        "description": "Ok area",
-                        "pos": 7,
+                        "description": "Ok",
                         "type": "actionMenuRight",
                         "buttons": [{
                                 "id": "ok",
@@ -7189,26 +6962,22 @@
                     },
                     "mainMenuLeft": {
                         "id": "mainMenuLeft",
-                        "description": "Alerts area",
-                        "pos": 8,
+                        "description": "Alerts",
                         "type": "mainMenuLeft",
                         "areas": {
                             "screen": {
                                 "id": "screen",
                                 "description": "Screen",
-                                "pos": 12,
                                 "type": "screen",
                                 "areas": {
                                     "actionMenu": {
                                         "id": "actionMenu",
                                         "description": "Action",
-                                        "pos": 13,
                                         "type": "actionMenu",
                                         "areas": {
                                             "left": {
                                                 "id": "left",
                                                 "description": "Action",
-                                                "pos": 14,
                                                 "type": "actionMenu.left",
                                                 "buttons": [{
                                                         "id": "create",
@@ -7234,7 +7003,6 @@
                                             "right": {
                                                 "id": "right",
                                                 "description": "Action",
-                                                "pos": 15,
                                                 "type": "actionMenu.right",
                                                 "buttons": [{
                                                         "id": "eye",
@@ -7280,13 +7048,11 @@
                     "actionMenu": {
                         "id": "actionMenu",
                         "description": "Bottom menu",
-                        "pos": 10,
                         "type": "actionMenu",
                         "areas": {
                             "left": {
                                 "id": "left",
                                 "description": "Bottom menu left",
-                                "pos": 10,
                                 "type": "actionMenu.left",
                                 "buttons": [{
                                         "id": "print",
@@ -7342,7 +7108,6 @@
                             "right": {
                                 "id": "right",
                                 "description": "Bottom menu right",
-                                "pos": 11,
                                 "type": "actionMenu.right",
                                 "buttons": [{
                                         "id": "eye",
@@ -7371,6 +7136,10 @@
             }
         }
     }
+    
+    
+    
+    
     
     
     

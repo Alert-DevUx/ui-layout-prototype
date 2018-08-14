@@ -75,17 +75,16 @@ class Layout {
 
 /** 
 Area
-Screen area. Includes an id, its position in the screen, a list of buttons, and a list of child areas
+Screen area. Includes an id, the type that defines its position in the screen, a list of buttons, and a list of child areas
 */
 class Area {
-    constructor(id, description, pos, type) {
+    constructor(id, description, type) {
 
         if(!this._validateParams()) {
             throw 'Invalid parameters.';
         }
         this.id = id;
         this.description = description;
-        this.pos = pos;
         this.type = type;
     }
 
@@ -208,8 +207,7 @@ class Area {
         /*
         1. id is of type String and is mandatory
         2. description is of type String and is mandatory
-        3. pos is of type int and correspond to a fixed position in the screen
-        4. type is of type string and defines the type of area. the porssible values are: 
+        3. type is of type string and defines the type of area. the porssible values are: 
             headerLeft,       header,      headerRight',
             mainMenuLeft,     mainMenu,    mainMenuRight',
             deepnav,          screen,      screenRight'
