@@ -3,7 +3,7 @@
   
   angular.module('layout')
   .component('layout.mainMenu', {
-    templateUrl: 'src/layout/views/mainMenu.html'
+    template: '<ui-view/>'
   });    
 })();
   

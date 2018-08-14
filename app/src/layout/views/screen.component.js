@@ -3,7 +3,7 @@
     
     angular.module('layout')
     .component('layout.screen', {
-      template: '<p>SCREEN: {{$ctrl.screenName}} </p>',
+      template: '<span class="screen_text">{{$ctrl.screenName}} </span>',
       bindings: {
         screenName: '<'
       },      

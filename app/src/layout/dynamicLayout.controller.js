@@ -83,7 +83,10 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
         var url = '/' + area.id; 
         var views = getViews(area);
 
-        createState(state, abstract, url, views, area);
+        if(views) {
+            createState(state, abstract, url, views, area);
+        }
+
         for (var id in area.areas) {
             if (area.areas.hasOwnProperty(id)) {
                 createStates(area.areas[id]);
@@ -182,7 +185,9 @@ function DynamicLayoutController($scope, layout, $uiRouter, $state, $transitions
                 break;
             case 12: 
                 views = {}
+                // Screen 
                 views['screen' + topViewAbsName] = 'layout.screen'; 
+                // Action buttons
                 views['actionMenu' + topViewAbsName] = 'layout.actionMenu'; 
                 break;
         }

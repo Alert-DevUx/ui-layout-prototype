@@ -3,7 +3,7 @@
     
     angular.module('layout')
     .component('layout.mainMenu.right', {
-      template: '<buttons buttons="$ctrl.mainMenu.buttons" area-type="\'mainMenu\'"/>',
+      template: '<buttons buttons="$ctrl.mainMenu_rightArea.buttons" area-type="\'mainMenu\'"/>',
       controller: MainMenu_RightController
     });
     
@@ -18,9 +18,8 @@
       var area = layout.findArea(path);
 
       if(area.type === 'mainMenu.right') {
-        $ctrl.mainMenu = area;
+        $ctrl.mainMenu_rightArea = area;
       }
-
 
     }    
     

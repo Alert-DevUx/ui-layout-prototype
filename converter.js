@@ -41,12 +41,12 @@ const areaMap = {
     'entry.headerRight'     : {'description': 'Logout button area',       'pos': 1,   'type': 'headerRight' },
     'entry.mainMenuLeft'    : {'description': 'Alerts area',              'pos': 8,   'type': 'mainMenuLeft' },     
     'entry.mainMenu'        : {'description': 'Main menu',                'pos': 3,   'type': 'mainMenu' }, 
-    'entry.mainMenu.left'   : {'description': 'Main menu left',           'pos': 3,   'type': 'mainMenu' },
-    'entry.mainMenu.right'  : {'description': 'Main menu right',          'pos': 4,   'type': 'mainMenu' },
+    'entry.mainMenu.left'   : {'description': 'Main menu left',           'pos': 3,   'type': 'mainMenu.left' },
+    'entry.mainMenu.right'  : {'description': 'Main menu right',          'pos': 4,   'type': 'mainMenu.right' },
     'entry.actionMenuLeft'  : {'description': 'Back button area',         'pos': 2,   'type': 'actionMenuLeft' },            
     'entry.actionMenu'      : {'description': 'Bottom menu',              'pos': 10,  'type': 'actionMenu' },
-    'entry.actionMenu.left' : {'description': 'Bottom menu left',         'pos': 10,  'type': 'actionMenu' },
-    'entry.actionMenu.right': {'description': 'Bottom menu right',        'pos': 11,  'type': 'actionMenu' },
+    'entry.actionMenu.left' : {'description': 'Bottom menu left',         'pos': 10,  'type': 'actionMenu.left' },
+    'entry.actionMenu.right': {'description': 'Bottom menu right',        'pos': 11,  'type': 'actionMenu.right' },
     'entry.actionMenuRight' : {'description': 'Ok area',                  'pos': 7,   'type': 'actionMenuRight' },
     'entry.mainMenuRight'   : {'description': 'Search area',              'pos': 9,   'type': 'mainMenuRight' },
 
@@ -54,12 +54,12 @@ const areaMap = {
     'patient.headerRight'     : {'description': 'Logout button area',       'pos': 1,   'type': 'headerRight' },
     'patient.mainMenuLeft'    : {'description': 'Alerts area',              'pos': 8,   'type': 'mainMenuLeft' },     
     'patient.mainMenu'        : {'description': 'Main menu',                'pos': 3,   'type': 'mainMenu' }, 
-    'patient.mainMenu.left'   : {'description': 'Main menu left',           'pos': 3,   'type': 'mainMenu' },
-    'patient.mainMenu.right'  : {'description': 'Main menu right',          'pos': 4,   'type': 'mainMenu' },
+    'patient.mainMenu.left'   : {'description': 'Main menu left',           'pos': 3,   'type': 'mainMenu.left' },
+    'patient.mainMenu.right'  : {'description': 'Main menu right',          'pos': 4,   'type': 'mainMenu.right' },
     'patient.actionMenuLeft'  : {'description': 'Back button area',         'pos': 2,   'type': 'actionMenuLeft' },            
     'patient.actionMenu'      : {'description': 'Bottom menu',              'pos': 10,  'type': 'actionMenu' },
-    'patient.actionMenu.left' : {'description': 'Bottom menu left',         'pos': 10,  'type': 'actionMenu' },
-    'patient.actionMenu.right': {'description': 'Bottom menu right',        'pos': 11,  'type': 'actionMenu' },
+    'patient.actionMenu.left' : {'description': 'Bottom menu left',         'pos': 10,  'type': 'actionMenu.left' },
+    'patient.actionMenu.right': {'description': 'Bottom menu right',        'pos': 11,  'type': 'actionMenu.right' },
     'patient.actionMenuRight' : {'description': 'Ok area',                  'pos': 7,   'type': 'actionMenuRight' },
     'patient.mainMenuRight'   : {'description': 'Search area',              'pos': 9,   'type': 'mainMenuRight' },
 
@@ -67,40 +67,42 @@ const areaMap = {
     'tools.headerRight'     : {'description': 'Logout button area',       'pos': 1,   'type': 'headerRight' },
     'tools.mainMenuLeft'    : {'description': 'Alerts area',              'pos': 8,   'type': 'mainMenuLeft' },     
     'tools.mainMenu'        : {'description': 'Main menu',                'pos': 3,   'type': 'mainMenu' }, 
-    'tools.mainMenu.left'   : {'description': 'Main menu left',           'pos': 3,   'type': 'mainMenu' },
-    'tools.mainMenu.right'  : {'description': 'Main menu right',          'pos': 4,   'type': 'mainMenu' },
+    'tools.mainMenu.left'   : {'description': 'Main menu left',           'pos': 3,   'type': 'mainMenu.left' },
+    'tools.mainMenu.right'  : {'description': 'Main menu right',          'pos': 4,   'type': 'mainMenu.right' },
     'tools.actionMenuLeft'  : {'description': 'Back button area',         'pos': 2,   'type': 'actionMenuLeft' },            
     'tools.actionMenu'      : {'description': 'Bottom menu',              'pos': 10,  'type': 'actionMenu' },
-    'tools.actionMenu.left' : {'description': 'Bottom menu left',         'pos': 10,  'type': 'actionMenu' },
-    'tools.actionMenu.right': {'description': 'Bottom menu right',        'pos': 11,  'type': 'actionMenu' },
+    'tools.actionMenu.left' : {'description': 'Bottom menu left',         'pos': 10,  'type': 'actionMenu.left' },
+    'tools.actionMenu.right': {'description': 'Bottom menu right',        'pos': 11,  'type': 'actionMenu.right' },
     'tools.actionMenuRight' : {'description': 'Ok area',                  'pos': 7,   'type': 'actionMenuRight' },
     'tools.mainMenuRight'   : {'description': 'Search area',              'pos': 9,   'type': 'mainMenuRight' }
 }
 
+
+// Note that the pos fiels is used to choose the left or right side of the actions menu
 const actionButtonMap = { 
-    'FLG_ACTION':           { id: 'actionButton', title: 'Actions', icon: '', status: 'N', rank:  6 },
-    'FLG_SEARCH':           { id: 'advanceSearch', title: 'Advanced search',	icon: 'AdvancedSearchIcon', status: 'N', rank: 5 },
-    'FLG_HELP':             { id: 'applicationHelp', title: 'Help', icon: 'HelpIcon', status: 'N', rank: 30 },
-//    '':                     { id: 'back', title: 'Back', icon: 'BackIcon', status: 'N', rank: 0},
-//    '':                     { id: 'barChartEdis', title: 'Graph view', icon: 'chartsIcon', status: 'N', rank: 0},
-//    '':                     { id: 'barListEdis', title: 'Grid view', icon: 'ListIcon', status: 'N', rank: 0},
-    'FLG_CANCEL':           { id: 'cancel', title: 'Cancel records', icon: 'CancelIcon', status: 'N', rank: 3 },
-//    '':                     { id: 'chartLinesEdis', title: 'Graph view', icon: 'ChartsLinesIcon', status: 'N', rank: 0},
-//    '':                     { id: 'commonText', title: 'Predefined texts', icon: 'CommonTextIcon', status: 'N', rank: 50},
-//    '':                     { id: 'contextHelp', title: 'Technical content', icon: 'ContentIcon', status: 'N', rank: 0},
-    'FLG_CREATE':           { id: 'create', title: 'Add or edit records', icon: 'AddIcon', status: 'N', rank: 2 },
-//    '':                     { id: 'docImport', title: 'Attach digital documents', icon: 'ImportDocIcon', status: 'N', rank: 0},
-    'FLG_DETAIL':           { id: 'eye', title: 'Record details', icon: 'DetailsIcon', status: 'N', rank: 0 },
-    'FLG_VIEW':             { id: 'firstView', title: 'First view ', icon: 'FirstVisionIcon', status: 'N', rank: 4 },
-//    '':                     { id: 'firstView', title: '', icon: 'PrenatalvisitsIcon', status: 'N', rank: 0 },
-    'FLG_GLOBAL_SHORTCUT':  { id: 'globalShortcut', title: 'Shortcuts', icon: 'GlobalShortcutIcon', status: 'N', rank: 9999 },
-    'FLG_INFO_BUTTON':      { id: 'infoButton', title: 'Infobutton', icon: 'InfoButtonIcon', status: 'N', rank: 10 },
-    'FLG_NO':               { id: 'noEdis', title: 'Negative for all discriminators on this page', icon: 'NoIcon', status: 'N', rank: 0 },
-//    'FLG_OK':               { id: 'ok', title: 'Confirm and continue', icon: 'OKIcon', status: 'N', rank: 0 },
-    'FLG_PRINT':            { id: 'print', title: 'Print tool', icon: 'PrintIcon', status: 'N', rank: 1 },
-//    '':                     { id: 'secondView', title: 'Second view', icon: 'SecondVisionIcon', status: 'N', rank: 4 },
-    'FLG_FREQ':             { id: 'toolsCommonText', title: 'Predefined texts', icon: 'CommonTextIcon', status: 'N', rank: 50},
-    'FLG_VIEW':             { id: 'viewsButton', title: 'View modes', icon: '', status: 'N', rank: 4 }
+    'FLG_ACTION':           { id: 'actionButton', title: 'Actions', icon: '', status: 'N', rank:  6, pos: 'left' },
+    'FLG_SEARCH':           { id: 'advanceSearch', title: 'Advanced search',	icon: 'AdvancedSearchIcon', status: 'N', rank: 5, pos: 'left' },
+    'FLG_HELP':             { id: 'applicationHelp', title: 'Help', icon: 'HelpIcon', status: 'N', rank: 30, pos: 'right' },
+//    '':                     { id: 'back', title: 'Back', icon: 'BackIcon', status: 'N', rank: 0, pos: 'left'},
+//    '':                     { id: 'barChartEdis', title: 'Graph view', icon: 'chartsIcon', status: 'N', rank: 0, pos: 'left'},
+//    '':                     { id: 'barListEdis', title: 'Grid view', icon: 'ListIcon', status: 'N', rank: 0, pos: 'left'},
+    'FLG_CANCEL':           { id: 'cancel', title: 'Cancel records', icon: 'CancelIcon', status: 'N', rank: 3, pos: 'left' },
+//    '':                     { id: 'chartLinesEdis', title: 'Graph view', icon: 'ChartsLinesIcon', status: 'N', rank: 0, pos: 'left'},
+//    '':                     { id: 'commonText', title: 'Predefined texts', icon: 'CommonTextIcon', status: 'N', rank: 50, pos: 'left'},
+//    '':                     { id: 'contextHelp', title: 'Technical content', icon: 'ContentIcon', status: 'N', rank: 0, pos: 'right'},
+    'FLG_CREATE':           { id: 'create', title: 'Add or edit records', icon: 'AddIcon', status: 'N', rank: 2, pos: 'left' },
+//    '':                     { id: 'docImport', title: 'Attach digital documents', icon: 'ImportDocIcon', status: 'N', rank: 0, pos: 'left'},
+    'FLG_DETAIL':           { id: 'eye', title: 'Record details', icon: 'DetailsIcon', status: 'N', rank: 0, pos: 'right' },
+    'FLG_VIEW':             { id: 'firstView', title: 'First view ', icon: 'FirstVisionIcon', status: 'N', rank: 4, pos: 'left' },
+//    '':                     { id: 'firstView', title: '', icon: 'PrenatalvisitsIcon', status: 'N', rank: 0, pos: 'left' },
+    'FLG_GLOBAL_SHORTCUT':  { id: 'globalShortcut', title: 'Shortcuts', icon: 'GlobalShortcutIcon', status: 'N', rank: 9999, pos: 'right' },
+    'FLG_INFO_BUTTON':      { id: 'infoButton', title: 'Infobutton', icon: 'InfoButtonIcon', status: 'N', rank: 10, pos: 'left' },
+    'FLG_NO':               { id: 'noEdis', title: 'Negative for all discriminators on this page', icon: 'NoIcon', status: 'N', rank: 0, pos: 'left' },
+//    'FLG_OK':               { id: 'ok', title: 'Confirm and continue', icon: 'OKIcon', status: 'N', rank: 0, pos: 'left' },
+    'FLG_PRINT':            { id: 'print', title: 'Print tool', icon: 'PrintIcon', status: 'N', rank: 1, pos: 'left' },
+//    '':                     { id: 'secondView', title: 'Second view', icon: 'SecondVisionIcon', status: 'N', rank: 4, pos: 'left' },
+    'FLG_FREQ':             { id: 'toolsCommonText', title: 'Predefined texts', icon: 'CommonTextIcon', status: 'N', rank: 50, pos: 'left'},
+    'FLG_VIEW':             { id: 'viewsButton', title: 'View modes', icon: '', status: 'N', rank: 4, pos: 'left' }
 }
 
 
@@ -195,7 +197,7 @@ setdMapEntry = function(areaPath) {
     let mapEntry = {};
 
     let parentMapEntry = areaMap[areaPath.getParent().toString()];
-    mapEntry.description = areaPath.getId() + " deepnavs";
+    mapEntry.description = areaPath.getId() + ' deepnavs';
     mapEntry.pos = 5;
     mapEntry.type = 'deepnav';
     areaMap[areaPath.clone().removeHead().toString()] = mapEntry;
@@ -285,10 +287,16 @@ processArea = function(line) {
         } 
     });
 
-    // If the line includes a screen then add an child area for holding that screen
+    // If the line includes a screen then add an child area for holding that screen and the areas for the
+    // action buttons
     if(line.screenName) {
         var screenParentPath = line.path.clone();
-        topArea.addArea(new Area('screen', 'Screen', 12, 'screen'), screenParentPath);
+        var screenArea = new Area('screen', 'Screen', 12, 'screen');
+        var actionMenu = new Area('actionMenu', 'Action', 13, 'actionMenu');
+        actionMenu.addArea(new Area('left', 'Action', 14, 'actionMenu.left'));
+        actionMenu.addArea(new Area('right', 'Action', 15, 'actionMenu.right'));
+        screenArea.addArea(actionMenu);
+        topArea.addArea(screenArea, screenParentPath);
     }
 }
 
@@ -342,14 +350,16 @@ setActionButtons = function (line) {
 
         // For screen areas the target area was previously set with the location of the 'screen' area
         var screenArea = topArea.findArea(new Path(line.targetArea));
+        var actionAreas = screenArea.areas.actionMenu.areas;
 
         for (var flag in actionButtonMap) {
             if (actionButtonMap.hasOwnProperty(flag)) {
                 var flagKey = camelize(flag.replace(new RegExp('_', 'g'),'.'));
                 // Ignore actions with value 'N'
                 if(line[flagKey] != 'N') {
+                    // Add buttons to the left or side action area accordgin to the value of actionButtonMap.pos
                     // Empty action for now
-                    screenArea.addButton(
+                    actionAreas[actionButtonMap[flag].pos].addButton(
                         new Button(actionButtonMap[flag].id, line[flagKey], actionButtonMap[flag].title, 
                                    actionButtonMap[flag].icon, new Action(), actionButtonMap[flag].rank));
                 }

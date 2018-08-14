@@ -153,87 +153,105 @@
                                 "id": "left",
                                 "description": "Main menu left",
                                 "pos": 3,
-                                "type": "mainMenu",
+                                "type": "mainMenu.left",
                                 "areas": {
                                     "screen": {
                                         "id": "screen",
                                         "description": "Screen",
                                         "pos": 12,
                                         "type": "screen",
-                                        "buttons": [{
-                                                "id": "eye",
-                                                "status": "I",
-                                                "label": "Record details",
-                                                "icon": "DetailsIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "ok",
-                                                "status": "A",
-                                                "label": "Confirm and continue",
-                                                "icon": "OKIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "noEdis",
-                                                "status": "A",
-                                                "label": "Negative for all discriminators on this page",
-                                                "icon": "NoIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "print",
-                                                "status": "A",
-                                                "label": "Print tool",
-                                                "icon": "PrintIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "create",
-                                                "status": "A",
-                                                "label": "Add or edit records",
-                                                "icon": "AddIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "cancel",
-                                                "status": "A",
-                                                "label": "Cancel records",
-                                                "icon": "CancelIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "viewsButton",
-                                                "status": "A",
-                                                "label": "View modes",
-                                                "icon": "",
-                                                "action": {}
-                                            }, {
-                                                "id": "advanceSearch",
-                                                "status": "I",
-                                                "label": "Advanced search",
-                                                "icon": "AdvancedSearchIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "actionButton",
-                                                "status": "A",
-                                                "label": "Actions",
-                                                "icon": "",
-                                                "action": {}
-                                            }, {
-                                                "id": "applicationHelp",
-                                                "status": "A",
-                                                "label": "Help",
-                                                "icon": "HelpIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "toolsCommonText",
-                                                "status": "I",
-                                                "label": "Predefined texts",
-                                                "icon": "CommonTextIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "globalShortcut",
-                                                "status": "A",
-                                                "label": "Shortcuts",
-                                                "icon": "GlobalShortcutIcon",
-                                                "action": {}
+                                        "areas": {
+                                            "actionMenu": {
+                                                "id": "actionMenu",
+                                                "description": "Action",
+                                                "pos": 13,
+                                                "type": "actionMenu",
+                                                "areas": {
+                                                    "left": {
+                                                        "id": "left",
+                                                        "description": "Action",
+                                                        "pos": 14,
+                                                        "type": "actionMenu.left",
+                                                        "buttons": [{
+                                                                "id": "noEdis",
+                                                                "status": "A",
+                                                                "label": "Negative for all discriminators on this page",
+                                                                "icon": "NoIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "print",
+                                                                "status": "A",
+                                                                "label": "Print tool",
+                                                                "icon": "PrintIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "create",
+                                                                "status": "A",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "A",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "viewsButton",
+                                                                "status": "A",
+                                                                "label": "View modes",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "I",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "A",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "toolsCommonText",
+                                                                "status": "I",
+                                                                "label": "Predefined texts",
+                                                                "icon": "CommonTextIcon",
+                                                                "action": {}
+                                                            }
+                                                        ]
+                                                    },
+                                                    "right": {
+                                                        "id": "right",
+                                                        "description": "Action",
+                                                        "pos": 15,
+                                                        "type": "actionMenu.right",
+                                                        "buttons": [{
+                                                                "id": "eye",
+                                                                "status": "I",
+                                                                "label": "Record details",
+                                                                "icon": "DetailsIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
+                                                            }
+                                                        ]
+                                                    }
+                                                }
                                             }
-                                        ]
+                                        }
                                     },
                                     "barCode": {
                                         "id": "barCode",
@@ -246,56 +264,74 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": [{
-                                                        "id": "eye",
-                                                        "status": "I",
-                                                        "label": "Record details",
-                                                        "icon": "DetailsIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "ok",
-                                                        "status": "A",
-                                                        "label": "Confirm and continue",
-                                                        "icon": "OKIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "print",
-                                                        "status": "I",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "create",
-                                                        "status": "I",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "cancel",
-                                                        "status": "I",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "viewsButton",
-                                                        "status": "I",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
+                                                "areas": {
+                                                    "actionMenu": {
+                                                        "id": "actionMenu",
+                                                        "description": "Action",
+                                                        "pos": 13,
+                                                        "type": "actionMenu",
+                                                        "areas": {
+                                                            "left": {
+                                                                "id": "left",
+                                                                "description": "Action",
+                                                                "pos": 14,
+                                                                "type": "actionMenu.left",
+                                                                "buttons": [{
+                                                                        "id": "print",
+                                                                        "status": "I",
+                                                                        "label": "Print tool",
+                                                                        "icon": "PrintIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "I",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "I",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "viewsButton",
+                                                                        "status": "I",
+                                                                        "label": "View modes",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "right": {
+                                                                "id": "right",
+                                                                "description": "Action",
+                                                                "pos": 15,
+                                                                "type": "actionMenu.right",
+                                                                "buttons": [{
+                                                                        "id": "eye",
+                                                                        "status": "I",
+                                                                        "label": "Record details",
+                                                                        "icon": "DetailsIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
                                                     }
-                                                ]
+                                                }
                                             }
                                         },
                                         "buttons": [{
@@ -324,62 +360,80 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": [{
-                                                        "id": "eye",
-                                                        "status": "A",
-                                                        "label": "Record details",
-                                                        "icon": "DetailsIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "ok",
-                                                        "status": "A",
-                                                        "label": "Confirm and continue",
-                                                        "icon": "OKIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "print",
-                                                        "status": "I",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "create",
-                                                        "status": "I",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "cancel",
-                                                        "status": "I",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "viewsButton",
-                                                        "status": "I",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "toolsCommonText",
-                                                        "status": "A",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
+                                                "areas": {
+                                                    "actionMenu": {
+                                                        "id": "actionMenu",
+                                                        "description": "Action",
+                                                        "pos": 13,
+                                                        "type": "actionMenu",
+                                                        "areas": {
+                                                            "left": {
+                                                                "id": "left",
+                                                                "description": "Action",
+                                                                "pos": 14,
+                                                                "type": "actionMenu.left",
+                                                                "buttons": [{
+                                                                        "id": "print",
+                                                                        "status": "I",
+                                                                        "label": "Print tool",
+                                                                        "icon": "PrintIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "I",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "I",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "viewsButton",
+                                                                        "status": "I",
+                                                                        "label": "View modes",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "toolsCommonText",
+                                                                        "status": "A",
+                                                                        "label": "Predefined texts",
+                                                                        "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "right": {
+                                                                "id": "right",
+                                                                "description": "Action",
+                                                                "pos": 15,
+                                                                "type": "actionMenu.right",
+                                                                "buttons": [{
+                                                                        "id": "eye",
+                                                                        "status": "A",
+                                                                        "label": "Record details",
+                                                                        "icon": "DetailsIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
                                                     }
-                                                ]
+                                                }
                                             }
                                         },
                                         "buttons": [{
@@ -444,50 +498,68 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": [{
-                                                        "id": "eye",
-                                                        "status": "I",
-                                                        "label": "Record details",
-                                                        "icon": "DetailsIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "ok",
-                                                        "status": "A",
-                                                        "label": "Confirm and continue",
-                                                        "icon": "OKIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "print",
-                                                        "status": "I",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "create",
-                                                        "status": "I",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "cancel",
-                                                        "status": "I",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
+                                                "areas": {
+                                                    "actionMenu": {
+                                                        "id": "actionMenu",
+                                                        "description": "Action",
+                                                        "pos": 13,
+                                                        "type": "actionMenu",
+                                                        "areas": {
+                                                            "left": {
+                                                                "id": "left",
+                                                                "description": "Action",
+                                                                "pos": 14,
+                                                                "type": "actionMenu.left",
+                                                                "buttons": [{
+                                                                        "id": "print",
+                                                                        "status": "I",
+                                                                        "label": "Print tool",
+                                                                        "icon": "PrintIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "I",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "I",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "right": {
+                                                                "id": "right",
+                                                                "description": "Action",
+                                                                "pos": 15,
+                                                                "type": "actionMenu.right",
+                                                                "buttons": [{
+                                                                        "id": "eye",
+                                                                        "status": "I",
+                                                                        "label": "Record details",
+                                                                        "icon": "DetailsIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
                                                     }
-                                                ]
+                                                }
                                             }
                                         },
                                         "buttons": [{
@@ -664,56 +736,74 @@
                                 "description": "Screen",
                                 "pos": 12,
                                 "type": "screen",
-                                "buttons": [{
-                                        "id": "eye",
-                                        "status": "I",
-                                        "label": "Record details",
-                                        "icon": "DetailsIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "ok",
-                                        "status": "A",
-                                        "label": "Confirm and continue",
-                                        "icon": "OKIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "print",
-                                        "status": "I",
-                                        "label": "Print tool",
-                                        "icon": "PrintIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "create",
-                                        "status": "A",
-                                        "label": "Add or edit records",
-                                        "icon": "AddIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "cancel",
-                                        "status": "I",
-                                        "label": "Cancel records",
-                                        "icon": "CancelIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "viewsButton",
-                                        "status": "I",
-                                        "label": "View modes",
-                                        "icon": "",
-                                        "action": {}
-                                    }, {
-                                        "id": "applicationHelp",
-                                        "status": "A",
-                                        "label": "Help",
-                                        "icon": "HelpIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "globalShortcut",
-                                        "status": "A",
-                                        "label": "Shortcuts",
-                                        "icon": "GlobalShortcutIcon",
-                                        "action": {}
+                                "areas": {
+                                    "actionMenu": {
+                                        "id": "actionMenu",
+                                        "description": "Action",
+                                        "pos": 13,
+                                        "type": "actionMenu",
+                                        "areas": {
+                                            "left": {
+                                                "id": "left",
+                                                "description": "Action",
+                                                "pos": 14,
+                                                "type": "actionMenu.left",
+                                                "buttons": [{
+                                                        "id": "print",
+                                                        "status": "I",
+                                                        "label": "Print tool",
+                                                        "icon": "PrintIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "create",
+                                                        "status": "A",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "I",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "viewsButton",
+                                                        "status": "I",
+                                                        "label": "View modes",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }
+                                                ]
+                                            },
+                                            "right": {
+                                                "id": "right",
+                                                "description": "Action",
+                                                "pos": 15,
+                                                "type": "actionMenu.right",
+                                                "buttons": [{
+                                                        "id": "eye",
+                                                        "status": "I",
+                                                        "label": "Record details",
+                                                        "icon": "DetailsIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
+                                                    }
+                                                ]
+                                            }
+                                        }
                                     }
-                                ]
+                                }
                             }
                         },
                         "buttons": [{
@@ -748,68 +838,86 @@
                                         "description": "Screen",
                                         "pos": 12,
                                         "type": "screen",
-                                        "buttons": [{
-                                                "id": "eye",
-                                                "status": "A",
-                                                "label": "Record details",
-                                                "icon": "DetailsIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "ok",
-                                                "status": "A",
-                                                "label": "Confirm and continue",
-                                                "icon": "OKIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "print",
-                                                "status": "I",
-                                                "label": "Print tool",
-                                                "icon": "PrintIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "create",
-                                                "status": "A",
-                                                "label": "Add or edit records",
-                                                "icon": "AddIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "cancel",
-                                                "status": "A",
-                                                "label": "Cancel records",
-                                                "icon": "CancelIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "viewsButton",
-                                                "status": "A",
-                                                "label": "View modes",
-                                                "icon": "",
-                                                "action": {}
-                                            }, {
-                                                "id": "advanceSearch",
-                                                "status": "A",
-                                                "label": "Advanced search",
-                                                "icon": "AdvancedSearchIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "actionButton",
-                                                "status": "A",
-                                                "label": "Actions",
-                                                "icon": "",
-                                                "action": {}
-                                            }, {
-                                                "id": "applicationHelp",
-                                                "status": "A",
-                                                "label": "Help",
-                                                "icon": "HelpIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "globalShortcut",
-                                                "status": "A",
-                                                "label": "Shortcuts",
-                                                "icon": "GlobalShortcutIcon",
-                                                "action": {}
+                                        "areas": {
+                                            "actionMenu": {
+                                                "id": "actionMenu",
+                                                "description": "Action",
+                                                "pos": 13,
+                                                "type": "actionMenu",
+                                                "areas": {
+                                                    "left": {
+                                                        "id": "left",
+                                                        "description": "Action",
+                                                        "pos": 14,
+                                                        "type": "actionMenu.left",
+                                                        "buttons": [{
+                                                                "id": "print",
+                                                                "status": "I",
+                                                                "label": "Print tool",
+                                                                "icon": "PrintIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "create",
+                                                                "status": "A",
+                                                                "label": "Add or edit records",
+                                                                "icon": "AddIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "cancel",
+                                                                "status": "A",
+                                                                "label": "Cancel records",
+                                                                "icon": "CancelIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "viewsButton",
+                                                                "status": "A",
+                                                                "label": "View modes",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "advanceSearch",
+                                                                "status": "A",
+                                                                "label": "Advanced search",
+                                                                "icon": "AdvancedSearchIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "actionButton",
+                                                                "status": "A",
+                                                                "label": "Actions",
+                                                                "icon": "",
+                                                                "action": {}
+                                                            }
+                                                        ]
+                                                    },
+                                                    "right": {
+                                                        "id": "right",
+                                                        "description": "Action",
+                                                        "pos": 15,
+                                                        "type": "actionMenu.right",
+                                                        "buttons": [{
+                                                                "id": "eye",
+                                                                "status": "A",
+                                                                "label": "Record details",
+                                                                "icon": "DetailsIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "globalShortcut",
+                                                                "status": "A",
+                                                                "label": "Shortcuts",
+                                                                "icon": "GlobalShortcutIcon",
+                                                                "action": {}
+                                                            }
+                                                        ]
+                                                    }
+                                                }
                                             }
-                                        ]
+                                        }
                                     }
                                 },
                                 "buttons": [{
@@ -885,7 +993,7 @@
                                 "id": "left",
                                 "description": "Bottom menu left",
                                 "pos": 10,
-                                "type": "actionMenu",
+                                "type": "actionMenu.left",
                                 "buttons": [{
                                         "id": "print",
                                         "status": "A",
@@ -947,7 +1055,7 @@
                                 "id": "right",
                                 "description": "Bottom menu right",
                                 "pos": 11,
-                                "type": "actionMenu",
+                                "type": "actionMenu.right",
                                 "buttons": [{
                                         "id": "eye",
                                         "status": "A",
@@ -1023,208 +1131,42 @@
                                 "id": "left",
                                 "description": "Main menu left",
                                 "pos": 3,
-                                "type": "mainMenu",
+                                "type": "mainMenu.left",
                                 "areas": {
                                     "screen": {
                                         "id": "screen",
                                         "description": "Screen",
                                         "pos": 12,
                                         "type": "screen",
-                                        "buttons": [{
-                                                "id": "eye",
-                                                "status": "I",
-                                                "label": "Record details",
-                                                "icon": "DetailsIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "ok",
-                                                "status": "A",
-                                                "label": "Confirm and continue",
-                                                "icon": "OKIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "print",
-                                                "status": "I",
-                                                "label": "Print tool",
-                                                "icon": "PrintIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "create",
-                                                "status": "I",
-                                                "label": "Add or edit records",
-                                                "icon": "AddIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "cancel",
-                                                "status": "I",
-                                                "label": "Cancel records",
-                                                "icon": "CancelIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "advanceSearch",
-                                                "status": "I",
-                                                "label": "Advanced search",
-                                                "icon": "AdvancedSearchIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "actionButton",
-                                                "status": "I",
-                                                "label": "Actions",
-                                                "icon": "",
-                                                "action": {}
-                                            }, {
-                                                "id": "applicationHelp",
-                                                "status": "A",
-                                                "label": "Help",
-                                                "icon": "HelpIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "toolsCommonText",
-                                                "status": "I",
-                                                "label": "Predefined texts",
-                                                "icon": "CommonTextIcon",
-                                                "action": {}
-                                            }, {
-                                                "id": "globalShortcut",
-                                                "status": "A",
-                                                "label": "Shortcuts",
-                                                "icon": "GlobalShortcutIcon",
-                                                "action": {}
-                                            }
-                                        ]
-                                    },
-                                    "ehr": {
-                                        "id": "ehr",
-                                        "description": "ehr deepnavs",
-                                        "pos": 5,
-                                        "type": "deepnav",
                                         "areas": {
-                                            "screen": {
-                                                "id": "screen",
-                                                "description": "Screen",
-                                                "pos": 12,
-                                                "type": "screen",
-                                                "buttons": [{
-                                                        "id": "eye",
-                                                        "status": "A",
-                                                        "label": "Record details",
-                                                        "icon": "DetailsIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "ok",
-                                                        "status": "A",
-                                                        "label": "Confirm and continue",
-                                                        "icon": "OKIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "print",
-                                                        "status": "A",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "create",
-                                                        "status": "I",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "viewsButton",
-                                                        "status": "A",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "actionButton",
-                                                        "status": "I",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "toolsCommonText",
-                                                        "status": "I",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
-                                                    }
-                                                ]
-                                            },
-                                            "visits": {
-                                                "id": "visits",
-                                                "description": "visits deepnavs",
-                                                "pos": 5,
-                                                "type": "deepnav",
+                                            "actionMenu": {
+                                                "id": "actionMenu",
+                                                "description": "Action",
+                                                "pos": 13,
+                                                "type": "actionMenu",
                                                 "areas": {
-                                                    "screen": {
-                                                        "id": "screen",
-                                                        "description": "Screen",
-                                                        "pos": 12,
-                                                        "type": "screen",
+                                                    "left": {
+                                                        "id": "left",
+                                                        "description": "Action",
+                                                        "pos": 14,
+                                                        "type": "actionMenu.left",
                                                         "buttons": [{
-                                                                "id": "eye",
-                                                                "status": "A",
-                                                                "label": "Record details",
-                                                                "icon": "DetailsIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "noEdis",
-                                                                "status": "I",
-                                                                "label": "Negative for all discriminators on this page",
-                                                                "icon": "NoIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "ok",
-                                                                "status": "A",
-                                                                "label": "Confirm and continue",
-                                                                "icon": "OKIcon",
-                                                                "action": {}
-                                                            }, {
                                                                 "id": "print",
-                                                                "status": "A",
+                                                                "status": "I",
                                                                 "label": "Print tool",
                                                                 "icon": "PrintIcon",
                                                                 "action": {}
                                                             }, {
                                                                 "id": "create",
-                                                                "status": "A",
+                                                                "status": "I",
                                                                 "label": "Add or edit records",
                                                                 "icon": "AddIcon",
                                                                 "action": {}
                                                             }, {
                                                                 "id": "cancel",
-                                                                "status": "A",
+                                                                "status": "I",
                                                                 "label": "Cancel records",
                                                                 "icon": "CancelIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
                                                                 "action": {}
                                                             }, {
                                                                 "id": "advanceSearch",
@@ -1239,16 +1181,30 @@
                                                                 "icon": "",
                                                                 "action": {}
                                                             }, {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            }, {
                                                                 "id": "toolsCommonText",
                                                                 "status": "I",
                                                                 "label": "Predefined texts",
                                                                 "icon": "CommonTextIcon",
+                                                                "action": {}
+                                                            }
+                                                        ]
+                                                    },
+                                                    "right": {
+                                                        "id": "right",
+                                                        "description": "Action",
+                                                        "pos": 15,
+                                                        "type": "actionMenu.right",
+                                                        "buttons": [{
+                                                                "id": "eye",
+                                                                "status": "I",
+                                                                "label": "Record details",
+                                                                "icon": "DetailsIcon",
+                                                                "action": {}
+                                                            }, {
+                                                                "id": "applicationHelp",
+                                                                "status": "A",
+                                                                "label": "Help",
+                                                                "icon": "HelpIcon",
                                                                 "action": {}
                                                             }, {
                                                                 "id": "globalShortcut",
@@ -1258,31 +1214,35 @@
                                                                 "action": {}
                                                             }
                                                         ]
-                                                    },
-                                                    "dietProcess": {
-                                                        "id": "dietProcess",
-                                                        "description": "dietProcess deepnavs",
-                                                        "pos": 5,
-                                                        "type": "deepnav",
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "ehr": {
+                                        "id": "ehr",
+                                        "description": "ehr deepnavs",
+                                        "pos": 5,
+                                        "type": "deepnav",
+                                        "areas": {
+                                            "screen": {
+                                                "id": "screen",
+                                                "description": "Screen",
+                                                "pos": 12,
+                                                "type": "screen",
+                                                "areas": {
+                                                    "actionMenu": {
+                                                        "id": "actionMenu",
+                                                        "description": "Action",
+                                                        "pos": 13,
+                                                        "type": "actionMenu",
                                                         "areas": {
-                                                            "screen": {
-                                                                "id": "screen",
-                                                                "description": "Screen",
-                                                                "pos": 12,
-                                                                "type": "screen",
+                                                            "left": {
+                                                                "id": "left",
+                                                                "description": "Action",
+                                                                "pos": 14,
+                                                                "type": "actionMenu.left",
                                                                 "buttons": [{
-                                                                        "id": "eye",
-                                                                        "status": "I",
-                                                                        "label": "Record details",
-                                                                        "icon": "DetailsIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "ok",
-                                                                        "status": "I",
-                                                                        "label": "Confirm and continue",
-                                                                        "icon": "OKIcon",
-                                                                        "action": {}
-                                                                    }, {
                                                                         "id": "print",
                                                                         "status": "A",
                                                                         "label": "Print tool",
@@ -1296,9 +1256,15 @@
                                                                         "action": {}
                                                                     }, {
                                                                         "id": "cancel",
-                                                                        "status": "I",
+                                                                        "status": "A",
                                                                         "label": "Cancel records",
                                                                         "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "viewsButton",
+                                                                        "status": "A",
+                                                                        "label": "View modes",
+                                                                        "icon": "",
                                                                         "action": {}
                                                                     }, {
                                                                         "id": "advanceSearch",
@@ -1313,16 +1279,30 @@
                                                                         "icon": "",
                                                                         "action": {}
                                                                     }, {
-                                                                        "id": "applicationHelp",
-                                                                        "status": "A",
-                                                                        "label": "Help",
-                                                                        "icon": "HelpIcon",
-                                                                        "action": {}
-                                                                    }, {
                                                                         "id": "toolsCommonText",
                                                                         "status": "I",
                                                                         "label": "Predefined texts",
                                                                         "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "right": {
+                                                                "id": "right",
+                                                                "description": "Action",
+                                                                "pos": 15,
+                                                                "type": "actionMenu.right",
+                                                                "buttons": [{
+                                                                        "id": "eye",
+                                                                        "status": "A",
+                                                                        "label": "Record details",
+                                                                        "icon": "DetailsIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
                                                                         "action": {}
                                                                     }, {
                                                                         "id": "globalShortcut",
@@ -1332,6 +1312,206 @@
                                                                         "action": {}
                                                                     }
                                                                 ]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "visits": {
+                                                "id": "visits",
+                                                "description": "visits deepnavs",
+                                                "pos": 5,
+                                                "type": "deepnav",
+                                                "areas": {
+                                                    "screen": {
+                                                        "id": "screen",
+                                                        "description": "Screen",
+                                                        "pos": 12,
+                                                        "type": "screen",
+                                                        "areas": {
+                                                            "actionMenu": {
+                                                                "id": "actionMenu",
+                                                                "description": "Action",
+                                                                "pos": 13,
+                                                                "type": "actionMenu",
+                                                                "areas": {
+                                                                    "left": {
+                                                                        "id": "left",
+                                                                        "description": "Action",
+                                                                        "pos": 14,
+                                                                        "type": "actionMenu.left",
+                                                                        "buttons": [{
+                                                                                "id": "noEdis",
+                                                                                "status": "I",
+                                                                                "label": "Negative for all discriminators on this page",
+                                                                                "icon": "NoIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "print",
+                                                                                "status": "A",
+                                                                                "label": "Print tool",
+                                                                                "icon": "PrintIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "create",
+                                                                                "status": "A",
+                                                                                "label": "Add or edit records",
+                                                                                "icon": "AddIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "cancel",
+                                                                                "status": "A",
+                                                                                "label": "Cancel records",
+                                                                                "icon": "CancelIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "viewsButton",
+                                                                                "status": "A",
+                                                                                "label": "View modes",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "advanceSearch",
+                                                                                "status": "I",
+                                                                                "label": "Advanced search",
+                                                                                "icon": "AdvancedSearchIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "actionButton",
+                                                                                "status": "I",
+                                                                                "label": "Actions",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "toolsCommonText",
+                                                                                "status": "I",
+                                                                                "label": "Predefined texts",
+                                                                                "icon": "CommonTextIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "right": {
+                                                                        "id": "right",
+                                                                        "description": "Action",
+                                                                        "pos": 15,
+                                                                        "type": "actionMenu.right",
+                                                                        "buttons": [{
+                                                                                "id": "eye",
+                                                                                "status": "A",
+                                                                                "label": "Record details",
+                                                                                "icon": "DetailsIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "applicationHelp",
+                                                                                "status": "A",
+                                                                                "label": "Help",
+                                                                                "icon": "HelpIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "globalShortcut",
+                                                                                "status": "A",
+                                                                                "label": "Shortcuts",
+                                                                                "icon": "GlobalShortcutIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "dietProcess": {
+                                                        "id": "dietProcess",
+                                                        "description": "dietProcess deepnavs",
+                                                        "pos": 5,
+                                                        "type": "deepnav",
+                                                        "areas": {
+                                                            "screen": {
+                                                                "id": "screen",
+                                                                "description": "Screen",
+                                                                "pos": 12,
+                                                                "type": "screen",
+                                                                "areas": {
+                                                                    "actionMenu": {
+                                                                        "id": "actionMenu",
+                                                                        "description": "Action",
+                                                                        "pos": 13,
+                                                                        "type": "actionMenu",
+                                                                        "areas": {
+                                                                            "left": {
+                                                                                "id": "left",
+                                                                                "description": "Action",
+                                                                                "pos": 14,
+                                                                                "type": "actionMenu.left",
+                                                                                "buttons": [{
+                                                                                        "id": "print",
+                                                                                        "status": "A",
+                                                                                        "label": "Print tool",
+                                                                                        "icon": "PrintIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "create",
+                                                                                        "status": "I",
+                                                                                        "label": "Add or edit records",
+                                                                                        "icon": "AddIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "cancel",
+                                                                                        "status": "I",
+                                                                                        "label": "Cancel records",
+                                                                                        "icon": "CancelIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "advanceSearch",
+                                                                                        "status": "I",
+                                                                                        "label": "Advanced search",
+                                                                                        "icon": "AdvancedSearchIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "actionButton",
+                                                                                        "status": "I",
+                                                                                        "label": "Actions",
+                                                                                        "icon": "",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "toolsCommonText",
+                                                                                        "status": "I",
+                                                                                        "label": "Predefined texts",
+                                                                                        "icon": "CommonTextIcon",
+                                                                                        "action": {}
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            "right": {
+                                                                                "id": "right",
+                                                                                "description": "Action",
+                                                                                "pos": 15,
+                                                                                "type": "actionMenu.right",
+                                                                                "buttons": [{
+                                                                                        "id": "eye",
+                                                                                        "status": "I",
+                                                                                        "label": "Record details",
+                                                                                        "icon": "DetailsIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "applicationHelp",
+                                                                                        "status": "A",
+                                                                                        "label": "Help",
+                                                                                        "icon": "HelpIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "globalShortcut",
+                                                                                        "status": "A",
+                                                                                        "label": "Shortcuts",
+                                                                                        "icon": "GlobalShortcutIcon",
+                                                                                        "action": {}
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
                                                             }
                                                         },
                                                         "buttons": [{
@@ -1396,68 +1576,86 @@
                                                                 "description": "Screen",
                                                                 "pos": 12,
                                                                 "type": "screen",
-                                                                "buttons": [{
-                                                                        "id": "eye",
-                                                                        "status": "I",
-                                                                        "label": "Record details",
-                                                                        "icon": "DetailsIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "ok",
-                                                                        "status": "I",
-                                                                        "label": "Confirm and continue",
-                                                                        "icon": "OKIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "print",
-                                                                        "status": "A",
-                                                                        "label": "Print tool",
-                                                                        "icon": "PrintIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "create",
-                                                                        "status": "I",
-                                                                        "label": "Add or edit records",
-                                                                        "icon": "AddIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "cancel",
-                                                                        "status": "I",
-                                                                        "label": "Cancel records",
-                                                                        "icon": "CancelIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "advanceSearch",
-                                                                        "status": "I",
-                                                                        "label": "Advanced search",
-                                                                        "icon": "AdvancedSearchIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "actionButton",
-                                                                        "status": "I",
-                                                                        "label": "Actions",
-                                                                        "icon": "",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "applicationHelp",
-                                                                        "status": "A",
-                                                                        "label": "Help",
-                                                                        "icon": "HelpIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "toolsCommonText",
-                                                                        "status": "I",
-                                                                        "label": "Predefined texts",
-                                                                        "icon": "CommonTextIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "globalShortcut",
-                                                                        "status": "A",
-                                                                        "label": "Shortcuts",
-                                                                        "icon": "GlobalShortcutIcon",
-                                                                        "action": {}
+                                                                "areas": {
+                                                                    "actionMenu": {
+                                                                        "id": "actionMenu",
+                                                                        "description": "Action",
+                                                                        "pos": 13,
+                                                                        "type": "actionMenu",
+                                                                        "areas": {
+                                                                            "left": {
+                                                                                "id": "left",
+                                                                                "description": "Action",
+                                                                                "pos": 14,
+                                                                                "type": "actionMenu.left",
+                                                                                "buttons": [{
+                                                                                        "id": "print",
+                                                                                        "status": "A",
+                                                                                        "label": "Print tool",
+                                                                                        "icon": "PrintIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "create",
+                                                                                        "status": "I",
+                                                                                        "label": "Add or edit records",
+                                                                                        "icon": "AddIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "cancel",
+                                                                                        "status": "I",
+                                                                                        "label": "Cancel records",
+                                                                                        "icon": "CancelIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "advanceSearch",
+                                                                                        "status": "I",
+                                                                                        "label": "Advanced search",
+                                                                                        "icon": "AdvancedSearchIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "actionButton",
+                                                                                        "status": "I",
+                                                                                        "label": "Actions",
+                                                                                        "icon": "",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "toolsCommonText",
+                                                                                        "status": "I",
+                                                                                        "label": "Predefined texts",
+                                                                                        "icon": "CommonTextIcon",
+                                                                                        "action": {}
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            "right": {
+                                                                                "id": "right",
+                                                                                "description": "Action",
+                                                                                "pos": 15,
+                                                                                "type": "actionMenu.right",
+                                                                                "buttons": [{
+                                                                                        "id": "eye",
+                                                                                        "status": "I",
+                                                                                        "label": "Record details",
+                                                                                        "icon": "DetailsIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "applicationHelp",
+                                                                                        "status": "A",
+                                                                                        "label": "Help",
+                                                                                        "icon": "HelpIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "globalShortcut",
+                                                                                        "status": "A",
+                                                                                        "label": "Shortcuts",
+                                                                                        "icon": "GlobalShortcutIcon",
+                                                                                        "action": {}
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
                                                                     }
-                                                                ]
+                                                                }
                                                             }
                                                         },
                                                         "buttons": [{
@@ -1722,74 +1920,92 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": [{
-                                                                "id": "eye",
-                                                                "status": "A",
-                                                                "label": "Record details",
-                                                                "icon": "DetailsIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "ok",
-                                                                "status": "A",
-                                                                "label": "Confirm and continue",
-                                                                "icon": "OKIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "print",
-                                                                "status": "A",
-                                                                "label": "Print tool",
-                                                                "icon": "PrintIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "advanceSearch",
-                                                                "status": "A",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "toolsCommonText",
-                                                                "status": "I",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
+                                                        "areas": {
+                                                            "actionMenu": {
+                                                                "id": "actionMenu",
+                                                                "description": "Action",
+                                                                "pos": 13,
+                                                                "type": "actionMenu",
+                                                                "areas": {
+                                                                    "left": {
+                                                                        "id": "left",
+                                                                        "description": "Action",
+                                                                        "pos": 14,
+                                                                        "type": "actionMenu.left",
+                                                                        "buttons": [{
+                                                                                "id": "print",
+                                                                                "status": "A",
+                                                                                "label": "Print tool",
+                                                                                "icon": "PrintIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "create",
+                                                                                "status": "A",
+                                                                                "label": "Add or edit records",
+                                                                                "icon": "AddIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "cancel",
+                                                                                "status": "A",
+                                                                                "label": "Cancel records",
+                                                                                "icon": "CancelIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "viewsButton",
+                                                                                "status": "A",
+                                                                                "label": "View modes",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "advanceSearch",
+                                                                                "status": "A",
+                                                                                "label": "Advanced search",
+                                                                                "icon": "AdvancedSearchIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "actionButton",
+                                                                                "status": "A",
+                                                                                "label": "Actions",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "toolsCommonText",
+                                                                                "status": "I",
+                                                                                "label": "Predefined texts",
+                                                                                "icon": "CommonTextIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "right": {
+                                                                        "id": "right",
+                                                                        "description": "Action",
+                                                                        "pos": 15,
+                                                                        "type": "actionMenu.right",
+                                                                        "buttons": [{
+                                                                                "id": "eye",
+                                                                                "status": "A",
+                                                                                "label": "Record details",
+                                                                                "icon": "DetailsIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "applicationHelp",
+                                                                                "status": "A",
+                                                                                "label": "Help",
+                                                                                "icon": "HelpIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "globalShortcut",
+                                                                                "status": "A",
+                                                                                "label": "Shortcuts",
+                                                                                "icon": "GlobalShortcutIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
                                                             }
-                                                        ]
+                                                        }
                                                     }
                                                 },
                                                 "buttons": [{
@@ -1878,80 +2094,98 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": [{
-                                                                "id": "eye",
-                                                                "status": "A",
-                                                                "label": "Record details",
-                                                                "icon": "DetailsIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "ok",
-                                                                "status": "I",
-                                                                "label": "Confirm and continue",
-                                                                "icon": "OKIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "print",
-                                                                "status": "A",
-                                                                "label": "Print tool",
-                                                                "icon": "PrintIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "create",
-                                                                "status": "I",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "cancel",
-                                                                "status": "I",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "viewsButton",
-                                                                "status": "I",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "advanceSearch",
-                                                                "status": "I",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "actionButton",
-                                                                "status": "I",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "infoButton",
-                                                                "status": "A",
-                                                                "label": "Infobutton",
-                                                                "icon": "InfoButtonIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "toolsCommonText",
-                                                                "status": "I",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
+                                                        "areas": {
+                                                            "actionMenu": {
+                                                                "id": "actionMenu",
+                                                                "description": "Action",
+                                                                "pos": 13,
+                                                                "type": "actionMenu",
+                                                                "areas": {
+                                                                    "left": {
+                                                                        "id": "left",
+                                                                        "description": "Action",
+                                                                        "pos": 14,
+                                                                        "type": "actionMenu.left",
+                                                                        "buttons": [{
+                                                                                "id": "print",
+                                                                                "status": "A",
+                                                                                "label": "Print tool",
+                                                                                "icon": "PrintIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "create",
+                                                                                "status": "I",
+                                                                                "label": "Add or edit records",
+                                                                                "icon": "AddIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "cancel",
+                                                                                "status": "I",
+                                                                                "label": "Cancel records",
+                                                                                "icon": "CancelIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "viewsButton",
+                                                                                "status": "I",
+                                                                                "label": "View modes",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "advanceSearch",
+                                                                                "status": "I",
+                                                                                "label": "Advanced search",
+                                                                                "icon": "AdvancedSearchIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "actionButton",
+                                                                                "status": "I",
+                                                                                "label": "Actions",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "infoButton",
+                                                                                "status": "A",
+                                                                                "label": "Infobutton",
+                                                                                "icon": "InfoButtonIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "toolsCommonText",
+                                                                                "status": "I",
+                                                                                "label": "Predefined texts",
+                                                                                "icon": "CommonTextIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "right": {
+                                                                        "id": "right",
+                                                                        "description": "Action",
+                                                                        "pos": 15,
+                                                                        "type": "actionMenu.right",
+                                                                        "buttons": [{
+                                                                                "id": "eye",
+                                                                                "status": "A",
+                                                                                "label": "Record details",
+                                                                                "icon": "DetailsIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "applicationHelp",
+                                                                                "status": "A",
+                                                                                "label": "Help",
+                                                                                "icon": "HelpIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "globalShortcut",
+                                                                                "status": "A",
+                                                                                "label": "Shortcuts",
+                                                                                "icon": "GlobalShortcutIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
                                                             }
-                                                        ]
+                                                        }
                                                     },
                                                     "rehab": {
                                                         "id": "rehab",
@@ -1964,74 +2198,92 @@
                                                                 "description": "Screen",
                                                                 "pos": 12,
                                                                 "type": "screen",
-                                                                "buttons": [{
-                                                                        "id": "eye",
-                                                                        "status": "A",
-                                                                        "label": "Record details",
-                                                                        "icon": "DetailsIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "ok",
-                                                                        "status": "A",
-                                                                        "label": "Confirm and continue",
-                                                                        "icon": "OKIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "print",
-                                                                        "status": "A",
-                                                                        "label": "Print tool",
-                                                                        "icon": "PrintIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "create",
-                                                                        "status": "A",
-                                                                        "label": "Add or edit records",
-                                                                        "icon": "AddIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "cancel",
-                                                                        "status": "A",
-                                                                        "label": "Cancel records",
-                                                                        "icon": "CancelIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "viewsButton",
-                                                                        "status": "A",
-                                                                        "label": "View modes",
-                                                                        "icon": "",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "advanceSearch",
-                                                                        "status": "A",
-                                                                        "label": "Advanced search",
-                                                                        "icon": "AdvancedSearchIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "actionButton",
-                                                                        "status": "A",
-                                                                        "label": "Actions",
-                                                                        "icon": "",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "applicationHelp",
-                                                                        "status": "A",
-                                                                        "label": "Help",
-                                                                        "icon": "HelpIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "toolsCommonText",
-                                                                        "status": "A",
-                                                                        "label": "Predefined texts",
-                                                                        "icon": "CommonTextIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "globalShortcut",
-                                                                        "status": "A",
-                                                                        "label": "Shortcuts",
-                                                                        "icon": "GlobalShortcutIcon",
-                                                                        "action": {}
+                                                                "areas": {
+                                                                    "actionMenu": {
+                                                                        "id": "actionMenu",
+                                                                        "description": "Action",
+                                                                        "pos": 13,
+                                                                        "type": "actionMenu",
+                                                                        "areas": {
+                                                                            "left": {
+                                                                                "id": "left",
+                                                                                "description": "Action",
+                                                                                "pos": 14,
+                                                                                "type": "actionMenu.left",
+                                                                                "buttons": [{
+                                                                                        "id": "print",
+                                                                                        "status": "A",
+                                                                                        "label": "Print tool",
+                                                                                        "icon": "PrintIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "create",
+                                                                                        "status": "A",
+                                                                                        "label": "Add or edit records",
+                                                                                        "icon": "AddIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "cancel",
+                                                                                        "status": "A",
+                                                                                        "label": "Cancel records",
+                                                                                        "icon": "CancelIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "viewsButton",
+                                                                                        "status": "A",
+                                                                                        "label": "View modes",
+                                                                                        "icon": "",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "advanceSearch",
+                                                                                        "status": "A",
+                                                                                        "label": "Advanced search",
+                                                                                        "icon": "AdvancedSearchIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "actionButton",
+                                                                                        "status": "A",
+                                                                                        "label": "Actions",
+                                                                                        "icon": "",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "toolsCommonText",
+                                                                                        "status": "A",
+                                                                                        "label": "Predefined texts",
+                                                                                        "icon": "CommonTextIcon",
+                                                                                        "action": {}
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            "right": {
+                                                                                "id": "right",
+                                                                                "description": "Action",
+                                                                                "pos": 15,
+                                                                                "type": "actionMenu.right",
+                                                                                "buttons": [{
+                                                                                        "id": "eye",
+                                                                                        "status": "A",
+                                                                                        "label": "Record details",
+                                                                                        "icon": "DetailsIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "applicationHelp",
+                                                                                        "status": "A",
+                                                                                        "label": "Help",
+                                                                                        "icon": "HelpIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "globalShortcut",
+                                                                                        "status": "A",
+                                                                                        "label": "Shortcuts",
+                                                                                        "icon": "GlobalShortcutIcon",
+                                                                                        "action": {}
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
                                                                     }
-                                                                ]
+                                                                }
                                                             }
                                                         },
                                                         "buttons": [{
@@ -2168,80 +2420,98 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": [{
-                                                                "id": "eye",
-                                                                "status": "A",
-                                                                "label": "Record details",
-                                                                "icon": "DetailsIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "ok",
-                                                                "status": "A",
-                                                                "label": "Confirm and continue",
-                                                                "icon": "OKIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "print",
-                                                                "status": "A",
-                                                                "label": "Print tool",
-                                                                "icon": "PrintIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "advanceSearch",
-                                                                "status": "I",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "infoButton",
-                                                                "status": "A",
-                                                                "label": "Infobutton",
-                                                                "icon": "InfoButtonIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "toolsCommonText",
-                                                                "status": "A",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
+                                                        "areas": {
+                                                            "actionMenu": {
+                                                                "id": "actionMenu",
+                                                                "description": "Action",
+                                                                "pos": 13,
+                                                                "type": "actionMenu",
+                                                                "areas": {
+                                                                    "left": {
+                                                                        "id": "left",
+                                                                        "description": "Action",
+                                                                        "pos": 14,
+                                                                        "type": "actionMenu.left",
+                                                                        "buttons": [{
+                                                                                "id": "print",
+                                                                                "status": "A",
+                                                                                "label": "Print tool",
+                                                                                "icon": "PrintIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "create",
+                                                                                "status": "A",
+                                                                                "label": "Add or edit records",
+                                                                                "icon": "AddIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "cancel",
+                                                                                "status": "A",
+                                                                                "label": "Cancel records",
+                                                                                "icon": "CancelIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "viewsButton",
+                                                                                "status": "A",
+                                                                                "label": "View modes",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "advanceSearch",
+                                                                                "status": "I",
+                                                                                "label": "Advanced search",
+                                                                                "icon": "AdvancedSearchIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "actionButton",
+                                                                                "status": "A",
+                                                                                "label": "Actions",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "infoButton",
+                                                                                "status": "A",
+                                                                                "label": "Infobutton",
+                                                                                "icon": "InfoButtonIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "toolsCommonText",
+                                                                                "status": "A",
+                                                                                "label": "Predefined texts",
+                                                                                "icon": "CommonTextIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "right": {
+                                                                        "id": "right",
+                                                                        "description": "Action",
+                                                                        "pos": 15,
+                                                                        "type": "actionMenu.right",
+                                                                        "buttons": [{
+                                                                                "id": "eye",
+                                                                                "status": "A",
+                                                                                "label": "Record details",
+                                                                                "icon": "DetailsIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "applicationHelp",
+                                                                                "status": "A",
+                                                                                "label": "Help",
+                                                                                "icon": "HelpIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "globalShortcut",
+                                                                                "status": "A",
+                                                                                "label": "Shortcuts",
+                                                                                "icon": "GlobalShortcutIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
                                                             }
-                                                        ]
+                                                        }
                                                     },
                                                     "assessToolsGroup": {
                                                         "id": "assessToolsGroup",
@@ -2254,80 +2524,98 @@
                                                                 "description": "Screen",
                                                                 "pos": 12,
                                                                 "type": "screen",
-                                                                "buttons": [{
-                                                                        "id": "eye",
-                                                                        "status": "A",
-                                                                        "label": "Record details",
-                                                                        "icon": "DetailsIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "ok",
-                                                                        "status": "A",
-                                                                        "label": "Confirm and continue",
-                                                                        "icon": "OKIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "noEdis",
-                                                                        "status": "I",
-                                                                        "label": "Negative for all discriminators on this page",
-                                                                        "icon": "NoIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "print",
-                                                                        "status": "A",
-                                                                        "label": "Print tool",
-                                                                        "icon": "PrintIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "create",
-                                                                        "status": "A",
-                                                                        "label": "Add or edit records",
-                                                                        "icon": "AddIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "cancel",
-                                                                        "status": "A",
-                                                                        "label": "Cancel records",
-                                                                        "icon": "CancelIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "viewsButton",
-                                                                        "status": "I",
-                                                                        "label": "View modes",
-                                                                        "icon": "",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "advanceSearch",
-                                                                        "status": "I",
-                                                                        "label": "Advanced search",
-                                                                        "icon": "AdvancedSearchIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "actionButton",
-                                                                        "status": "A",
-                                                                        "label": "Actions",
-                                                                        "icon": "",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "applicationHelp",
-                                                                        "status": "A",
-                                                                        "label": "Help",
-                                                                        "icon": "HelpIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "toolsCommonText",
-                                                                        "status": "A",
-                                                                        "label": "Predefined texts",
-                                                                        "icon": "CommonTextIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "globalShortcut",
-                                                                        "status": "A",
-                                                                        "label": "Shortcuts",
-                                                                        "icon": "GlobalShortcutIcon",
-                                                                        "action": {}
+                                                                "areas": {
+                                                                    "actionMenu": {
+                                                                        "id": "actionMenu",
+                                                                        "description": "Action",
+                                                                        "pos": 13,
+                                                                        "type": "actionMenu",
+                                                                        "areas": {
+                                                                            "left": {
+                                                                                "id": "left",
+                                                                                "description": "Action",
+                                                                                "pos": 14,
+                                                                                "type": "actionMenu.left",
+                                                                                "buttons": [{
+                                                                                        "id": "noEdis",
+                                                                                        "status": "I",
+                                                                                        "label": "Negative for all discriminators on this page",
+                                                                                        "icon": "NoIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "print",
+                                                                                        "status": "A",
+                                                                                        "label": "Print tool",
+                                                                                        "icon": "PrintIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "create",
+                                                                                        "status": "A",
+                                                                                        "label": "Add or edit records",
+                                                                                        "icon": "AddIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "cancel",
+                                                                                        "status": "A",
+                                                                                        "label": "Cancel records",
+                                                                                        "icon": "CancelIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "viewsButton",
+                                                                                        "status": "I",
+                                                                                        "label": "View modes",
+                                                                                        "icon": "",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "advanceSearch",
+                                                                                        "status": "I",
+                                                                                        "label": "Advanced search",
+                                                                                        "icon": "AdvancedSearchIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "actionButton",
+                                                                                        "status": "A",
+                                                                                        "label": "Actions",
+                                                                                        "icon": "",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "toolsCommonText",
+                                                                                        "status": "A",
+                                                                                        "label": "Predefined texts",
+                                                                                        "icon": "CommonTextIcon",
+                                                                                        "action": {}
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            "right": {
+                                                                                "id": "right",
+                                                                                "description": "Action",
+                                                                                "pos": 15,
+                                                                                "type": "actionMenu.right",
+                                                                                "buttons": [{
+                                                                                        "id": "eye",
+                                                                                        "status": "A",
+                                                                                        "label": "Record details",
+                                                                                        "icon": "DetailsIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "applicationHelp",
+                                                                                        "status": "A",
+                                                                                        "label": "Help",
+                                                                                        "icon": "HelpIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "globalShortcut",
+                                                                                        "status": "A",
+                                                                                        "label": "Shortcuts",
+                                                                                        "icon": "GlobalShortcutIcon",
+                                                                                        "action": {}
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
                                                                     }
-                                                                ]
+                                                                }
                                                             }
                                                         },
                                                         "buttons": [{
@@ -2380,74 +2668,92 @@
                                                                 "description": "Screen",
                                                                 "pos": 12,
                                                                 "type": "screen",
-                                                                "buttons": [{
-                                                                        "id": "eye",
-                                                                        "status": "A",
-                                                                        "label": "Record details",
-                                                                        "icon": "DetailsIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "ok",
-                                                                        "status": "A",
-                                                                        "label": "Confirm and continue",
-                                                                        "icon": "OKIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "print",
-                                                                        "status": "A",
-                                                                        "label": "Print tool",
-                                                                        "icon": "PrintIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "create",
-                                                                        "status": "A",
-                                                                        "label": "Add or edit records",
-                                                                        "icon": "AddIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "cancel",
-                                                                        "status": "A",
-                                                                        "label": "Cancel records",
-                                                                        "icon": "CancelIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "viewsButton",
-                                                                        "status": "A",
-                                                                        "label": "View modes",
-                                                                        "icon": "",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "advanceSearch",
-                                                                        "status": "I",
-                                                                        "label": "Advanced search",
-                                                                        "icon": "AdvancedSearchIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "actionButton",
-                                                                        "status": "A",
-                                                                        "label": "Actions",
-                                                                        "icon": "",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "applicationHelp",
-                                                                        "status": "A",
-                                                                        "label": "Help",
-                                                                        "icon": "HelpIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "toolsCommonText",
-                                                                        "status": "A",
-                                                                        "label": "Predefined texts",
-                                                                        "icon": "CommonTextIcon",
-                                                                        "action": {}
-                                                                    }, {
-                                                                        "id": "globalShortcut",
-                                                                        "status": "A",
-                                                                        "label": "Shortcuts",
-                                                                        "icon": "GlobalShortcutIcon",
-                                                                        "action": {}
+                                                                "areas": {
+                                                                    "actionMenu": {
+                                                                        "id": "actionMenu",
+                                                                        "description": "Action",
+                                                                        "pos": 13,
+                                                                        "type": "actionMenu",
+                                                                        "areas": {
+                                                                            "left": {
+                                                                                "id": "left",
+                                                                                "description": "Action",
+                                                                                "pos": 14,
+                                                                                "type": "actionMenu.left",
+                                                                                "buttons": [{
+                                                                                        "id": "print",
+                                                                                        "status": "A",
+                                                                                        "label": "Print tool",
+                                                                                        "icon": "PrintIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "create",
+                                                                                        "status": "A",
+                                                                                        "label": "Add or edit records",
+                                                                                        "icon": "AddIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "cancel",
+                                                                                        "status": "A",
+                                                                                        "label": "Cancel records",
+                                                                                        "icon": "CancelIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "viewsButton",
+                                                                                        "status": "A",
+                                                                                        "label": "View modes",
+                                                                                        "icon": "",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "advanceSearch",
+                                                                                        "status": "I",
+                                                                                        "label": "Advanced search",
+                                                                                        "icon": "AdvancedSearchIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "actionButton",
+                                                                                        "status": "A",
+                                                                                        "label": "Actions",
+                                                                                        "icon": "",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "toolsCommonText",
+                                                                                        "status": "A",
+                                                                                        "label": "Predefined texts",
+                                                                                        "icon": "CommonTextIcon",
+                                                                                        "action": {}
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            "right": {
+                                                                                "id": "right",
+                                                                                "description": "Action",
+                                                                                "pos": 15,
+                                                                                "type": "actionMenu.right",
+                                                                                "buttons": [{
+                                                                                        "id": "eye",
+                                                                                        "status": "A",
+                                                                                        "label": "Record details",
+                                                                                        "icon": "DetailsIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "applicationHelp",
+                                                                                        "status": "A",
+                                                                                        "label": "Help",
+                                                                                        "icon": "HelpIcon",
+                                                                                        "action": {}
+                                                                                    }, {
+                                                                                        "id": "globalShortcut",
+                                                                                        "status": "A",
+                                                                                        "label": "Shortcuts",
+                                                                                        "icon": "GlobalShortcutIcon",
+                                                                                        "action": {}
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
                                                                     }
-                                                                ]
+                                                                }
                                                             }
                                                         },
                                                         "buttons": [{
@@ -2700,68 +3006,86 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": [{
-                                                                "id": "eye",
-                                                                "status": "I",
-                                                                "label": "Record details",
-                                                                "icon": "DetailsIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "ok",
-                                                                "status": "I",
-                                                                "label": "Confirm and continue",
-                                                                "icon": "OKIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "print",
-                                                                "status": "A",
-                                                                "label": "Print tool",
-                                                                "icon": "PrintIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "create",
-                                                                "status": "I",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "cancel",
-                                                                "status": "I",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "advanceSearch",
-                                                                "status": "I",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "actionButton",
-                                                                "status": "I",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "toolsCommonText",
-                                                                "status": "I",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
+                                                        "areas": {
+                                                            "actionMenu": {
+                                                                "id": "actionMenu",
+                                                                "description": "Action",
+                                                                "pos": 13,
+                                                                "type": "actionMenu",
+                                                                "areas": {
+                                                                    "left": {
+                                                                        "id": "left",
+                                                                        "description": "Action",
+                                                                        "pos": 14,
+                                                                        "type": "actionMenu.left",
+                                                                        "buttons": [{
+                                                                                "id": "print",
+                                                                                "status": "A",
+                                                                                "label": "Print tool",
+                                                                                "icon": "PrintIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "create",
+                                                                                "status": "I",
+                                                                                "label": "Add or edit records",
+                                                                                "icon": "AddIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "cancel",
+                                                                                "status": "I",
+                                                                                "label": "Cancel records",
+                                                                                "icon": "CancelIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "advanceSearch",
+                                                                                "status": "I",
+                                                                                "label": "Advanced search",
+                                                                                "icon": "AdvancedSearchIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "actionButton",
+                                                                                "status": "I",
+                                                                                "label": "Actions",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "toolsCommonText",
+                                                                                "status": "I",
+                                                                                "label": "Predefined texts",
+                                                                                "icon": "CommonTextIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "right": {
+                                                                        "id": "right",
+                                                                        "description": "Action",
+                                                                        "pos": 15,
+                                                                        "type": "actionMenu.right",
+                                                                        "buttons": [{
+                                                                                "id": "eye",
+                                                                                "status": "I",
+                                                                                "label": "Record details",
+                                                                                "icon": "DetailsIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "applicationHelp",
+                                                                                "status": "A",
+                                                                                "label": "Help",
+                                                                                "icon": "HelpIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "globalShortcut",
+                                                                                "status": "A",
+                                                                                "label": "Shortcuts",
+                                                                                "icon": "GlobalShortcutIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
                                                             }
-                                                        ]
+                                                        }
                                                     }
                                                 },
                                                 "buttons": [{
@@ -2918,80 +3242,98 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": [{
-                                                        "id": "eye",
-                                                        "status": "I",
-                                                        "label": "Record details",
-                                                        "icon": "DetailsIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "ok",
-                                                        "status": "A",
-                                                        "label": "Confirm and continue",
-                                                        "icon": "OKIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "print",
-                                                        "status": "A",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "create",
-                                                        "status": "I",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "cancel",
-                                                        "status": "I",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "viewsButton",
-                                                        "status": "A",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "actionButton",
-                                                        "status": "I",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "infoButton",
-                                                        "status": "A",
-                                                        "label": "Infobutton",
-                                                        "icon": "InfoButtonIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "toolsCommonText",
-                                                        "status": "I",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
+                                                "areas": {
+                                                    "actionMenu": {
+                                                        "id": "actionMenu",
+                                                        "description": "Action",
+                                                        "pos": 13,
+                                                        "type": "actionMenu",
+                                                        "areas": {
+                                                            "left": {
+                                                                "id": "left",
+                                                                "description": "Action",
+                                                                "pos": 14,
+                                                                "type": "actionMenu.left",
+                                                                "buttons": [{
+                                                                        "id": "print",
+                                                                        "status": "A",
+                                                                        "label": "Print tool",
+                                                                        "icon": "PrintIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "I",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "I",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "viewsButton",
+                                                                        "status": "A",
+                                                                        "label": "View modes",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "I",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "actionButton",
+                                                                        "status": "I",
+                                                                        "label": "Actions",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "infoButton",
+                                                                        "status": "A",
+                                                                        "label": "Infobutton",
+                                                                        "icon": "InfoButtonIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "toolsCommonText",
+                                                                        "status": "I",
+                                                                        "label": "Predefined texts",
+                                                                        "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "right": {
+                                                                "id": "right",
+                                                                "description": "Action",
+                                                                "pos": 15,
+                                                                "type": "actionMenu.right",
+                                                                "buttons": [{
+                                                                        "id": "eye",
+                                                                        "status": "I",
+                                                                        "label": "Record details",
+                                                                        "icon": "DetailsIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
                                                     }
-                                                ]
+                                                }
                                             },
                                             "progressNotes": {
                                                 "id": "progressNotes",
@@ -3004,80 +3346,98 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": [{
-                                                                "id": "eye",
-                                                                "status": "A",
-                                                                "label": "Record details",
-                                                                "icon": "DetailsIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "ok",
-                                                                "status": "A",
-                                                                "label": "Confirm and continue",
-                                                                "icon": "OKIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "noEdis",
-                                                                "status": "I",
-                                                                "label": "Negative for all discriminators on this page",
-                                                                "icon": "NoIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "print",
-                                                                "status": "A",
-                                                                "label": "Print tool",
-                                                                "icon": "PrintIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "advanceSearch",
-                                                                "status": "I",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "toolsCommonText",
-                                                                "status": "A",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
+                                                        "areas": {
+                                                            "actionMenu": {
+                                                                "id": "actionMenu",
+                                                                "description": "Action",
+                                                                "pos": 13,
+                                                                "type": "actionMenu",
+                                                                "areas": {
+                                                                    "left": {
+                                                                        "id": "left",
+                                                                        "description": "Action",
+                                                                        "pos": 14,
+                                                                        "type": "actionMenu.left",
+                                                                        "buttons": [{
+                                                                                "id": "noEdis",
+                                                                                "status": "I",
+                                                                                "label": "Negative for all discriminators on this page",
+                                                                                "icon": "NoIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "print",
+                                                                                "status": "A",
+                                                                                "label": "Print tool",
+                                                                                "icon": "PrintIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "create",
+                                                                                "status": "A",
+                                                                                "label": "Add or edit records",
+                                                                                "icon": "AddIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "cancel",
+                                                                                "status": "A",
+                                                                                "label": "Cancel records",
+                                                                                "icon": "CancelIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "viewsButton",
+                                                                                "status": "A",
+                                                                                "label": "View modes",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "advanceSearch",
+                                                                                "status": "I",
+                                                                                "label": "Advanced search",
+                                                                                "icon": "AdvancedSearchIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "actionButton",
+                                                                                "status": "A",
+                                                                                "label": "Actions",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "toolsCommonText",
+                                                                                "status": "A",
+                                                                                "label": "Predefined texts",
+                                                                                "icon": "CommonTextIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "right": {
+                                                                        "id": "right",
+                                                                        "description": "Action",
+                                                                        "pos": 15,
+                                                                        "type": "actionMenu.right",
+                                                                        "buttons": [{
+                                                                                "id": "eye",
+                                                                                "status": "A",
+                                                                                "label": "Record details",
+                                                                                "icon": "DetailsIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "applicationHelp",
+                                                                                "status": "A",
+                                                                                "label": "Help",
+                                                                                "icon": "HelpIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "globalShortcut",
+                                                                                "status": "A",
+                                                                                "label": "Shortcuts",
+                                                                                "icon": "GlobalShortcutIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
                                                             }
-                                                        ]
+                                                        }
                                                     }
                                                 },
                                                 "buttons": [{
@@ -3190,74 +3550,92 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": [{
-                                                                "id": "eye",
-                                                                "status": "A",
-                                                                "label": "Record details",
-                                                                "icon": "DetailsIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "ok",
-                                                                "status": "A",
-                                                                "label": "Confirm and continue",
-                                                                "icon": "OKIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "print",
-                                                                "status": "A",
-                                                                "label": "Print tool",
-                                                                "icon": "PrintIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "viewsButton",
-                                                                "status": "I",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "advanceSearch",
-                                                                "status": "I",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "toolsCommonText",
-                                                                "status": "I",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
+                                                        "areas": {
+                                                            "actionMenu": {
+                                                                "id": "actionMenu",
+                                                                "description": "Action",
+                                                                "pos": 13,
+                                                                "type": "actionMenu",
+                                                                "areas": {
+                                                                    "left": {
+                                                                        "id": "left",
+                                                                        "description": "Action",
+                                                                        "pos": 14,
+                                                                        "type": "actionMenu.left",
+                                                                        "buttons": [{
+                                                                                "id": "print",
+                                                                                "status": "A",
+                                                                                "label": "Print tool",
+                                                                                "icon": "PrintIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "create",
+                                                                                "status": "A",
+                                                                                "label": "Add or edit records",
+                                                                                "icon": "AddIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "cancel",
+                                                                                "status": "A",
+                                                                                "label": "Cancel records",
+                                                                                "icon": "CancelIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "viewsButton",
+                                                                                "status": "I",
+                                                                                "label": "View modes",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "advanceSearch",
+                                                                                "status": "I",
+                                                                                "label": "Advanced search",
+                                                                                "icon": "AdvancedSearchIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "actionButton",
+                                                                                "status": "A",
+                                                                                "label": "Actions",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "toolsCommonText",
+                                                                                "status": "I",
+                                                                                "label": "Predefined texts",
+                                                                                "icon": "CommonTextIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "right": {
+                                                                        "id": "right",
+                                                                        "description": "Action",
+                                                                        "pos": 15,
+                                                                        "type": "actionMenu.right",
+                                                                        "buttons": [{
+                                                                                "id": "eye",
+                                                                                "status": "A",
+                                                                                "label": "Record details",
+                                                                                "icon": "DetailsIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "applicationHelp",
+                                                                                "status": "A",
+                                                                                "label": "Help",
+                                                                                "icon": "HelpIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "globalShortcut",
+                                                                                "status": "A",
+                                                                                "label": "Shortcuts",
+                                                                                "icon": "GlobalShortcutIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
                                                             }
-                                                        ]
+                                                        }
                                                     }
                                                 },
                                                 "buttons": [{
@@ -3438,86 +3816,104 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": [{
-                                                        "id": "eye",
-                                                        "status": "A",
-                                                        "label": "Record details",
-                                                        "icon": "DetailsIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "noEdis",
-                                                        "status": "A",
-                                                        "label": "Negative for all discriminators on this page",
-                                                        "icon": "NoIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "ok",
-                                                        "status": "A",
-                                                        "label": "Confirm and continue",
-                                                        "icon": "OKIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "print",
-                                                        "status": "A",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "viewsButton",
-                                                        "status": "A",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "advanceSearch",
-                                                        "status": "A",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "actionButton",
-                                                        "status": "A",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "infoButton",
-                                                        "status": "A",
-                                                        "label": "Infobutton",
-                                                        "icon": "InfoButtonIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "toolsCommonText",
-                                                        "status": "A",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
+                                                "areas": {
+                                                    "actionMenu": {
+                                                        "id": "actionMenu",
+                                                        "description": "Action",
+                                                        "pos": 13,
+                                                        "type": "actionMenu",
+                                                        "areas": {
+                                                            "left": {
+                                                                "id": "left",
+                                                                "description": "Action",
+                                                                "pos": 14,
+                                                                "type": "actionMenu.left",
+                                                                "buttons": [{
+                                                                        "id": "noEdis",
+                                                                        "status": "A",
+                                                                        "label": "Negative for all discriminators on this page",
+                                                                        "icon": "NoIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "print",
+                                                                        "status": "A",
+                                                                        "label": "Print tool",
+                                                                        "icon": "PrintIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "A",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "A",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "viewsButton",
+                                                                        "status": "A",
+                                                                        "label": "View modes",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "A",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "actionButton",
+                                                                        "status": "A",
+                                                                        "label": "Actions",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "infoButton",
+                                                                        "status": "A",
+                                                                        "label": "Infobutton",
+                                                                        "icon": "InfoButtonIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "toolsCommonText",
+                                                                        "status": "A",
+                                                                        "label": "Predefined texts",
+                                                                        "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "right": {
+                                                                "id": "right",
+                                                                "description": "Action",
+                                                                "pos": 15,
+                                                                "type": "actionMenu.right",
+                                                                "buttons": [{
+                                                                        "id": "eye",
+                                                                        "status": "A",
+                                                                        "label": "Record details",
+                                                                        "icon": "DetailsIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
                                                     }
-                                                ]
+                                                }
                                             },
                                             "depnvAnalisys": {
                                                 "id": "depnvAnalisys",
@@ -3530,80 +3926,98 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": [{
-                                                                "id": "eye",
-                                                                "status": "A",
-                                                                "label": "Record details",
-                                                                "icon": "DetailsIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "ok",
-                                                                "status": "A",
-                                                                "label": "Confirm and continue",
-                                                                "icon": "OKIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "print",
-                                                                "status": "A",
-                                                                "label": "Print tool",
-                                                                "icon": "PrintIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "advanceSearch",
-                                                                "status": "A",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "infoButton",
-                                                                "status": "A",
-                                                                "label": "Infobutton",
-                                                                "icon": "InfoButtonIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "toolsCommonText",
-                                                                "status": "A",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
+                                                        "areas": {
+                                                            "actionMenu": {
+                                                                "id": "actionMenu",
+                                                                "description": "Action",
+                                                                "pos": 13,
+                                                                "type": "actionMenu",
+                                                                "areas": {
+                                                                    "left": {
+                                                                        "id": "left",
+                                                                        "description": "Action",
+                                                                        "pos": 14,
+                                                                        "type": "actionMenu.left",
+                                                                        "buttons": [{
+                                                                                "id": "print",
+                                                                                "status": "A",
+                                                                                "label": "Print tool",
+                                                                                "icon": "PrintIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "create",
+                                                                                "status": "A",
+                                                                                "label": "Add or edit records",
+                                                                                "icon": "AddIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "cancel",
+                                                                                "status": "A",
+                                                                                "label": "Cancel records",
+                                                                                "icon": "CancelIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "viewsButton",
+                                                                                "status": "A",
+                                                                                "label": "View modes",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "advanceSearch",
+                                                                                "status": "A",
+                                                                                "label": "Advanced search",
+                                                                                "icon": "AdvancedSearchIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "actionButton",
+                                                                                "status": "A",
+                                                                                "label": "Actions",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "infoButton",
+                                                                                "status": "A",
+                                                                                "label": "Infobutton",
+                                                                                "icon": "InfoButtonIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "toolsCommonText",
+                                                                                "status": "A",
+                                                                                "label": "Predefined texts",
+                                                                                "icon": "CommonTextIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "right": {
+                                                                        "id": "right",
+                                                                        "description": "Action",
+                                                                        "pos": 15,
+                                                                        "type": "actionMenu.right",
+                                                                        "buttons": [{
+                                                                                "id": "eye",
+                                                                                "status": "A",
+                                                                                "label": "Record details",
+                                                                                "icon": "DetailsIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "applicationHelp",
+                                                                                "status": "A",
+                                                                                "label": "Help",
+                                                                                "icon": "HelpIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "globalShortcut",
+                                                                                "status": "A",
+                                                                                "label": "Shortcuts",
+                                                                                "icon": "GlobalShortcutIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
                                                             }
-                                                        ]
+                                                        }
                                                     }
                                                 },
                                                 "buttons": [{
@@ -3656,74 +4070,92 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": [{
-                                                                "id": "eye",
-                                                                "status": "A",
-                                                                "label": "Record details",
-                                                                "icon": "DetailsIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "ok",
-                                                                "status": "A",
-                                                                "label": "Confirm and continue",
-                                                                "icon": "OKIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "print",
-                                                                "status": "A",
-                                                                "label": "Print tool",
-                                                                "icon": "PrintIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "infoButton",
-                                                                "status": "A",
-                                                                "label": "Infobutton",
-                                                                "icon": "InfoButtonIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "toolsCommonText",
-                                                                "status": "A",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
+                                                        "areas": {
+                                                            "actionMenu": {
+                                                                "id": "actionMenu",
+                                                                "description": "Action",
+                                                                "pos": 13,
+                                                                "type": "actionMenu",
+                                                                "areas": {
+                                                                    "left": {
+                                                                        "id": "left",
+                                                                        "description": "Action",
+                                                                        "pos": 14,
+                                                                        "type": "actionMenu.left",
+                                                                        "buttons": [{
+                                                                                "id": "print",
+                                                                                "status": "A",
+                                                                                "label": "Print tool",
+                                                                                "icon": "PrintIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "create",
+                                                                                "status": "A",
+                                                                                "label": "Add or edit records",
+                                                                                "icon": "AddIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "cancel",
+                                                                                "status": "A",
+                                                                                "label": "Cancel records",
+                                                                                "icon": "CancelIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "viewsButton",
+                                                                                "status": "A",
+                                                                                "label": "View modes",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "actionButton",
+                                                                                "status": "A",
+                                                                                "label": "Actions",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "infoButton",
+                                                                                "status": "A",
+                                                                                "label": "Infobutton",
+                                                                                "icon": "InfoButtonIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "toolsCommonText",
+                                                                                "status": "A",
+                                                                                "label": "Predefined texts",
+                                                                                "icon": "CommonTextIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "right": {
+                                                                        "id": "right",
+                                                                        "description": "Action",
+                                                                        "pos": 15,
+                                                                        "type": "actionMenu.right",
+                                                                        "buttons": [{
+                                                                                "id": "eye",
+                                                                                "status": "A",
+                                                                                "label": "Record details",
+                                                                                "icon": "DetailsIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "applicationHelp",
+                                                                                "status": "A",
+                                                                                "label": "Help",
+                                                                                "icon": "HelpIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "globalShortcut",
+                                                                                "status": "A",
+                                                                                "label": "Shortcuts",
+                                                                                "icon": "GlobalShortcutIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
                                                             }
-                                                        ]
+                                                        }
                                                     }
                                                 },
                                                 "buttons": [{
@@ -3752,80 +4184,98 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": [{
-                                                                "id": "eye",
-                                                                "status": "A",
-                                                                "label": "Record details",
-                                                                "icon": "DetailsIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "ok",
-                                                                "status": "A",
-                                                                "label": "Confirm and continue",
-                                                                "icon": "OKIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "print",
-                                                                "status": "A",
-                                                                "label": "Print tool",
-                                                                "icon": "PrintIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "advanceSearch",
-                                                                "status": "I",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "infoButton",
-                                                                "status": "A",
-                                                                "label": "Infobutton",
-                                                                "icon": "InfoButtonIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "toolsCommonText",
-                                                                "status": "I",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
+                                                        "areas": {
+                                                            "actionMenu": {
+                                                                "id": "actionMenu",
+                                                                "description": "Action",
+                                                                "pos": 13,
+                                                                "type": "actionMenu",
+                                                                "areas": {
+                                                                    "left": {
+                                                                        "id": "left",
+                                                                        "description": "Action",
+                                                                        "pos": 14,
+                                                                        "type": "actionMenu.left",
+                                                                        "buttons": [{
+                                                                                "id": "print",
+                                                                                "status": "A",
+                                                                                "label": "Print tool",
+                                                                                "icon": "PrintIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "create",
+                                                                                "status": "A",
+                                                                                "label": "Add or edit records",
+                                                                                "icon": "AddIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "cancel",
+                                                                                "status": "A",
+                                                                                "label": "Cancel records",
+                                                                                "icon": "CancelIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "viewsButton",
+                                                                                "status": "A",
+                                                                                "label": "View modes",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "advanceSearch",
+                                                                                "status": "I",
+                                                                                "label": "Advanced search",
+                                                                                "icon": "AdvancedSearchIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "actionButton",
+                                                                                "status": "A",
+                                                                                "label": "Actions",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "infoButton",
+                                                                                "status": "A",
+                                                                                "label": "Infobutton",
+                                                                                "icon": "InfoButtonIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "toolsCommonText",
+                                                                                "status": "I",
+                                                                                "label": "Predefined texts",
+                                                                                "icon": "CommonTextIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "right": {
+                                                                        "id": "right",
+                                                                        "description": "Action",
+                                                                        "pos": 15,
+                                                                        "type": "actionMenu.right",
+                                                                        "buttons": [{
+                                                                                "id": "eye",
+                                                                                "status": "A",
+                                                                                "label": "Record details",
+                                                                                "icon": "DetailsIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "applicationHelp",
+                                                                                "status": "A",
+                                                                                "label": "Help",
+                                                                                "icon": "HelpIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "globalShortcut",
+                                                                                "status": "A",
+                                                                                "label": "Shortcuts",
+                                                                                "icon": "GlobalShortcutIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
                                                             }
-                                                        ]
+                                                        }
                                                     }
                                                 },
                                                 "buttons": [{
@@ -3866,74 +4316,92 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": [{
-                                                                "id": "eye",
-                                                                "status": "A",
-                                                                "label": "Record details",
-                                                                "icon": "DetailsIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "ok",
-                                                                "status": "A",
-                                                                "label": "Confirm and continue",
-                                                                "icon": "OKIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "print",
-                                                                "status": "A",
-                                                                "label": "Print tool",
-                                                                "icon": "PrintIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "advanceSearch",
-                                                                "status": "A",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "toolsCommonText",
-                                                                "status": "A",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
+                                                        "areas": {
+                                                            "actionMenu": {
+                                                                "id": "actionMenu",
+                                                                "description": "Action",
+                                                                "pos": 13,
+                                                                "type": "actionMenu",
+                                                                "areas": {
+                                                                    "left": {
+                                                                        "id": "left",
+                                                                        "description": "Action",
+                                                                        "pos": 14,
+                                                                        "type": "actionMenu.left",
+                                                                        "buttons": [{
+                                                                                "id": "print",
+                                                                                "status": "A",
+                                                                                "label": "Print tool",
+                                                                                "icon": "PrintIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "create",
+                                                                                "status": "A",
+                                                                                "label": "Add or edit records",
+                                                                                "icon": "AddIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "cancel",
+                                                                                "status": "A",
+                                                                                "label": "Cancel records",
+                                                                                "icon": "CancelIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "viewsButton",
+                                                                                "status": "A",
+                                                                                "label": "View modes",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "advanceSearch",
+                                                                                "status": "A",
+                                                                                "label": "Advanced search",
+                                                                                "icon": "AdvancedSearchIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "actionButton",
+                                                                                "status": "A",
+                                                                                "label": "Actions",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "toolsCommonText",
+                                                                                "status": "A",
+                                                                                "label": "Predefined texts",
+                                                                                "icon": "CommonTextIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "right": {
+                                                                        "id": "right",
+                                                                        "description": "Action",
+                                                                        "pos": 15,
+                                                                        "type": "actionMenu.right",
+                                                                        "buttons": [{
+                                                                                "id": "eye",
+                                                                                "status": "A",
+                                                                                "label": "Record details",
+                                                                                "icon": "DetailsIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "applicationHelp",
+                                                                                "status": "A",
+                                                                                "label": "Help",
+                                                                                "icon": "HelpIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "globalShortcut",
+                                                                                "status": "A",
+                                                                                "label": "Shortcuts",
+                                                                                "icon": "GlobalShortcutIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
                                                             }
-                                                        ]
+                                                        }
                                                     }
                                                 },
                                                 "buttons": [{
@@ -3974,74 +4442,92 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": [{
-                                                                "id": "eye",
-                                                                "status": "A",
-                                                                "label": "Record details",
-                                                                "icon": "DetailsIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "ok",
-                                                                "status": "A",
-                                                                "label": "Confirm and continue",
-                                                                "icon": "OKIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "print",
-                                                                "status": "A",
-                                                                "label": "Print tool",
-                                                                "icon": "PrintIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "advanceSearch",
-                                                                "status": "A",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "toolsCommonText",
-                                                                "status": "A",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
+                                                        "areas": {
+                                                            "actionMenu": {
+                                                                "id": "actionMenu",
+                                                                "description": "Action",
+                                                                "pos": 13,
+                                                                "type": "actionMenu",
+                                                                "areas": {
+                                                                    "left": {
+                                                                        "id": "left",
+                                                                        "description": "Action",
+                                                                        "pos": 14,
+                                                                        "type": "actionMenu.left",
+                                                                        "buttons": [{
+                                                                                "id": "print",
+                                                                                "status": "A",
+                                                                                "label": "Print tool",
+                                                                                "icon": "PrintIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "create",
+                                                                                "status": "A",
+                                                                                "label": "Add or edit records",
+                                                                                "icon": "AddIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "cancel",
+                                                                                "status": "A",
+                                                                                "label": "Cancel records",
+                                                                                "icon": "CancelIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "viewsButton",
+                                                                                "status": "A",
+                                                                                "label": "View modes",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "advanceSearch",
+                                                                                "status": "A",
+                                                                                "label": "Advanced search",
+                                                                                "icon": "AdvancedSearchIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "actionButton",
+                                                                                "status": "A",
+                                                                                "label": "Actions",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "toolsCommonText",
+                                                                                "status": "A",
+                                                                                "label": "Predefined texts",
+                                                                                "icon": "CommonTextIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "right": {
+                                                                        "id": "right",
+                                                                        "description": "Action",
+                                                                        "pos": 15,
+                                                                        "type": "actionMenu.right",
+                                                                        "buttons": [{
+                                                                                "id": "eye",
+                                                                                "status": "A",
+                                                                                "label": "Record details",
+                                                                                "icon": "DetailsIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "applicationHelp",
+                                                                                "status": "A",
+                                                                                "label": "Help",
+                                                                                "icon": "HelpIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "globalShortcut",
+                                                                                "status": "A",
+                                                                                "label": "Shortcuts",
+                                                                                "icon": "GlobalShortcutIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
                                                             }
-                                                        ]
+                                                        }
                                                     }
                                                 },
                                                 "buttons": [{
@@ -4250,80 +4736,98 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": [{
-                                                        "id": "eye",
-                                                        "status": "A",
-                                                        "label": "Record details",
-                                                        "icon": "DetailsIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "noEdis",
-                                                        "status": "A",
-                                                        "label": "Negative for all discriminators on this page",
-                                                        "icon": "NoIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "ok",
-                                                        "status": "I",
-                                                        "label": "Confirm and continue",
-                                                        "icon": "OKIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "print",
-                                                        "status": "A",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "create",
-                                                        "status": "I",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "cancel",
-                                                        "status": "I",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "viewsButton",
-                                                        "status": "A",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "actionButton",
-                                                        "status": "I",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "toolsCommonText",
-                                                        "status": "A",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
+                                                "areas": {
+                                                    "actionMenu": {
+                                                        "id": "actionMenu",
+                                                        "description": "Action",
+                                                        "pos": 13,
+                                                        "type": "actionMenu",
+                                                        "areas": {
+                                                            "left": {
+                                                                "id": "left",
+                                                                "description": "Action",
+                                                                "pos": 14,
+                                                                "type": "actionMenu.left",
+                                                                "buttons": [{
+                                                                        "id": "noEdis",
+                                                                        "status": "A",
+                                                                        "label": "Negative for all discriminators on this page",
+                                                                        "icon": "NoIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "print",
+                                                                        "status": "A",
+                                                                        "label": "Print tool",
+                                                                        "icon": "PrintIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "I",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "I",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "viewsButton",
+                                                                        "status": "A",
+                                                                        "label": "View modes",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "I",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "actionButton",
+                                                                        "status": "I",
+                                                                        "label": "Actions",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "toolsCommonText",
+                                                                        "status": "A",
+                                                                        "label": "Predefined texts",
+                                                                        "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "right": {
+                                                                "id": "right",
+                                                                "description": "Action",
+                                                                "pos": 15,
+                                                                "type": "actionMenu.right",
+                                                                "buttons": [{
+                                                                        "id": "eye",
+                                                                        "status": "A",
+                                                                        "label": "Record details",
+                                                                        "icon": "DetailsIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
                                                     }
-                                                ]
+                                                }
                                             }
                                         },
                                         "buttons": [{
@@ -4436,74 +4940,92 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": [{
-                                                        "id": "eye",
-                                                        "status": "A",
-                                                        "label": "Record details",
-                                                        "icon": "DetailsIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "ok",
-                                                        "status": "A",
-                                                        "label": "Confirm and continue",
-                                                        "icon": "OKIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "print",
-                                                        "status": "A",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "viewsButton",
-                                                        "status": "I",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "actionButton",
-                                                        "status": "A",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "toolsCommonText",
-                                                        "status": "A",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
+                                                "areas": {
+                                                    "actionMenu": {
+                                                        "id": "actionMenu",
+                                                        "description": "Action",
+                                                        "pos": 13,
+                                                        "type": "actionMenu",
+                                                        "areas": {
+                                                            "left": {
+                                                                "id": "left",
+                                                                "description": "Action",
+                                                                "pos": 14,
+                                                                "type": "actionMenu.left",
+                                                                "buttons": [{
+                                                                        "id": "print",
+                                                                        "status": "A",
+                                                                        "label": "Print tool",
+                                                                        "icon": "PrintIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "A",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "A",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "viewsButton",
+                                                                        "status": "I",
+                                                                        "label": "View modes",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "I",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "actionButton",
+                                                                        "status": "A",
+                                                                        "label": "Actions",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "toolsCommonText",
+                                                                        "status": "A",
+                                                                        "label": "Predefined texts",
+                                                                        "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "right": {
+                                                                "id": "right",
+                                                                "description": "Action",
+                                                                "pos": 15,
+                                                                "type": "actionMenu.right",
+                                                                "buttons": [{
+                                                                        "id": "eye",
+                                                                        "status": "A",
+                                                                        "label": "Record details",
+                                                                        "icon": "DetailsIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
                                                     }
-                                                ]
+                                                }
                                             }
                                         },
                                         "buttons": [{
@@ -4628,80 +5150,98 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": [{
-                                                        "id": "eye",
-                                                        "status": "A",
-                                                        "label": "Record details",
-                                                        "icon": "DetailsIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "noEdis",
-                                                        "status": "A",
-                                                        "label": "Negative for all discriminators on this page",
-                                                        "icon": "NoIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "ok",
-                                                        "status": "A",
-                                                        "label": "Confirm and continue",
-                                                        "icon": "OKIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "print",
-                                                        "status": "A",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "viewsButton",
-                                                        "status": "A",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "advanceSearch",
-                                                        "status": "A",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "actionButton",
-                                                        "status": "A",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "toolsCommonText",
-                                                        "status": "A",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
+                                                "areas": {
+                                                    "actionMenu": {
+                                                        "id": "actionMenu",
+                                                        "description": "Action",
+                                                        "pos": 13,
+                                                        "type": "actionMenu",
+                                                        "areas": {
+                                                            "left": {
+                                                                "id": "left",
+                                                                "description": "Action",
+                                                                "pos": 14,
+                                                                "type": "actionMenu.left",
+                                                                "buttons": [{
+                                                                        "id": "noEdis",
+                                                                        "status": "A",
+                                                                        "label": "Negative for all discriminators on this page",
+                                                                        "icon": "NoIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "print",
+                                                                        "status": "A",
+                                                                        "label": "Print tool",
+                                                                        "icon": "PrintIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "A",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "A",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "viewsButton",
+                                                                        "status": "A",
+                                                                        "label": "View modes",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "A",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "actionButton",
+                                                                        "status": "A",
+                                                                        "label": "Actions",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "toolsCommonText",
+                                                                        "status": "A",
+                                                                        "label": "Predefined texts",
+                                                                        "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "right": {
+                                                                "id": "right",
+                                                                "description": "Action",
+                                                                "pos": 15,
+                                                                "type": "actionMenu.right",
+                                                                "buttons": [{
+                                                                        "id": "eye",
+                                                                        "status": "A",
+                                                                        "label": "Record details",
+                                                                        "icon": "DetailsIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
                                                     }
-                                                ]
+                                                }
                                             }
                                         },
                                         "buttons": [{
@@ -4730,86 +5270,104 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": [{
-                                                        "id": "eye",
-                                                        "status": "A",
-                                                        "label": "Record details",
-                                                        "icon": "DetailsIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "ok",
-                                                        "status": "A",
-                                                        "label": "Confirm and continue",
-                                                        "icon": "OKIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "noEdis",
-                                                        "status": "I",
-                                                        "label": "Negative for all discriminators on this page",
-                                                        "icon": "NoIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "print",
-                                                        "status": "A",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "viewsButton",
-                                                        "status": "A",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "actionButton",
-                                                        "status": "A",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "infoButton",
-                                                        "status": "A",
-                                                        "label": "Infobutton",
-                                                        "icon": "InfoButtonIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "toolsCommonText",
-                                                        "status": "A",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
+                                                "areas": {
+                                                    "actionMenu": {
+                                                        "id": "actionMenu",
+                                                        "description": "Action",
+                                                        "pos": 13,
+                                                        "type": "actionMenu",
+                                                        "areas": {
+                                                            "left": {
+                                                                "id": "left",
+                                                                "description": "Action",
+                                                                "pos": 14,
+                                                                "type": "actionMenu.left",
+                                                                "buttons": [{
+                                                                        "id": "noEdis",
+                                                                        "status": "I",
+                                                                        "label": "Negative for all discriminators on this page",
+                                                                        "icon": "NoIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "print",
+                                                                        "status": "A",
+                                                                        "label": "Print tool",
+                                                                        "icon": "PrintIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "A",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "A",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "viewsButton",
+                                                                        "status": "A",
+                                                                        "label": "View modes",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "I",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "actionButton",
+                                                                        "status": "A",
+                                                                        "label": "Actions",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "infoButton",
+                                                                        "status": "A",
+                                                                        "label": "Infobutton",
+                                                                        "icon": "InfoButtonIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "toolsCommonText",
+                                                                        "status": "A",
+                                                                        "label": "Predefined texts",
+                                                                        "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "right": {
+                                                                "id": "right",
+                                                                "description": "Action",
+                                                                "pos": 15,
+                                                                "type": "actionMenu.right",
+                                                                "buttons": [{
+                                                                        "id": "eye",
+                                                                        "status": "A",
+                                                                        "label": "Record details",
+                                                                        "icon": "DetailsIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
                                                     }
-                                                ]
+                                                }
                                             },
                                             "futureEvents": {
                                                 "id": "futureEvents",
@@ -4822,74 +5380,92 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": [{
-                                                                "id": "eye",
-                                                                "status": "A",
-                                                                "label": "Record details",
-                                                                "icon": "DetailsIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "ok",
-                                                                "status": "A",
-                                                                "label": "Confirm and continue",
-                                                                "icon": "OKIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "print",
-                                                                "status": "A",
-                                                                "label": "Print tool",
-                                                                "icon": "PrintIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "advanceSearch",
-                                                                "status": "A",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "toolsCommonText",
-                                                                "status": "A",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
+                                                        "areas": {
+                                                            "actionMenu": {
+                                                                "id": "actionMenu",
+                                                                "description": "Action",
+                                                                "pos": 13,
+                                                                "type": "actionMenu",
+                                                                "areas": {
+                                                                    "left": {
+                                                                        "id": "left",
+                                                                        "description": "Action",
+                                                                        "pos": 14,
+                                                                        "type": "actionMenu.left",
+                                                                        "buttons": [{
+                                                                                "id": "print",
+                                                                                "status": "A",
+                                                                                "label": "Print tool",
+                                                                                "icon": "PrintIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "create",
+                                                                                "status": "A",
+                                                                                "label": "Add or edit records",
+                                                                                "icon": "AddIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "cancel",
+                                                                                "status": "A",
+                                                                                "label": "Cancel records",
+                                                                                "icon": "CancelIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "viewsButton",
+                                                                                "status": "A",
+                                                                                "label": "View modes",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "advanceSearch",
+                                                                                "status": "A",
+                                                                                "label": "Advanced search",
+                                                                                "icon": "AdvancedSearchIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "actionButton",
+                                                                                "status": "A",
+                                                                                "label": "Actions",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "toolsCommonText",
+                                                                                "status": "A",
+                                                                                "label": "Predefined texts",
+                                                                                "icon": "CommonTextIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "right": {
+                                                                        "id": "right",
+                                                                        "description": "Action",
+                                                                        "pos": 15,
+                                                                        "type": "actionMenu.right",
+                                                                        "buttons": [{
+                                                                                "id": "eye",
+                                                                                "status": "A",
+                                                                                "label": "Record details",
+                                                                                "icon": "DetailsIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "applicationHelp",
+                                                                                "status": "A",
+                                                                                "label": "Help",
+                                                                                "icon": "HelpIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "globalShortcut",
+                                                                                "status": "A",
+                                                                                "label": "Shortcuts",
+                                                                                "icon": "GlobalShortcutIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
                                                             }
-                                                        ]
+                                                        }
                                                     }
                                                 },
                                                 "buttons": [{
@@ -5098,80 +5674,98 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": [{
-                                                        "id": "eye",
-                                                        "status": "A",
-                                                        "label": "Record details",
-                                                        "icon": "DetailsIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "noEdis",
-                                                        "status": "A",
-                                                        "label": "Negative for all discriminators on this page",
-                                                        "icon": "NoIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "ok",
-                                                        "status": "A",
-                                                        "label": "Confirm and continue",
-                                                        "icon": "OKIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "print",
-                                                        "status": "A",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "viewsButton",
-                                                        "status": "A",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "advanceSearch",
-                                                        "status": "A",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "actionButton",
-                                                        "status": "A",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "toolsCommonText",
-                                                        "status": "A",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
+                                                "areas": {
+                                                    "actionMenu": {
+                                                        "id": "actionMenu",
+                                                        "description": "Action",
+                                                        "pos": 13,
+                                                        "type": "actionMenu",
+                                                        "areas": {
+                                                            "left": {
+                                                                "id": "left",
+                                                                "description": "Action",
+                                                                "pos": 14,
+                                                                "type": "actionMenu.left",
+                                                                "buttons": [{
+                                                                        "id": "noEdis",
+                                                                        "status": "A",
+                                                                        "label": "Negative for all discriminators on this page",
+                                                                        "icon": "NoIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "print",
+                                                                        "status": "A",
+                                                                        "label": "Print tool",
+                                                                        "icon": "PrintIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "A",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "A",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "viewsButton",
+                                                                        "status": "A",
+                                                                        "label": "View modes",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "A",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "actionButton",
+                                                                        "status": "A",
+                                                                        "label": "Actions",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "toolsCommonText",
+                                                                        "status": "A",
+                                                                        "label": "Predefined texts",
+                                                                        "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "right": {
+                                                                "id": "right",
+                                                                "description": "Action",
+                                                                "pos": 15,
+                                                                "type": "actionMenu.right",
+                                                                "buttons": [{
+                                                                        "id": "eye",
+                                                                        "status": "A",
+                                                                        "label": "Record details",
+                                                                        "icon": "DetailsIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
                                                     }
-                                                ]
+                                                }
                                             },
                                             "pendingIssue": {
                                                 "id": "pendingIssue",
@@ -5184,74 +5778,92 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": [{
-                                                                "id": "eye",
-                                                                "status": "I",
-                                                                "label": "Record details",
-                                                                "icon": "DetailsIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "ok",
-                                                                "status": "A",
-                                                                "label": "Confirm and continue",
-                                                                "icon": "OKIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "print",
-                                                                "status": "A",
-                                                                "label": "Print tool",
-                                                                "icon": "PrintIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "viewsButton",
-                                                                "status": "A",
-                                                                "label": "View modes",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "advanceSearch",
-                                                                "status": "I",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "toolsCommonText",
-                                                                "status": "I",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
+                                                        "areas": {
+                                                            "actionMenu": {
+                                                                "id": "actionMenu",
+                                                                "description": "Action",
+                                                                "pos": 13,
+                                                                "type": "actionMenu",
+                                                                "areas": {
+                                                                    "left": {
+                                                                        "id": "left",
+                                                                        "description": "Action",
+                                                                        "pos": 14,
+                                                                        "type": "actionMenu.left",
+                                                                        "buttons": [{
+                                                                                "id": "print",
+                                                                                "status": "A",
+                                                                                "label": "Print tool",
+                                                                                "icon": "PrintIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "create",
+                                                                                "status": "A",
+                                                                                "label": "Add or edit records",
+                                                                                "icon": "AddIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "cancel",
+                                                                                "status": "A",
+                                                                                "label": "Cancel records",
+                                                                                "icon": "CancelIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "viewsButton",
+                                                                                "status": "A",
+                                                                                "label": "View modes",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "advanceSearch",
+                                                                                "status": "I",
+                                                                                "label": "Advanced search",
+                                                                                "icon": "AdvancedSearchIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "actionButton",
+                                                                                "status": "A",
+                                                                                "label": "Actions",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "toolsCommonText",
+                                                                                "status": "I",
+                                                                                "label": "Predefined texts",
+                                                                                "icon": "CommonTextIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "right": {
+                                                                        "id": "right",
+                                                                        "description": "Action",
+                                                                        "pos": 15,
+                                                                        "type": "actionMenu.right",
+                                                                        "buttons": [{
+                                                                                "id": "eye",
+                                                                                "status": "I",
+                                                                                "label": "Record details",
+                                                                                "icon": "DetailsIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "applicationHelp",
+                                                                                "status": "A",
+                                                                                "label": "Help",
+                                                                                "icon": "HelpIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "globalShortcut",
+                                                                                "status": "A",
+                                                                                "label": "Shortcuts",
+                                                                                "icon": "GlobalShortcutIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
                                                             }
-                                                        ]
+                                                        }
                                                     }
                                                 },
                                                 "buttons": [{
@@ -5412,68 +6024,86 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": [{
-                                                        "id": "eye",
-                                                        "status": "A",
-                                                        "label": "Record details",
-                                                        "icon": "DetailsIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "ok",
-                                                        "status": "A",
-                                                        "label": "Confirm and continue",
-                                                        "icon": "OKIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "print",
-                                                        "status": "A",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "actionButton",
-                                                        "status": "A",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "toolsCommonText",
-                                                        "status": "A",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
+                                                "areas": {
+                                                    "actionMenu": {
+                                                        "id": "actionMenu",
+                                                        "description": "Action",
+                                                        "pos": 13,
+                                                        "type": "actionMenu",
+                                                        "areas": {
+                                                            "left": {
+                                                                "id": "left",
+                                                                "description": "Action",
+                                                                "pos": 14,
+                                                                "type": "actionMenu.left",
+                                                                "buttons": [{
+                                                                        "id": "print",
+                                                                        "status": "A",
+                                                                        "label": "Print tool",
+                                                                        "icon": "PrintIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "A",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "A",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "I",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "actionButton",
+                                                                        "status": "A",
+                                                                        "label": "Actions",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "toolsCommonText",
+                                                                        "status": "A",
+                                                                        "label": "Predefined texts",
+                                                                        "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "right": {
+                                                                "id": "right",
+                                                                "description": "Action",
+                                                                "pos": 15,
+                                                                "type": "actionMenu.right",
+                                                                "buttons": [{
+                                                                        "id": "eye",
+                                                                        "status": "A",
+                                                                        "label": "Record details",
+                                                                        "icon": "DetailsIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
                                                     }
-                                                ]
+                                                }
                                             }
                                         },
                                         "buttons": [{
@@ -5502,74 +6132,92 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": [{
-                                                        "id": "eye",
-                                                        "status": "A",
-                                                        "label": "Record details",
-                                                        "icon": "DetailsIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "ok",
-                                                        "status": "A",
-                                                        "label": "Confirm and continue",
-                                                        "icon": "OKIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "print",
-                                                        "status": "A",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "viewsButton",
-                                                        "status": "I",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "advanceSearch",
-                                                        "status": "A",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "actionButton",
-                                                        "status": "A",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "toolsCommonText",
-                                                        "status": "I",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
+                                                "areas": {
+                                                    "actionMenu": {
+                                                        "id": "actionMenu",
+                                                        "description": "Action",
+                                                        "pos": 13,
+                                                        "type": "actionMenu",
+                                                        "areas": {
+                                                            "left": {
+                                                                "id": "left",
+                                                                "description": "Action",
+                                                                "pos": 14,
+                                                                "type": "actionMenu.left",
+                                                                "buttons": [{
+                                                                        "id": "print",
+                                                                        "status": "A",
+                                                                        "label": "Print tool",
+                                                                        "icon": "PrintIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "A",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "A",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "viewsButton",
+                                                                        "status": "I",
+                                                                        "label": "View modes",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "A",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "actionButton",
+                                                                        "status": "A",
+                                                                        "label": "Actions",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "toolsCommonText",
+                                                                        "status": "I",
+                                                                        "label": "Predefined texts",
+                                                                        "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "right": {
+                                                                "id": "right",
+                                                                "description": "Action",
+                                                                "pos": 15,
+                                                                "type": "actionMenu.right",
+                                                                "buttons": [{
+                                                                        "id": "eye",
+                                                                        "status": "A",
+                                                                        "label": "Record details",
+                                                                        "icon": "DetailsIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
                                                     }
-                                                ]
+                                                }
                                             }
                                         },
                                         "buttons": [{
@@ -5730,68 +6378,86 @@
                                 "description": "Screen",
                                 "pos": 12,
                                 "type": "screen",
-                                "buttons": [{
-                                        "id": "eye",
-                                        "status": "A",
-                                        "label": "Record details",
-                                        "icon": "DetailsIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "ok",
-                                        "status": "A",
-                                        "label": "Confirm and continue",
-                                        "icon": "OKIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "print",
-                                        "status": "I",
-                                        "label": "Print tool",
-                                        "icon": "PrintIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "create",
-                                        "status": "I",
-                                        "label": "Add or edit records",
-                                        "icon": "AddIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "cancel",
-                                        "status": "I",
-                                        "label": "Cancel records",
-                                        "icon": "CancelIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "advanceSearch",
-                                        "status": "I",
-                                        "label": "Advanced search",
-                                        "icon": "AdvancedSearchIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "actionButton",
-                                        "status": "I",
-                                        "label": "Actions",
-                                        "icon": "",
-                                        "action": {}
-                                    }, {
-                                        "id": "applicationHelp",
-                                        "status": "A",
-                                        "label": "Help",
-                                        "icon": "HelpIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "toolsCommonText",
-                                        "status": "I",
-                                        "label": "Predefined texts",
-                                        "icon": "CommonTextIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "globalShortcut",
-                                        "status": "A",
-                                        "label": "Shortcuts",
-                                        "icon": "GlobalShortcutIcon",
-                                        "action": {}
+                                "areas": {
+                                    "actionMenu": {
+                                        "id": "actionMenu",
+                                        "description": "Action",
+                                        "pos": 13,
+                                        "type": "actionMenu",
+                                        "areas": {
+                                            "left": {
+                                                "id": "left",
+                                                "description": "Action",
+                                                "pos": 14,
+                                                "type": "actionMenu.left",
+                                                "buttons": [{
+                                                        "id": "print",
+                                                        "status": "I",
+                                                        "label": "Print tool",
+                                                        "icon": "PrintIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "create",
+                                                        "status": "I",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "I",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "advanceSearch",
+                                                        "status": "I",
+                                                        "label": "Advanced search",
+                                                        "icon": "AdvancedSearchIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "actionButton",
+                                                        "status": "I",
+                                                        "label": "Actions",
+                                                        "icon": "",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "toolsCommonText",
+                                                        "status": "I",
+                                                        "label": "Predefined texts",
+                                                        "icon": "CommonTextIcon",
+                                                        "action": {}
+                                                    }
+                                                ]
+                                            },
+                                            "right": {
+                                                "id": "right",
+                                                "description": "Action",
+                                                "pos": 15,
+                                                "type": "actionMenu.right",
+                                                "buttons": [{
+                                                        "id": "eye",
+                                                        "status": "A",
+                                                        "label": "Record details",
+                                                        "icon": "DetailsIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
+                                                    }
+                                                ]
+                                            }
+                                        }
                                     }
-                                ]
+                                }
                             }
                         },
                         "buttons": [{
@@ -5819,7 +6485,7 @@
                                 "id": "left",
                                 "description": "Bottom menu left",
                                 "pos": 10,
-                                "type": "actionMenu",
+                                "type": "actionMenu.left",
                                 "buttons": [{
                                         "id": "print",
                                         "status": "A",
@@ -5899,7 +6565,7 @@
                                 "id": "right",
                                 "description": "Bottom menu right",
                                 "pos": 11,
-                                "type": "actionMenu",
+                                "type": "actionMenu.right",
                                 "buttons": [{
                                         "id": "eye",
                                         "status": "A",
@@ -5981,7 +6647,7 @@
                                 "id": "left",
                                 "description": "Main menu left",
                                 "pos": 3,
-                                "type": "mainMenu",
+                                "type": "mainMenu.left",
                                 "areas": {
                                     "toolsLang": {
                                         "id": "toolsLang",
@@ -5994,80 +6660,98 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": [{
-                                                        "id": "eye",
-                                                        "status": "I",
-                                                        "label": "Record details",
-                                                        "icon": "DetailsIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "ok",
-                                                        "status": "A",
-                                                        "label": "Confirm and continue",
-                                                        "icon": "OKIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "noEdis",
-                                                        "status": "I",
-                                                        "label": "Negative for all discriminators on this page",
-                                                        "icon": "NoIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "print",
-                                                        "status": "I",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "create",
-                                                        "status": "I",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "cancel",
-                                                        "status": "I",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "viewsButton",
-                                                        "status": "I",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "actionButton",
-                                                        "status": "I",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "toolsCommonText",
-                                                        "status": "I",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
+                                                "areas": {
+                                                    "actionMenu": {
+                                                        "id": "actionMenu",
+                                                        "description": "Action",
+                                                        "pos": 13,
+                                                        "type": "actionMenu",
+                                                        "areas": {
+                                                            "left": {
+                                                                "id": "left",
+                                                                "description": "Action",
+                                                                "pos": 14,
+                                                                "type": "actionMenu.left",
+                                                                "buttons": [{
+                                                                        "id": "noEdis",
+                                                                        "status": "I",
+                                                                        "label": "Negative for all discriminators on this page",
+                                                                        "icon": "NoIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "print",
+                                                                        "status": "I",
+                                                                        "label": "Print tool",
+                                                                        "icon": "PrintIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "I",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "I",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "viewsButton",
+                                                                        "status": "I",
+                                                                        "label": "View modes",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "I",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "actionButton",
+                                                                        "status": "I",
+                                                                        "label": "Actions",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "toolsCommonText",
+                                                                        "status": "I",
+                                                                        "label": "Predefined texts",
+                                                                        "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "right": {
+                                                                "id": "right",
+                                                                "description": "Action",
+                                                                "pos": 15,
+                                                                "type": "actionMenu.right",
+                                                                "buttons": [{
+                                                                        "id": "eye",
+                                                                        "status": "I",
+                                                                        "label": "Record details",
+                                                                        "icon": "DetailsIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
                                                     }
-                                                ]
+                                                }
                                             }
                                         },
                                         "buttons": [{
@@ -6168,74 +6852,92 @@
                                                 "description": "Screen",
                                                 "pos": 12,
                                                 "type": "screen",
-                                                "buttons": [{
-                                                        "id": "eye",
-                                                        "status": "A",
-                                                        "label": "Record details",
-                                                        "icon": "DetailsIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "ok",
-                                                        "status": "A",
-                                                        "label": "Confirm and continue",
-                                                        "icon": "OKIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "print",
-                                                        "status": "I",
-                                                        "label": "Print tool",
-                                                        "icon": "PrintIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "create",
-                                                        "status": "A",
-                                                        "label": "Add or edit records",
-                                                        "icon": "AddIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "cancel",
-                                                        "status": "A",
-                                                        "label": "Cancel records",
-                                                        "icon": "CancelIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "viewsButton",
-                                                        "status": "I",
-                                                        "label": "View modes",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "advanceSearch",
-                                                        "status": "I",
-                                                        "label": "Advanced search",
-                                                        "icon": "AdvancedSearchIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "actionButton",
-                                                        "status": "I",
-                                                        "label": "Actions",
-                                                        "icon": "",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "applicationHelp",
-                                                        "status": "A",
-                                                        "label": "Help",
-                                                        "icon": "HelpIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "toolsCommonText",
-                                                        "status": "I",
-                                                        "label": "Predefined texts",
-                                                        "icon": "CommonTextIcon",
-                                                        "action": {}
-                                                    }, {
-                                                        "id": "globalShortcut",
-                                                        "status": "A",
-                                                        "label": "Shortcuts",
-                                                        "icon": "GlobalShortcutIcon",
-                                                        "action": {}
+                                                "areas": {
+                                                    "actionMenu": {
+                                                        "id": "actionMenu",
+                                                        "description": "Action",
+                                                        "pos": 13,
+                                                        "type": "actionMenu",
+                                                        "areas": {
+                                                            "left": {
+                                                                "id": "left",
+                                                                "description": "Action",
+                                                                "pos": 14,
+                                                                "type": "actionMenu.left",
+                                                                "buttons": [{
+                                                                        "id": "print",
+                                                                        "status": "I",
+                                                                        "label": "Print tool",
+                                                                        "icon": "PrintIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "create",
+                                                                        "status": "A",
+                                                                        "label": "Add or edit records",
+                                                                        "icon": "AddIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "cancel",
+                                                                        "status": "A",
+                                                                        "label": "Cancel records",
+                                                                        "icon": "CancelIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "viewsButton",
+                                                                        "status": "I",
+                                                                        "label": "View modes",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "advanceSearch",
+                                                                        "status": "I",
+                                                                        "label": "Advanced search",
+                                                                        "icon": "AdvancedSearchIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "actionButton",
+                                                                        "status": "I",
+                                                                        "label": "Actions",
+                                                                        "icon": "",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "toolsCommonText",
+                                                                        "status": "I",
+                                                                        "label": "Predefined texts",
+                                                                        "icon": "CommonTextIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "right": {
+                                                                "id": "right",
+                                                                "description": "Action",
+                                                                "pos": 15,
+                                                                "type": "actionMenu.right",
+                                                                "buttons": [{
+                                                                        "id": "eye",
+                                                                        "status": "A",
+                                                                        "label": "Record details",
+                                                                        "icon": "DetailsIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "applicationHelp",
+                                                                        "status": "A",
+                                                                        "label": "Help",
+                                                                        "icon": "HelpIcon",
+                                                                        "action": {}
+                                                                    }, {
+                                                                        "id": "globalShortcut",
+                                                                        "status": "A",
+                                                                        "label": "Shortcuts",
+                                                                        "icon": "GlobalShortcutIcon",
+                                                                        "action": {}
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
                                                     }
-                                                ]
+                                                }
                                             },
                                             "orderSetsTools": {
                                                 "id": "orderSetsTools",
@@ -6248,68 +6950,86 @@
                                                         "description": "Screen",
                                                         "pos": 12,
                                                         "type": "screen",
-                                                        "buttons": [{
-                                                                "id": "eye",
-                                                                "status": "A",
-                                                                "label": "Record details",
-                                                                "icon": "DetailsIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "ok",
-                                                                "status": "A",
-                                                                "label": "Confirm and continue",
-                                                                "icon": "OKIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "print",
-                                                                "status": "I",
-                                                                "label": "Print tool",
-                                                                "icon": "PrintIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "create",
-                                                                "status": "A",
-                                                                "label": "Add or edit records",
-                                                                "icon": "AddIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "cancel",
-                                                                "status": "A",
-                                                                "label": "Cancel records",
-                                                                "icon": "CancelIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "advanceSearch",
-                                                                "status": "A",
-                                                                "label": "Advanced search",
-                                                                "icon": "AdvancedSearchIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "actionButton",
-                                                                "status": "A",
-                                                                "label": "Actions",
-                                                                "icon": "",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "applicationHelp",
-                                                                "status": "A",
-                                                                "label": "Help",
-                                                                "icon": "HelpIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "toolsCommonText",
-                                                                "status": "A",
-                                                                "label": "Predefined texts",
-                                                                "icon": "CommonTextIcon",
-                                                                "action": {}
-                                                            }, {
-                                                                "id": "globalShortcut",
-                                                                "status": "A",
-                                                                "label": "Shortcuts",
-                                                                "icon": "GlobalShortcutIcon",
-                                                                "action": {}
+                                                        "areas": {
+                                                            "actionMenu": {
+                                                                "id": "actionMenu",
+                                                                "description": "Action",
+                                                                "pos": 13,
+                                                                "type": "actionMenu",
+                                                                "areas": {
+                                                                    "left": {
+                                                                        "id": "left",
+                                                                        "description": "Action",
+                                                                        "pos": 14,
+                                                                        "type": "actionMenu.left",
+                                                                        "buttons": [{
+                                                                                "id": "print",
+                                                                                "status": "I",
+                                                                                "label": "Print tool",
+                                                                                "icon": "PrintIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "create",
+                                                                                "status": "A",
+                                                                                "label": "Add or edit records",
+                                                                                "icon": "AddIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "cancel",
+                                                                                "status": "A",
+                                                                                "label": "Cancel records",
+                                                                                "icon": "CancelIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "advanceSearch",
+                                                                                "status": "A",
+                                                                                "label": "Advanced search",
+                                                                                "icon": "AdvancedSearchIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "actionButton",
+                                                                                "status": "A",
+                                                                                "label": "Actions",
+                                                                                "icon": "",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "toolsCommonText",
+                                                                                "status": "A",
+                                                                                "label": "Predefined texts",
+                                                                                "icon": "CommonTextIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "right": {
+                                                                        "id": "right",
+                                                                        "description": "Action",
+                                                                        "pos": 15,
+                                                                        "type": "actionMenu.right",
+                                                                        "buttons": [{
+                                                                                "id": "eye",
+                                                                                "status": "A",
+                                                                                "label": "Record details",
+                                                                                "icon": "DetailsIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "applicationHelp",
+                                                                                "status": "A",
+                                                                                "label": "Help",
+                                                                                "icon": "HelpIcon",
+                                                                                "action": {}
+                                                                            }, {
+                                                                                "id": "globalShortcut",
+                                                                                "status": "A",
+                                                                                "label": "Shortcuts",
+                                                                                "icon": "GlobalShortcutIcon",
+                                                                                "action": {}
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
                                                             }
-                                                        ]
+                                                        }
                                                     }
                                                 },
                                                 "buttons": [{
@@ -6478,50 +7198,68 @@
                                 "description": "Screen",
                                 "pos": 12,
                                 "type": "screen",
-                                "buttons": [{
-                                        "id": "eye",
-                                        "status": "A",
-                                        "label": "Record details",
-                                        "icon": "DetailsIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "ok",
-                                        "status": "A",
-                                        "label": "Confirm and continue",
-                                        "icon": "OKIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "create",
-                                        "status": "A",
-                                        "label": "Add or edit records",
-                                        "icon": "AddIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "cancel",
-                                        "status": "I",
-                                        "label": "Cancel records",
-                                        "icon": "CancelIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "advanceSearch",
-                                        "status": "I",
-                                        "label": "Advanced search",
-                                        "icon": "AdvancedSearchIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "applicationHelp",
-                                        "status": "A",
-                                        "label": "Help",
-                                        "icon": "HelpIcon",
-                                        "action": {}
-                                    }, {
-                                        "id": "globalShortcut",
-                                        "status": "A",
-                                        "label": "Shortcuts",
-                                        "icon": "GlobalShortcutIcon",
-                                        "action": {}
+                                "areas": {
+                                    "actionMenu": {
+                                        "id": "actionMenu",
+                                        "description": "Action",
+                                        "pos": 13,
+                                        "type": "actionMenu",
+                                        "areas": {
+                                            "left": {
+                                                "id": "left",
+                                                "description": "Action",
+                                                "pos": 14,
+                                                "type": "actionMenu.left",
+                                                "buttons": [{
+                                                        "id": "create",
+                                                        "status": "A",
+                                                        "label": "Add or edit records",
+                                                        "icon": "AddIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "cancel",
+                                                        "status": "I",
+                                                        "label": "Cancel records",
+                                                        "icon": "CancelIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "advanceSearch",
+                                                        "status": "I",
+                                                        "label": "Advanced search",
+                                                        "icon": "AdvancedSearchIcon",
+                                                        "action": {}
+                                                    }
+                                                ]
+                                            },
+                                            "right": {
+                                                "id": "right",
+                                                "description": "Action",
+                                                "pos": 15,
+                                                "type": "actionMenu.right",
+                                                "buttons": [{
+                                                        "id": "eye",
+                                                        "status": "A",
+                                                        "label": "Record details",
+                                                        "icon": "DetailsIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "applicationHelp",
+                                                        "status": "A",
+                                                        "label": "Help",
+                                                        "icon": "HelpIcon",
+                                                        "action": {}
+                                                    }, {
+                                                        "id": "globalShortcut",
+                                                        "status": "A",
+                                                        "label": "Shortcuts",
+                                                        "icon": "GlobalShortcutIcon",
+                                                        "action": {}
+                                                    }
+                                                ]
+                                            }
+                                        }
                                     }
-                                ]
+                                }
                             }
                         },
                         "buttons": [{
@@ -6549,7 +7287,7 @@
                                 "id": "left",
                                 "description": "Bottom menu left",
                                 "pos": 10,
-                                "type": "actionMenu",
+                                "type": "actionMenu.left",
                                 "buttons": [{
                                         "id": "print",
                                         "status": "A",
@@ -6605,7 +7343,7 @@
                                 "id": "right",
                                 "description": "Bottom menu right",
                                 "pos": 11,
-                                "type": "actionMenu",
+                                "type": "actionMenu.right",
                                 "buttons": [{
                                         "id": "eye",
                                         "status": "A",
@@ -6633,6 +7371,9 @@
             }
         }
     }
+    
+    
+    
     
     
     
