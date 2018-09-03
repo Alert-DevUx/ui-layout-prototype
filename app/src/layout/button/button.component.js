@@ -19,8 +19,6 @@
         if($ctrl.button.action) {
           if ($ctrl.button.action.component && $ctrl.button.action.component.type === 'SWF') {
             $state.go(LAYOUT_BASE_STATE + "." + $ctrl.button.action.targetArea, {screenName: $ctrl.button.action.component.id});
-            //var ola = LAYOUT_BASE_STATE + "." + $ctrl.button.action.targetArea;
-            //$state.go('^.screen', {screenName: $ctrl.button.action.component.id});
           } else if($ctrl.button.action.targetArea) {
             $state.go(LAYOUT_BASE_STATE + "." + $ctrl.button.action.targetArea, {screenName: ''});
           }
