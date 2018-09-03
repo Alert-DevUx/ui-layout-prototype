@@ -23,13 +23,13 @@ function routeConfig ($stateProvider) {
       url: '/layout',
       templateUrl: 'src/layout/layout.html',
       controller: 'LayoutController',
-      controllerAs: 'layoutCtrl',
+      controllerAs: 'layoutCtrl'
     })
     .state('public.layout-grid', {
       url: '/layout-grid',
       templateUrl: 'src/layout/layout-grid.html',
       controller: 'LayoutController',
-      controllerAs: 'layoutCtrl',
+      controllerAs: 'layoutCtrl'
     })
     .state('public.dynamicLayout', {
       url: '/dynamicLayout',
@@ -40,17 +40,6 @@ function routeConfig ($stateProvider) {
           return LayoutService.getLayout();
         }]
       }      
-    })    
-    .state('public.menuitems', {
-      url: '/menu/{category}',
-      templateUrl: 'src/public/menu-items/menu-items.html',
-      controller: 'MenuItemsController',
-      controllerAs: 'menuItemsCtrl',
-      resolve: {
-        menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
-          return MenuService.getMenuItems($stateParams.category);
-        }]
-      }
     });
 }
 })();
